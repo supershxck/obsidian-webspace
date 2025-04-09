@@ -1,0 +1,200 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>18:18:47</strong> 
+<strong>Topics:</strong> [[JavaScript L3]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>JavaScript Level 2: Intermediate to Advanced JavaScript</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you understand the <strong>basics of JavaScript</strong>, it’s time to explore <strong>advanced topics</strong> such as:</p>
+<p>• <strong>Advanced DOM Manipulation</strong></p>
+<p>• <strong>Events &amp; Delegation</strong></p>
+<p>• <strong>Web APIs (Fetch, Local Storage, Geolocation, etc.)</strong></p>
+<p>• <strong>AJAX &amp; JSON</strong></p>
+<p>• <strong>Asynchronous JavaScript (Advanced Promises, Async/Await)</strong></p>
+<p>• <strong>Modules &amp; ES6+ Features</strong></p>
+<p>• <strong>Object-Oriented Programming (OOP) in JavaScript</strong></p>
+<p>• <strong>Error Handling &amp; Debugging</strong></p>
+<p>• <strong>Introduction to Node.js &amp; Express.js</strong></p>
+<p>• <strong>Building a To-Do List Web App</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write efficient JavaScript code for web applications, handle APIs, and work with Node.js</strong>.</p>
+<hr />
+<p><strong>1. Advanced DOM Manipulation</strong></p>
+<p><strong>1.1. Selecting Multiple Elements</strong></p>
+<p><code>document.querySelectorAll(".item").forEach(item =&gt; {
+  item.style.color = "red";
+});</code></p>
+<p><strong>1.2. Creating and Appending Elements</strong></p>
+<p><code>let newElement = document.createElement("p");
+newElement.textContent = "New Paragraph";
+document.body.appendChild(newElement);</code></p>
+<p><strong>1.3. Removing Elements</strong></p>
+<p><code>let element = document.getElementById("removeMe");
+element.remove();</code></p>
+<hr />
+<p><strong>2. Events &amp; Delegation</strong></p>
+<p><strong>2.1. Event Bubbling &amp; Capturing</strong></p>
+<p><code>document.getElementById("parent").addEventListener("click", () =&gt; {
+  console.log("Parent Clicked!");
+}, true);  // 'true' enables capturing phase</code></p>
+<p><strong>2.2. Event Delegation</strong></p>
+<p><code>document.getElementById("list").addEventListener("click", (event) =&gt; {
+  if (event.target.tagName === "LI") {
+    console.log("Item Clicked:", event.target.textContent);
+  }
+});</code></p>
+<hr />
+<p><strong>3. Web APIs (Fetch, Local Storage, Geolocation, etc.)</strong></p>
+<p><strong>3.1. Local Storage (Saving User Data)</strong></p>
+<p><code>localStorage.setItem("username", "Alice");
+console.log(localStorage.getItem("username"));  // "Alice"
+localStorage.removeItem("username");</code></p>
+<p><strong>3.2. Geolocation API (Getting User Location)</strong></p>
+<p><code>navigator.geolocation.getCurrentPosition(position =&gt; {
+  console.log(position.coords.latitude, position.coords.longitude);
+});</code></p>
+<p><strong>3.3. Fetch API (Getting Data from an API)</strong></p>
+<p><code>fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response =&gt; response.json())
+  .then(data =&gt; console.log(data));</code></p>
+<hr />
+<p><strong>4. AJAX &amp; JSON</strong></p>
+<p>AJAX allows asynchronous requests without reloading the page.</p>
+<p><strong>4.1. Fetching JSON Data</strong></p>
+<p><code>fetch("https://jsonplaceholder.typicode.com/posts")
+  .then(response =&gt; response.json())
+  .then(posts =&gt; console.log(posts));</code></p>
+<p><strong>4.2. Sending Data with Fetch (POST Request)</strong></p>
+<p><code>fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ title: "New Post", body: "This is a post" })
+})
+.then(response =&gt; response.json())
+.then(data =&gt; console.log(data));</code></p>
+<hr />
+<p><strong>5. Advanced Asynchronous JavaScript</strong></p>
+<p><strong>5.1. Chaining Promises</strong></p>
+<p><code>fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response =&gt; response.json())
+  .then(users =&gt; users[0])
+  .then(user =&gt; console.log(user.name));</code></p>
+<p><strong>5.2. Async/Await with Error Handling</strong></p>
+<p><code>async function getUser() {
+  try {
+    let response = await fetch("https://jsonplaceholder.typicode.com/users/1");
+    let user = await response.json();
+    console.log(user.name);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+getUser();</code></p>
+<hr />
+<p><strong>6. JavaScript Modules (ES6+)</strong></p>
+<p><strong>6.1. Exporting Functions</strong></p>
+<p><code>// module.js
+export function greet(name) {
+  return `Hello, ${name}`;
+}</code></p>
+<p><strong>6.2. Importing Functions</strong></p>
+<p><code>// main.js
+import { greet } from "./module.js";
+console.log(greet("Alice"));</code></p>
+<hr />
+<p><strong>7. Object-Oriented Programming (OOP) in JavaScript</strong></p>
+<p><strong>7.1. Creating a Class</strong></p>
+<p><code>class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  }
+}
+let alice = new Person("Alice", 25);
+console.log(alice.greet());</code></p>
+<p><strong>7.2. Inheritance</strong></p>
+<p><code>class Student extends Person {
+  constructor(name, age, grade) {
+    super(name, age);
+    this.grade = grade;
+  }
+}
+let student = new Student("Bob", 20, "A");
+console.log(student.greet());</code></p>
+<hr />
+<p><strong>8. Error Handling &amp; Debugging</strong></p>
+<p><strong>8.1. Try-Catch for Error Handling</strong></p>
+<p><code>try {
+  let x = undefinedVariable;
+} catch (error) {
+  console.error("Caught an error:", error);
+}</code></p>
+<p><strong>8.2. Using throw for Custom Errors</strong></p>
+<p><code>function checkAge(age) {
+  if (age &lt; 18) throw "Underage!";
+  return "Allowed";
+}
+try {
+  console.log(checkAge(16));
+} catch (error) {
+  console.error(error);
+}</code></p>
+<hr />
+<p><strong>9. Introduction to Node.js &amp; Express.js</strong></p>
+<p><strong>9.1. Setting Up a Node.js Server</strong></p>
+<p><code>npm init -y
+npm install express</code></p>
+<p><strong>9.2. Creating a Simple Express.js Server</strong></p>
+<p>```
+const express = require("express");
+const app = express();</p>
+<p>app.get("/", (req, res) =&gt; {
+  res.send("Hello from Node.js!");
+});</p>
+<p>app.listen(3000, () =&gt; console.log("Server running on port 3000"));
+```</p>
+<hr />
+<p><strong>10. Building a To-Do List Web App</strong></p>
+<p><strong>10.1. HTML</strong></p>
+<p>```</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+</head>
+<body>
+  <h1>To-Do List</h1>
+  <input id="taskInput" type="text">
+  <button id="addTask">Add Task</button>
+  <ul id="taskList"></ul>
+  <script src="script.js"></script>
+</body>
+</html>
+<p>```</p>
+<p><strong>10.2. JavaScript (script.js)</strong></p>
+<p><code>document.getElementById("addTask").addEventListener("click", () =&gt; {
+  let task = document.getElementById("taskInput").value;
+  if (task) {
+    let li = document.createElement("li");
+    li.textContent = task;
+    document.getElementById("taskList").appendChild(li);
+    document.getElementById("taskInput").value = "";
+  }
+});</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in JavaScript Level 2:</strong></p>
+<p>✅ <strong>Advanced DOM Manipulation</strong></p>
+<p>✅ <strong>Events, Delegation &amp; Event Bubbling</strong></p>
+<p>✅ <strong>Web APIs (Local Storage, Geolocation, Fetch API)</strong></p>
+<p>✅ <strong>AJAX &amp; JSON Data Handling</strong></p>
+<p>✅ <strong>Advanced Asynchronous JavaScript (Promises, Async/Await)</strong></p>
+<p>✅ <strong>JavaScript Modules (ES6 Imports/Exports)</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes, Inheritance)</strong></p>
+<p>✅ <strong>Error Handling &amp; Debugging</strong></p>
+<p>✅ <strong>Introduction to Node.js &amp; Express.js</strong></p>
+<p>✅ <strong>Built a To-Do List Web App</strong></p>
+<p>Now, you’re ready for <strong>JavaScript Level 3</strong>, where we dive into <strong>Full-Stack Development, WebSockets, Advanced Node.js, and React.js</strong>! 🚀</p></body></html>

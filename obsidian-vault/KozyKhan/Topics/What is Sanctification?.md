@@ -1,0 +1,58 @@
+> **July 5th, 2024** 
+> **01:06:34** 
+> **status:** #orthodox #article 
+> **topics:** [[sanctification]] [[Theosis]] [[Divine Grace]] 
+
+In Orthodox Christianity, sanctification, **also known as theosis or deification**, refers to the process by which a person is transformed by God's grace into the likeness of God. It involves a gradual purification and renewal of the whole person—body, soul, and spirit—leading to union with God. This transformative process is both a gift from God and a cooperative effort between divine grace and human will. The Church Fathers provide deep insights into the nature, means, and goals of sanctification.
+
+**1. Nature of Sanctification**
+Sanctification is understood as a dynamic and ongoing process rather than a one-time event. It involves growing in holiness and becoming more like God in character and actions.
+
+**St. Athanasius:**
+St. Athanasius, in “On the Incarnation”, describes sanctification as becoming partakers of the divine nature:
+"He was made man that we might be made god; and He manifested Himself by a body that we might receive the idea of the unseen Father."
+
+**2. The Role of the Holy Spirit**
+The Holy Spirit plays a central role in sanctification, guiding and empowering believers to live a holy life and to grow in the likeness of Christ.
+
+**St. Basil the Great:**
+St. Basil the Great, in “On the Holy Spirit”, emphasizes the transformative work of the Holy Spirit:
+"The Spirit restores paradise to us and the way to heaven, and adoption as sons. He gives us the confidence to call God Father and to share in Christ’s grace, to be called children of light, and to share in eternal glory."
+
+**3. Participation in the Sacraments**
+The sacraments are vital means of sanctification in Orthodox Christianity. Through them, believers receive divine grace, which sanctifies and transforms them.
+  
+**St. Nicholas Cabasilas:**
+St. Nicholas Cabasilas, in “The Life in Christ”, explains the role of the sacraments in sanctification:
+"The sacraments bestow on us the grace that purifies and sanctifies us, making us partakers of the divine nature and renewing the image of God in us."
+
+**4. [[Ascetic Practices]]** 
+Ascetic practices such as fasting, prayer, and almsgiving are essential for sanctification. These practices help to purify the soul and body, making them more receptive to divine grace.
+
+**St. Isaac the Syrian:**
+St. Isaac the Syrian, in his “Ascetical Homilies”, speaks about the importance of asceticism for sanctification:
+"Through ascetic practice, the soul is purified and the heart becomes a temple of the Holy Spirit. It is through struggle and self-denial that we grow in holiness and draw nearer to God."
+
+**5. Transformation of the Whole Person**
+Sanctification involves the transformation of the whole person, including the mind, will, emotions, and body. It is a holistic process that touches every aspect of a believer's life.
+
+**St. Gregory of Nyssa:**
+St. Gregory of Nyssa, in “On the Making of Man”, describes sanctification as the restoration and transformation of the entire human being:
+"The divine likeness in us is restored and perfected through sanctification. The whole human being, in soul and body, is transformed by the grace of the Holy Spirit, making us partakers of divine life."
+
+**6. Living the Virtues**
+Sanctification is also manifested in the cultivation of Christian virtues such as love, humility, patience, and forgiveness. These virtues reflect the character of Christ and are evidence of a sanctified life.
+
+**St. John Chrysostom:**
+St. John Chrysostom, in his homilies, emphasizes the importance of virtues in sanctification:
+"The true measure of sanctification is the love we show to God and to our neighbor. A holy life is marked by humility, patience, and a selfless love that reflects the love of Christ."
+
+**7. Communion with God**
+The ultimate goal of sanctification is union with God, also known as theosis. This union is a profound and intimate communion with the Holy Trinity, where the believer becomes a partaker of divine life.
+
+**St. Maximus the Confessor:**
+St. Maximus the Confessor, in his “Centuries on Charity”, describes the goal of sanctification as union with God:
+"The end of sanctification is to become united to God and to see Him as He is. In this union, we become by grace what God is by nature, sharing in His divine life and love."
+
+**Conclusion**
+From an Orthodox Christian perspective, sanctification is the process of becoming holy and growing in the likeness of God. It is a dynamic and ongoing transformation that involves the whole person and is achieved through the work of the Holy Spirit, participation in the sacraments, ascetic practices, and the cultivation of virtues. The teachings of the Church Fathers provide a comprehensive understanding of sanctification, emphasizing that it is both a gift of God's grace and a cooperative effort requiring human response and effort. The ultimate goal of sanctification is union with God, where believers become partakers of the divine nature and experience eternal communion with the Holy Trinity.

@@ -1,0 +1,271 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:58:32</strong> 
+<strong>Topics:</strong> [[C L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>C# Level 1: Introduction to C# Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>C# is a <strong>modern, object-oriented programming language</strong> developed by Microsoft. It is widely used for <strong>desktop applications, web development (ASP.NET), game development (Unity), and cloud applications</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>C# Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Methods &amp; Parameters</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes, Structs, Inheritance)</strong></p>
+<p>✅ <strong>Collections (Lists, Dictionaries, Arrays)</strong></p>
+<p>✅ <strong>Exception Handling</strong></p>
+<p>✅ <strong>File Handling (Reading &amp; Writing Files)</strong></p>
+<p>✅ <strong>Building a Simple Console Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic C# programs, understand OOP, and interact with files</strong>.</p>
+<hr />
+<p><strong>1. Setting Up C#</strong></p>
+<p><strong>1.1. Installing C# &amp; .NET SDK</strong></p>
+<p>• Download and install <strong>.NET SDK</strong> from <a href="https://dotnet.microsoft.com/download">dotnet.microsoft.com</a>.</p>
+<p>• Verify installation:</p>
+<p><code>dotnet --version</code></p>
+<p><strong>1.2. Running C# Code</strong></p>
+<p>• <strong>Run a C# script</strong>:</p>
+<p><code>dotnet run Program.cs</code></p>
+<p>• <strong>Compile &amp; Execute</strong>:</p>
+<p><code>dotnet build
+dotnet run</code></p>
+<hr />
+<p><strong>2. C# Basics: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>2.1. Variables &amp; Constants</strong></p>
+<p>```
+using System;</p>
+<p>class Program {
+    static void Main() {
+        int age = 25;
+        string name = "Alice";
+        const double PI = 3.1415; // Constant (Immutable)
+        Console.WriteLine($"{name} is {age} years old.");
+    }
+}
+```</p>
+<p><strong>2.2. Data Types</strong></p>
+<p><code>class Program {
+    static void Main() {
+        int number = 42;       // Integer
+        double pi = 3.14;       // Floating-point number
+        bool isCSharpAwesome = true; // Boolean
+        char letter = 'C';      // Character
+        string message = "Hello, C#!"; // String
+        Console.WriteLine($"{number}, {pi}, {isCSharpAwesome}, {letter}, {message}");
+    }
+}</code></p>
+<p><strong>2.3. Operators</strong></p>
+<p><code>class Program {
+    static void Main() {
+        int a = 10, b = 3;
+        Console.WriteLine("Sum: " + (a + b));
+        Console.WriteLine("Diff: " + (a - b));
+        Console.WriteLine("Product: " + (a * b));
+        Console.WriteLine("Quotient: " + (a / b));
+        Console.WriteLine("Remainder: " + (a % b));
+    }
+}</code></p>
+<hr />
+<p><strong>3. Control Flow (If-Else, Loops, Switch)</strong></p>
+<p><strong>3.1. If-Else Statement</strong></p>
+<p><code>class Program {
+    static void Main() {
+        int temp = 30;
+        if (temp &gt; 25) {
+            Console.WriteLine("It's hot outside!");
+        } else {
+            Console.WriteLine("It's cool outside.");
+        }
+    }
+}</code></p>
+<p><strong>3.2. For Loop</strong></p>
+<p><code>class Program {
+    static void Main() {
+        for (int i = 1; i &lt;= 5; i++) {
+            Console.WriteLine("Iteration " + i);
+        }
+    }
+}</code></p>
+<p><strong>3.3. While Loop</strong></p>
+<p><code>class Program {
+    static void Main() {
+        int count = 0;
+        while (count &lt; 3) {
+            Console.WriteLine("Count: " + count);
+            count++;
+        }
+    }
+}</code></p>
+<p><strong>3.4. Switch Statement</strong></p>
+<p><code>class Program {
+    static void Main() {
+        string day = "Monday";
+        switch (day) {
+            case "Monday":
+                Console.WriteLine("Start of the week!");
+                break;
+            case "Friday":
+                Console.WriteLine("Weekend is coming!");
+                break;
+            default:
+                Console.WriteLine("A regular day.");
+                break;
+        }
+    }
+}</code></p>
+<hr />
+<p><strong>4. Methods &amp; Parameters</strong></p>
+<p><strong>4.1. Defining a Method</strong></p>
+<p>```
+class Program {
+    static string Greet(string name) {
+        return "Hello, " + name + "!";
+    }</p>
+<pre><code>static void Main() {
+    Console.WriteLine(Greet("Alice"));
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>4.2. Method with Multiple Parameters</strong></p>
+<p>```
+class Program {
+    static int Add(int a, int b) {
+        return a + b;
+    }</p>
+<pre><code>static void Main() {
+    Console.WriteLine(Add(5, 3)); // Output: 8
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>5. Object-Oriented Programming (OOP)</strong></p>
+<p><strong>5.1. Creating a Class &amp; Object</strong></p>
+<p>```
+class Car {
+    public string Brand;
+    public int Speed;</p>
+<pre><code>public void Drive() {
+    Console.WriteLine(Brand + " is driving at " + Speed + " km/h");
+}
+</code></pre>
+<p>}</p>
+<p>class Program {
+    static void Main() {
+        Car myCar = new Car { Brand = "Tesla", Speed = 120 };
+        myCar.Drive();
+    }
+}
+```</p>
+<p><strong>5.2. Inheritance</strong></p>
+<p>```
+class Animal {
+    public virtual void Speak() {
+        Console.WriteLine("Animal makes a sound");
+    }
+}</p>
+<p>class Dog : Animal {
+    public override void Speak() {
+        Console.WriteLine("Woof!");
+    }
+}</p>
+<p>class Program {
+    static void Main() {
+        Dog myDog = new Dog();
+        myDog.Speak();
+    }
+}
+```</p>
+<hr />
+<p><strong>6. Collections (Lists, Dictionaries, Arrays)</strong></p>
+<p><strong>6.1. Arrays</strong></p>
+<p><code>class Program {
+    static void Main() {
+        string[] fruits = { "Apple", "Banana", "Cherry" };
+        Console.WriteLine(fruits[1]); // Banana
+    }
+}</code></p>
+<p><strong>6.2. Lists</strong></p>
+<p>```
+using System;
+using System.Collections.Generic;</p>
+<p>class Program {
+    static void Main() {
+        List<string> names = new List<string> { "Alice", "Bob", "Charlie" };
+        names.Add("David");
+        Console.WriteLine(names[2]); // Charlie
+    }
+}
+```</p>
+<p><strong>6.3. Dictionaries</strong></p>
+<p>```
+using System;
+using System.Collections.Generic;</p>
+<p>class Program {
+    static void Main() {
+        Dictionary<string, int> scores = new Dictionary<string, int> {
+            { "Alice", 90 },
+            { "Bob", 85 }
+        };
+        Console.WriteLine(scores["Alice"]); // 90
+    }
+}
+```</p>
+<hr />
+<p><strong>7. Exception Handling</strong></p>
+<p><code>class Program {
+    static void Main() {
+        try {
+            int result = 10 / 0;
+        } catch (DivideByZeroException e) {
+            Console.WriteLine("Error: " + e.Message);
+        }
+    }
+}</code></p>
+<hr />
+<p><strong>8. File Handling (Reading &amp; Writing Files)</strong></p>
+<p><strong>8.1. Writing to a File</strong></p>
+<p>```
+using System.IO;</p>
+<p>class Program {
+    static void Main() {
+        File.WriteAllText("output.txt", "Hello, C#!");
+    }
+}
+```</p>
+<p><strong>8.2. Reading from a File</strong></p>
+<p>```
+using System;
+using System.IO;</p>
+<p>class Program {
+    static void Main() {
+        string content = File.ReadAllText("output.txt");
+        Console.WriteLine(content);
+    }
+}
+```</p>
+<hr />
+<p><strong>9. Building a Simple Console Application</strong></p>
+<p>```
+using System;</p>
+<p>class Program {
+    static void Main() {
+        Console.Write("Enter your name: ");
+        string name = Console.ReadLine();
+        Console.WriteLine("Hello, " + name + "!");
+    }
+}
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in C# Level 1:</strong></p>
+<p>✅ <strong>C# Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Methods &amp; Parameters</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes, Structs, Inheritance)</strong></p>
+<p>✅ <strong>Collections (Lists, Dictionaries, Arrays)</strong></p>
+<p>✅ <strong>Exception Handling</strong></p>
+<p>✅ <strong>File Handling (Reading &amp; Writing Files)</strong></p>
+<p>✅ <strong>Built a Simple Console Application</strong></p>
+<p>Now, you’re ready for <strong>C# Level 2</strong>, where we explore <strong>LINQ, Asynchronous Programming, Web Development with ASP.NET, and Entity Framework!</strong> 🚀</p></body></html>

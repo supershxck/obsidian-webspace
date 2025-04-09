@@ -1,0 +1,276 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>12:19:58</strong> 
+<strong>Topics:</strong> [[C++ L2]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>C++ Lesson 1: From Beginner to Intermediate in One Lesson</strong></p>
+<p><strong>Introduction</strong></p>
+<p>C++ is a <strong>powerful, high-performance</strong> programming language used for <strong>game development, system programming, embedded systems, AI, and competitive programming</strong>.</p>
+<p>By the end of this lesson, you will understand:</p>
+<ol>
+<li>
+<p><strong>Basic C++ Syntax</strong></p>
+</li>
+<li>
+<p><strong>Variables, Data Types, and Operators</strong></p>
+</li>
+<li>
+<p><strong>Control Flow (If Statements &amp; Loops)</strong></p>
+</li>
+<li>
+<p><strong>Functions &amp; Modular Code</strong></p>
+</li>
+<li>
+<p><strong>Object-Oriented Programming (OOP)</strong></p>
+</li>
+<li>
+<p><strong>Pointers &amp; Memory Management</strong></p>
+</li>
+<li>
+<p><strong>File Handling</strong></p>
+</li>
+<li>
+<p><strong>Basic Data Structures (Arrays, Vectors, Strings)</strong></p>
+</li>
+<li>
+<p><strong>Error Handling &amp; Debugging</strong></p>
+</li>
+</ol>
+<hr />
+<p><strong>1. Setting Up C++</strong></p>
+<p><strong>1.1. Install a C++ Compiler</strong></p>
+<p>You need a compiler to run C++ code. Install:</p>
+<p>• <strong>GCC (GNU Compiler Collection)</strong> on Linux/macOS:</p>
+<p><code>sudo apt install g++  # Ubuntu/Debian</code></p>
+<p>• <strong>MinGW (for Windows)</strong> from <a href="https://www.mingw-w64.org/">mingw-w64.org</a></p>
+<p>• <strong>Visual Studio Code (VS Code) + C++ Extension</strong></p>
+<p><strong>1.2. Writing Your First C++ Program</strong></p>
+<p>Create a file <strong>hello.cpp</strong> and write:</p>
+<p>```</p>
+<h1>include <iostream></h1>
+<p>using namespace std;</p>
+<p>int main() {
+    cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
+    return 0;
+}
+```</p>
+<p>Compile and run:</p>
+<p><code>g++ hello.cpp -o hello
+./hello</code></p>
+<hr />
+<p><strong>2. Basic Syntax: Variables, Data Types &amp; Operators</strong></p>
+<p>C++ is <strong>statically typed</strong>, meaning <strong>data types must be declared</strong>.</p>
+<p><strong>2.1. Data Types</strong></p>
+<p><code>int age = 25;        // Integer
+float pi = 3.14;     // Floating point number
+char grade = 'A';    // Character
+bool isStudent = true;  // Boolean
+string name = "Alice";  // String (Requires #include &lt;string&gt;)</code></p>
+<p><strong>2.2. Arithmetic Operators</strong></p>
+<p><code>int a = 10, b = 3;
+cout &lt;&lt; "Addition: " &lt;&lt; (a + b) &lt;&lt; endl;  // 13
+cout &lt;&lt; "Subtraction: " &lt;&lt; (a - b) &lt;&lt; endl;  // 7
+cout &lt;&lt; "Multiplication: " &lt;&lt; (a * b) &lt;&lt; endl;  // 30
+cout &lt;&lt; "Division: " &lt;&lt; (a / b) &lt;&lt; endl;  // 3 (Integer division)
+cout &lt;&lt; "Modulus: " &lt;&lt; (a % b) &lt;&lt; endl;  // 1 (Remainder)</code></p>
+<hr />
+<p><strong>3. Control Flow (If Statements &amp; Loops)</strong></p>
+<p><strong>3.1. If-Else Statements</strong></p>
+<p><code>int age = 18;
+if (age &gt;= 18) {
+    cout &lt;&lt; "You are an adult" &lt;&lt; endl;
+} else {
+    cout &lt;&lt; "You are a minor" &lt;&lt; endl;
+}</code></p>
+<p><strong>3.2. Loops</strong></p>
+<p><strong>For Loop</strong></p>
+<p><code>for (int i = 0; i &lt; 5; i++) {
+    cout &lt;&lt; "Iteration: " &lt;&lt; i &lt;&lt; endl;
+}</code></p>
+<p><strong>While Loop</strong></p>
+<p><code>int count = 0;
+while (count &lt; 5) {
+    cout &lt;&lt; count &lt;&lt; endl;
+    count++;
+}</code></p>
+<p><strong>Do-While Loop</strong></p>
+<p><code>int num = 0;
+do {
+    cout &lt;&lt; "Number: " &lt;&lt; num &lt;&lt; endl;
+    num++;
+} while (num &lt; 5);</code></p>
+<hr />
+<p><strong>4. Functions &amp; Modular Code</strong></p>
+<p><strong>4.1. Defining a Function</strong></p>
+<p>```</p>
+<h1>include <iostream></h1>
+<p>using namespace std;</p>
+<p>void greet(string name) {
+    cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; endl;
+}</p>
+<p>int main() {
+    greet("Alice");
+    return 0;
+}
+```</p>
+<p><strong>4.2. Returning Values</strong></p>
+<p>```
+int add(int a, int b) {
+    return a + b;
+}</p>
+<p>int main() {
+    int result = add(5, 7);
+    cout &lt;&lt; "Sum: " &lt;&lt; result &lt;&lt; endl;
+    return 0;
+}
+```</p>
+<hr />
+<p><strong>5. Object-Oriented Programming (OOP)</strong></p>
+<p>C++ supports <strong>classes and objects</strong>.</p>
+<p><strong>5.1. Defining a Class</strong></p>
+<p>```
+class Car {
+public:
+    string brand;
+    int speed;</p>
+<pre><code>void drive() {
+    cout &lt;&lt; brand &lt;&lt; " is driving at " &lt;&lt; speed &lt;&lt; " km/h" &lt;&lt; endl;
+}
+</code></pre>
+<p>};</p>
+<p>int main() {
+    Car myCar;
+    myCar.brand = "Toyota";
+    myCar.speed = 120;
+    myCar.drive();
+    return 0;
+}
+```</p>
+<p><strong>5.2. Constructor &amp; Destructor</strong></p>
+<p>```
+class Person {
+public:
+    string name;</p>
+<pre><code>Person(string n) {  // Constructor
+    name = n;
+}
+
+~Person() {  // Destructor
+    cout &lt;&lt; "Object Destroyed!" &lt;&lt; endl;
+}
+
+void sayHello() {
+    cout &lt;&lt; "Hello, my name is " &lt;&lt; name &lt;&lt; endl;
+}
+</code></pre>
+<p>};</p>
+<p>int main() {
+    Person p("Alice");
+    p.sayHello();
+    return 0;
+}
+```</p>
+<hr />
+<p><strong>6. Pointers &amp; Memory Management</strong></p>
+<p>Pointers store <strong>memory addresses</strong>, essential for <strong>dynamic memory allocation</strong>.</p>
+<p><strong>6.1. Using Pointers</strong></p>
+<p>```
+int x = 10;
+int *ptr = &x;  // Pointer stores the address of x</p>
+<p>cout &lt;&lt; "Value of x: " &lt;&lt; x &lt;&lt; endl;
+cout &lt;&lt; "Address of x: " &lt;&lt; ptr &lt;&lt; endl;
+cout &lt;&lt; "Value using pointer: " &lt;&lt; *ptr &lt;&lt; endl;
+```</p>
+<p><strong>6.2. Dynamic Memory Allocation</strong></p>
+<p><code>int *p = new int(42);
+cout &lt;&lt; "Value: " &lt;&lt; *p &lt;&lt; endl;
+delete p;  // Free allocated memory</code></p>
+<hr />
+<p><strong>7. File Handling</strong></p>
+<p><strong>7.1. Writing to a File</strong></p>
+<p>```</p>
+<h1>include <fstream></h1>
+<p>using namespace std;</p>
+<p>int main() {
+    ofstream file("example.txt");
+    file &lt;&lt; "Hello, file!" &lt;&lt; endl;
+    file.close();
+    return 0;
+}
+```</p>
+<p><strong>7.2. Reading from a File</strong></p>
+<p>```</p>
+<h1>include <fstream></h1>
+<p>using namespace std;</p>
+<p>int main() {
+    ifstream file("example.txt");
+    string line;
+    while (getline(file, line)) {
+        cout &lt;&lt; line &lt;&lt; endl;
+    }
+    file.close();
+    return 0;
+}
+```</p>
+<hr />
+<p><strong>8. Basic Data Structures</strong></p>
+<p><strong>8.1. Arrays</strong></p>
+<p><code>int numbers[] = {10, 20, 30, 40};
+cout &lt;&lt; numbers[2] &lt;&lt; endl;  // 30</code></p>
+<p><strong>8.2. Vectors (Dynamic Arrays)</strong></p>
+<p>```</p>
+<h1>include <vector></h1>
+<p>vector<int> nums = {1, 2, 3};
+nums.push_back(4);
+cout &lt;&lt; nums[3] &lt;&lt; endl;  // 4
+```</p>
+<p><strong>8.3. Strings</strong></p>
+<p>```</p>
+<h1>include <string></h1>
+<p>string name = "Alice";
+cout &lt;&lt; name.length() &lt;&lt; endl;  // 5
+```</p>
+<hr />
+<p><strong>9. Error Handling &amp; Debugging</strong></p>
+<p><strong>9.1. Try-Catch for Exception Handling</strong></p>
+<p><code>try {
+    int x = 10 / 0;  // Division by zero error
+} catch (exception &amp;e) {
+    cout &lt;&lt; "An error occurred!" &lt;&lt; endl;
+}</code></p>
+<hr />
+<p><strong>Final Project: Simple Calculator</strong></p>
+<p>```</p>
+<h1>include <iostream></h1>
+<p>using namespace std;</p>
+<p>int main() {
+    double num1, num2;
+    char op;</p>
+<pre><code>cout &lt;&lt; "Enter first number: ";
+cin &gt;&gt; num1;
+cout &lt;&lt; "Enter operator (+, -, *, /): ";
+cin &gt;&gt; op;
+cout &lt;&lt; "Enter second number: ";
+cin &gt;&gt; num2;
+
+switch (op) {
+    case '+': cout &lt;&lt; "Result: " &lt;&lt; num1 + num2; break;
+    case '-': cout &lt;&lt; "Result: " &lt;&lt; num1 - num2; break;
+    case '*': cout &lt;&lt; "Result: " &lt;&lt; num1 * num2; break;
+    case '/': cout &lt;&lt; "Result: " &lt;&lt; num1 / num2; break;
+    default: cout &lt;&lt; "Invalid operator!";
+}
+return 0;
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned:</strong></p>
+<p>✅ <strong>Basic Syntax, Variables &amp; Data Types</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops)</strong></p>
+<p>✅ <strong>Functions &amp; OOP (Classes, Objects, Pointers)</strong></p>
+<p>✅ <strong>Memory Management &amp; File Handling</strong></p>
+<p>✅ <strong>Basic Data Structures (Arrays, Vectors, Strings)</strong></p>
+<p>Now, you’re ready to <strong>start C++ Level 2</strong>, where we explore <strong>STL, Multithreading, and Advanced OOP Concepts!</strong> 🚀</p></body></html>

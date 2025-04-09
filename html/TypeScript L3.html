@@ -1,0 +1,246 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>15:31:46</strong> 
+<strong>Topics:</strong> [[Linux L1]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>TypeScript Level 3: Advanced TypeScript Development &amp; Full-Stack Applications</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve learned <strong>advanced TypeScript features, REST APIs, and frontend integration</strong>, it’s time to explore <strong>GraphQL, microservices, authentication, advanced testing, and cloud deployment</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>GraphQL with TypeScript (Apollo Server &amp; Client)</strong></p>
+<p>✅ <strong>Microservices &amp; Event-Driven Architecture</strong></p>
+<p>✅ <strong>Authentication (JWT, OAuth 2.0, Role-Based Access Control)</strong></p>
+<p>✅ <strong>Testing (Jest, Cypress, Supertest)</strong></p>
+<p>✅ <strong>Advanced TypeScript with Decorators &amp; Metadata</strong></p>
+<p>✅ <strong>Cloud Deployment (Docker, Kubernetes, AWS, Firebase, Vercel)</strong></p>
+<p>✅ <strong>Building &amp; Deploying a Full-Stack TypeScript App</strong></p>
+<p>By the end of this lesson, you will be able to <strong>develop scalable, production-ready TypeScript applications using modern web technologies</strong>.</p>
+<hr />
+<p><strong>1. GraphQL with TypeScript</strong></p>
+<p><strong>1.1. Setting Up Apollo Server</strong></p>
+<ol>
+<li>Install dependencies:</li>
+</ol>
+<p><code>npm install apollo-server graphql typescript ts-node @types/node</code></p>
+<ol>
+<li>Create server.ts:</li>
+</ol>
+<p>```
+import { ApolloServer, gql } from "apollo-server";</p>
+<p>const typeDefs = gql<code>type Query {
+        hello: String
+    }</code>;</p>
+<p>const resolvers = {
+    Query: {
+        hello: () =&gt; "Hello, GraphQL!",
+    },
+};</p>
+<p>const server = new ApolloServer({ typeDefs, resolvers });</p>
+<p>server.listen(4000).then(({ url }) =&gt; console.log(<code>Server running at ${url}</code>));
+```</p>
+<ol>
+<li>Start the server:</li>
+</ol>
+<p><code>ts-node server.ts</code></p>
+<ol>
+<li>Open <strong>http://localhost:4000</strong> in a browser to test queries.</li>
+</ol>
+<p><strong>1.2. Adding a GraphQL Mutation</strong></p>
+<p><code>``
+const typeDefs = gql</code>
+    type User {
+        id: ID!
+        name: String!
+    }
+    type Query {
+        users: [User]
+    }
+    type Mutation {
+        createUser(name: String!): User
+    }
+`;</p>
+<p>let users = [];</p>
+<p>const resolvers = {
+    Query: {
+        users: () =&gt; users,
+    },
+    Mutation: {
+        createUser: (_, { name }) =&gt; {
+            const user = { id: users.length + 1, name };
+            users.push(user);
+            return user;
+        },
+    },
+};
+```</p>
+<hr />
+<p><strong>2. Microservices &amp; Event-Driven Architecture</strong></p>
+<p><strong>2.1. Setting Up a Microservice with TypeScript</strong></p>
+<ol>
+<li>Install dependencies:</li>
+</ol>
+<p><code>npm install express amqplib axios typescript ts-node</code></p>
+<ol>
+<li>Create user-service.ts:</li>
+</ol>
+<p>```
+import express from "express";</p>
+<p>const app = express();
+app.use(express.json());</p>
+<p>let users: any[] = [];</p>
+<p>app.post("/users", (req, res) =&gt; {
+    const user = { id: users.length + 1, ...req.body };
+    users.push(user);
+    res.status(201).json(user);
+});</p>
+<p>app.listen(3001, () =&gt; console.log("User service running on port 3001"));
+```</p>
+<ol>
+<li>Create order-service.ts:</li>
+</ol>
+<p>```
+import express from "express";
+import axios from "axios";</p>
+<p>const app = express();
+app.use(express.json());</p>
+<p>app.get("/orders", async (req, res) =&gt; {
+    const users = await axios.get("http://localhost:3001/users");
+    res.json({ message: "Orders", users: users.data });
+});</p>
+<p>app.listen(3002, () =&gt; console.log("Order service running on port 3002"));
+```</p>
+<hr />
+<p><strong>3. Authentication (JWT, OAuth 2.0, Role-Based Access Control)</strong></p>
+<p><strong>3.1. Implementing JWT Authentication</strong></p>
+<ol>
+<li>Install dependencies:</li>
+</ol>
+<p><code>npm install express jsonwebtoken bcryptjs @types/jsonwebtoken @types/bcryptjs</code></p>
+<ol>
+<li>Create auth.ts:</li>
+</ol>
+<p>```
+import express from "express";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";</p>
+<p>const app = express();
+app.use(express.json());</p>
+<p>const users: any[] = [];</p>
+<p>app.post("/register", async (req, res) =&gt; {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const user = { id: users.length + 1, email: req.body.email, password: hashedPassword };
+    users.push(user);
+    res.status(201).json({ message: "User registered" });
+});</p>
+<p>app.post("/login", async (req, res) =&gt; {
+    const user = users.find(u =&gt; u.email === req.body.email);
+    if (!user || !(await bcrypt.compare(req.body.password, user.password))) {
+        return res.status(401).json({ message: "Invalid credentials" });
+    }
+    const token = jwt.sign({ id: user.id }, "secret", { expiresIn: "1h" });
+    res.json({ token });
+});</p>
+<p>app.listen(4000, () =&gt; console.log("Auth service running on port 4000"));
+```</p>
+<hr />
+<p><strong>4. Testing (Jest, Cypress, Supertest)</strong></p>
+<p><strong>4.1. Unit Testing with Jest</strong></p>
+<p><code>npm install jest ts-jest @types/jest</code></p>
+<p>```
+function add(a: number, b: number): number {
+    return a + b;
+}</p>
+<p>test("adds 2 + 3 to equal 5", () =&gt; {
+    expect(add(2, 3)).toBe(5);
+});
+```</p>
+<p><strong>4.2. API Testing with Supertest</strong></p>
+<p><code>npm install supertest @types/supertest</code></p>
+<p>```
+import request from "supertest";
+import app from "./server"; // Import Express server</p>
+<p>test("GET /users should return an array", async () =&gt; {
+    const response = await request(app).get("/users");
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body)).toBe(true);
+});
+```</p>
+<hr />
+<p><strong>5. Advanced TypeScript with Decorators &amp; Metadata</strong></p>
+<p><strong>5.1. Using Decorators</strong></p>
+<p>```
+function Logger(target: Function) {
+    console.log("Logging...");
+}</p>
+<p>@Logger
+class Person {
+    constructor(public name: string) {
+        console.log(<code>Person ${name} created</code>);
+    }
+}</p>
+<p>new Person("Alice");
+```</p>
+<hr />
+<p><strong>6. Cloud Deployment (Docker, Kubernetes, AWS, Firebase, Vercel)</strong></p>
+<p><strong>6.1. Dockerizing a TypeScript App</strong></p>
+<ol>
+<li>Create a Dockerfile:</li>
+</ol>
+<p><code>FROM node:14
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["node", "dist/server.js"]</code></p>
+<ol>
+<li>Build and run:</li>
+</ol>
+<p><code>docker build -t my-typescript-app .
+docker run -p 3000:3000 my-typescript-app</code></p>
+<p><strong>6.2. Deploying to AWS Lambda</strong></p>
+<ol>
+<li>Install:</li>
+</ol>
+<p><code>npm install -g serverless</code></p>
+<ol>
+<li>Deploy:</li>
+</ol>
+<p><code>serverless deploy</code></p>
+<p><strong>6.3. Deploying to Vercel</strong></p>
+<p><code>npm install -g vercel
+vercel deploy</code></p>
+<hr />
+<p><strong>7. Building &amp; Deploying a Full-Stack TypeScript App</strong></p>
+<p><strong>7.1. Creating a React Frontend</strong></p>
+<p><code>npx create-react-app my-app --template typescript
+cd my-app
+npm start</code></p>
+<p><strong>7.2. Connecting Frontend to GraphQL</strong></p>
+<p>```
+import { gql, useQuery } from "@apollo/client";</p>
+<p>const GET_USERS = gql<code>query {
+        users {
+            id
+            name
+        }
+    }</code>;</p>
+<p>const Users = () =&gt; {
+    const { loading, error, data } = useQuery(GET_USERS);</p>
+<pre><code>if (loading) return &lt;p&gt;Loading...&lt;/p&gt;;
+if (error) return &lt;p&gt;Error&lt;/p&gt;;
+
+return &lt;ul&gt;{data.users.map(user =&gt; &lt;li key={user.id}&gt;{user.name}&lt;/li&gt;)}&lt;/ul&gt;;
+</code></pre>
+<p>};
+```</p>
+<hr />
+<p><strong>8. Conclusion</strong></p>
+<p><strong>What You Learned in TypeScript Level 3:</strong></p>
+<p>✅ <strong>GraphQL with TypeScript (Apollo Server &amp; Client)</strong></p>
+<p>✅ <strong>Microservices &amp; Event-Driven Architecture</strong></p>
+<p>✅ <strong>Authentication (JWT, OAuth 2.0, Role-Based Access Control)</strong></p>
+<p>✅ <strong>Testing (Jest, Cypress, Supertest)</strong></p>
+<p>✅ <strong>Advanced TypeScript with Decorators &amp; Metadata</strong></p>
+<p>✅ <strong>Cloud Deployment (Docker, Kubernetes, AWS, Firebase, Vercel)</strong></p>
+<p>✅ <strong>Built &amp; Deployed a Full-Stack TypeScript App</strong></p>
+<p>Now, you’re ready for <strong>TypeScript Level 4</strong>, where we explore <strong>Blockchain, AI, WebAssembly, and Advanced CI/CD Pipelines!</strong> 🚀</p></body></html>

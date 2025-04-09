@@ -1,0 +1,170 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:37:56</strong> 
+<strong>Topics:</strong> [[PLC L2]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>PLC Level 1: Introduction to Programmable Logic Controllers (PLC)</strong></p>
+<p><strong>Introduction</strong></p>
+<p>A <strong>Programmable Logic Controller (PLC)</strong> is an industrial computer used for <strong>automation and control</strong> in manufacturing, robotics, and industrial applications. PLCs are widely used in industries such as <strong>automotive, food processing, water treatment, and packaging</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>What is a PLC?</strong></p>
+<p>✅ <strong>PLC Components &amp; Architecture</strong></p>
+<p>✅ <strong>Basic PLC Programming Languages (Ladder Logic, FBD, ST)</strong></p>
+<p>✅ <strong>Understanding Inputs, Outputs, and Data Types</strong></p>
+<p>✅ <strong>Timers, Counters, and Logic Operations</strong></p>
+<p>✅ <strong>Basic PLC Troubleshooting</strong></p>
+<p>✅ <strong>Simulating PLC Programs Using Software</strong></p>
+<p>✅ <strong>Building a Simple PLC Program</strong></p>
+<p>By the end of this lesson, you will understand <strong>how PLCs work and how to write basic PLC programs</strong>.</p>
+<hr />
+<p><strong>1. What is a PLC?</strong></p>
+<p>A <strong>Programmable Logic Controller (PLC)</strong> is an <strong>industrial digital computer</strong> designed for:</p>
+<p>• <strong>Automating machines</strong> and industrial processes</p>
+<p>• <strong>Monitoring inputs and outputs</strong> (I/O)</p>
+<p>• <strong>Executing programmed logic operations</strong></p>
+<p><strong>1.1. Why Use a PLC?</strong></p>
+<p>✅ <strong>Reliable</strong> – Works in harsh industrial environments</p>
+<p>✅ <strong>Flexible</strong> – Easily reprogrammed for different tasks</p>
+<p>✅ <strong>Scalable</strong> – Handles complex automation processes</p>
+<p>✅ <strong>Efficient</strong> – Reduces human intervention</p>
+<p><strong>1.2. Common PLC Brands</strong></p>
+<p>🔹 <strong>Siemens (S7-1200, S7-1500)</strong></p>
+<p>🔹 <strong>Allen-Bradley (MicroLogix, ControlLogix, CompactLogix)</strong></p>
+<p>🔹 <strong>Mitsubishi (FX, Q-Series)</strong></p>
+<p>🔹 <strong>Schneider Electric (Modicon M221, M340)</strong></p>
+<p>🔹 <strong>Omron (CJ, CP1H, NX-Series)</strong></p>
+<hr />
+<p><strong>2. PLC Components &amp; Architecture</strong></p>
+<p>A PLC consists of the following <strong>hardware components</strong>:</p>
+<p><strong>2.1. Key PLC Components</strong></p>
+<p>• <strong>CPU (Central Processing Unit)</strong> – Executes the program logic</p>
+<p>• <strong>Memory (RAM &amp; ROM)</strong> – Stores the program and data</p>
+<p>• <strong>Input Modules</strong> – Receives signals from sensors, switches, buttons</p>
+<p>• <strong>Output Modules</strong> – Controls actuators, motors, lights, relays</p>
+<p>• <strong>Power Supply</strong> – Converts AC power to DC power</p>
+<p>• <strong>Communication Ports</strong> – Connects to external devices (Ethernet, RS-232, Modbus)</p>
+<p><strong>2.2. How a PLC Works</strong></p>
+<ol>
+<li>
+<p><strong>Scan Inputs</strong> – Reads the status of sensors and switches</p>
+</li>
+<li>
+<p><strong>Process Logic</strong> – Executes the user program</p>
+</li>
+<li>
+<p><strong>Update Outputs</strong> – Sends signals to control devices (motors, valves, alarms)</p>
+</li>
+<li>
+<p><strong>Repeat Cycle</strong> – Continuously runs this cycle in milliseconds</p>
+</li>
+</ol>
+<hr />
+<p><strong>3. Basic PLC Programming Languages</strong></p>
+<p>PLCs support multiple <strong>IEC 61131-3</strong> programming languages:</p>
+<p><strong>3.1. Ladder Logic (LAD)</strong></p>
+<p>• <strong>Graphical language resembling electrical relay logic</strong></p>
+<p>• <strong>Used in industrial automation</strong></p>
+<p>• <strong>Easy to visualize and debug</strong></p>
+<p><strong>Example: Simple Start/Stop Circuit</strong></p>
+<p><code>(Start Button) ---[ ]---+---[ ]---(Motor Output)
+                         |
+(Stop Button) ---[/]----+</code></p>
+<p><strong>3.2. Function Block Diagram (FBD)</strong></p>
+<p>• Uses <strong>blocks to represent logic operations</strong></p>
+<p>• Easier to program for <strong>process automation and mathematical functions</strong></p>
+<p>• Example: <strong>AND Gate</strong></p>
+<p><code>(Input 1) ---&gt;[AND]---&gt; (Output)
+(Input 2) ---&gt;[    ]</code></p>
+<p><strong>3.3. Structured Text (ST)</strong></p>
+<p>• <strong>Text-based programming language</strong> (similar to Pascal or Python)</p>
+<p>• <strong>Used for complex mathematical calculations and data processing</strong></p>
+<p><code>IF Start_Button = TRUE THEN
+    Motor := TRUE;
+END_IF;</code></p>
+<hr />
+<p><strong>4. Understanding Inputs, Outputs, and Data Types</strong></p>
+<p><strong>4.1. Digital Inputs &amp; Outputs</strong></p>
+<p>• <strong>Digital Input (DI)</strong> – ON/OFF (e.g., switches, sensors)</p>
+<p>• <strong>Digital Output (DO)</strong> – ON/OFF (e.g., relays, lights, solenoids)</p>
+<p><strong>Example: Start/Stop Control</strong></p>
+<p>• <strong>Start Button (DI)</strong> – Activates motor</p>
+<p>• <strong>Stop Button (DI)</strong> – Deactivates motor</p>
+<p>• <strong>Motor (DO)</strong> – Turns ON/OFF</p>
+<p><strong>4.2. Analog Inputs &amp; Outputs</strong></p>
+<p>• <strong>Analog Input (AI)</strong> – Reads variable signals (e.g., temperature, pressure)</p>
+<p>• <strong>Analog Output (AO)</strong> – Sends variable signals (e.g., motor speed, valve position)</p>
+<p><strong>Example: Controlling a Fan Speed</strong></p>
+<p>• <strong>Temperature Sensor (AI)</strong> – Reads temperature</p>
+<p>• <strong>Variable Speed Drive (AO)</strong> – Adjusts motor speed</p>
+<p><strong>4.3. Common Data Types</strong></p>
+<p>• <strong>BOOL</strong> – Boolean (TRUE/FALSE)</p>
+<p>• <strong>INT</strong> – Integer (whole numbers)</p>
+<p>• <strong>REAL</strong> – Floating-point numbers</p>
+<p>• <strong>STRING</strong> – Text values</p>
+<hr />
+<p><strong>5. Timers, Counters, and Logic Operations</strong></p>
+<p><strong>5.1. Timers (TON, TOF, TP)</strong></p>
+<p>• <strong>TON (On-Delay Timer)</strong> – Delays turning on an output</p>
+<p>• <strong>TOF (Off-Delay Timer)</strong> – Delays turning off an output</p>
+<p>• <strong>TP (Pulse Timer)</strong> – Generates a pulse for a fixed time</p>
+<p><strong>Example: ON-Delay Timer</strong></p>
+<p><code>(Start) ---[ ]------[TON Timer1]------(Motor)</code></p>
+<p><strong>Timer1 activates the motor after 5 seconds.</strong></p>
+<p><strong>5.2. Counters (CTU, CTD)</strong></p>
+<p>• <strong>CTU (Count Up)</strong> – Counts up to a set value</p>
+<p>• <strong>CTD (Count Down)</strong> – Counts down from a set value</p>
+<p><strong>Example: Count 10 Products</strong></p>
+<p><code>(Sensor) ---[ ]----[CTU Counter1 10]----(Conveyor)</code></p>
+<p><strong>When Counter1 reaches 10, it stops the conveyor.</strong></p>
+<hr />
+<p><strong>6. Basic PLC Troubleshooting</strong></p>
+<p>• <strong>Check Power Supply</strong> – Ensure PLC is powered ON</p>
+<p>• <strong>Check Inputs &amp; Outputs</strong> – Use PLC diagnostics tools</p>
+<p>• <strong>Monitor Logic Execution</strong> – Use simulation mode</p>
+<p>• <strong>Check Communication Ports</strong> – Ensure PLC is connected properly</p>
+<hr />
+<p><strong>7. Simulating PLC Programs Using Software</strong></p>
+<p><strong>7.1. Recommended PLC Software</strong></p>
+<p>• <strong>Siemens TIA Portal</strong> – For Siemens PLCs</p>
+<p>• <strong>Allen-Bradley RSLogix 5000</strong> – For Allen-Bradley PLCs</p>
+<p>• <strong>Codesys</strong> – Open-source PLC programming</p>
+<p>• <strong>Factory I/O</strong> – 3D simulation software</p>
+<p><strong>7.2. Running a Simulation in TIA Portal</strong></p>
+<ol>
+<li>
+<p><strong>Open TIA Portal and create a new project</strong></p>
+</li>
+<li>
+<p><strong>Add a PLC (e.g., Siemens S7-1200)</strong></p>
+</li>
+<li>
+<p><strong>Write a Ladder Logic program</strong></p>
+</li>
+<li>
+<p><strong>Run the simulation and observe the I/O behavior</strong></p>
+</li>
+</ol>
+<hr />
+<p><strong>8. Building a Simple PLC Program</strong></p>
+<p><strong>8.1. Project: Automatic Conveyor Belt System</strong></p>
+<p><strong>Objective:</strong> Start a conveyor when a product is detected and stop it after 5 seconds.</p>
+<p><strong>8.2. Ladder Logic Program</strong></p>
+<p><code>(Sensor) ---[ ]------[TON Timer1 5s]------(Conveyor Motor)</code></p>
+<p><strong>8.3. Structured Text Version</strong></p>
+<p><code>IF Sensor = TRUE THEN
+    Conveyor := TRUE;
+    TON(Timer1, 5);
+END_IF;</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in PLC Level 1:</strong></p>
+<p>✅ <strong>What is a PLC and How It Works</strong></p>
+<p>✅ <strong>PLC Components &amp; Architecture</strong></p>
+<p>✅ <strong>Basic PLC Programming Languages (Ladder Logic, FBD, ST)</strong></p>
+<p>✅ <strong>Understanding Inputs, Outputs, and Data Types</strong></p>
+<p>✅ <strong>Timers, Counters, and Logic Operations</strong></p>
+<p>✅ <strong>Basic PLC Troubleshooting</strong></p>
+<p>✅ <strong>Simulating PLC Programs Using Software</strong></p>
+<p>✅ <strong>Built a Simple PLC Program</strong></p>
+<p>Now, you’re ready for <strong>PLC Level 2</strong>, where we explore <strong>Advanced PLC Programming, PID Control, Networking, and Industrial IoT Integration!</strong> 🚀</p></body></html>

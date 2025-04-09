@@ -1,0 +1,208 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>19:11:06</strong> 
+<strong>Topics:</strong> [[TypeScript L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>TypeScript Level 1: Introduction to TypeScript Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>TypeScript is a <strong>strongly typed superset of JavaScript</strong> that compiles to plain JavaScript. It enhances JavaScript by <strong>adding static types, interfaces, and modern ES features</strong>, making it ideal for <strong>large-scale applications and frontend development with Angular, React, and Node.js</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Setting Up TypeScript &amp; Compiling Code</strong></p>
+<p>✅ <strong>Basic Syntax (Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Functions &amp; Type Annotations</strong></p>
+<p>✅ <strong>Interfaces &amp; Type Aliases</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch)</strong></p>
+<p>✅ <strong>Classes &amp; Object-Oriented Programming</strong></p>
+<p>✅ <strong>Error Handling &amp; Debugging</strong></p>
+<p>✅ <strong>Building a Simple TypeScript Web App</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write TypeScript programs with type safety and object-oriented features</strong>.</p>
+<hr />
+<p><strong>1. Setting Up TypeScript</strong></p>
+<p><strong>1.1. Installing TypeScript</strong></p>
+<p>Install TypeScript globally:</p>
+<p><code>npm install -g typescript</code></p>
+<p>Verify installation:</p>
+<p><code>tsc --version</code></p>
+<p><strong>1.2. Compiling TypeScript Code</strong></p>
+<ol>
+<li>Create a file hello.ts:</li>
+</ol>
+<p><code>let message: string = "Hello, TypeScript!";
+console.log(message);</code></p>
+<ol>
+<li>Compile and run:</li>
+</ol>
+<p><code>tsc hello.ts
+node hello.js</code></p>
+<hr />
+<p><strong>2. TypeScript Basics: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>2.1. Declaring Variables</strong></p>
+<p><code>let username: string = "Alice";
+let age: number = 25;
+let isDeveloper: boolean = true;</code></p>
+<p><strong>2.2. Basic Data Types</strong></p>
+<p><code>let x: number = 10;
+let y: string = "Hello";
+let isActive: boolean = true;
+let numbers: number[] = [1, 2, 3, 4];
+let anything: any = "Can be anything"; // Avoid using `any`</code></p>
+<p><strong>2.3. Operators</strong></p>
+<p><code>let a = 10, b = 3;
+console.log(a + b);  // Addition
+console.log(a - b);  // Subtraction
+console.log(a * b);  // Multiplication
+console.log(a / b);  // Division
+console.log(a % b);  // Modulus</code></p>
+<hr />
+<p><strong>3. Functions &amp; Type Annotations</strong></p>
+<p><strong>3.1. Defining Functions</strong></p>
+<p><code>function greet(name: string): string {
+    return `Hello, ${name}!`;
+}
+console.log(greet("Alice"));</code></p>
+<p><strong>3.2. Default &amp; Optional Parameters</strong></p>
+<p><code>function sayHello(name: string = "Guest", age?: number) {
+    console.log(`Hello, ${name}, Age: ${age || "Unknown"}`);
+}
+sayHello("Bob");</code></p>
+<p><strong>3.3. Arrow Functions</strong></p>
+<p><code>const add = (a: number, b: number): number =&gt; a + b;
+console.log(add(5, 3));</code></p>
+<hr />
+<p><strong>4. Interfaces &amp; Type Aliases</strong></p>
+<p><strong>4.1. Using Interfaces</strong></p>
+<p>```
+interface User {
+    name: string;
+    age: number;
+}</p>
+<p>let user: User = { name: "Alice", age: 30 };
+console.log(user.name);
+```</p>
+<p><strong>4.2. Type Aliases</strong></p>
+<p>```
+type Point = { x: number; y: number };</p>
+<p>let p: Point = { x: 10, y: 20 };
+console.log(p);
+```</p>
+<hr />
+<p><strong>5. Control Flow (If-Else, Loops, Switch)</strong></p>
+<p><strong>5.1. If-Else Statement</strong></p>
+<p><code>let num: number = 10;
+if (num &gt; 5) {
+    console.log("Greater than 5");
+} else {
+    console.log("Less than or equal to 5");
+}</code></p>
+<p><strong>5.2. For Loop</strong></p>
+<p><code>for (let i = 1; i &lt;= 5; i++) {
+    console.log(`Iteration ${i}`);
+}</code></p>
+<p><strong>5.3. While Loop</strong></p>
+<p><code>let count = 0;
+while (count &lt; 3) {
+    console.log(`Count: ${count}`);
+    count++;
+}</code></p>
+<p><strong>5.4. Switch Case</strong></p>
+<p><code>let fruit: string = "apple";
+switch (fruit) {
+    case "apple":
+        console.log("You chose an apple!");
+        break;
+    case "banana":
+        console.log("Bananas are great!");
+        break;
+    default:
+        console.log("Nice choice!");
+}</code></p>
+<hr />
+<p><strong>6. Classes &amp; Object-Oriented Programming</strong></p>
+<p><strong>6.1. Creating a Class</strong></p>
+<p>```
+class Car {
+    brand: string;
+    speed: number;</p>
+<pre><code>constructor(brand: string, speed: number) {
+    this.brand = brand;
+    this.speed = speed;
+}
+
+drive(): void {
+    console.log(`${this.brand} is moving at ${this.speed} km/h`);
+}
+</code></pre>
+<p>}</p>
+<p>let myCar = new Car("Tesla", 120);
+myCar.drive();
+```</p>
+<p><strong>6.2. Inheritance</strong></p>
+<p>```
+class ElectricCar extends Car {
+    batteryLife: number;</p>
+<pre><code>constructor(brand: string, speed: number, batteryLife: number) {
+    super(brand, speed);
+    this.batteryLife = batteryLife;
+}
+
+charge(): void {
+    console.log(`${this.brand} is charging with ${this.batteryLife}% battery left.`);
+}
+</code></pre>
+<p>}</p>
+<p>let myTesla = new ElectricCar("Tesla", 150, 80);
+myTesla.charge();
+```</p>
+<hr />
+<p><strong>7. Error Handling &amp; Debugging</strong></p>
+<p><strong>7.1. Try-Catch Block</strong></p>
+<p><code>try {
+    throw new Error("Something went wrong!");
+} catch (error) {
+    console.log("Error:", error.message);
+}</code></p>
+<p><strong>7.2. Debugging TypeScript</strong></p>
+<ol>
+<li>Compile with source maps:</li>
+</ol>
+<p><code>tsc --sourceMap script.ts</code></p>
+<ol>
+<li>Debug in Chrome or VS Code.</li>
+</ol>
+<hr />
+<p><strong>8. Building a Simple TypeScript Web App</strong></p>
+<p><strong>8.1. Setting Up a TypeScript HTML Project</strong></p>
+<ol>
+<li>Create <strong>index.html</strong>:</li>
+</ol>
+<p>```</p>
+<html>
+<head><script src="script.js"></script></head>
+<body>
+    <button onclick="sayHello()">Click Me</button>
+</body>
+</html>
+<p>```</p>
+<ol>
+<li>Create <strong>script.ts</strong>:</li>
+</ol>
+<p><code>function sayHello(): void {
+    alert("Hello from TypeScript!");
+}</code></p>
+<ol>
+<li>Compile and run:</li>
+</ol>
+<p><code>tsc script.ts</code></p>
+<hr />
+<p><strong>9. Conclusion</strong></p>
+<p><strong>What You Learned in TypeScript Level 1:</strong></p>
+<p>✅ <strong>Setting Up TypeScript &amp; Compiling Code</strong></p>
+<p>✅ <strong>Basic Syntax (Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Functions &amp; Type Annotations</strong></p>
+<p>✅ <strong>Interfaces &amp; Type Aliases</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch)</strong></p>
+<p>✅ <strong>Classes &amp; Object-Oriented Programming</strong></p>
+<p>✅ <strong>Error Handling &amp; Debugging</strong></p>
+<p>✅ <strong>Built a Simple TypeScript Web App</strong></p>
+<p>Now, you’re ready for <strong>TypeScript Level 2</strong>, where we explore <strong>Generics, Modules, Advanced Types, Web APIs, and Full-Stack TypeScript Development!</strong> 🚀</p></body></html>

@@ -1,0 +1,227 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>11:53:13</strong> 
+<strong>Topics:</strong> [[Python Lesson 2]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>prompt: Lesson 1, [[Python]]. Teach all the basics in simple terms and with examples. By the end of this lesson, all the material for one to become an intermediate Python programmer should be delivered.</p>
+</blockquote>
+<p><strong>Python Crash Course: From Beginner to Intermediate in One Lesson</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Python is a powerful, high-level programming language known for its simplicity and readability. It is widely used in web development, data science, artificial intelligence, automation, and more. In this lesson, you’ll learn all the fundamentals to get started with Python and advance to an intermediate level.</p>
+<hr />
+<p><strong>1. Setting Up Python</strong></p>
+<p><strong>Installing Python</strong></p>
+<ol>
+<li>
+<p>Download and install Python from <a href="https://www.python.org/">python.org</a>.</p>
+</li>
+<li>
+<p>Verify installation:</p>
+</li>
+</ol>
+<p>• Open the terminal (Command Prompt on Windows) and type:</p>
+<p><code>python --version</code></p>
+<ol>
+<li>Open Python in interactive mode by typing python or use an Integrated Development Environment (IDE) like VS Code, PyCharm, or Jupyter Notebook.</li>
+</ol>
+<hr />
+<p><strong>2. Python Syntax and Basic Operations</strong></p>
+<p><strong>Printing Output</strong></p>
+<p><code>print("Hello, World!")</code></p>
+<p><strong>Variables and Data Types</strong></p>
+<p>Python automatically assigns data types:</p>
+<p><code>x = 10      # Integer
+y = 3.14    # Float
+name = "Alice"  # String
+is_active = True  # Boolean</code></p>
+<p><strong>Basic Math Operations</strong></p>
+<p><code>a = 10 + 5  # Addition
+b = 10 - 5  # Subtraction
+c = 10 * 5  # Multiplication
+d = 10 / 3  # Division (returns float)
+e = 10 // 3  # Floor Division (returns integer)
+f = 10 % 3  # Modulus (remainder)
+g = 2 ** 3  # Exponentiation (2^3 = 8)</code></p>
+<hr />
+<p><strong>3. Control Flow: Conditions and Loops</strong></p>
+<p><strong>If-Else Statements</strong></p>
+<p>```
+age = 18</p>
+<p>if age &gt;= 18:
+    print("You are an adult")
+else:
+    print("You are a minor")
+```</p>
+<p><strong>Loops</strong></p>
+<p><strong>For Loop</strong></p>
+<p><code>for i in range(5):  # Loops from 0 to 4
+    print(i)</code></p>
+<p><strong>While Loop</strong></p>
+<p><code>count = 0
+while count &lt; 5:
+    print(count)
+    count += 1</code></p>
+<p><strong>Loop Control Statements</strong></p>
+<p><code>for i in range(10):
+    if i == 5:
+        break  # Stops the loop at 5
+    if i == 2:
+        continue  # Skips 2
+    print(i)</code></p>
+<hr />
+<p><strong>4. Data Structures</strong></p>
+<p><strong>Lists (Arrays)</strong></p>
+<p><code>fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")  # Add item
+fruits.remove("banana")  # Remove item
+print(fruits[0])  # Access first element</code></p>
+<p><strong>Tuples (Immutable Lists)</strong></p>
+<p><code>coordinates = (10, 20)
+print(coordinates[0])  # Access first element</code></p>
+<p><strong>Dictionaries (Key-Value Pairs)</strong></p>
+<p><code>person = {"name": "Alice", "age": 25}
+print(person["name"])  # Get value by key
+person["city"] = "New York"  # Add new key-value pair</code></p>
+<p><strong>Sets (Unique Unordered Elements)</strong></p>
+<p><code>unique_numbers = {1, 2, 3, 3, 2, 1}
+print(unique_numbers)  # {1, 2, 3}</code></p>
+<hr />
+<p><strong>5. Functions and Modular Code</strong></p>
+<p><strong>Defining Functions</strong></p>
+<p>```
+def greet(name):
+    return f"Hello, {name}!"</p>
+<p>print(greet("Alice"))
+```</p>
+<p><strong>Lambda Functions (Short Anonymous Functions)</strong></p>
+<p><code>square = lambda x: x ** 2
+print(square(5))  # 25</code></p>
+<p><strong>Importing Modules</strong></p>
+<p><code>import math
+print(math.sqrt(16))  # 4.0</code></p>
+<hr />
+<p><strong>6. Object-Oriented Programming (OOP)</strong></p>
+<p><strong>Defining a Class</strong></p>
+<p>```
+class Person:
+    def <strong>init</strong>(self, name, age):
+        self.name = name
+        self.age = age</p>
+<pre><code>def greet(self):
+    return f"Hi, I'm {self.name} and I'm {self.age} years old."
+</code></pre>
+<p>alice = Person("Alice", 25)
+print(alice.greet())
+```</p>
+<hr />
+<p><strong>7. File Handling</strong></p>
+<p><strong>Reading Files</strong></p>
+<p><code>with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)</code></p>
+<p><strong>Writing to Files</strong></p>
+<p><code>with open("example.txt", "w") as file:
+    file.write("Hello, this is a test file.")</code></p>
+<hr />
+<p><strong>8. Exception Handling (Error Handling)</strong></p>
+<p><code>try:
+    num = int(input("Enter a number: "))
+    print(10 / num)
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except ValueError:
+    print("Invalid input, enter a number.")
+finally:
+    print("Execution finished.")</code></p>
+<hr />
+<p><strong>9. Working with External Libraries</strong></p>
+<p><strong>Installing Libraries</strong></p>
+<p><code>pip install requests</code></p>
+<p><strong>Using External Libraries</strong></p>
+<p><code>import requests
+response = requests.get("https://api.github.com")
+print(response.json())  # Print API response</code></p>
+<hr />
+<p><strong>10. Intermediate Topics</strong></p>
+<p><strong>List Comprehensions</strong></p>
+<p><code>squares = [x ** 2 for x in range(10)]
+print(squares)</code></p>
+<p><strong>Dictionary Comprehensions</strong></p>
+<p><code>squared_numbers = {x: x ** 2 for x in range(5)}
+print(squared_numbers)</code></p>
+<p><strong>Decorators</strong></p>
+<p>```
+def decorator(func):
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+    return wrapper</p>
+<p>@decorator
+def say_hello():
+    print("Hello!")</p>
+<p>say_hello()
+```</p>
+<p><strong>Generators</strong></p>
+<p>```
+def my_generator():
+    for i in range(5):
+        yield i</p>
+<p>gen = my_generator()
+print(next(gen))  # 0
+print(next(gen))  # 1
+```</p>
+<hr />
+<p><strong>11. Final Project: Simple To-Do App</strong></p>
+<p>```
+tasks = []</p>
+<p>def add_task(task):
+    tasks.append(task)</p>
+<p>def show_tasks():
+    for i, task in enumerate(tasks, 1):
+        print(f"{i}. {task}")</p>
+<p>while True:
+    action = input("Enter 'add' to add task, 'show' to see tasks, 'exit' to quit: ")
+    if action == "add":
+        task = input("Enter task: ")
+        add_task(task)
+    elif action == "show":
+        show_tasks()
+    elif action == "exit":
+        break
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p>You’ve learned:</p>
+<ol>
+<li>
+<p><strong>Basic Syntax</strong> – Variables, data types, operators.</p>
+</li>
+<li>
+<p><strong>Control Flow</strong> – If statements, loops.</p>
+</li>
+<li>
+<p><strong>Data Structures</strong> – Lists, tuples, dictionaries, sets.</p>
+</li>
+<li>
+<p><strong>Functions &amp; OOP</strong> – Writing functions, classes, and methods.</p>
+</li>
+<li>
+<p><strong>File Handling</strong> – Reading and writing files.</p>
+</li>
+<li>
+<p><strong>Error Handling</strong> – Try-except for debugging.</p>
+</li>
+<li>
+<p><strong>Intermediate Topics</strong> – List comprehensions, decorators, generators.</p>
+</li>
+<li>
+<p><strong>External Libraries</strong> – Installing and using third-party modules.</p>
+</li>
+<li>
+<p><strong>Final Project</strong> – Building a simple interactive to-do list.</p>
+</li>
+</ol>
+<p>Now, you can start working on real projects and deepen your Python knowledge. Keep coding! 🚀</p></body></html>

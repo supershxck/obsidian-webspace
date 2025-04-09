@@ -1,0 +1,146 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>16:00:46</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Statistical Analysis: Understanding Data Through Mathematics</strong></p>
+<p><strong>1. What is Statistical Analysis?</strong></p>
+<p>Statistical Analysis is the process of <strong>collecting, organizing, interpreting, and presenting data</strong> using mathematical techniques. It helps in <strong>understanding patterns, making predictions, and drawing conclusions</strong> from data.</p>
+<p><strong>Why is Statistical Analysis Important?</strong></p>
+<p>✔ <strong>Helps in decision-making</strong> – Data-driven insights improve accuracy.</p>
+<p>✔ <strong>Identifies trends and patterns</strong> – Useful in business, science, and social research.</p>
+<p>✔ <strong>Supports hypothesis testing</strong> – Confirms or rejects assumptions based on data.</p>
+<p>✔ <strong>Essential for AI and Machine Learning</strong> – Statistical methods enhance model performance.</p>
+<p><strong>2. Types of Statistical Analysis</strong></p>
+<p>Statistical Analysis is divided into <strong>Descriptive Statistics</strong> and <strong>Inferential Statistics</strong>.</p>
+<p><strong>1. Descriptive Statistics (Summarizing Data)</strong></p>
+<p>Descriptive statistics <strong>describe and summarize</strong> data without making predictions.</p>
+<p>✔ <strong>Measures of Central Tendency (Where is the center of the data?)</strong></p>
+<p>|<strong>Metric</strong>|<strong>Definition</strong>|<strong>Formula/Example</strong>|
+|---|---|---|
+|<strong>Mean (Average)</strong>|Sum of values divided by count|Mean = (ΣX) / N|
+|<strong>Median</strong>|Middle value in sorted data|Middle of [3, 7, 9, 15, 20] → 9|
+|<strong>Mode</strong>|Most frequently occurring value|Mode of [2, 3, 3, 5, 5, 5] → 5|</p>
+<p>✔ <strong>Example: Calculating Mean, Median, and Mode in Python</strong></p>
+<p>```
+import numpy as np
+from scipy import stats</p>
+<p>data = [10, 20, 30, 30, 40, 50]
+print("Mean:", np.mean(data))
+print("Median:", np.median(data))
+print("Mode:", stats.mode(data)[0][0])
+```</p>
+<p>✔ <strong>Measures of Dispersion (How spread out is the data?)</strong></p>
+<p>|<strong>Metric</strong>|<strong>Definition</strong>|<strong>Formula/Example</strong>|
+|---|---|---|
+|<strong>Variance (σ²)</strong>|Average squared deviation from the mean|Σ(x - mean)² / N|
+|<strong>Standard Deviation (σ)</strong>|Square root of variance|σ = sqrt(variance)|
+|<strong>Range</strong>|Difference between max and min values|Max - Min|
+|<strong>Interquartile Range (IQR)</strong>|Middle 50% of data|Q3 - Q1|</p>
+<p>✔ <strong>Example: Calculating Standard Deviation in Python</strong></p>
+<p><code>print("Standard Deviation:", np.std(data))</code></p>
+<p>✔ <strong>Visualizing Distribution</strong></p>
+<p>```
+import seaborn as sns
+import matplotlib.pyplot as plt</p>
+<p>sns.histplot(data, bins=10, kde=True)
+plt.show()
+```</p>
+<p><strong>2. Inferential Statistics (Making Predictions)</strong></p>
+<p>Inferential statistics <strong>draws conclusions</strong> from data samples and generalizes them to a population.</p>
+<p>✔ <strong>Key Concepts</strong></p>
+<p>|<strong>Concept</strong>|<strong>Definition</strong>|
+|---|---|
+|<strong>Population</strong>|Entire group being studied|
+|<strong>Sample</strong>|A subset of the population|
+|<strong>Sampling Methods</strong>|Random, Stratified, Cluster Sampling|
+|<strong>Confidence Interval</strong>|Range of values likely containing the true population parameter|
+|<strong>Hypothesis Testing</strong>|Process of making decisions about data|</p>
+<p>✔ <strong>Example: Confidence Interval in Python</strong></p>
+<p>```
+import scipy.stats as st</p>
+<p>sample_data = [10, 20, 30, 40, 50]
+confidence_interval = st.t.interval(0.95, len(sample_data)-1, loc=np.mean(sample_data), scale=st.sem(sample_data))
+print("95% Confidence Interval:", confidence_interval)
+```</p>
+<p><strong>3. Hypothesis Testing</strong></p>
+<p><strong>1. What is Hypothesis Testing?</strong></p>
+<p>Hypothesis Testing is used to <strong>test assumptions (hypotheses) about data</strong>.</p>
+<p>✔ <strong>Key Terms</strong></p>
+<p>|<strong>Term</strong>|<strong>Definition</strong>|
+|---|---|
+|<strong>Null Hypothesis (H₀)</strong>|No effect or no difference|
+|<strong>Alternative Hypothesis (H₁)</strong>|There is an effect or difference|
+|<strong>p-value</strong>|Probability of observing results under H₀|
+|<strong>Significance Level (α)</strong>|Threshold for rejecting H₀ (typically 0.05)|
+|<strong>Reject H₀</strong>|If p-value &lt; α, reject the null hypothesis|
+|<strong>Fail to Reject H₀</strong>|If p-value &gt; α, no significant difference detected|</p>
+<p>✔ <strong>Example: Hypothesis</strong></p>
+<p>• <strong>H₀:</strong> The average salary of data scientists is $80,000.</p>
+<p>• <strong>H₁:</strong> The average salary is not $80,000.</p>
+<p><strong>2. Common Hypothesis Tests</strong></p>
+<p>|<strong>Test</strong>|<strong>Used For</strong>|<strong>Example</strong>|
+|---|---|---|
+|<strong>t-Test</strong>|Comparing two means|Checking if salaries differ by gender|
+|<strong>ANOVA</strong>|Comparing multiple means|Comparing average sales across 3 regions|
+|<strong>Chi-Square Test</strong>|Categorical data relationships|Checking if voting preferences depend on age|
+|<strong>Correlation (Pearson/Spearman)</strong>|Strength of relationship between variables|Checking if height correlates with weight|</p>
+<p>✔ <strong>Example: t-Test in Python</strong></p>
+<p>```
+group1 = [23, 21, 25, 29, 27]
+group2 = [19, 22, 24, 26, 30]</p>
+<p>t_stat, p_value = st.ttest_ind(group1, group2)
+print("p-value:", p_value)
+if p_value &lt; 0.05:
+    print("Reject H₀: Significant Difference")
+else:
+    print("Fail to Reject H₀: No Significant Difference")
+```</p>
+<p><strong>4. Correlation and Regression Analysis</strong></p>
+<p><strong>1. Correlation Analysis</strong></p>
+<p>Correlation measures <strong>how strongly two variables are related</strong>.</p>
+<p>✔ <strong>Types of Correlation</strong></p>
+<p>|<strong>Type</strong>|<strong>Coefficient (r)</strong>|<strong>Meaning</strong>|
+|---|---|---|
+|<strong>Positive Correlation</strong>|r &gt; 0|One variable increases, so does the other|
+|<strong>Negative Correlation</strong>|r &lt; 0|One variable increases, the other decreases|
+|<strong>No Correlation</strong>|r ≈ 0|No relationship|</p>
+<p>✔ <strong>Example: Checking Correlation in Python</strong></p>
+<p><code>correlation_matrix = df.corr()
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.show()</code></p>
+<p><strong>2. Regression Analysis</strong></p>
+<p>Regression predicts <strong>the effect of one variable on another</strong>.</p>
+<p>✔ <strong>Types of Regression</strong></p>
+<p>|<strong>Type</strong>|<strong>Description</strong>|<strong>Example</strong>|
+|---|---|---|
+|<strong>Linear Regression</strong>|Predicts a continuous value|Predicting house prices|
+|<strong>Logistic Regression</strong>|Predicts a categorical value (Yes/No)|Fraud detection|
+|<strong>Multiple Regression</strong>|Predicts using multiple variables|Predicting sales based on ads &amp; prices|</p>
+<p>✔ <strong>Example: Linear Regression in Python</strong></p>
+<p>```
+from sklearn.linear_model import LinearRegression</p>
+<p>X = df[['feature1']]
+y = df['target']</p>
+<p>model = LinearRegression()
+model.fit(X, y)
+print("Coefficient:", model.coef_)
+print("Intercept:", model.intercept_)
+```</p>
+<p><strong>5. Applications of Statistical Analysis</strong></p>
+<p>|<strong>Industry</strong>|<strong>Application</strong>|
+|---|---|
+|<strong>Finance</strong>|Risk assessment, stock market predictions|
+|<strong>Healthcare</strong>|Drug effectiveness testing, disease prediction|
+|<strong>Marketing</strong>|Customer segmentation, A/B testing|
+|<strong>E-commerce</strong>|Price optimization, sales forecasting|
+|<strong>Cybersecurity</strong>|Anomaly detection, fraud detection|</p>
+<p>✔ <strong>Example: Fraud Detection</strong></p>
+<p>• Using <strong>statistical anomalies</strong> to detect unusual transactions.</p>
+<p>✔ <strong>Example: A/B Testing in Marketing</strong></p>
+<p>• <strong>H₀:</strong> Changing the website layout does not increase sales.</p>
+<p>• <strong>H₁:</strong> The new layout increases sales.</p>
+<p>• Conduct a <strong>t-test</strong> to determine if the difference is significant.</p>
+<p><strong>6. Conclusion</strong></p>
+<p><strong>Statistical Analysis</strong> is essential for <strong>data-driven decision-making</strong>. By understanding <strong>descriptive statistics, inferential statistics, hypothesis testing, correlation, and regression analysis</strong>, we can <strong>extract meaningful insights and make informed decisions</strong>. 🚀</p></body></html>

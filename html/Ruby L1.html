@@ -1,0 +1,189 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>18:35:12</strong> 
+<strong>Topics:</strong> [[Ruby L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Ruby Level 1: From Beginner to Intermediate in One Lesson</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Ruby is a <strong>dynamic, object-oriented programming language</strong> known for <strong>simplicity and productivity</strong>. It is widely used in <strong>web development (Ruby on Rails), scripting, and automation</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Ruby Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops)</strong></p>
+<p>✅ <strong>Methods &amp; Blocks</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes, Objects, Inheritance)</strong></p>
+<p>✅ <strong>File Handling (Reading &amp; Writing Files)</strong></p>
+<p>✅ <strong>Ruby Gems &amp; Package Management</strong></p>
+<p>✅ <strong>Basic Web Development with Sinatra</strong></p>
+<p>✅ <strong>Building a Simple Ruby Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write functional Ruby programs and build simple web applications</strong>.</p>
+<hr />
+<p><strong>1. Setting Up Ruby</strong></p>
+<p><strong>1.1. Installing Ruby</strong></p>
+<p>Install Ruby using:</p>
+<p>• <strong>macOS/Linux:</strong></p>
+<p><code>brew install ruby</code></p>
+<p>• <strong>Windows:</strong> Download from <a href="https://rubyinstaller.org/">rubyinstaller.org</a>.</p>
+<p><strong>1.2. Running Ruby Code</strong></p>
+<p>• <strong>Interactive Mode (IRB):</strong></p>
+<p><code>irb</code></p>
+<p>• <strong>Executing a Script:</strong></p>
+<p><code>ruby my_script.rb</code></p>
+<hr />
+<p><strong>2. Ruby Basics: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>2.1. Variables &amp; Data Types</strong></p>
+<p><code>age = 25           # Integer
+pi = 3.14          # Float
+is_ruby_fun = true # Boolean
+name = "Alice"     # String
+fruits = ["apple", "banana", "cherry"] # Array
+person = { name: "Alice", age: 25 } # Hash (Dictionary)</code></p>
+<p><strong>2.2. Operators</strong></p>
+<p><code>a, b = 10, 3
+puts a + b  # Addition
+puts a - b  # Subtraction
+puts a * b  # Multiplication
+puts a / b  # Division
+puts a % b  # Modulus
+puts a ** b # Exponentiation</code></p>
+<hr />
+<p><strong>3. Control Flow (If-Else, Loops)</strong></p>
+<p><strong>3.1. If-Else Statement</strong></p>
+<p><code>age = 18
+if age &gt;= 18
+  puts "You are an adult."
+else
+  puts "You are a minor."
+end</code></p>
+<p><strong>3.2. Loops</strong></p>
+<p><strong>For Loop</strong></p>
+<p><code>for i in 1..5
+  puts "Iteration: #{i}"
+end</code></p>
+<p><strong>While Loop</strong></p>
+<p><code>count = 0
+while count &lt; 5
+  puts count
+  count += 1
+end</code></p>
+<p><strong>Do-While Loop</strong></p>
+<p><code>num = 0
+begin
+  puts "Number: #{num}"
+  num += 1
+end while num &lt; 5</code></p>
+<hr />
+<p><strong>4. Methods &amp; Blocks</strong></p>
+<p><strong>4.1. Defining a Method</strong></p>
+<p>```
+def greet(name)
+  "Hello, #{name}"
+end</p>
+<p>puts greet("Alice")
+```</p>
+<p><strong>4.2. Method with Default Arguments</strong></p>
+<p>```
+def greet(name = "Guest")
+  "Hello, #{name}"
+end</p>
+<p>puts greet
+puts greet("Bob")
+```</p>
+<p><strong>4.3. Blocks &amp; Yield</strong></p>
+<p>```
+def repeat_twice
+  yield
+  yield
+end</p>
+<p>repeat_twice { puts "Hello!" }
+```</p>
+<hr />
+<p><strong>5. Object-Oriented Programming (OOP)</strong></p>
+<p><strong>5.1. Defining a Class &amp; Creating an Object</strong></p>
+<p>```
+class Car
+  attr_accessor :brand, :speed</p>
+<p>def initialize(brand, speed)
+    @brand = brand
+    @speed = speed
+  end</p>
+<p>def drive
+    puts "#{@brand} is driving at #{@speed} km/h"
+  end
+end</p>
+<p>my_car = Car.new("Toyota", 120)
+my_car.drive
+```</p>
+<p><strong>5.2. Inheritance</strong></p>
+<p>```
+class Animal
+  def speak
+    puts "Animal makes a sound"
+  end
+end</p>
+<p>class Dog &lt; Animal
+  def speak
+    puts "Woof!"
+  end
+end</p>
+<p>dog = Dog.new
+dog.speak
+```</p>
+<hr />
+<p><strong>6. File Handling (Reading &amp; Writing Files)</strong></p>
+<p><strong>6.1. Writing to a File</strong></p>
+<p><code>File.open("example.txt", "w") do |file|
+  file.puts "Hello, file!"
+end</code></p>
+<p><strong>6.2. Reading from a File</strong></p>
+<p><code>File.open("example.txt", "r") do |file|
+  puts file.read
+end</code></p>
+<hr />
+<p><strong>7. Ruby Gems &amp; Package Management</strong></p>
+<p><strong>7.1. Installing Gems</strong></p>
+<p><code>gem install sinatra</code></p>
+<p><strong>7.2. Using a Gem in a Script</strong></p>
+<p><code>require 'date'
+puts Date.today</code></p>
+<hr />
+<p><strong>8. Basic Web Development with Sinatra</strong></p>
+<p>Sinatra is a lightweight web framework for Ruby.</p>
+<p><strong>8.1. Installing Sinatra</strong></p>
+<p><code>gem install sinatra</code></p>
+<p><strong>8.2. Creating a Simple Web App</strong></p>
+<p>```
+require 'sinatra'</p>
+<p>get '/' do
+  "Hello, Sinatra!"
+end
+```</p>
+<p>Run the app:</p>
+<p><code>ruby my_app.rb</code></p>
+<p>Then visit http://localhost:4567 in a browser.</p>
+<hr />
+<p><strong>9. Final Project: Building a Simple To-Do List</strong></p>
+<p><strong>9.1. Ruby Code (todo.rb)</strong></p>
+<p>```
+tasks = []</p>
+<p>loop do
+  puts "To-Do List:"
+  tasks.each_with_index { |task, index| puts "#{index + 1}. #{task}" }</p>
+<p>puts "Enter a task (or 'exit' to quit):"
+  input = gets.chomp
+  break if input.downcase == "exit"</p>
+<p>tasks &lt;&lt; input
+end
+```</p>
+<hr />
+<p><strong>10. Conclusion</strong></p>
+<p><strong>What You Learned in Ruby Level 1:</strong></p>
+<p>✅ <strong>Ruby Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops)</strong></p>
+<p>✅ <strong>Methods &amp; Blocks</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes, Objects, Inheritance)</strong></p>
+<p>✅ <strong>File Handling (Reading &amp; Writing Files)</strong></p>
+<p>✅ <strong>Ruby Gems &amp; Package Management</strong></p>
+<p>✅ <strong>Basic Web Development with Sinatra</strong></p>
+<p>✅ <strong>Built a Simple Ruby Application</strong></p>
+<p>Now, you’re ready for <strong>Ruby Level 2</strong>, where we explore <strong>Advanced OOP, Web APIs, Metaprogramming, and Ruby on Rails!</strong> 🚀</p></body></html>

@@ -1,0 +1,277 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:54:56</strong> 
+<strong>Topics:</strong> [[Go L3]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Go Level 2: Intermediate to Advanced Go Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you understand <strong>Go fundamentals</strong>, it’s time to dive into <strong>microservices, database integration, advanced concurrency, and WebSockets</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Functions (Higher-Order Functions, Variadic Functions, Closures)</strong></p>
+<p>✅ <strong>Interfaces &amp; Polymorphism</strong></p>
+<p>✅ <strong>Concurrency with Worker Pools &amp; Mutexes</strong></p>
+<p>✅ <strong>Building REST APIs with Gin</strong></p>
+<p>✅ <strong>Database Integration with PostgreSQL (GORM)</strong></p>
+<p>✅ <strong>WebSockets &amp; Real-Time Communication</strong></p>
+<p>✅ <strong>Microservices &amp; gRPC</strong></p>
+<p>✅ <strong>Building a Scalable Go Web Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>develop scalable, high-performance Go applications with database integration and microservices</strong>.</p>
+<hr />
+<p><strong>1. Advanced Functions in Go</strong></p>
+<p><strong>1.1. Higher-Order Functions</strong></p>
+<p>A function that takes another function as a parameter.</p>
+<p>```
+package main
+import "fmt"</p>
+<p>func apply(f func(int, int) int, a int, b int) int {
+    return f(a, b)
+}</p>
+<p>func add(x, y int) int {
+    return x + y
+}</p>
+<p>func main() {
+    result := apply(add, 5, 3)
+    fmt.Println("Result:", result) // 8
+}
+```</p>
+<p><strong>1.2. Variadic Functions</strong></p>
+<p>A function that accepts a variable number of arguments.</p>
+<p>```
+func sum(numbers ...int) int {
+    total := 0
+    for _, num := range numbers {
+        total += num
+    }
+    return total
+}</p>
+<p>func main() {
+    fmt.Println(sum(1, 2, 3, 4, 5)) // 15
+}
+```</p>
+<p><strong>1.3. Closures (Anonymous Functions)</strong></p>
+<p><code>func main() {
+    multiply := func(a, b int) int {
+        return a * b
+    }
+    fmt.Println(multiply(3, 4)) // 12
+}</code></p>
+<hr />
+<p><strong>2. Interfaces &amp; Polymorphism</strong></p>
+<p><strong>2.1. Defining an Interface</strong></p>
+<p>```
+package main
+import "fmt"</p>
+<p>type Speaker interface {
+    Speak() string
+}</p>
+<p>type Dog struct{}
+func (d Dog) Speak() string {
+    return "Woof!"
+}</p>
+<p>type Cat struct{}
+func (c Cat) Speak() string {
+    return "Meow!"
+}</p>
+<p>func main() {
+    var animal Speaker = Dog{}
+    fmt.Println(animal.Speak()) // Woof!
+}
+```</p>
+<hr />
+<p><strong>3. Advanced Concurrency</strong></p>
+<p><strong>3.1. Worker Pool (Managing Multiple Goroutines Efficiently)</strong></p>
+<p>```
+package main
+import (
+    "fmt"
+    "time"
+)</p>
+<p>func worker(id int, jobs &lt;-chan int, results chan&lt;- int) {
+    for j := range jobs {
+        fmt.Println("Worker", id, "processing job", j)
+        time.Sleep(time.Second)
+        results &lt;- j * 2
+    }
+}</p>
+<p>func main() {
+    jobs := make(chan int, 5)
+    results := make(chan int, 5)</p>
+<pre><code>for w := 1; w &lt;= 3; w++ {
+    go worker(w, jobs, results)
+}
+
+for j := 1; j &lt;= 5; j++ {
+    jobs &lt;- j
+}
+close(jobs)
+
+for a := 1; a &lt;= 5; a++ {
+    &lt;-results
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>3.2. Mutex for Safe Concurrent Access</strong></p>
+<p>```
+package main
+import (
+    "fmt"
+    "sync"
+)</p>
+<p>var count int
+var mu sync.Mutex</p>
+<p>func increment(wg *sync.WaitGroup) {
+    mu.Lock()
+    count++
+    mu.Unlock()
+    wg.Done()
+}</p>
+<p>func main() {
+    var wg sync.WaitGroup
+    for i := 0; i &lt; 10; i++ {
+        wg.Add(1)
+        go increment(&amp;wg)
+    }
+    wg.Wait()
+    fmt.Println("Final count:", count)
+}
+```</p>
+<hr />
+<p><strong>4. Building REST APIs with Gin</strong></p>
+<p><strong>4.1. Install Gin</strong></p>
+<p><code>go get -u github.com/gin-gonic/gin</code></p>
+<p><strong>4.2. Create a Simple API</strong></p>
+<p>```
+package main
+import "github.com/gin-gonic/gin"</p>
+<p>func main() {
+    r := gin.Default()
+    r.GET("/ping", func(c *gin.Context) {
+        c.JSON(200, gin.H{"message": "pong"})
+    })
+    r.Run(":8080")
+}
+```</p>
+<p>Run:</p>
+<p><code>go run main.go</code></p>
+<p>Visit http://localhost:8080/ping in the browser.</p>
+<hr />
+<p><strong>5. Database Integration with PostgreSQL (GORM)</strong></p>
+<p><strong>5.1. Install GORM &amp; PostgreSQL Driver</strong></p>
+<p><code>go get -u gorm.io/gorm
+go get -u gorm.io/driver/postgres</code></p>
+<p><strong>5.2. Connecting to the Database</strong></p>
+<p>```
+package main
+import (
+    "gorm.io/driver/postgres"
+    "gorm.io/gorm"
+    "fmt"
+)</p>
+<p>type User struct {
+    ID    uint   <code>gorm:"primaryKey"</code>
+    Name  string
+    Email string
+}</p>
+<p>func main() {
+    dsn := "host=localhost user=postgres password=secret dbname=mydb port=5432 sslmode=disable"
+    db, err := gorm.Open(postgres.Open(dsn), &amp;gorm.Config{})
+    if err != nil {
+        fmt.Println("Failed to connect to the database")
+        return
+    }
+    db.AutoMigrate(&amp;User{})
+}
+```</p>
+<hr />
+<p><strong>6. WebSockets &amp; Real-Time Communication</strong></p>
+<p><strong>6.1. Install Gorilla WebSocket</strong></p>
+<p><code>go get -u github.com/gorilla/websocket</code></p>
+<p><strong>6.2. Create a WebSocket Server</strong></p>
+<p>```
+package main
+import (
+    "github.com/gorilla/websocket"
+    "net/http"
+)</p>
+<p>var upgrader = websocket.Upgrader{}</p>
+<p>func handleConnection(w http.ResponseWriter, r *http.Request) {
+    conn, _ := upgrader.Upgrade(w, r, nil)
+    for {
+        messageType, p, err := conn.ReadMessage()
+        if err != nil {
+            return
+        }
+        conn.WriteMessage(messageType, p)
+    }
+}</p>
+<p>func main() {
+    http.HandleFunc("/ws", handleConnection)
+    http.ListenAndServe(":8080", nil)
+}
+```</p>
+<p>Connect using JavaScript:</p>
+<p><code>const ws = new WebSocket("ws://localhost:8080/ws");
+ws.onmessage = event =&gt; console.log(event.data);
+ws.send("Hello WebSocket!");</code></p>
+<hr />
+<p><strong>7. Microservices &amp; gRPC</strong></p>
+<p><strong>7.1. Install gRPC</strong></p>
+<p><code>go get google.golang.org/grpc</code></p>
+<p><strong>7.2. Create a Simple gRPC Server</strong></p>
+<p>```
+package main
+import (
+    "google.golang.org/grpc"
+    "net"
+    "fmt"
+)</p>
+<p>func main() {
+    lis, _ := net.Listen("tcp", ":50051")
+    grpcServer := grpc.NewServer()
+    fmt.Println("gRPC Server running on port 50051")
+    grpcServer.Serve(lis)
+}
+```</p>
+<hr />
+<p><strong>8. Building a Scalable Go Web Application</strong></p>
+<p><strong>8.1. Full-Stack Go Web App (Gin + PostgreSQL)</strong></p>
+<p>```
+package main
+import (
+    "github.com/gin-gonic/gin"
+    "gorm.io/driver/postgres"
+    "gorm.io/gorm"
+)</p>
+<p>type User struct {
+    ID    uint   <code>gorm:"primaryKey"</code>
+    Name  string
+    Email string
+}</p>
+<p>func main() {
+    dsn := "host=localhost user=postgres password=secret dbname=mydb port=5432 sslmode=disable"
+    db, _ := gorm.Open(postgres.Open(dsn), &amp;gorm.Config{})
+    db.AutoMigrate(&amp;User{})</p>
+<pre><code>r := gin.Default()
+r.POST("/users", func(c *gin.Context) {
+    var user User
+    c.BindJSON(&amp;user)
+    db.Create(&amp;user)
+    c.JSON(201, user)
+})
+r.Run(":8080")
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Go Level 2:</strong></p>
+<p>✅ <strong>Advanced Functions &amp; Interfaces</strong></p>
+<p>✅ <strong>Concurrency with Worker Pools &amp; Mutexes</strong></p>
+<p>✅ <strong>Building REST APIs with Gin</strong></p>
+<p>✅ <strong>Database Integration with PostgreSQL (GORM)</strong></p>
+<p>✅ <strong>WebSockets &amp; Real-Time Communication</strong></p>
+<p>✅ <strong>Microservices &amp; gRPC</strong></p>
+<p>✅ <strong>Built a Scalable Go Web App</strong></p>
+<p>Now, you’re ready for <strong>Go Level 3</strong>, where we explore <strong>Cloud Deployment (Docker, Kubernetes), Advanced Security, and High-Performance Go!</strong> 🚀</p></body></html>

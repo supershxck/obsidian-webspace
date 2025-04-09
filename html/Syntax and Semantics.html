@@ -1,0 +1,74 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>15:10:13</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Syntax and Semantics in Programming Languages</strong></p>
+<p><strong>1. What are Syntax and Semantics?</strong></p>
+<p><strong>Syntax</strong> and <strong>semantics</strong> are fundamental concepts in programming languages.</p>
+<p>• <strong>Syntax</strong> defines the <strong>rules and structure</strong> of a programming language (how code should be written).</p>
+<p>• <strong>Semantics</strong> defines the <strong>meaning</strong> of the written code (what happens when the code is executed).</p>
+<p><strong>Why are Syntax and Semantics Important?</strong></p>
+<p>✔ <strong>Ensures code correctness</strong> – Helps in writing valid code.</p>
+<p>✔ <strong>Prevents compilation errors</strong> – Syntax rules catch mistakes early.</p>
+<p>✔ <strong>Ensures correct program behavior</strong> – Semantics ensures logic makes sense.</p>
+<p>✔ <strong>Improves readability</strong> – Consistent syntax makes code easier to understand.</p>
+<p><strong>2. Syntax in Programming Languages</strong></p>
+<p><strong>Syntax</strong> refers to the <strong>rules that govern the structure of code</strong>. It defines <strong>valid identifiers, keywords, operators, and expressions</strong>.</p>
+<p><strong>Example: Correct vs. Incorrect Syntax in Java</strong></p>
+<p>✔ <strong>Correct Syntax:</strong></p>
+<p><code>int x = 10;
+System.out.println("Hello, World!");</code></p>
+<p>❌ <strong>Incorrect Syntax (missing semicolon, incorrect keyword usage):</strong></p>
+<p><code>int x = 10  // ERROR: Missing semicolon
+system.out.println("Hello, World!");  // ERROR: 'system' should be 'System'</code></p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• Every Java statement <strong>must end with a semicolon (;)</strong>.</p>
+<p>• Java is <strong>case-sensitive</strong> (System vs. system).</p>
+<p>• <strong>Syntax errors prevent compilation</strong>.</p>
+<p><strong>3. Semantics in Programming Languages</strong></p>
+<p><strong>Semantics</strong> defines the <strong>meaning</strong> of syntactically correct code. Even if code is <strong>written correctly</strong>, it may produce <strong>unexpected behavior</strong> due to semantic errors.</p>
+<p><strong>Example: Syntax vs. Semantic Errors</strong></p>
+<p>✔ <strong>Correct Syntax but Wrong Semantics:</strong></p>
+<p><code>int x = 10 / 0;  // ERROR: Division by zero</code></p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• <strong>Syntax is valid</strong>, but <strong>semantics is incorrect</strong> because division by zero is undefined.</p>
+<p>✔ <strong>Another Example: Incorrect Variable Assignment</strong></p>
+<p><code>String name = 25;  // ERROR: Assigning an integer to a String</code></p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• name is a String, but 25 is an int → <strong>Type mismatch</strong>.</p>
+<p><strong>4. Types of Syntax and Semantic Errors</strong></p>
+<p>|<strong>Type of Error</strong>|<strong>Example</strong>|<strong>Description</strong>|
+|---|---|---|
+|<strong>Syntax Error</strong>|int x =|Missing value or semicolon.|
+|<strong>Type Error</strong>|String x = 10;|Assigning wrong data type.|
+|<strong>Runtime Error</strong>|int y = 10 / 0;|Division by zero.|
+|<strong>Logical Error</strong>|if (x = 5) instead of if (x == 5)|Produces unintended behavior.|</p>
+<p>✔ <strong>Example: Logical Error (Semantic)</strong></p>
+<p><code>int total = 0;
+for (int i = 1; i &lt;= 10; i--) {  // ERROR: i-- instead of i++
+    total += i;
+}</code></p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• The loop <strong>never stops</strong> because i-- <strong>decreases</strong> instead of increasing → <strong>Infinite loop!</strong></p>
+<p><strong>5. Syntax and Semantics in Different Languages</strong></p>
+<p>✔ <strong>Python Example (Syntax Error)</strong></p>
+<p><code>print "Hello, World!"  # ERROR: Missing parentheses in Python 3</code></p>
+<p>✔ <strong>Python Example (Semantic Error)</strong></p>
+<p><code>name = "Alice"
+print(name[10])  # ERROR: Index out of range</code></p>
+<p>✔ <strong>JavaScript Example (Syntax Error)</strong></p>
+<p><code>let x = 10
+console.log(x)  // ERROR: Missing semicolon (in strict mode)</code></p>
+<p>✔ <strong>JavaScript Example (Semantic Error)</strong></p>
+<p><code>let age = "twenty";
+console.log(age * 2);  // ERROR: Not a number (NaN)</code></p>
+<p><strong>6. How to Avoid Syntax and Semantic Errors</strong></p>
+<p>✔ <strong>Use an IDE</strong> – IntelliJ, VS Code, Eclipse provide syntax checking.</p>
+<p>✔ <strong>Run code often</strong> – Catch semantic errors early.</p>
+<p>✔ <strong>Use static analysis tools</strong> – Tools like ESLint (JavaScript) and pylint (Python) detect errors.</p>
+<p>✔ <strong>Write unit tests</strong> – Ensures program logic is correct.</p>
+<p>✔ <strong>Understand language rules</strong> – Read documentation for proper syntax and semantics.</p>
+<p><strong>7. Conclusion</strong></p>
+<p><strong>Syntax</strong> defines how code should be written, while <strong>semantics</strong> defines how code should behave. Both are essential for writing <strong>error-free, efficient programs</strong>. 🚀</p></body></html>

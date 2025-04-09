@@ -1,0 +1,208 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>18:36:46</strong> 
+<strong>Topics:</strong> [[Ruby]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Ruby Level 3: Advanced Ruby &amp; Full-Stack Development</strong></p>
+<p><strong>Introduction</strong></p>
+<p>At <strong>Ruby Level 3</strong>, we focus on <strong>scalability, performance optimization, and full-stack development</strong>, covering <strong>microservices, cloud deployment, WebSockets, and AI</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Microservices &amp; Service-Oriented Architecture (SOA) with Ruby</strong></p>
+<p>✅ <strong>Cloud Deployment (Docker, AWS, Kubernetes)</strong></p>
+<p>✅ <strong>WebSockets &amp; Real-Time Communication</strong></p>
+<p>✅ <strong>Advanced ActiveRecord &amp; Database Optimization</strong></p>
+<p>✅ <strong>GraphQL APIs with Ruby</strong></p>
+<p>✅ <strong>Background Jobs &amp; Asynchronous Processing (Sidekiq, Redis)</strong></p>
+<p>✅ <strong>Artificial Intelligence (AI) &amp; Machine Learning in Ruby</strong></p>
+<p>✅ <strong>Building a Scalable Microservice in Ruby</strong></p>
+<p>By the end of this lesson, you will be able to <strong>build, deploy, and scale high-performance Ruby applications</strong>.</p>
+<hr />
+<p><strong>1. Microservices &amp; Service-Oriented Architecture (SOA)</strong></p>
+<p>Microservices architecture <strong>splits applications into small, independent services</strong>.</p>
+<p><strong>1.1. Creating a Sinatra Microservice</strong></p>
+<p>```
+require 'sinatra'
+require 'json'</p>
+<p>get '/health' do
+  content_type :json
+  { status: "Microservice is running" }.to_json
+end
+```</p>
+<p>Run:</p>
+<p><code>ruby microservice.rb</code></p>
+<p><strong>1.2. Communicating Between Microservices</strong></p>
+<p>Use <strong>HTTP requests</strong> to connect services:</p>
+<p>```
+require 'net/http'
+require 'json'</p>
+<p>response = Net::HTTP.get(URI("http://localhost:5000/health"))
+puts JSON.parse(response)["status"]
+```</p>
+<hr />
+<p><strong>2. Cloud Deployment with Docker, AWS, Kubernetes</strong></p>
+<p><strong>2.1. Dockerizing a Ruby App</strong></p>
+<p>Create a <strong>Dockerfile</strong>:</p>
+<p><code>FROM ruby:3.0
+WORKDIR /app
+COPY . .
+RUN bundle install
+CMD ["ruby", "microservice.rb"]</code></p>
+<p>Build and run:</p>
+<p><code>docker build -t my-ruby-app .
+docker run -p 5000:5000 my-ruby-app</code></p>
+<p><strong>2.2. Deploying to AWS (Elastic Beanstalk)</strong></p>
+<p><code>eb init -p ruby my-ruby-app
+eb create ruby-env</code></p>
+<hr />
+<p><strong>3. WebSockets &amp; Real-Time Communication</strong></p>
+<p>WebSockets allow <strong>real-time bidirectional communication</strong>.</p>
+<p><strong>3.1. Using WebSockets with Sinatra</strong></p>
+<p>Install the <strong>faye-websocket</strong> gem:</p>
+<p><code>gem install faye-websocket</code></p>
+<p><strong>3.2. WebSocket Server</strong></p>
+<p>```
+require 'sinatra'
+require 'faye/websocket'</p>
+<p>set :server, 'thin'</p>
+<p>get '/' do
+  "WebSocket Server Running"
+end</p>
+<p>connections = []</p>
+<p>get '/ws' do
+  ws = Faye::WebSocket.new(request.env)</p>
+<p>ws.on(:open) { connections &lt;&lt; ws }
+  ws.on(:message) { |event| connections.each { |conn| conn.send(event.data) } }
+  ws.on(:close) { connections.delete(ws) }</p>
+<p>ws.rack_response
+end
+```</p>
+<p>Start the server:</p>
+<p><code>ruby websocket_server.rb</code></p>
+<p><strong>3.3. WebSocket Client (JavaScript)</strong></p>
+<p><code>const ws = new WebSocket("ws://localhost:4567/ws");
+ws.onmessage = (event) =&gt; console.log("Received:", event.data);
+ws.send("Hello Server!");</code></p>
+<hr />
+<p><strong>4. Advanced ActiveRecord &amp; Database Optimization</strong></p>
+<p><strong>4.1. Indexing for Faster Queries</strong></p>
+<p><code>class AddIndexToUsers &lt; ActiveRecord::Migration[6.0]
+  def change
+    add_index :users, :email, unique: true
+  end
+end</code></p>
+<p>Run:</p>
+<p><code>rails db:migrate</code></p>
+<p><strong>4.2. Caching with Redis</strong></p>
+<p>Install Redis:</p>
+<p><code>brew install redis
+gem install redis</code></p>
+<p>Cache data:</p>
+<p>```
+require 'redis'
+redis = Redis.new</p>
+<p>redis.set("user:1", "Alice")
+puts redis.get("user:1")  # "Alice"
+```</p>
+<hr />
+<p><strong>5. GraphQL APIs with Ruby</strong></p>
+<p>GraphQL is an alternative to <strong>REST APIs</strong>, providing <strong>flexible queries</strong>.</p>
+<p><strong>5.1. Install GraphQL in Rails</strong></p>
+<p><code>gem install graphql
+rails generate graphql:install</code></p>
+<p><strong>5.2. Define a GraphQL Query</strong></p>
+<p>Edit app/graphql/types/query_type.rb:</p>
+<p>```
+module Types
+  class QueryType &lt; Types::BaseObject
+    field :user, Types::UserType, null: false do
+      argument :id, ID, required: true
+    end</p>
+<pre><code>def user(id:)
+  User.find(id)
+end
+</code></pre>
+<p>end
+end
+```</p>
+<p>Run GraphQL queries at http://localhost:3000/graphiql.</p>
+<hr />
+<p><strong>6. Background Jobs &amp; Asynchronous Processing</strong></p>
+<p><strong>6.1. Install Sidekiq</strong></p>
+<p><code>gem install sidekiq</code></p>
+<p><strong>6.2. Create a Background Job</strong></p>
+<p>```
+class MyWorker
+  include Sidekiq::Worker</p>
+<p>def perform(name)
+    puts "Processing job for #{name}"
+  end
+end
+```</p>
+<p>Run Sidekiq:</p>
+<p><code>sidekiq -q default</code></p>
+<p><strong>6.3. Enqueue a Job</strong></p>
+<p><code>MyWorker.perform_async("Alice")</code></p>
+<hr />
+<p><strong>7. Artificial Intelligence (AI) &amp; Machine Learning in Ruby</strong></p>
+<p><strong>7.1. Install AI Library</strong></p>
+<p><code>gem install turing</code></p>
+<p><strong>7.2. Natural Language Processing</strong></p>
+<p>```
+require 'turing'</p>
+<p>text = "Ruby is amazing for AI!"
+puts Turing.sentiment_analysis(text)  # Positive, Negative, Neutral
+```</p>
+<p><strong>7.3. Machine Learning with Ruby</strong></p>
+<p><code>require 'ai4r'
+data_set = Ai4r::Data::DataSet.new(:data_items =&gt; [[1, 2, 3], [4, 5, 6]])
+puts data_set.data_items</code></p>
+<hr />
+<p><strong>8. Final Project: Scalable Microservice with AI &amp; WebSockets</strong></p>
+<p><strong>8.1. AI-Powered Sentiment Analysis API</strong></p>
+<p>```
+require 'sinatra'
+require 'turing'</p>
+<p>post '/analyze' do
+  text = JSON.parse(request.body.read)["text"]
+  sentiment = Turing.sentiment_analysis(text)
+  { sentiment: sentiment }.to_json
+end
+```</p>
+<p><strong>8.2. WebSocket Notification for Sentiment Analysis</strong></p>
+<p>```
+connections = []</p>
+<p>get '/ws' do
+  ws = Faye::WebSocket.new(request.env)
+  ws.on(:open) { connections &lt;&lt; ws }
+  ws.on(:message) { |event| connections.each { |conn| conn.send(event.data) } }
+  ws.on(:close) { connections.delete(ws) }
+  ws.rack_response
+end
+```</p>
+<p><strong>8.3. Deploying the Microservice</strong></p>
+<ol>
+<li><strong>Dockerize the app:</strong></li>
+</ol>
+<p><code>FROM ruby:3.0
+WORKDIR /app
+COPY . .
+RUN bundle install
+CMD ["ruby", "app.rb"]</code></p>
+<ol>
+<li><strong>Deploy to AWS:</strong></li>
+</ol>
+<p><code>eb init -p ruby my-ruby-service
+eb create microservice-env</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Ruby Level 3:</strong></p>
+<p>✅ <strong>Microservices &amp; Service-Oriented Architecture (SOA) with Ruby</strong></p>
+<p>✅ <strong>Cloud Deployment (Docker, AWS, Kubernetes)</strong></p>
+<p>✅ <strong>WebSockets &amp; Real-Time Communication</strong></p>
+<p>✅ <strong>Advanced ActiveRecord &amp; Database Optimization</strong></p>
+<p>✅ <strong>GraphQL APIs with Ruby</strong></p>
+<p>✅ <strong>Background Jobs &amp; Asynchronous Processing (Sidekiq, Redis)</strong></p>
+<p>✅ <strong>Artificial Intelligence (AI) &amp; Machine Learning in Ruby</strong></p>
+<p>✅ <strong>Built a Scalable Microservice in Ruby</strong></p>
+<p>Now, you’re ready for <strong>Ruby Level 4</strong>, where we explore <strong>Blockchain Development, Quantum Computing, and Advanced Security in Ruby!</strong> 🚀</p></body></html>

@@ -1,0 +1,118 @@
+<html><body><blockquote>
+<p><strong>March 19th, 2025</strong>  <strong>12:55:30</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p>Below is a structured guide—a chapter-like walkthrough—that outlines a sequence of Ruby (and Ruby on Rails) commands you can use to build a futuristic website serving as your personal [[resume]] and [[blogsite]]. This guide blends practical command-line instructions with conceptual insights for designing an engaging digital presence.</p>
+<hr />
+<p><strong>Chapter: Building a Futuristic Website with Ruby</strong></p>
+<p>In this chapter, we explore the step-by-step commands necessary to set up a Ruby on Rails project that functions as both your personal [[resume]] and [[blogsite]]. We’ll begin by preparing your development environment and then progress through creating controllers, scaffolds, and finally launching the server. This guide is designed to be concise yet comprehensive, providing both technical and conceptual clarity.</p>
+<hr />
+<p><strong>1. Prerequisites and Environment Setup</strong></p>
+<p>Before you start, ensure you have Ruby and Rails installed. If not, you can install Rails with the following command:</p>
+<p><code>gem install rails</code></p>
+<p>This command installs the Rails framework, which is the foundation for building robust web applications in Ruby.</p>
+<hr />
+<p><strong>2. Creating a New Rails Project</strong></p>
+<p>Next, create a new Rails project that will house your futuristic website. You might choose a name that reflects the hybrid nature of your project. For instance:</p>
+<p><code>rails new futuristic_resume_blog --database=sqlite3</code></p>
+<p>Here, we’re using SQLite3 for simplicity. (You could opt for PostgreSQL or MySQL if desired.) This command sets up the file structure and configuration for your project.</p>
+<hr />
+<p><strong>3. Generating the Home Controller and Setting Routes</strong></p>
+<p>A clear home or landing page is essential. Generate a home controller with an index action:</p>
+<p><code>rails generate controller Home index</code></p>
+<p>Then, open the config/routes.rb file to set the root route. Modify it to:</p>
+<p><code>root 'home#index'</code></p>
+<p>This makes your homepage the first impression of your futuristic digital identity.</p>
+<hr />
+<p><strong>4. Scaffolding the Blog Section</strong></p>
+<p>For the blog aspect of your website, a scaffold can rapidly generate models, controllers, views, and routes. Use the following command:</p>
+<p><code>rails generate scaffold Post title:string content:text published_at:datetime</code></p>
+<p>This scaffold provides a basic CRUD interface for your blog posts, which you can later customize to reflect your personal style and futuristic vision.</p>
+<hr />
+<p><strong>5. Scaffolding the [[Resume]] Section</strong></p>
+<p>For your personal [[resume]], consider a dynamic approach where you list your experiences and achievements. Generate a scaffold for an experience or resume item:</p>
+<p><code>rails generate scaffold Experience company:string role:string start_date:date end_date:date description:text</code></p>
+<p>This command creates a module to manage and display your professional experiences, education, or other milestones.</p>
+<hr />
+<p><strong>6. Running Database Migrations and Launching the Server</strong></p>
+<p>After generating your scaffolds, update your database schema by running:</p>
+<p><code>rails db:migrate</code></p>
+<p>Finally, start the Rails server to preview your work:</p>
+<p><code>rails server</code></p>
+<p>Navigate to <a href="http://localhost:3000">http://localhost:3000</a> in your browser to see your new website in action.</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p>With these Ruby commands, you have laid the groundwork for a futuristic website that encapsulates your personal [[resume]] and [[blogsite]]. As you evolve your site, you can further customize controllers, views, and styles to create an immersive digital experience. This guide offers a solid framework—a starting chapter in your ongoing journey to merge technology, personal branding, and creative expression.</p>
+<p>Happy coding, and may your digital future be as dynamic as your vision!</p>
+<blockquote>
+<p><strong>March 19th, 2025</strong>  <strong>12:41:42</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #project  </p>
+</blockquote>
+<hr />
+<p>To create a futuristic website that serves as your personal resume and blogsite using [[Ruby]], you can leverage Bridgetown, a modern static site generator built with Ruby. Bridgetown is an excellent choice because it combines the simplicity of static sites with modern web development tools, making it ideal for a fast, secure, and stylish site. Below are the commands to set up your website:</p>
+<h3>Step-by-Step Commands</h3>
+<ol>
+<li>
+<p><strong>Install Bridgetown</strong><br />
+   First, ensure you have Ruby installed on your system. Then, install the Bridgetown gem using the following command in your terminal:
+   <code>sh
+   gem install bridgetown</code>
+   This installs Bridgetown and its dependencies globally on your machine.</p>
+</li>
+<li>
+<p><strong>Create a New Bridgetown Site</strong><br />
+   Generate a new Bridgetown site by running:
+   <code>sh
+   bridgetown new my-site</code>
+   This creates a directory called <code>my-site</code> with a basic site structure, including a <code>Gemfile</code> and default configuration files.</p>
+</li>
+<li>
+<p><strong>Navigate into the Site Directory</strong><br />
+   Move into the newly created directory:
+   <code>sh
+   cd my-site</code>
+   All subsequent commands will be run from this directory.</p>
+</li>
+<li>
+<p><strong>Add Tailwind CSS for Styling</strong><br />
+   To give your site a modern, futuristic look, add Tailwind CSS, a utility-first CSS framework. Bridgetown supports this via a plugin. Run:
+   <code>sh
+   bridgetown plugins add tailwindcss</code>
+   This command configures Tailwind CSS in your project, allowing you to use its classes for styling.</p>
+</li>
+<li>
+<p><strong>Start the Development Server</strong><br />
+   Launch a local server to preview your site:
+   <code>sh
+   bundle exec bridgetown start</code>
+   Once the server is running, open your browser and visit <code>http://localhost:4000</code> to see your site in action.</p>
+</li>
+</ol>
+<h3>Next Steps for Customization</h3>
+<p>After setting up the site, you can customize it to fit your resume and blog needs:
+- <strong>Resume Page</strong>: Create a file named <code>resume.md</code> in the <code>my-site</code> directory with front matter like this:
+  ```yaml</p>
+<hr />
+<p>layout: page
+  title: Resume
+  permalink: /resume/</p>
+<hr />
+<p><code>Add your resume content (e.g., experience, skills, education) in Markdown below the front matter.
+- **Blog Posts**: Add posts in the `_posts` directory using the naming convention `YYYY-MM-DD-title.md`. For example:</code>yaml</p>
+<hr />
+<p>layout: post
+  title: "My First Blog Post"
+  date: 2023-10-25</p>
+<hr />
+<p>Post content goes here.
+  <code>``
+- **Futuristic Design**: Use Tailwind CSS classes in your HTML layouts (found in</code>src/_layouts/<code>) to create a sleek, futuristic aesthetic—think dark themes, neon accents, or gradients. For example, add</code>class="bg-gray-900 text-white"` for a dark mode style.</p>
+<h3>Deployment</h3>
+<p>When you're ready to go live, build the site with:
+<code>sh
+bundle exec bridgetown build</code>
+This generates a static site in the <code>_site</code> directory, which you can deploy to platforms like GitHub Pages, Netlify, or Vercel.</p>
+<p>These commands provide a solid foundation for your futuristic resume and blogsite, leveraging Ruby tools to streamline the process. Start with these steps, then tailor the design and content to your vision!</p></body></html>

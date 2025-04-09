@@ -1,0 +1,145 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>15:31:22</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Number Theory: The Mathematics of Integers</strong></p>
+<p><strong>1. What is Number Theory?</strong></p>
+<p>Number Theory is the branch of mathematics that studies <strong>integers and their properties</strong>, including divisibility, prime numbers, modular arithmetic, and Diophantine equations. It is essential for <strong>cryptography, computer science, and mathematical problem-solving</strong>.</p>
+<p><strong>Why is Number Theory Important?</strong></p>
+<p>✔ <strong>Used in Cryptography</strong> – RSA encryption relies on prime numbers.</p>
+<p>✔ <strong>Foundation of Digital Security</strong> – Hash functions and digital signatures.</p>
+<p>✔ <strong>Used in Algorithms &amp; Computing</strong> – Random number generation, error detection.</p>
+<p>✔ <strong>Plays a Role in AI &amp; Machine Learning</strong> – Optimization and probability theory.</p>
+<p><strong>2. Fundamental Concepts in Number Theory</strong></p>
+<p><strong>1. Divisibility and Factors</strong></p>
+<p>✔ <strong>Definition:</strong> An integer a is <strong>divisible by</strong> b if there exists an integer k such that:</p>
+<p><code>a = b × k</code></p>
+<p>✔ <strong>Example:</strong></p>
+<p>• 15 is divisible by 3 since 15 = 3 × 5.</p>
+<p>✔ <strong>Divisibility Rules:</strong></p>
+<p>|<strong>Number</strong>|<strong>Rule</strong>|
+|---|---|
+|<strong>2</strong>|Ends in 0, 2, 4, 6, 8|
+|<strong>3</strong>|Sum of digits is divisible by 3|
+|<strong>5</strong>|Ends in 0 or 5|
+|<strong>7</strong>|Double the last digit, subtract from rest|</p>
+<p><strong>2. Prime Numbers</strong></p>
+<p>✔ <strong>Definition:</strong> A prime number has only <strong>two factors: 1 and itself</strong>.</p>
+<p>✔ <strong>First Few Prime Numbers:</strong></p>
+<p><code>2, 3, 5, 7, 11, 13, 17, 19, 23, 29, ...</code></p>
+<p>✔ <strong>Prime Factorization:</strong></p>
+<p>Breaking a number into <strong>prime factors</strong>.</p>
+<p>✔ <strong>Example: Prime Factorization of 60</strong></p>
+<p><code>60 = 2 × 2 × 3 × 5</code></p>
+<p>✔ <strong>Applications of Prime Numbers:</strong></p>
+<p>• <strong>Cryptography</strong> (RSA encryption uses large primes).</p>
+<p>• <strong>Random number generation</strong>.</p>
+<p>✔ <strong>Finding Primes: Sieve of Eratosthenes</strong></p>
+<p>Efficient way to find all primes up to n.</p>
+<p>✔ <strong>Algorithm (Python Implementation)</strong></p>
+<p>```
+def sieve(n):
+    primes = [True] * (n + 1)
+    primes[0] = primes[1] = False
+    for i in range(2, int(n ** 0.5) + 1):
+        if primes[i]:
+            for j in range(i * i, n + 1, i):
+                primes[j] = False
+    return [x for x in range(n + 1) if primes[x]]</p>
+<p>print(sieve(50))  # Output: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+```</p>
+<p><strong>3. Greatest Common Divisor (GCD) and Least Common Multiple (LCM)</strong></p>
+<p>✔ <strong>Greatest Common Divisor (GCD)</strong></p>
+<p>The largest number that divides two numbers.</p>
+<p>✔ <strong>Example: GCD(18, 24)</strong></p>
+<p><code>Factors of 18 = {1, 2, 3, 6, 9, 18}
+Factors of 24 = {1, 2, 3, 4, 6, 8, 12, 24}
+GCD = 6</code></p>
+<p>✔ <strong>Euclidean Algorithm for GCD:</strong></p>
+<p><code>GCD(a, b) = GCD(b, a mod b)</code></p>
+<p>✔ <strong>Example: Finding GCD(48, 18)</strong></p>
+<p><code>GCD(48, 18) = GCD(18, 48 mod 18) = GCD(18, 12) = GCD(12, 6) = GCD(6, 0) = 6</code></p>
+<p>✔ <strong>Python Code for GCD (Euclidean Algorithm)</strong></p>
+<p>```
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a</p>
+<p>print(gcd(48, 18))  # Output: 6
+```</p>
+<p>✔ <strong>Least Common Multiple (LCM)</strong></p>
+<p>Smallest number that is a multiple of both a and b.</p>
+<p>✔ <strong>Formula:</strong></p>
+<p><code>LCM(a, b) = (a × b) / GCD(a, b)</code></p>
+<p>✔ <strong>Example: LCM(18, 24)</strong></p>
+<p><code>LCM(18, 24) = (18 × 24) / 6 = 72</code></p>
+<p>✔ <strong>Python Code for LCM</strong></p>
+<p>```
+def lcm(a, b):
+    return (a * b) // gcd(a, b)</p>
+<p>print(lcm(18, 24))  # Output: 72
+```</p>
+<p><strong>4. Modular Arithmetic</strong></p>
+<p><strong>1. Definition</strong></p>
+<p>Modular arithmetic deals with <strong>remainders</strong> when dividing numbers.</p>
+<p>✔ <strong>Notation:</strong></p>
+<p><code>a ≡ b (mod m)</code></p>
+<p>✔ <strong>Example:</strong></p>
+<p><code>17 ≡ 2 (mod 5)  # Because 17 ÷ 5 leaves remainder 2</code></p>
+<p>✔ <strong>Applications:</strong></p>
+<p>• <strong>Cryptography (RSA, ECC)</strong></p>
+<p>• <strong>Computer hash functions</strong></p>
+<p>• <strong>Clock arithmetic</strong></p>
+<p>✔ <strong>Python Code for Modular Exponentiation (a^b mod m)</strong></p>
+<p>```
+def mod_exp(base, exp, mod):
+    result = 1
+    while exp &gt; 0:
+        if exp % 2 == 1:
+            result = (result * base) % mod
+        base = (base * base) % mod
+        exp //= 2
+    return result</p>
+<p>print(mod_exp(2, 10, 17))  # Output: 15
+```</p>
+<p><strong>5. Fermat’s Little Theorem (For Cryptography)</strong></p>
+<p>If p is a prime number and a is any integer <strong>not divisible by p</strong>, then:</p>
+<p><code>a^{(p-1)} ≡ 1 (mod p)</code></p>
+<p>✔ <strong>Example:</strong></p>
+<p><code>3^6 ≡ 1 (mod 7)</code></p>
+<p>✔ <strong>Used in RSA Encryption!</strong></p>
+<p><strong>6. Diophantine Equations</strong></p>
+<p>✔ <strong>Equation with integer solutions</strong></p>
+<p><code>ax + by = c</code></p>
+<p>✔ <strong>Example:</strong> Find x, y where:</p>
+<p><code>3x + 5y = 11</code></p>
+<p>✔ <strong>Applications:</strong></p>
+<p>• <strong>Cryptography</strong></p>
+<p>• <strong>Optimization Problems</strong></p>
+<p>✔ <strong>Solving Using Extended Euclidean Algorithm</strong></p>
+<p>```
+def extended_gcd(a, b):
+    if b == 0:
+        return a, 1, 0
+    g, x, y = extended_gcd(b, a % b)
+    return g, y, x - (a // b) * y</p>
+<p>print(extended_gcd(3, 5))  # Output: (1, -1, 1)
+```</p>
+<p><strong>7. Applications of Number Theory</strong></p>
+<p>|<strong>Field</strong>|<strong>Application</strong>|
+|---|---|
+|<strong>Cryptography</strong>|RSA, Diffie-Hellman key exchange|
+|<strong>Computer Science</strong>|Hash functions, error detection|
+|<strong>Blockchain</strong>|Bitcoin’s elliptic curve cryptography|
+|<strong>AI &amp; Machine Learning</strong>|Combinatorial optimization|
+|<strong>Quantum Computing</strong>|Shor’s algorithm for breaking RSA|</p>
+<p>✔ <strong>Example: RSA Cryptography Uses Prime Numbers</strong></p>
+<p>• Public Key: (n = p × q)</p>
+<p>• Encryption: c = m^e mod n</p>
+<p>• Decryption: m = c^d mod n</p>
+<p>✔ <strong>Example: Hashing in Computer Science</strong></p>
+<p>• Modular arithmetic ensures unique hash values in password hashing.</p>
+<p><strong>8. Conclusion</strong></p>
+<p>Number Theory <strong>is crucial for cryptography, computing, and AI</strong>. Understanding <strong>prime numbers, modular arithmetic, GCD, LCM, and Diophantine equations</strong> helps in <strong>secure encryption, optimization, and mathematical problem-solving</strong>. 🚀</p></body></html>

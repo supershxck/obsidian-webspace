@@ -1,0 +1,190 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>15:50:54</strong> 
+<strong>Topics:</strong> [[VB.Net L1]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Linux Level 2: Intermediate to Advanced Linux Administration &amp; Automation</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve learned <strong>Linux basics</strong>, it’s time to explore <strong>advanced shell scripting, system administration, networking, user management, security, and automation</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Bash Scripting (Variables, Loops, Functions, Logging)</strong></p>
+<p>✅ <strong>User &amp; Group Management (Permissions, sudo, SSH Access)</strong></p>
+<p>✅ <strong>System Monitoring &amp; Logs (dmesg, journalctl, syslog, uptime)</strong></p>
+<p>✅ <strong>Networking &amp; Firewalls (iptables, ufw, SSH Tunneling)</strong></p>
+<p>✅ <strong>Disk Management (fdisk, LVM, mount, fstab)</strong></p>
+<p>✅ <strong>Cron Jobs &amp; Automation (crontab, systemd timers)</strong></p>
+<p>✅ <strong>Deploying a Web Server (Apache/Nginx, PHP, MySQL, SSL)</strong></p>
+<p>✅ <strong>Building an Automated Linux Server Maintenance Script</strong></p>
+<p>By the end of this lesson, you will be able to <strong>administer Linux systems efficiently, automate tasks, manage users, secure networks, and deploy web applications</strong>.</p>
+<hr />
+<p><strong>1. Advanced Bash Scripting</strong></p>
+<p><strong>1.1. Using Variables &amp; Arguments</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>name=${1:-"Guest"}  # Default value if no argument is given
+echo "Hello, $name!"
+```</p>
+<p>Run the script:</p>
+<p><code>./script.sh Alice</code></p>
+<p><strong>1.2. Loops in Bash</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>for i in {1..5}; do
+    echo "Iteration: $i"
+done
+```</p>
+<p><strong>1.3. Functions in Bash</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>greet() {
+    echo "Hello, $1!"
+}
+greet "Alice"
+```</p>
+<p><strong>1.4. Logging Script Output</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>logfile="/var/log/myscript.log"
+echo "Script executed at $(date)" &gt;&gt; $logfile
+```</p>
+<hr />
+<p><strong>2. User &amp; Group Management</strong></p>
+<p><strong>2.1. Creating &amp; Managing Users</strong></p>
+<p><code>sudo useradd -m alice  # Create user
+sudo passwd alice      # Set password
+sudo usermod -aG sudo alice  # Add user to sudoers</code></p>
+<p><strong>2.2. Managing Groups</strong></p>
+<p><code>sudo groupadd developers
+sudo usermod -aG developers alice</code></p>
+<p><strong>2.3. Checking User &amp; Group Information</strong></p>
+<p><code>id alice
+groups alice</code></p>
+<p><strong>2.4. Disabling a User Account</strong></p>
+<p><code>sudo passwd -l alice  # Lock account
+sudo passwd -u alice  # Unlock account</code></p>
+<p><strong>2.5. Managing SSH Access</strong></p>
+<p><code>sudo systemctl restart ssh
+nano /etc/ssh/sshd_config  # Edit SSH config (disable root login)</code></p>
+<hr />
+<p><strong>3. System Monitoring &amp; Logs</strong></p>
+<p><strong>3.1. Checking System Performance</strong></p>
+<p><code>top        # Real-time system monitoring
+htop       # Advanced system monitoring (install: sudo apt install htop)
+uptime     # Check system uptime
+free -h    # View memory usage</code></p>
+<p><strong>3.2. Viewing System Logs</strong></p>
+<p><code>dmesg | tail -20       # Kernel logs
+journalctl -xe         # System logs
+sudo tail -f /var/log/syslog  # Real-time system logs</code></p>
+<p><strong>3.3. Monitoring Active Processes</strong></p>
+<p><code>ps aux | grep nginx
+kill -9 &lt;PID&gt;</code></p>
+<hr />
+<p><strong>4. Networking &amp; Firewalls</strong></p>
+<p><strong>4.1. Configuring Firewalls with UFW</strong></p>
+<p><code>sudo ufw enable
+sudo ufw allow 22       # Allow SSH
+sudo ufw allow 80       # Allow HTTP
+sudo ufw deny 8080      # Deny a port
+sudo ufw status         # Check firewall rules</code></p>
+<p><strong>4.2. Using iptables for Advanced Firewall Rules</strong></p>
+<p><code>sudo iptables -L        # List rules
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT  # Allow HTTP</code></p>
+<p><strong>4.3. SSH Tunneling</strong></p>
+<p><code>ssh -L 8080:localhost:80 user@remote-server</code></p>
+<hr />
+<p><strong>5. Disk Management &amp; Storage</strong></p>
+<p><strong>5.1. Checking Disk Space</strong></p>
+<p><code>df -h
+du -sh /home</code></p>
+<p><strong>5.2. Formatting &amp; Mounting Disks</strong></p>
+<p><code>sudo mkfs.ext4 /dev/sdb1
+sudo mount /dev/sdb1 /mnt</code></p>
+<p><strong>5.3. Configuring fstab for Auto-Mounting</strong></p>
+<p>Edit /etc/fstab:</p>
+<p><code>/dev/sdb1  /mnt  ext4  defaults  0  2</code></p>
+<hr />
+<p><strong>6. Automating Tasks with Cron Jobs</strong></p>
+<p><strong>6.1. Scheduling a Job Every Day at Midnight</strong></p>
+<p><code>crontab -e</code></p>
+<p>Add the following line:</p>
+<p><code>0 0 * * * /path/to/script.sh</code></p>
+<p><strong>6.2. Running a Job Every 5 Minutes</strong></p>
+<p><code>*/5 * * * * /path/to/task.sh</code></p>
+<p><strong>6.3. Using systemd Timers Instead of Cron</strong></p>
+<p>Create a systemd service /etc/systemd/system/myscript.service:</p>
+<p>```
+[Unit]
+Description=Run My Script</p>
+<p>[Service]
+ExecStart=/path/to/script.sh
+```</p>
+<p>Create a systemd timer /etc/systemd/system/myscript.timer:</p>
+<p>```
+[Unit]
+Description=Run My Script Every 10 Minutes</p>
+<p>[Timer]
+OnBootSec=5min
+OnUnitActiveSec=10min
+Unit=myscript.service</p>
+<p>[Install]
+WantedBy=timers.target
+```</p>
+<p>Enable and start:</p>
+<p><code>sudo systemctl enable myscript.timer
+sudo systemctl start myscript.timer</code></p>
+<hr />
+<p><strong>7. Deploying a Web Server</strong></p>
+<p><strong>7.1. Installing Apache &amp; PHP</strong></p>
+<p><code>sudo apt install apache2 php libapache2-mod-php
+sudo systemctl start apache2</code></p>
+<p><strong>7.2. Installing MySQL</strong></p>
+<p><code>sudo apt install mysql-server
+sudo mysql_secure_installation</code></p>
+<p><strong>7.3. Configuring Apache Virtual Hosts</strong></p>
+<p>Edit /etc/apache2/sites-available/mysite.conf:</p>
+<p><code>&lt;VirtualHost *:80&gt;
+    DocumentRoot /var/www/mysite
+    ServerName mysite.com
+    &lt;Directory /var/www/mysite&gt;
+        AllowOverride All
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</code></p>
+<p>Enable the site and restart Apache:</p>
+<p><code>sudo a2ensite mysite.conf
+sudo systemctl restart apache2</code></p>
+<hr />
+<p><strong>8. Building an Automated Linux Server Maintenance Script</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<h1>Log file location</h1>
+<p>LOGFILE="/var/log/maintenance.log"</p>
+<p>echo "Starting system maintenance..." &gt;&gt; $LOGFILE
+echo "Updating system packages..." &gt;&gt; $LOGFILE
+sudo apt update &amp;&amp; sudo apt upgrade -y &gt;&gt; $LOGFILE</p>
+<p>echo "Cleaning up unused packages..." &gt;&gt; $LOGFILE
+sudo apt autoremove -y &gt;&gt; $LOGFILE</p>
+<p>echo "Checking disk space..." &gt;&gt; $LOGFILE
+df -h &gt;&gt; $LOGFILE</p>
+<p>echo "System maintenance completed on $(date)" &gt;&gt; $LOGFILE
+```</p>
+<p>Make the script executable:</p>
+<p><code>chmod +x maintenance.sh</code></p>
+<p>Schedule it using cron:</p>
+<p><code>crontab -e</code></p>
+<p>Add:</p>
+<p><code>0 3 * * 7 /path/to/maintenance.sh</code></p>
+<p>This runs <strong>every Sunday at 3 AM</strong>.</p>
+<hr />
+<p><strong>9. Conclusion</strong></p>
+<p><strong>What You Learned in Linux Level 2:</strong></p>
+<p>✅ <strong>Advanced Bash Scripting (Variables, Loops, Functions, Logging)</strong></p>
+<p>✅ <strong>User &amp; Group Management (Permissions, sudo, SSH Access)</strong></p>
+<p>✅ <strong>System Monitoring &amp; Logs (dmesg, journalctl, syslog, uptime)</strong></p>
+<p>✅ <strong>Networking &amp; Firewalls (iptables, ufw, SSH Tunneling)</strong></p>
+<p>✅ <strong>Disk Management (fdisk, LVM, mount, fstab)</strong></p>
+<p>✅ <strong>Cron Jobs &amp; Automation (crontab, systemd timers)</strong></p>
+<p>✅ <strong>Deploying a Web Server (Apache/Nginx, PHP, MySQL, SSL)</strong></p>
+<p>✅ <strong>Built an Automated Linux Server Maintenance Script</strong></p>
+<p>Now, you’re ready for <strong>Linux Level 3</strong>, where we explore <strong>Linux Security, Containers (Docker, Kubernetes), High Availability, and Cloud Deployments!</strong> 🚀</p></body></html>

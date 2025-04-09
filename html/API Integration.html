@@ -1,0 +1,221 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>22:19:33</strong> 
+<strong>Topics:</strong> [[Net L1]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>API Implementation Level 1: Introduction to Building and Consuming APIs</strong></p>
+<p><strong>Introduction</strong></p>
+<p>An <strong>API (Application Programming Interface)</strong> allows different applications to communicate with each other. In this lesson, you’ll learn how to <strong>build a basic REST API, consume APIs, and work with JSON data</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Understanding RESTful APIs &amp; HTTP Methods</strong></p>
+<p>✅ <strong>Building a Simple API with Express.js (Node.js)</strong></p>
+<p>✅ <strong>Consuming APIs with Fetch (JavaScript) &amp; HttpClient (VB.NET)</strong></p>
+<p>✅ <strong>Handling JSON Data</strong></p>
+<p>✅ <strong>Testing APIs with Postman &amp; Curl</strong></p>
+<p>✅ <strong>Securing API Requests with Basic Authentication</strong></p>
+<p>✅ <strong>Building a Simple API-Connected Web App</strong></p>
+<p>By the end of this lesson, you will be able to <strong>create and consume REST APIs, handle API requests, and integrate them into applications</strong>.</p>
+<hr />
+<p><strong>1. Understanding RESTful APIs &amp; HTTP Methods</strong></p>
+<p><strong>1.1. What is a REST API?</strong></p>
+<p>• <strong>REST (Representational State Transfer)</strong> is a standard for designing <strong>web APIs</strong>.</p>
+<p>• It uses <strong>HTTP methods</strong> to communicate between a <strong>client</strong> (frontend, mobile app) and a <strong>server</strong> (backend API).</p>
+<p><strong>1.2. Common HTTP Methods in APIs</strong></p>
+<p>|<strong>HTTP Method</strong>|<strong>Purpose</strong>|
+|---|---|
+|GET|Retrieve data from the server|
+|POST|Send data to the server (create)|
+|PUT|Update existing data|
+|DELETE|Remove data from the server|</p>
+<p>Example API Endpoint:</p>
+<p><code>GET https://api.example.com/users</code></p>
+<hr />
+<p><strong>2. Building a Simple API with Express.js (Node.js)</strong></p>
+<p><strong>2.1. Setting Up Express.js</strong></p>
+<ol>
+<li>
+<p><strong>Install Node.js</strong> from <a href="https://nodejs.org/">Node.js official website</a>.</p>
+</li>
+<li>
+<p>Create a new project:</p>
+</li>
+</ol>
+<p><code>mkdir api-project &amp;&amp; cd api-project
+npm init -y
+npm install express</code></p>
+<p><strong>2.2. Creating a Simple API</strong></p>
+<p>Create a file <strong>server.js</strong>:</p>
+<p>```
+const express = require("express");
+const app = express();
+const PORT = 3000;</p>
+<p>app.use(express.json()); // Enable JSON parsing</p>
+<p>const users = [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }];</p>
+<p>// GET: Fetch all users
+app.get("/users", (req, res) =&gt; {
+    res.json(users);
+});</p>
+<p>// POST: Add a new user
+app.post("/users", (req, res) =&gt; {
+    const newUser = { id: users.length + 1, name: req.body.name };
+    users.push(newUser);
+    res.status(201).json(newUser);
+});</p>
+<p>// DELETE: Remove a user
+app.delete("/users/:id", (req, res) =&gt; {
+    const userId = parseInt(req.params.id);
+    const index = users.findIndex(user =&gt; user.id === userId);
+    if (index !== -1) {
+        users.splice(index, 1);
+        res.json({ message: "User deleted" });
+    } else {
+        res.status(404).json({ error: "User not found" });
+    }
+});</p>
+<p>// Start the server
+app.listen(PORT, () =&gt; console.log(<code>Server running on http://localhost:${PORT}</code>));
+```</p>
+<p><strong>2.3. Running the API</strong></p>
+<p><code>node server.js</code></p>
+<p>Open your browser and visit:</p>
+<p><code>http://localhost:3000/users</code></p>
+<hr />
+<p><strong>3. Consuming APIs in JavaScript</strong></p>
+<p><strong>3.1. Fetching Data from an API</strong></p>
+<p><code>fetch("http://localhost:3000/users")
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data))
+    .catch(error =&gt; console.error("Error:", error));</code></p>
+<p><strong>3.2. Sending Data to an API</strong></p>
+<p><code>fetch("http://localhost:3000/users", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "Charlie" })
+})
+.then(response =&gt; response.json())
+.then(data =&gt; console.log("New user added:", data));</code></p>
+<hr />
+<p><strong>4. Consuming APIs in VB.NET</strong></p>
+<p><strong>4.1. Installing HttpClient</strong></p>
+<p>Ensure <strong>System.Net.Http</strong> is referenced in your project.</p>
+<p><strong>4.2. Fetching Data from an API</strong></p>
+<p>```
+Imports System.Net.Http
+Imports System.Threading.Tasks</p>
+<p>Module Program
+    Async Function GetUsers() As Task
+        Dim client As New HttpClient()
+        Dim response As String = Await client.GetStringAsync("http://localhost:3000/users")
+        Console.WriteLine(response)
+    End Function</p>
+<pre><code>Sub Main()
+    GetUsers().Wait()
+End Sub
+</code></pre>
+<p>End Module
+```</p>
+<p><strong>4.3. Sending Data to an API</strong></p>
+<p>```
+Imports System.Net.Http
+Imports System.Text
+Imports System.Threading.Tasks</p>
+<p>Module Program
+    Async Function AddUser() As Task
+        Dim client As New HttpClient()
+        Dim content As New StringContent("{""name"":""Eve""}", Encoding.UTF8, "application/json")
+        Dim response As HttpResponseMessage = Await client.PostAsync("http://localhost:3000/users", content)
+        Dim result As String = Await response.Content.ReadAsStringAsync()
+        Console.WriteLine(result)
+    End Function</p>
+<pre><code>Sub Main()
+    AddUser().Wait()
+End Sub
+</code></pre>
+<p>End Module
+```</p>
+<hr />
+<p><strong>5. Testing APIs with Postman &amp; Curl</strong></p>
+<p><strong>5.1. Using Postman</strong></p>
+<ol>
+<li>
+<p>Open <strong>Postman</strong>.</p>
+</li>
+<li>
+<p><strong>Make a GET request</strong> to:</p>
+</li>
+</ol>
+<p><code>http://localhost:3000/users</code></p>
+<ol>
+<li><strong>Make a POST request</strong>:</li>
+</ol>
+<p>• Select <strong>POST</strong>.</p>
+<p>• Go to <strong>Body</strong> → <strong>Raw</strong> → <strong>JSON</strong>.</p>
+<p>• Enter:</p>
+<p><code>{
+  "name": "David"
+}</code></p>
+<p>• Click <strong>Send</strong>.</p>
+<p><strong>5.2. Using Curl</strong></p>
+<p><code>curl -X GET http://localhost:3000/users</code></p>
+<p><code>curl -X POST -H "Content-Type: application/json" -d '{"name": "Eve"}' http://localhost:3000/users</code></p>
+<hr />
+<p><strong>6. Securing API Requests with Basic Authentication</strong></p>
+<p><strong>6.1. Adding Basic Authentication</strong></p>
+<p>Modify <strong>server.js</strong>:</p>
+<p>```
+const users = [{ username: "admin", password: "1234" }];</p>
+<p>app.use((req, res, next) =&gt; {
+    const authHeader = req.headers["authorization"];
+    if (!authHeader) return res.status(401).json({ error: "Unauthorized" });</p>
+<pre><code>const credentials = Buffer.from(authHeader.split(" ")[1], "base64").toString().split(":");
+const user = users.find(u =&gt; u.username === credentials[0] &amp;&amp; u.password === credentials[1]);
+
+if (!user) return res.status(401).json({ error: "Invalid credentials" });
+
+next();
+</code></pre>
+<p>});
+```</p>
+<p><strong>6.2. Making Authenticated API Requests</strong></p>
+<p><code>curl -u admin:1234 -X GET http://localhost:3000/users</code></p>
+<hr />
+<p><strong>7. Building a Simple API-Connected Web App</strong></p>
+<p><strong>7.1. HTML &amp; JavaScript API Integration</strong></p>
+<p>Create <strong>index.html</strong>:</p>
+<p>```</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>Users</h1>
+    <button onclick="fetchUsers()">Load Users</button>
+    <ul id="userList"></ul>
+
+    <script>
+        function fetchUsers() {
+            fetch("http://localhost:3000/users")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("userList").innerHTML = data.map(user => `<li>${user.name}</li>`).join("");
+                });
+        }
+    </script>
+</body>
+</html>
+<p>```</p>
+<p>Run:</p>
+<p><code>http://localhost:3000/index.html</code></p>
+<hr />
+<p><strong>8. Conclusion</strong></p>
+<p><strong>What You Learned in API Level 1:</strong></p>
+<p>✅ <strong>Understanding RESTful APIs &amp; HTTP Methods</strong></p>
+<p>✅ <strong>Building a Simple API with Express.js (Node.js)</strong></p>
+<p>✅ <strong>Consuming APIs with Fetch (JavaScript) &amp; HttpClient (VB.NET)</strong></p>
+<p>✅ <strong>Handling JSON Data</strong></p>
+<p>✅ <strong>Testing APIs with Postman &amp; Curl</strong></p>
+<p>✅ <strong>Securing API Requests with Basic Authentication</strong></p>
+<p>✅ <strong>Built a Simple API-Connected Web App</strong></p>
+<p>Now, you’re ready for <strong>API Level 2</strong>, where we explore <strong>GraphQL, Authentication (JWT, OAuth), WebSockets, and Advanced API Security!</strong> 🚀</p></body></html>

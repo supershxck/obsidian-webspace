@@ -1,0 +1,219 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>18:21:43</strong> 
+<strong>Topics:</strong> [[Java L1]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>JavaScript Level 3: Advanced JavaScript &amp; Full-Stack Development</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve mastered <strong>JavaScript fundamentals and intermediate concepts</strong>, it’s time to explore <strong>advanced techniques</strong> that will help you build <strong>scalable, full-stack applications</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced JavaScript Concepts (Closures, Prototypes, Higher-Order Functions)</strong></p>
+<p>✅ <strong>Functional Programming (Pure Functions, Currying, Composition)</strong></p>
+<p>✅ <strong>WebSockets &amp; Real-Time Communication</strong></p>
+<p>✅ <strong>Full-Stack Development with Node.js &amp; Express.js</strong></p>
+<p>✅ <strong>Database Integration (MongoDB, PostgreSQL)</strong></p>
+<p>✅ <strong>Authentication &amp; Security (JWT, OAuth, Encryption)</strong></p>
+<p>✅ <strong>Introduction to React.js (Component-Based UI)</strong></p>
+<p>✅ <strong>Deployment &amp; Performance Optimization</strong></p>
+<p>By the end of this lesson, you will be able to <strong>build and deploy full-stack JavaScript applications</strong>.</p>
+<hr />
+<p><strong>1. Advanced JavaScript Concepts</strong></p>
+<p><strong>1.1. Closures</strong></p>
+<p>A <strong>closure</strong> is a function that remembers the variables from its outer scope, even after that scope has closed.</p>
+<p>```
+function outerFunction(x) {
+  return function innerFunction(y) {
+    return x + y;
+  };
+}</p>
+<p>const add10 = outerFunction(10);
+console.log(add10(5)); // 15
+```</p>
+<p><strong>1.2. Prototypes &amp; Prototype Inheritance</strong></p>
+<p>JavaScript uses <strong>prototypes</strong> instead of classes for object inheritance.</p>
+<p>```
+function Person(name) {
+  this.name = name;
+}</p>
+<p>Person.prototype.greet = function () {
+  console.log(<code>Hello, my name is ${this.name}</code>);
+};</p>
+<p>const alice = new Person("Alice");
+alice.greet(); // "Hello, my name is Alice"
+```</p>
+<p><strong>1.3. Higher-Order Functions</strong></p>
+<p>Functions that <strong>accept functions as arguments</strong> or <strong>return functions</strong>.</p>
+<p>```
+function multiplyBy(factor) {
+  return function (num) {
+    return num * factor;
+  };
+}</p>
+<p>const double = multiplyBy(2);
+console.log(double(5)); // 10
+```</p>
+<hr />
+<p><strong>2. Functional Programming</strong></p>
+<p><strong>2.1. Pure Functions</strong></p>
+<p>Pure functions have <strong>no side effects</strong> and always return the same output for the same input.</p>
+<p><code>const add = (a, b) =&gt; a + b;</code></p>
+<p><strong>2.2. Currying</strong></p>
+<p>Converts a function with multiple arguments into a sequence of functions.</p>
+<p><code>const curriedAdd = (a) =&gt; (b) =&gt; a + b;
+console.log(curriedAdd(5)(10)); // 15</code></p>
+<p><strong>2.3. Function Composition</strong></p>
+<p>Combining multiple functions into one.</p>
+<p>```
+const toUpperCase = (str) =&gt; str.toUpperCase();
+const addExclamation = (str) =&gt; str + "!";
+const excitedGreeting = (str) =&gt; addExclamation(toUpperCase(str));</p>
+<p>console.log(excitedGreeting("hello")); // "HELLO!"
+```</p>
+<hr />
+<p><strong>3. WebSockets &amp; Real-Time Communication</strong></p>
+<p><strong>3.1. Setting Up a WebSocket Server</strong></p>
+<p>```
+const WebSocket = require("ws");
+const server = new WebSocket.Server({ port: 8080 });</p>
+<p>server.on("connection", (socket) =&gt; {
+  socket.send("Welcome to the WebSocket Server!");
+  socket.on("message", (message) =&gt; console.log("Received:", message));
+});
+```</p>
+<p><strong>3.2. Connecting WebSocket on the Client</strong></p>
+<p><code>const socket = new WebSocket("ws://localhost:8080");
+socket.onmessage = (event) =&gt; console.log("Message:", event.data);
+socket.send("Hello Server!");</code></p>
+<hr />
+<p><strong>4. Full-Stack Development with Node.js &amp; Express.js</strong></p>
+<p><strong>4.1. Creating a Simple Express Server</strong></p>
+<p>```
+const express = require("express");
+const app = express();</p>
+<p>app.get("/", (req, res) =&gt; res.send("Hello, Full-Stack JavaScript!"));</p>
+<p>app.listen(3000, () =&gt; console.log("Server running on port 3000"));
+```</p>
+<p><strong>4.2. REST API with Express</strong></p>
+<p>```
+const express = require("express");
+const app = express();
+app.use(express.json());</p>
+<p>let users = [{ id: 1, name: "Alice" }];</p>
+<p>app.get("/users", (req, res) =&gt; res.json(users));</p>
+<p>app.post("/users", (req, res) =&gt; {
+  users.push(req.body);
+  res.status(201).json(req.body);
+});</p>
+<p>app.listen(3000, () =&gt; console.log("API running on port 3000"));
+```</p>
+<hr />
+<p><strong>5. Database Integration (MongoDB, PostgreSQL)</strong></p>
+<p><strong>5.1. Connecting to MongoDB with Mongoose</strong></p>
+<p>```
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/mydb", { useNewUrlParser: true });</p>
+<p>const UserSchema = new mongoose.Schema({ name: String });
+const User = mongoose.model("User", UserSchema);</p>
+<p>const user = new User({ name: "Alice" });
+user.save();
+```</p>
+<p><strong>5.2. PostgreSQL with Node.js</strong></p>
+<p>```
+const { Client } = require("pg");
+const client = new Client({ connectionString: "postgres://user:pass@localhost:5432/mydb" });</p>
+<p>client.connect();
+client.query("SELECT * FROM users", (err, res) =&gt; {
+  console.log(res.rows);
+  client.end();
+});
+```</p>
+<hr />
+<p><strong>6. Authentication &amp; Security</strong></p>
+<p><strong>6.1. JSON Web Tokens (JWT)</strong></p>
+<p><code>const jwt = require("jsonwebtoken");
+const token = jwt.sign({ user: "Alice" }, "secret_key", { expiresIn: "1h" });
+console.log(token);</code></p>
+<p><strong>6.2. Hashing Passwords with bcrypt</strong></p>
+<p><code>const bcrypt = require("bcrypt");
+const hashedPassword = bcrypt.hashSync("mypassword", 10);
+console.log(hashedPassword);</code></p>
+<hr />
+<p><strong>7. Introduction to React.js</strong></p>
+<p>React is a front-end framework for <strong>building interactive UIs</strong>.</p>
+<p><strong>7.1. Creating a React Component</strong></p>
+<p><code>function Greeting({ name }) {
+  return &lt;h1&gt;Hello, {name}!&lt;/h1&gt;;
+}
+export default Greeting;</code></p>
+<p><strong>7.2. Rendering Components</strong></p>
+<p>```
+import React from "react";
+import ReactDOM from "react-dom";
+import Greeting from "./Greeting";</p>
+<p>ReactDOM.render(<Greeting name="Alice" />, document.getElementById("root"));
+```</p>
+<hr />
+<p><strong>8. Deployment &amp; Performance Optimization</strong></p>
+<p><strong>8.1. Minify JavaScript for Faster Load Times</strong></p>
+<p><code>npm install terser -g
+terser script.js -o script.min.js</code></p>
+<p><strong>8.2. Deploying a Node.js App to Heroku</strong></p>
+<p><code>heroku login
+heroku create my-app
+git push heroku main</code></p>
+<hr />
+<p><strong>9. Final Project: Real-Time Chat App</strong></p>
+<p><strong>9.1. Backend (Node.js + WebSockets)</strong></p>
+<p>```
+const express = require("express");
+const http = require("http");
+const WebSocket = require("ws");</p>
+<p>const app = express();
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });</p>
+<p>wss.on("connection", (ws) =&gt; {
+  ws.on("message", (message) =&gt; {
+    wss.clients.forEach(client =&gt; client.send(message));
+  });
+});</p>
+<p>server.listen(3000, () =&gt; console.log("Chat server running on port 3000"));
+```</p>
+<p><strong>9.2. Frontend (HTML + JavaScript)</strong></p>
+<p>```</p>
+<!DOCTYPE html>
+<html>
+<body>
+  <input id="message" type="text">
+  <button onclick="sendMessage()">Send</button>
+  <ul id="chat"></ul>
+
+  <script>
+    const socket = new WebSocket("ws://localhost:3000");
+    socket.onmessage = event => {
+      let li = document.createElement("li");
+      li.textContent = event.data;
+      document.getElementById("chat").appendChild(li);
+    };
+
+    function sendMessage() {
+      let msg = document.getElementById("message").value;
+      socket.send(msg);
+    }
+  </script>
+</body>
+</html>
+<p>```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in JavaScript Level 3:</strong></p>
+<p>✅ <strong>Advanced JavaScript (Closures, Prototypes, Higher-Order Functions)</strong></p>
+<p>✅ <strong>Functional Programming (Currying, Composition)</strong></p>
+<p>✅ <strong>Real-Time WebSockets</strong></p>
+<p>✅ <strong>Full-Stack API with Node.js &amp; Express.js</strong></p>
+<p>✅ <strong>MongoDB &amp; PostgreSQL Integration</strong></p>
+<p>✅ <strong>Authentication (JWT, bcrypt)</strong></p>
+<p>✅ <strong>Introduction to React.js</strong></p>
+<p>✅ <strong>Deployment &amp; Optimization</strong></p>
+<p>✅ <strong>Built a Real-Time Chat App</strong></p>
+<p>Now, you’re ready for <strong>JavaScript Level 4</strong>, where we explore <strong>Advanced React.js, GraphQL, Microservices, and AI with JavaScript</strong>! 🚀</p></body></html>

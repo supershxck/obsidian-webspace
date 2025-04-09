@@ -1,0 +1,13 @@
+> **July 6th, 2024** 
+> **20:27:12** 
+> **status:** #GPT 
+> **topics:** [[Monasticism]] 
+
+A schema monk is a member of the Eastern Orthodox or Eastern Catholic monastic tradition who has reached the highest level of monasticism. The term "schema" refers to the special monastic habit or garb that symbolizes the monk's total commitment to a life of asceticism and spiritual contemplation. Becoming a schema monk involves a solemn and profound commitment to live according to the monastic vows of poverty, chastity, obedience, and stability in an especially rigorous and complete way.
+
+The process of becoming a schema monk is usually gradual and involves several stages, starting from a novice, progressing to a rassophore monk (where one receives the monastic habit), then to a stavrophore or "cross-bearer," and finally to the great schema. Each stage involves additional vows and responsibilities, and the progression is marked by distinct ceremonies. The great schema is granted rarely and usually to monks who have demonstrated an extraordinary dedication to the monastic life, often after many years or even decades of service in the monastery.
+
+The habit of a schema monk includes several symbolic items, such as the schema itself (a cloth with the instruments of the Passion and the Trisagion prayer inscribed on it), which is worn over the monk's garments, and the analavos, which drapes over the shoulders and back. These garments symbolize the monk's death to the world and resurrection in Christ, as well as the constant bearing of the cross of ascetic struggle.
+
+Schema monks dedicate themselves to prayer, contemplation, and often complete silence, living lives that are largely withdrawn from the world even compared to other monastics. They are revered within the Orthodox tradition for their spiritual wisdom and are often sought out for guidance and counsel.
+

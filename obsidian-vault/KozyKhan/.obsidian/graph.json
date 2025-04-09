@@ -1,0 +1,65 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "god",
+      "color": {
+        "a": 1,
+        "rgb": 9521151
+      }
+    },
+    {
+      "query": "family",
+      "color": {
+        "a": 1,
+        "rgb": 14606418
+      }
+    },
+    {
+      "query": "money",
+      "color": {
+        "a": 1,
+        "rgb": 9822101
+      }
+    },
+    {
+      "query": "empire",
+      "color": {
+        "a": 1,
+        "rgb": 2069503
+      }
+    },
+    {
+      "query": "power",
+      "color": {
+        "a": 1,
+        "rgb": 14352384
+      }
+    },
+    {
+      "query": "tech",
+      "color": {
+        "a": 1,
+        "rgb": 14725970
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": -2,
+  "nodeSizeMultiplier": 1.80249458434877,
+  "lineSizeMultiplier": 1.80282629298673,
+  "collapse-forces": true,
+  "centerStrength": 0.897948822095857,
+  "repelStrength": 15.0047386948281,
+  "linkStrength": 0.959010289737341,
+  "linkDistance": 90,
+  "scale": 0.12872528319423568,
+  "close": false
+}

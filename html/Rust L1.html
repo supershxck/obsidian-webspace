@@ -1,0 +1,233 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:50:16</strong> 
+<strong>Topics:</strong> [[Rust L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Rust Level 1: Introduction to Rust Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Rust is a <strong>systems programming language</strong> focused on <strong>speed, memory safety, and concurrency</strong>. It’s used in <strong>high-performance applications, web assembly, blockchain, and embedded systems</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Rust Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Ownership &amp; Borrowing (Rust’s Memory Safety Model)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Pattern Matching)</strong></p>
+<p>✅ <strong>Functions &amp; Closures</strong></p>
+<p>✅ <strong>Structs, Enums &amp; Pattern Matching</strong></p>
+<p>✅ <strong>Error Handling (Result &amp; Option Types)</strong></p>
+<p>✅ <strong>Collections (Vectors, HashMaps, Strings)</strong></p>
+<p>✅ <strong>Building a Simple Rust Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic Rust programs and understand its unique memory safety model</strong>.</p>
+<hr />
+<p><strong>1. Setting Up Rust</strong></p>
+<p><strong>1.1. Installing Rust</strong></p>
+<p>• Install Rust using <strong>Rustup</strong> (recommended):</p>
+<p><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></p>
+<p>• Verify installation:</p>
+<p><code>rustc --version</code></p>
+<p><strong>1.2. Running Rust Code</strong></p>
+<p>• <strong>Interactive Mode (Rust Playground)</strong>: <a href="https://play.rust-lang.org/">play.rust-lang.org</a></p>
+<p>• <strong>Compile &amp; Run a Rust Program</strong>:</p>
+<p><code>rustc main.rs
+./main</code></p>
+<hr />
+<p><strong>2. Rust Basics: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>2.1. Variables &amp; Constants</strong></p>
+<p><code>fn main() {
+    let age = 25; // Immutable variable
+    let mut score = 100; // Mutable variable
+    const PI: f64 = 3.1415; // Constant
+}</code></p>
+<p><strong>2.2. Data Types</strong></p>
+<p><code>fn main() {
+    let num: i32 = 42;  // Integer
+    let pi: f64 = 3.14; // Floating-point number
+    let is_rust_fun: bool = true; // Boolean
+    let letter: char = 'R'; // Character
+    let message: &amp;str = "Hello, Rust!"; // String slice
+}</code></p>
+<p><strong>2.3. Operators</strong></p>
+<p>```
+fn main() {
+    let sum = 5 + 3;      // Addition
+    let diff = 10 - 4;    // Subtraction
+    let product = 2 * 6;  // Multiplication
+    let quotient = 9 / 3; // Division
+    let remainder = 7 % 3;// Modulus</p>
+<pre><code>let is_equal = (5 == 5);   // true
+let is_not_equal = (5 != 4); // true
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>3. Ownership &amp; Borrowing (Memory Safety)</strong></p>
+<p>Rust’s <strong>ownership system</strong> prevents memory leaks without garbage collection.</p>
+<p><strong>3.1. Ownership Rules</strong></p>
+<p>• Each value has <strong>one owner</strong>.</p>
+<p>• When the owner goes out of scope, Rust <strong>frees memory automatically</strong>.</p>
+<p>• <strong>No data races or dangling pointers</strong>.</p>
+<p>```
+fn main() {
+    let s1 = String::from("Hello");
+    let s2 = s1; // Ownership moves to s2, s1 is invalid</p>
+<pre><code>println!("{}", s2); // Works
+// println!("{}", s1); // Error! s1 is no longer valid
+</code></pre>
+<p>}
+```</p>
+<p><strong>3.2. Borrowing &amp; References</strong></p>
+<p>```
+fn main() {
+    let s = String::from("Hello");
+    print_string(&amp;s); // Borrowing without transferring ownership
+}</p>
+<p>fn print_string(text: &amp;String) {
+    println!("{}", text);
+}
+```</p>
+<hr />
+<p><strong>4. Control Flow (If-Else, Loops, Pattern Matching)</strong></p>
+<p><strong>4.1. If-Else Statement</strong></p>
+<p><code>fn main() {
+    let temp = 30;
+    if temp &gt; 25 {
+        println!("It's hot!");
+    } else {
+        println!("It's cold!");
+    }
+}</code></p>
+<p><strong>4.2. Loops</strong></p>
+<p><strong>For Loop</strong></p>
+<p><code>fn main() {
+    for i in 1..=5 {
+        println!("Iteration {}", i);
+    }
+}</code></p>
+<p><strong>While Loop</strong></p>
+<p><code>fn main() {
+    let mut count = 0;
+    while count &lt; 3 {
+        println!("Count: {}", count);
+        count += 1;
+    }
+}</code></p>
+<p><strong>4.3. Match Statement (Pattern Matching)</strong></p>
+<p><code>fn main() {
+    let day = "Monday";
+    match day {
+        "Monday" =&gt; println!("Start of the week!"),
+        "Friday" =&gt; println!("Weekend is coming!"),
+        _ =&gt; println!("A regular day."),
+    }
+}</code></p>
+<hr />
+<p><strong>5. Functions &amp; Closures</strong></p>
+<p><strong>5.1. Defining a Function</strong></p>
+<p>```
+fn greet(name: &amp;str) -&gt; String {
+    format!("Hello, {}!", name)
+}</p>
+<p>fn main() {
+    let message = greet("Alice");
+    println!("{}", message);
+}
+```</p>
+<p><strong>5.2. Closures (Anonymous Functions)</strong></p>
+<p><code>fn main() {
+    let square = |num: i32| num * num;
+    println!("{}", square(5)); // 25
+}</code></p>
+<hr />
+<p><strong>6. Structs, Enums &amp; Pattern Matching</strong></p>
+<p><strong>6.1. Defining &amp; Using Structs</strong></p>
+<p>```
+struct Car {
+    brand: String,
+    speed: i32,
+}</p>
+<p>fn main() {
+    let my_car = Car { brand: String::from("Tesla"), speed: 120 };
+    println!("{} is driving at {} km/h", my_car.brand, my_car.speed);
+}
+```</p>
+<p><strong>6.2. Using Enums</strong></p>
+<p>```
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}</p>
+<p>fn main() {
+    let signal = TrafficLight::Green;
+    match signal {
+        TrafficLight::Red =&gt; println!("Stop!"),
+        TrafficLight::Yellow =&gt; println!("Slow down!"),
+        TrafficLight::Green =&gt; println!("Go!"),
+    }
+}
+```</p>
+<hr />
+<p><strong>7. Error Handling (Result &amp; Option Types)</strong></p>
+<p><strong>7.1. Handling Missing Values (Option)</strong></p>
+<p><code>fn main() {
+    let maybe_number: Option&lt;i32&gt; = Some(5);
+    match maybe_number {
+        Some(n) =&gt; println!("Number: {}", n),
+        None =&gt; println!("No number found"),
+    }
+}</code></p>
+<p><strong>7.2. Handling Errors (Result)</strong></p>
+<p>```
+fn divide(x: i32, y: i32) -&gt; Result<i32, String> {
+    if y == 0 {
+        Err(String::from("Cannot divide by zero"))
+    } else {
+        Ok(x / y)
+    }
+}</p>
+<p>fn main() {
+    match divide(10, 0) {
+        Ok(result) =&gt; println!("Result: {}", result),
+        Err(error) =&gt; println!("Error: {}", error),
+    }
+}
+```</p>
+<hr />
+<p><strong>8. Collections (Vectors, HashMaps, Strings)</strong></p>
+<p><strong>8.1. Vectors (Dynamic Arrays)</strong></p>
+<p><code>fn main() {
+    let mut numbers = vec![1, 2, 3];
+    numbers.push(4);
+    println!("{:?}", numbers); // [1, 2, 3, 4]
+}</code></p>
+<p><strong>8.2. HashMaps (Key-Value Pairs)</strong></p>
+<p>```
+use std::collections::HashMap;</p>
+<p>fn main() {
+    let mut scores = HashMap::new();
+    scores.insert("Alice", 90);
+    println!("{:?}", scores.get("Alice")); // Some(90)
+}
+```</p>
+<hr />
+<p><strong>9. Building a Simple Rust Application</strong></p>
+<p><strong>Project: Simple Temperature Converter</strong></p>
+<p>```
+fn convert_to_fahrenheit(celsius: f64) -&gt; f64 {
+    (celsius * 1.8) + 32.0
+}</p>
+<p>fn main() {
+    let temp_c = 30.0;
+    let temp_f = convert_to_fahrenheit(temp_c);
+    println!("{}°C is {}°F", temp_c, temp_f);
+}
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Rust Level 1:</strong></p>
+<p>✅ <strong>Rust Basics &amp; Ownership Model</strong></p>
+<p>✅ <strong>Control Flow &amp; Pattern Matching</strong></p>
+<p>✅ <strong>Functions, Closures &amp; Structs</strong></p>
+<p>✅ <strong>Error Handling (Result &amp; Option)</strong></p>
+<p>✅ <strong>Collections (Vectors, HashMaps)</strong></p>
+<p>✅ <strong>Built a Simple Rust Application</strong></p>
+<p>Now, you’re ready for <strong>Rust Level 2</strong>, where we explore <strong>Concurrency, Lifetimes, Web Development, and Embedded Systems!</strong> 🚀</p></body></html>

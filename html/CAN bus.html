@@ -1,0 +1,66 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>22:47:46</strong> 
+<strong>Topics:</strong> [[Ethernet]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>What is a CAN Bus?</strong></p>
+<p><strong>CAN (Controller Area Network) bus</strong> is a <strong>robust, high-speed communication protocol</strong> designed for <strong>real-time data exchange</strong> between multiple electronic devices without needing a central computer. It was developed by <strong>Bosch in 1983</strong> and standardized as <strong>ISO 11898</strong>. CAN is widely used in <strong>automotive, industrial automation, and embedded systems</strong>.</p>
+<hr />
+<p><strong>Key Features of CAN Bus</strong></p>
+<ol>
+<li><strong>Multi-Master, Peer-to-Peer Communication</strong></li>
+</ol>
+<p>• Any device (node) can <strong>send or receive</strong> messages at any time.</p>
+<p>• No master-slave dependency, ensuring <strong>fault tolerance</strong>.</p>
+<ol>
+<li><strong>Prioritized Message Handling</strong></li>
+</ol>
+<p>• Messages have <strong>priority IDs</strong>; higher-priority messages get immediate bus access.</p>
+<p>• Ensures <strong>critical data (e.g., brake signals in cars) is processed first</strong>.</p>
+<ol>
+<li><strong>Error Detection and Fault Tolerance</strong></li>
+</ol>
+<p>• Uses <strong>Cyclic Redundancy Check (CRC)</strong> and automatic retransmission.</p>
+<p>• Faulty nodes <strong>isolate themselves</strong> to avoid network failure.</p>
+<ol>
+<li><strong>High-Speed and Efficient</strong></li>
+</ol>
+<p>• Supports speeds up to <strong>1 Mbps (Classical CAN)</strong> or <strong>8 Mbps (CAN FD - Flexible Data-Rate)</strong>.</p>
+<p>• Uses a <strong>binary differential signal (CAN_H, CAN_L)</strong>, making it <strong>resistant to electrical noise</strong>.</p>
+<hr />
+<p><strong>How CAN Bus Works</strong></p>
+<p>• <strong>Broadcast Communication</strong>: Devices (nodes) listen for messages and respond only if relevant.</p>
+<p>• <strong>No Addressing</strong>: Unlike Ethernet, messages are identified by an <strong>11-bit or 29-bit identifier</strong> (Standard or Extended CAN).</p>
+<p>• <strong>Two-Wire Differential Signal</strong>: Reduces electromagnetic interference (EMI).</p>
+<hr />
+<p><strong>Types of CAN Bus</strong></p>
+<ol>
+<li><strong>Classical CAN</strong></li>
+</ol>
+<p>• <strong>Max speed</strong>: 1 Mbps</p>
+<p>• <strong>Payload size</strong>: 8 bytes</p>
+<p>• Used in <strong>automotive and industrial automation</strong>.</p>
+<ol>
+<li><strong>CAN FD (Flexible Data-Rate)</strong></li>
+</ol>
+<p>• <strong>Max speed</strong>: 8 Mbps</p>
+<p>• <strong>Payload size</strong>: 64 bytes</p>
+<p>• Used in <strong>modern cars, EVs, and high-speed applications</strong>.</p>
+<ol>
+<li><strong>CANopen &amp; J1939 (Higher-layer Protocols)</strong></li>
+</ol>
+<p>• <strong>CANopen</strong>: Used in <strong>industrial automation</strong>.</p>
+<p>• <strong>J1939</strong>: Used in <strong>heavy-duty vehicles, trucks, and buses</strong>.</p>
+<hr />
+<p><strong>Common Uses of CAN Bus</strong></p>
+<p>• <strong>Automotive</strong>: Connecting <strong>ECUs (Engine Control Units), ABS, airbags, and infotainment systems</strong>.</p>
+<p>• <strong>Industrial Automation</strong>: Used in <strong>robotics, CNC machines, and factory sensors</strong>.</p>
+<p>• <strong>Medical Devices</strong>: Communication between <strong>MRI machines, ventilators, and infusion pumps</strong>.</p>
+<p>• <strong>Aerospace &amp; Marine</strong>: Used in <strong>aircraft avionics and ship control systems</strong>.</p>
+<hr />
+<p><strong>Why Use CAN Bus?</strong></p>
+<p>• <strong>Reduces Wiring Complexity</strong>: A single bus replaces point-to-point wiring.</p>
+<p>• <strong>Real-Time &amp; Deterministic</strong>: Critical messages are sent with minimal delay.</p>
+<p>• <strong>Reliable &amp; Fault-Tolerant</strong>: Designed for harsh environments (e.g., cars, industrial plants).</p>
+<p>CAN Bus is still the <strong>backbone of modern vehicle electronics</strong>, and newer technologies like <strong>CAN FD and Automotive Ethernet</strong> are expanding its capabilities for future applications.</p></body></html>

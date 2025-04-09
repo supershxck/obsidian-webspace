@@ -1,0 +1,123 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>15:57:53</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Exploratory Data Analysis (EDA): Understanding Data Before Modeling</strong></p>
+<p><strong>1. What is Exploratory Data Analysis (EDA)?</strong></p>
+<p><strong>Exploratory Data Analysis (EDA)</strong> is the process of analyzing datasets <strong>to summarize key characteristics, detect patterns, find anomalies, and gain insights</strong> using statistical and visualization techniques.</p>
+<p><strong>Why is EDA Important?</strong></p>
+<p>✔ <strong>Helps understand data distribution and relationships</strong></p>
+<p>✔ <strong>Identifies missing values, outliers, and inconsistencies</strong></p>
+<p>✔ <strong>Determines feature importance for machine learning models</strong></p>
+<p>✔ <strong>Ensures better data-driven decisions</strong></p>
+<p><strong>2. Steps in EDA</strong></p>
+<p><strong>1. Loading and Understanding Data</strong></p>
+<p>EDA starts with <strong>loading the dataset</strong> and examining its structure.</p>
+<p>✔ <strong>Example: Loading Data with Pandas</strong></p>
+<p>```
+import pandas as pd</p>
+<p>df = pd.read_csv("data.csv")  # Load dataset
+print(df.shape)  # Show (rows, columns)
+print(df.info())  # Display column types and non-null values
+print(df.head())  # Show first 5 rows
+```</p>
+<p>✔ <strong>Key Insights:</strong></p>
+<p>• <strong>Column types</strong> (numerical, categorical, text, date)</p>
+<p>• <strong>Missing values</strong></p>
+<p>• <strong>Basic statistics of numerical features</strong></p>
+<p><strong>2. Checking for Missing Values</strong></p>
+<p>✔ <strong>Example: Detecting Missing Values</strong></p>
+<p><code>print(df.isnull().sum())  # Count missing values per column</code></p>
+<p>✔ <strong>Handling Missing Data:</strong></p>
+<p>• <strong>Drop missing values:</strong> df.dropna(inplace=True)</p>
+<p>• <strong>Fill with mean/median:</strong> df.fillna(df.mean(), inplace=True)</p>
+<p><strong>3. Descriptive Statistics</strong></p>
+<p>Descriptive statistics summarize the dataset’s numerical values.</p>
+<p>✔ <strong>Example: Summarizing Data</strong></p>
+<p><code>print(df.describe())  # Summary statistics</code></p>
+<p>✔ <strong>Interpretation of df.describe() Output:</strong></p>
+<p>|<strong>Metric</strong>|<strong>Meaning</strong>|
+|---|---|
+|<strong>Mean</strong>|Average value|
+|<strong>Median (50%)</strong>|Middle value|
+|<strong>Min/Max</strong>|Range of values|
+|<strong>Standard Deviation (std)</strong>|Spread of data|</p>
+<p><strong>4. Detecting Outliers</strong></p>
+<p>Outliers are <strong>extreme values</strong> that can distort results.</p>
+<p>✔ <strong>Example: Visualizing Outliers Using Boxplot</strong></p>
+<p>```
+import seaborn as sns
+import matplotlib.pyplot as plt</p>
+<p>sns.boxplot(x=df['column'])
+plt.show()
+```</p>
+<p>✔ <strong>Handling Outliers:</strong></p>
+<p>• <strong>Removing outliers using IQR (Interquartile Range)</strong></p>
+<p><code>Q1 = df['column'].quantile(0.25)
+Q3 = df['column'].quantile(0.75)
+IQR = Q3 - Q1
+df = df[(df['column'] &gt;= (Q1 - 1.5 * IQR)) &amp; (df['column'] &lt;= (Q3 + 1.5 * IQR))]</code></p>
+<p><strong>5. Data Visualization</strong></p>
+<p>EDA relies heavily on <strong>visualizing data to identify trends and patterns</strong>.</p>
+<p>✔ <strong>Histogram (Checking Distribution)</strong></p>
+<p><code>df['column'].hist(bins=30)
+plt.show()</code></p>
+<p>✔ <strong>Pairplot (Visualizing Relationships)</strong></p>
+<p><code>sns.pairplot(df)
+plt.show()</code></p>
+<p>✔ <strong>Correlation Heatmap (Checking Relationships Between Features)</strong></p>
+<p><code>sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
+plt.show()</code></p>
+<p>✔ <strong>Scatter Plot (Identifying Trends Between Two Variables)</strong></p>
+<p><code>sns.scatterplot(x=df['column1'], y=df['column2'])
+plt.show()</code></p>
+<p>✔ <strong>Bar Chart (Categorical Data)</strong></p>
+<p><code>df['category_column'].value_counts().plot(kind='bar')
+plt.show()</code></p>
+<p><strong>6. Feature Relationships and Correlation Analysis</strong></p>
+<p>Understanding relationships between variables helps in <strong>feature selection</strong> for machine learning.</p>
+<p>✔ <strong>Example: Checking Correlation Between Variables</strong></p>
+<p><code>print(df.corr())  # Displays correlation matrix</code></p>
+<p>✔ <strong>Example: Finding Highly Correlated Features</strong></p>
+<p><code>correlation_matrix = df.corr()
+high_corr_features = correlation_matrix[abs(correlation_matrix) &gt; 0.75]
+print(high_corr_features)</code></p>
+<p><strong>7. Checking Data Imbalance</strong></p>
+<p>Data imbalance occurs when <strong>one class dominates another</strong> (e.g., fraud detection datasets).</p>
+<p>✔ <strong>Example: Checking Class Balance</strong></p>
+<p><code>df['target_column'].value_counts().plot(kind='bar')
+plt.show()</code></p>
+<p>✔ <strong>Fixing Imbalanced Data:</strong></p>
+<p>• <strong>Oversampling (SMOTE):</strong> imbalanced-learn library</p>
+<p>• <strong>Undersampling:</strong> Reduce size of dominant class</p>
+<p><strong>3. EDA Summary Report with Pandas Profiling</strong></p>
+<p>Instead of manually running multiple analyses, use <strong>automated EDA tools</strong>.</p>
+<p>✔ <strong>Example: Generating EDA Report</strong></p>
+<p>```
+from pandas_profiling import ProfileReport</p>
+<p>profile = ProfileReport(df)
+profile.to_file("EDA_Report.html")
+```</p>
+<p>✔ <strong>What’s Included?</strong></p>
+<p>• Missing values report</p>
+<p>• Outlier detection</p>
+<p>• Feature correlations</p>
+<p>• Distribution of variables</p>
+<p><strong>4. Applications of EDA</strong></p>
+<p>|<strong>Industry</strong>|<strong>Application</strong>|
+|---|---|
+|<strong>Healthcare</strong>|Analyzing patient records for disease prediction|
+|<strong>Finance</strong>|Fraud detection in transactions|
+|<strong>Marketing</strong>|Customer segmentation and trend analysis|
+|<strong>E-commerce</strong>|Price optimization and sales forecasting|
+|<strong>Cybersecurity</strong>|Detecting unusual login patterns|</p>
+<p>✔ <strong>Example: Fraud Detection in Banking</strong></p>
+<p>• <strong>EDA helps detect anomalous transactions</strong> (outliers).</p>
+<p>• <strong>Features like transaction amount, frequency, location are analyzed</strong>.</p>
+<p>✔ <strong>Example: Customer Segmentation in Marketing</strong></p>
+<p>• <strong>EDA identifies groups based on purchase behavior</strong>.</p>
+<p>• <strong>Categorical data (age, income) is analyzed for patterns</strong>.</p>
+<p><strong>5. Conclusion</strong></p>
+<p><strong>Exploratory Data Analysis (EDA)</strong> is a critical step in <strong>data science and machine learning</strong>. It helps <strong>detect missing values, visualize trends, and understand feature relationships</strong> before building models. 🚀</p></body></html>

@@ -1,0 +1,58 @@
+<html><body><blockquote>
+<p><strong>April 7th, 2025</strong>  <strong>19:02:45</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p>python -m venv venv &amp;&amp; source venv/bin/activate</p>
+<p>Sure — this is a very common pattern in Python projects for setting up an isolated environment to manage dependencies. Here’s a breakdown, structured like a quick mini-chapter for your Obsidian vault:</p>
+<hr />
+<p><strong>🔧 Command Breakdown: python -m venv venv &amp;&amp; source venv/bin/activate</strong></p>
+<p><strong>Overview</strong></p>
+<p>This command creates and activates a <strong>Python virtual environment</strong>, which is like a sandbox where you can install packages and run Python code <em>without affecting your global Python installation</em>.</p>
+<hr />
+<p><strong>🔍 Step-by-Step Breakdown</strong></p>
+<p><strong>python -m venv venv</strong></p>
+<p>• <strong>python -m</strong>: Runs a Python module as a script. Here, it’s invoking the built-in venv module.</p>
+<p>• <strong>venv</strong>: The module used to <strong>create a virtual environment</strong> (lightweight, built-in since Python 3.3).</p>
+<p>• <strong>Second venv</strong>: The <em>name of the directory</em> to create the virtual environment in. You could name it anything, but “venv” is convention.</p>
+<p>📂 This creates a folder named venv/ that includes:</p>
+<p>• A <strong>copy of the Python interpreter</strong></p>
+<p>• An isolated <strong>site-packages</strong> directory (where pip installs packages)</p>
+<p>• Shell scripts for activation/deactivation</p>
+<hr />
+<p><strong>&amp;&amp;</strong></p>
+<p>This is a shell operator that means: <em>only run the next command if the previous one succeeds</em>. It’s a way to chain commands safely.</p>
+<hr />
+<p><strong>source venv/bin/activate</strong></p>
+<p>This command <strong>activates the virtual environment</strong> on Unix/Linux/macOS:</p>
+<p>• <strong>source</strong>: Tells the shell to <em>execute the script in the current shell session</em> (as opposed to a new one).</p>
+<p>• <strong>venv/bin/activate</strong>: A script inside the virtual environment that:</p>
+<p>• Modifies your PATH</p>
+<p>• Points Python and pip to the versions inside venv</p>
+<p>• Changes your shell prompt (you’ll usually see (venv) at the beginning)</p>
+<p>🧪 Now, running:</p>
+<p>• python will refer to venv/bin/python</p>
+<p>• pip install some-package will install into venv/lib/... rather than system-wide</p>
+<hr />
+<p><strong>🧠 Why Use a Virtual Environment?</strong></p>
+<p>|<strong>Benefit</strong>|<strong>Explanation</strong>|
+|---|---|
+|<strong>Isolation</strong>|Avoid conflicts between projects that need different library versions.|
+|<strong>Portability</strong>|Makes dependency management easier via requirements.txt.|
+|<strong>Safety</strong>|Keeps your system Python environment clean and stable.|</p>
+<hr />
+<p><strong>📝 Obsidian Snippet for Quick Reference:</strong></p>
+<p>```</p>
+<h1>Create a new virtual environment</h1>
+<p>python -m venv venv</p>
+<h1>Activate the virtual environment</h1>
+<p>source venv/bin/activate</p>
+<h1>(On Windows, use: venv\Scripts\activate)</h1>
+<p>```</p>
+<hr />
+<p>Let me know if you want me to add instructions on:</p>
+<p>• Creating a requirements.txt file</p>
+<p>• Using deactivate</p>
+<p>• Automating this with a shell script</p>
+<p>• Or using virtual environments in [[Docker]] or with [[Poetry]] instead</p></body></html>

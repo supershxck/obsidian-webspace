@@ -1,0 +1,240 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:47:46</strong> 
+<strong>Topics:</strong> [[Swift L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Swift Level 1: Introduction to Swift Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Swift is <strong>Apple’s powerful and intuitive programming language</strong>, used for <strong>iOS, macOS, watchOS, and tvOS development</strong>. It is designed to be <strong>safe, fast, and interactive</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Swift Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Closures</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes, Structs, Enums, Inheritance)</strong></p>
+<p>✅ <strong>Optionals &amp; Error Handling</strong></p>
+<p>✅ <strong>Collections (Arrays, Dictionaries, Sets)</strong></p>
+<p>✅ <strong>Basic SwiftUI &amp; UIKit Introduction</strong></p>
+<p>✅ <strong>Building a Simple iOS App in Swift</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic Swift programs and understand core iOS development concepts</strong>.</p>
+<hr />
+<p><strong>1. Setting Up Swift</strong></p>
+<p><strong>1.1. Installing Swift</strong></p>
+<p>• <strong>macOS:</strong> Swift is pre-installed (Use Xcode or Terminal).</p>
+<p>• <strong>Windows/Linux:</strong> Install Swift from <a href="https://swift.org/download/">swift.org</a>.</p>
+<p><strong>1.2. Running Swift Code</strong></p>
+<p>• Open <strong>Xcode</strong>, create a Swift Playground, or run Swift in the <strong>Terminal</strong>:</p>
+<p><code>swift</code></p>
+<p>• Run a Swift script:</p>
+<p><code>swift my_script.swift</code></p>
+<hr />
+<p><strong>2. Swift Basics: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>2.1. Variables &amp; Constants</strong></p>
+<p><code>var age = 25          // Mutable variable
+let name = "Alice"    // Constant (Immutable)</code></p>
+<p><strong>2.2. Data Types</strong></p>
+<p><code>var number: Int = 42
+var pi: Double = 3.14
+var isSwiftAwesome: Bool = true
+var message: String = "Hello, Swift!"</code></p>
+<p><strong>2.3. Type Inference</strong></p>
+<p>Swift <strong>automatically infers types</strong>, so explicit declarations aren’t always needed.</p>
+<p><code>var greeting = "Hello"  // Inferred as String
+var score = 95          // Inferred as Int</code></p>
+<p><strong>2.4. Operators</strong></p>
+<p>```
+let sum = 5 + 3      // Addition
+let diff = 10 - 4    // Subtraction
+let product = 2 * 6  // Multiplication
+let quotient = 9 / 3 // Division
+let remainder = 7 % 3 // Modulus</p>
+<p>let isEqual = (5 == 5)   // true
+let isNotEqual = (5 != 4) // true
+```</p>
+<hr />
+<p><strong>3. Control Flow (If-Else, Loops, Switch)</strong></p>
+<p><strong>3.1. If-Else Statement</strong></p>
+<p><code>let temperature = 30
+if temperature &gt; 25 {
+    print("It's hot outside!")
+} else {
+    print("It's cool outside.")
+}</code></p>
+<p><strong>3.2. For Loop</strong></p>
+<p><code>for i in 1...5 {
+    print("Iteration \(i)")
+}</code></p>
+<p><strong>3.3. While Loop</strong></p>
+<p><code>var count = 0
+while count &lt; 3 {
+    print("Count: \(count)")
+    count += 1
+}</code></p>
+<p><strong>3.4. Switch Statement</strong></p>
+<p><code>let day = "Monday"
+switch day {
+case "Monday":
+    print("Start of the week!")
+case "Friday":
+    print("Weekend is coming!")
+default:
+    print("A regular day.")
+}</code></p>
+<hr />
+<p><strong>4. Functions &amp; Closures</strong></p>
+<p><strong>4.1. Defining a Function</strong></p>
+<p>```
+func greet(name: String) -&gt; String {
+    return "Hello, (name)!"
+}</p>
+<p>print(greet(name: "Alice"))
+```</p>
+<p><strong>4.2. Function with Default Parameter</strong></p>
+<p>```
+func greet(name: String = "Guest") {
+    print("Hello, (name)!")
+}</p>
+<p>greet()      // Hello, Guest!
+greet(name: "Bob") // Hello, Bob!
+```</p>
+<p><strong>4.3. Closures (Anonymous Functions)</strong></p>
+<p>```
+let square = { (num: Int) -&gt; Int in
+    return num * num
+}</p>
+<p>print(square(5))  // 25
+```</p>
+<hr />
+<p><strong>5. Object-Oriented Programming (OOP)</strong></p>
+<p><strong>5.1. Creating a Class &amp; Object</strong></p>
+<p>```
+class Car {
+    var brand: String
+    var speed: Int</p>
+<pre><code>init(brand: String, speed: Int) {
+    self.brand = brand
+    self.speed = speed
+}
+
+func drive() {
+    print("\(brand) is driving at \(speed) km/h")
+}
+</code></pre>
+<p>}</p>
+<p>let myCar = Car(brand: "Tesla", speed: 120)
+myCar.drive()
+```</p>
+<p><strong>5.2. Structs vs. Classes</strong></p>
+<p>```
+struct CarStruct {
+    var brand: String
+    var speed: Int
+}</p>
+<p>var car1 = CarStruct(brand: "Ford", speed: 100)
+var car2 = car1  // Creates a copy (value type)
+car2.speed = 150
+print(car1.speed) // 100 (Original remains unchanged)
+```</p>
+<hr />
+<p><strong>6. Optionals &amp; Error Handling</strong></p>
+<p><strong>6.1. Optionals (Handling Null Values)</strong></p>
+<p><code>var name: String? = nil
+print(name ?? "No name available")  // Default value if nil</code></p>
+<p><strong>6.2. Optional Binding</strong></p>
+<p><code>if let safeName = name {
+    print("Hello, \(safeName)")
+} else {
+    print("No name found")
+}</code></p>
+<p><strong>6.3. Error Handling</strong></p>
+<p>```
+enum NetworkError: Error {
+    case noInternet
+}</p>
+<p>func fetchData() throws {
+    throw NetworkError.noInternet
+}</p>
+<p>do {
+    try fetchData()
+} catch {
+    print("Error: (error)")
+}
+```</p>
+<hr />
+<p><strong>7. Collections (Arrays, Dictionaries, Sets)</strong></p>
+<p><strong>7.1. Arrays</strong></p>
+<p><code>var fruits = ["Apple", "Banana", "Cherry"]
+fruits.append("Orange")
+print(fruits[1]) // Banana</code></p>
+<p><strong>7.2. Dictionaries</strong></p>
+<p><code>var scores = ["Alice": 90, "Bob": 85]
+print(scores["Alice"] ?? "No Score")</code></p>
+<p><strong>7.3. Sets (Unique Elements)</strong></p>
+<p><code>var uniqueNumbers: Set = [1, 2, 3, 1, 2]
+print(uniqueNumbers)  // {1, 2, 3}</code></p>
+<hr />
+<p><strong>8. Basic SwiftUI &amp; UIKit Introduction</strong></p>
+<p>Swift is used to <strong>build iOS apps</strong> with <strong>SwiftUI</strong> and <strong>UIKit</strong>.</p>
+<p><strong>8.1. Basic SwiftUI App</strong></p>
+<p>```
+import SwiftUI</p>
+<p>struct ContentView: View {
+    var body: some View {
+        VStack {
+            Text("Hello, SwiftUI!")
+                .font(.largeTitle)
+                .padding()
+            Button("Click Me") {
+                print("Button Clicked")
+            }
+        }
+    }
+}
+```</p>
+<p><strong>8.2. UIKit (Storyboard-Based Apps)</strong></p>
+<p>```
+import UIKit</p>
+<p>class ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("UIKit Loaded")
+    }
+}
+```</p>
+<hr />
+<p><strong>9. Final Project: Simple iOS App</strong></p>
+<p><strong>Objective:</strong></p>
+<p>• Create a <strong>button that changes text when clicked</strong>.</p>
+<p>```
+import SwiftUI</p>
+<p>struct ContentView: View {
+    @State private var message = "Hello, Swift!"</p>
+<pre><code>var body: some View {
+    VStack {
+        Text(message)
+            .font(.title)
+            .padding()
+        Button("Tap Me") {
+            message = "Button Clicked!"
+        }
+        .padding()
+        .background(Color.blue)
+        .foregroundColor(.white)
+        .cornerRadius(10)
+    }
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Swift Level 1:</strong></p>
+<p>✅ <strong>Swift Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Closures</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes, Structs, Enums, Inheritance)</strong></p>
+<p>✅ <strong>Optionals &amp; Error Handling</strong></p>
+<p>✅ <strong>Collections (Arrays, Dictionaries, Sets)</strong></p>
+<p>✅ <strong>Basic SwiftUI &amp; UIKit Introduction</strong></p>
+<p>✅ <strong>Built a Simple iOS App</strong></p>
+<p>Now, you’re ready for <strong>Swift Level 2</strong>, where we explore <strong>Advanced Swift, Networking, Database Integration, and Full iOS Development with SwiftUI!</strong> 🚀</p></body></html>

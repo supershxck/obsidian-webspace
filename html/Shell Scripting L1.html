@@ -1,0 +1,209 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>19:08:02</strong> 
+<strong>Topics:</strong> [[Shell Scripting L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Shell Scripting Level 1: Introduction to Bash Scripting</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Shell scripting allows <strong>automation of tasks, system administration, and process management</strong> in Unix/Linux environments. Bash (Bourne Again Shell) is the most commonly used shell.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Shell Basics (Shebang, Running Scripts, Variables, Input/Output)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Case Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Arguments</strong></p>
+<p>✅ <strong>File Handling &amp; Permissions</strong></p>
+<p>✅ <strong>Working with System Commands (ls, grep, awk, sed, find, crontab)</strong></p>
+<p>✅ <strong>Building a Simple Shell Script Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic shell scripts to automate tasks and manage files and processes</strong>.</p>
+<hr />
+<p><strong>1. Setting Up &amp; Running Shell Scripts</strong></p>
+<p><strong>1.1. Creating &amp; Running a Shell Script</strong></p>
+<ol>
+<li>Open a terminal and create a script:</li>
+</ol>
+<p><code>nano myscript.sh</code></p>
+<ol>
+<li>Add the following:</li>
+</ol>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>echo "Hello, World!"
+```</p>
+<ol>
+<li>
+<p>Save and exit (CTRL+X, Y, Enter).</p>
+</li>
+<li>
+<p>Make it executable:</p>
+</li>
+</ol>
+<p><code>chmod +x myscript.sh</code></p>
+<ol>
+<li>Run the script:</li>
+</ol>
+<p><code>./myscript.sh</code></p>
+<p><strong>1.2. The Shebang (#!)</strong></p>
+<p>• The #! at the beginning tells the system which interpreter to use (/bin/bash, /bin/sh, etc.).</p>
+<p>• Example for Bash:</p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>```</p>
+<hr />
+<p><strong>2. Variables &amp; User Input</strong></p>
+<p><strong>2.1. Declaring Variables</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>name="Alice"
+age=25
+echo "Name: $name, Age: $age"
+```</p>
+<p><strong>2.2. Taking User Input</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>echo "Enter your name:"
+read name
+echo "Hello, $name!"
+```</p>
+<p><strong>2.3. Command Substitution</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>date_today=$(date)
+echo "Today's date is $date_today"
+```</p>
+<hr />
+<p><strong>3. Control Flow (If-Else, Loops, Case Statements)</strong></p>
+<p><strong>3.1. If-Else Statement</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>echo "Enter a number:"
+read num
+if [ $num -gt 10 ]; then
+    echo "Number is greater than 10"
+else
+    echo "Number is 10 or less"
+fi
+```</p>
+<p><strong>3.2. For Loop</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>for i in {1..5}; do
+    echo "Iteration $i"
+done
+```</p>
+<p><strong>3.3. While Loop</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>count=1
+while [ $count -le 5 ]; do
+    echo "Count: $count"
+    ((count++))
+done
+```</p>
+<p><strong>3.4. Case Statement</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>echo "Enter your favorite fruit:"
+read fruit
+case $fruit in
+    "apple") echo "You like apples!" ;;
+    "banana") echo "Bananas are great!" ;;
+    *) echo "Nice choice!" ;;
+esac
+```</p>
+<hr />
+<p><strong>4. Functions &amp; Arguments</strong></p>
+<p><strong>4.1. Defining &amp; Calling Functions</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>greet() {
+    echo "Hello, $1!"
+}
+greet "Alice"
+```</p>
+<p><strong>4.2. Passing Multiple Arguments</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>sum() {
+    echo "Sum: $(($1 + $2))"
+}
+sum 5 10
+```</p>
+<hr />
+<p><strong>5. File Handling &amp; Permissions</strong></p>
+<p><strong>5.1. Creating, Writing &amp; Reading Files</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>echo "This is a test file" &gt; test.txt
+cat test.txt
+```</p>
+<p><strong>5.2. Checking If a File Exists</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>if [ -f "test.txt" ]; then
+    echo "File exists"
+else
+    echo "File does not exist"
+fi
+```</p>
+<p><strong>5.3. Deleting a File</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>rm -i test.txt  # Prompts before deletion
+```</p>
+<hr />
+<p><strong>6. Working with System Commands</strong></p>
+<p><strong>6.1. Listing Files (ls)</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>ls -lh  # Lists files with sizes in human-readable format
+```</p>
+<p><strong>6.2. Searching in Files (grep)</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>grep "Hello" test.txt  # Finds lines containing "Hello"
+```</p>
+<p><strong>6.3. Finding Files (find)</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>find /home -name "*.txt"  # Finds all text files in home directory
+```</p>
+<p><strong>6.4. Replacing Text (sed)</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>sed -i 's/oldtext/newtext/g' test.txt  # Replaces "oldtext" with "newtext"
+```</p>
+<p><strong>6.5. Scheduling Jobs (crontab)</strong></p>
+<p>Edit cron jobs:</p>
+<p><code>crontab -e</code></p>
+<p>Run script every minute:</p>
+<p><code>* * * * * /path/to/myscript.sh</code></p>
+<hr />
+<p><strong>7. Building a Simple Shell Script Application</strong></p>
+<p><strong>7.1. Script to Backup Files</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>backup_dir="backup_$(date +%Y%m%d_%H%M%S)"
+mkdir $backup_dir
+cp *.txt $backup_dir
+echo "Backup completed to $backup_dir"
+```</p>
+<p><strong>7.2. Disk Space Monitor</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>df -h | grep "^/dev"
+```</p>
+<p><strong>7.3. Network Ping Test</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>ping -c 4 google.com
+```</p>
+<hr />
+<p><strong>8. Conclusion</strong></p>
+<p><strong>What You Learned in Shell Scripting Level 1:</strong></p>
+<p>✅ <strong>Shell Basics (Shebang, Running Scripts, Variables, Input/Output)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Case Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Arguments</strong></p>
+<p>✅ <strong>File Handling &amp; Permissions</strong></p>
+<p>✅ <strong>Working with System Commands (ls, grep, awk, sed, find, crontab)</strong></p>
+<p>✅ <strong>Built a Simple Shell Script Application</strong></p>
+<p>Now, you’re ready for <strong>Shell Scripting Level 2</strong>, where we explore <strong>AWK, Advanced File Processing, Networking, Automation, and System Monitoring!</strong> 🚀</p></body></html>

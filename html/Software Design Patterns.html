@@ -1,0 +1,161 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>14:48:01</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Software Design Patterns: Reusable Solutions for Common Problems</strong></p>
+<p><strong>1. What are Software Design Patterns?</strong></p>
+<p>Software <strong>design patterns</strong> are <strong>proven, reusable solutions to common software design problems</strong>. They provide a structured way to design software that is <strong>scalable, maintainable, and efficient</strong>.</p>
+<p><strong>Why are Design Patterns Important?</strong></p>
+<p>✔ <strong>Encourage best practices</strong> – Provides standardized solutions.</p>
+<p>✔ <strong>Improve code reusability</strong> – Reduces redundant logic.</p>
+<p>✔ <strong>Enhance maintainability</strong> – Makes it easier to update software.</p>
+<p>✔ <strong>Promote scalability</strong> – Allows for future growth and changes.</p>
+<p><strong>2. Categories of Design Patterns</strong></p>
+<p>Design patterns are broadly classified into <strong>three main categories</strong>:</p>
+<p>|<strong>Category</strong>|<strong>Purpose</strong>|
+|---|---|
+|<strong>Creational Patterns</strong>|Handle <strong>object creation mechanisms</strong> efficiently.|
+|<strong>Structural Patterns</strong>|Define <strong>relationships between objects</strong> to create flexible structures.|
+|<strong>Behavioral Patterns</strong>|Manage <strong>communication and interaction</strong> between objects.|</p>
+<p><strong>3. Creational Design Patterns</strong></p>
+<p>These patterns help in <strong>creating objects</strong> in a way that is flexible and scalable.</p>
+<p><strong>1. Singleton Pattern</strong></p>
+<p>✔ Ensures <strong>only one instance</strong> of a class exists throughout the application.</p>
+<p>✔ Used in <strong>database connections, logging, and configuration settings</strong>.</p>
+<p>✔ <strong>Example: Singleton in Python</strong></p>
+<p>```
+class Singleton:
+    _instance = None</p>
+<pre><code>@staticmethod
+def get_instance():
+    if Singleton._instance is None:
+        Singleton._instance = Singleton()
+    return Singleton._instance
+</code></pre>
+<p>```</p>
+<p>✔ <strong>Real-World Use Case:</strong></p>
+<p>• A <strong>database connection manager</strong> where multiple objects must share the same database instance.</p>
+<p><strong>2. Factory Pattern</strong></p>
+<p>✔ Creates objects <strong>without exposing the logic</strong> to the client.</p>
+<p>✔ Used in <strong>object-oriented programming</strong> to handle dynamic object creation.</p>
+<p>✔ <strong>Example: Factory Pattern in Java</strong></p>
+<p><code>class ShapeFactory {
+    public Shape getShape(String type) {
+        if (type.equalsIgnoreCase("CIRCLE")) return new Circle();
+        else if (type.equalsIgnoreCase("SQUARE")) return new Square();
+        return null;
+    }
+}</code></p>
+<p>✔ <strong>Real-World Use Case:</strong></p>
+<p>• <strong>UI frameworks</strong> where different components (buttons, text fields) are created dynamically.</p>
+<p><strong>4. Structural Design Patterns</strong></p>
+<p>These patterns <strong>define object relationships</strong> and ensure modularity and flexibility.</p>
+<p><strong>1. Adapter Pattern</strong></p>
+<p>✔ Converts one interface <strong>into another interface</strong> that a client expects.</p>
+<p>✔ Used in <strong>legacy system integration</strong>.</p>
+<p>✔ <strong>Example: Adapter Pattern in Java</strong></p>
+<p>```
+interface MediaPlayer {
+    void play(String fileType, String fileName);
+}</p>
+<p>class MP3Player implements MediaPlayer {
+    public void play(String fileType, String fileName) {
+        System.out.println("Playing MP3: " + fileName);
+    }
+}
+```</p>
+<p>✔ <strong>Real-World Use Case:</strong></p>
+<p>• A <strong>power adapter</strong> converts a <strong>US plug</strong> into a <strong>European plug</strong>.</p>
+<p><strong>2. Decorator Pattern</strong></p>
+<p>✔ Dynamically adds <strong>behavior</strong> to an object <strong>without modifying its structure</strong>.</p>
+<p>✔ Used in <strong>stream processing, UI elements, and logging</strong>.</p>
+<p>✔ <strong>Example: Decorator Pattern in Python</strong></p>
+<p>```
+def bold_decorator(func):
+    def wrapper():
+        return "<b>" + func() + "</b>"
+    return wrapper</p>
+<p>@bold_decorator
+def greet():
+    return "Hello, World!"</p>
+<p>print(greet())  # Output: <b>Hello, World!</b>
+```</p>
+<p>✔ <strong>Real-World Use Case:</strong></p>
+<p>• Adding <strong>scrollbars or themes dynamically</strong> to a <strong>UI component</strong>.</p>
+<p><strong>5. Behavioral Design Patterns</strong></p>
+<p>These patterns <strong>handle communication and interaction</strong> between objects.</p>
+<p><strong>1. Observer Pattern</strong></p>
+<p>✔ Notifies <strong>multiple objects</strong> (observers) when <strong>one object changes</strong>.</p>
+<p>✔ Used in <strong>event handling, notifications, and real-time updates</strong>.</p>
+<p>✔ <strong>Example: Observer Pattern in Java</strong></p>
+<p>```
+import java.util.ArrayList;
+import java.util.List;</p>
+<p>interface Observer {
+    void update(String message);
+}</p>
+<p>class User implements Observer {
+    private String name;</p>
+<pre><code>public User(String name) {
+    this.name = name;
+}
+
+public void update(String message) {
+    System.out.println(name + " received: " + message);
+}
+</code></pre>
+<p>}</p>
+<p>class Channel {
+    private List<Observer> users = new ArrayList&lt;&gt;();</p>
+<pre><code>public void subscribe(Observer user) {
+    users.add(user);
+}
+
+public void notifyUsers(String message) {
+    for (Observer user : users) {
+        user.update(message);
+    }
+}
+</code></pre>
+<p>}
+```</p>
+<p>✔ <strong>Real-World Use Case:</strong></p>
+<p>• <strong>YouTube notifications:</strong> Subscribers receive updates when a new video is uploaded.</p>
+<p><strong>2. Strategy Pattern</strong></p>
+<p>✔ Allows <strong>choosing different algorithms at runtime</strong>.</p>
+<p>✔ Used in <strong>payment methods, sorting algorithms, and game AI</strong>.</p>
+<p>✔ <strong>Example: Strategy Pattern in Python</strong></p>
+<p>```
+class PaymentStrategy:
+    def pay(self, amount):
+        pass</p>
+<p>class CreditCardPayment(PaymentStrategy):
+    def pay(self, amount):
+        print(f"Paid {amount} using Credit Card")</p>
+<p>class PayPalPayment(PaymentStrategy):
+    def pay(self, amount):
+        print(f"Paid {amount} using PayPal")</p>
+<h1>Using the Strategy Pattern</h1>
+<p>payment_method = PayPalPayment()
+payment_method.pay(100)
+```</p>
+<p>✔ <strong>Real-World Use Case:</strong></p>
+<p>• <strong>E-commerce platforms</strong> allowing customers to <strong>choose different payment methods</strong>.</p>
+<p><strong>6. Choosing the Right Design Pattern</strong></p>
+<p>|<strong>Use Case</strong>|<strong>Best Pattern</strong>|
+|---|---|
+|Ensure a single object instance|<strong>Singleton</strong>|
+|Create objects dynamically|<strong>Factory</strong>|
+|Convert interfaces|<strong>Adapter</strong>|
+|Extend functionality dynamically|<strong>Decorator</strong>|
+|Notify multiple objects of changes|<strong>Observer</strong>|
+|Choose algorithms at runtime|<strong>Strategy</strong>|</p>
+<p><strong>7. Design Patterns in Real-World Applications</strong></p>
+<p>✔ <strong>Web Frameworks (Django, Spring Boot)</strong> → Use <strong>MVC pattern</strong>.</p>
+<p>✔ <strong>Game Development</strong> → Uses <strong>State and Strategy patterns</strong>.</p>
+<p>✔ <strong>GUI Applications (Android, React, Angular)</strong> → Use <strong>Observer and Decorator patterns</strong>.</p>
+<p>✔ <strong>Cloud &amp; Microservices</strong> → Uses <strong>Factory and Singleton patterns</strong> for managing service instances.</p>
+<p><strong>8. Conclusion</strong></p>
+<p>Design patterns <strong>provide reusable solutions</strong> for common software problems. By implementing <strong>creational, structural, and behavioral patterns</strong>, developers can <strong>write scalable, maintainable, and efficient software</strong>. 🚀</p></body></html>

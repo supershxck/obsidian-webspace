@@ -1,0 +1,223 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>21:56:51</strong> 
+<strong>Topics:</strong> [[API Integration]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>VB.NET Level 2: Intermediate to Advanced Development</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you understand <strong>VB.NET basics</strong>, it’s time to explore <strong>database integration, multi-threading, networking, advanced UI design, and API development</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Working with Databases (SQL, ADO.NET, CRUD Operations)</strong></p>
+<p>✅ <strong>Multi-Threading &amp; Background Tasks</strong></p>
+<p>✅ <strong>Networking (Sockets, HTTP Requests, API Calls)</strong></p>
+<p>✅ <strong>Advanced Windows Forms UI (Custom Controls, Events)</strong></p>
+<p>✅ <strong>Error Handling &amp; Logging</strong></p>
+<p>✅ <strong>Deploying a VB.NET Application</strong></p>
+<p>✅ <strong>Building a Full Database-Connected Windows Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>build database-driven applications, handle concurrent tasks, and create robust networked applications</strong>.</p>
+<hr />
+<p><strong>1. Working with Databases (SQL, ADO.NET)</strong></p>
+<p><strong>1.1. Setting Up SQL Server</strong></p>
+<ol>
+<li>
+<p>Install <strong>SQL Server Express</strong> and <strong>SQL Server Management Studio (SSMS)</strong>.</p>
+</li>
+<li>
+<p>Create a database called MyDatabase.</p>
+</li>
+<li>
+<p>Create a table Users:</p>
+</li>
+</ol>
+<p><code>CREATE TABLE Users (
+    ID INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(100),
+    Email NVARCHAR(100)
+);</code></p>
+<p><strong>1.2. Connecting to a Database (ADO.NET)</strong></p>
+<p>```
+Imports System.Data.SqlClient</p>
+<p>Dim connString As String = "Server=localhost;Database=MyDatabase;Trusted_Connection=True;"
+Dim connection As New SqlConnection(connString)</p>
+<p>Try
+    connection.Open()
+    Console.WriteLine("Database connected!")
+Catch ex As Exception
+    Console.WriteLine("Error: " &amp; ex.Message)
+Finally
+    connection.Close()
+End Try
+```</p>
+<p><strong>1.3. Inserting Data into SQL</strong></p>
+<p>```
+Dim query As String = "INSERT INTO Users (Name, Email) VALUES (@Name, @Email)"
+Dim cmd As New SqlCommand(query, connection)
+cmd.Parameters.AddWithValue("@Name", "Alice")
+cmd.Parameters.AddWithValue("@Email", "alice@example.com")</p>
+<p>connection.Open()
+cmd.ExecuteNonQuery()
+connection.Close()
+Console.WriteLine("User added successfully!")
+```</p>
+<p><strong>1.4. Fetching Data from SQL</strong></p>
+<p><code>Dim query As String = "SELECT * FROM Users"
+Dim cmd As New SqlCommand(query, connection)
+connection.Open()
+Dim reader As SqlDataReader = cmd.ExecuteReader()
+While reader.Read()
+    Console.WriteLine("User: " &amp; reader("Name") &amp; " - " &amp; reader("Email"))
+End While
+connection.Close()</code></p>
+<hr />
+<p><strong>2. Multi-Threading &amp; Background Tasks</strong></p>
+<p><strong>2.1. Running Code in a Background Thread</strong></p>
+<p>```
+Imports System.Threading</p>
+<p>Sub BackgroundTask()
+    Console.WriteLine("Background task started...")
+    Thread.Sleep(5000)
+    Console.WriteLine("Task completed!")
+End Sub</p>
+<p>Dim thread As New Thread(AddressOf BackgroundTask)
+thread.Start()
+```</p>
+<p><strong>2.2. Using Task for Asynchronous Operations</strong></p>
+<p>```
+Imports System.Threading.Tasks</p>
+<p>Async Function FetchData() As Task
+    Await Task.Delay(3000) ' Simulating a long task
+    Console.WriteLine("Data fetched!")
+End Function</p>
+<p>Await FetchData()
+```</p>
+<hr />
+<p><strong>3. Networking (Sockets, HTTP Requests, API Calls)</strong></p>
+<p><strong>3.1. Making an HTTP Request</strong></p>
+<p>```
+Imports System.Net.Http</p>
+<p>Async Function FetchAPI() As Task
+    Dim client As New HttpClient()
+    Dim response As String = Await client.GetStringAsync("https://jsonplaceholder.typicode.com/posts/1")
+    Console.WriteLine(response)
+End Function</p>
+<p>Await FetchAPI()
+```</p>
+<p><strong>3.2. Sending Data via POST Request</strong></p>
+<p><code>Dim client As New HttpClient()
+Dim content As New StringContent("{""name"":""Alice""}", Encoding.UTF8, "application/json")
+Dim response As HttpResponseMessage = Await client.PostAsync("https://jsonplaceholder.typicode.com/posts", content)
+Dim result As String = Await response.Content.ReadAsStringAsync()
+Console.WriteLine(result)</code></p>
+<p><strong>3.3. Creating a TCP Server</strong></p>
+<p>```
+Imports System.Net.Sockets
+Imports System.Text</p>
+<p>Dim server As New TcpListener(System.Net.IPAddress.Any, 5000)
+server.Start()
+Console.WriteLine("Server started...")</p>
+<p>While True
+    Dim client As TcpClient = server.AcceptTcpClient()
+    Dim stream As NetworkStream = client.GetStream()
+    Dim buffer(1024) As Byte
+    stream.Read(buffer, 0, buffer.Length)
+    Console.WriteLine("Received: " &amp; Encoding.ASCII.GetString(buffer))
+End While
+```</p>
+<hr />
+<p><strong>4. Advanced Windows Forms UI (Custom Controls, Events)</strong></p>
+<p><strong>4.1. Handling Button Click Events</strong></p>
+<p><code>Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Label1.Text = "Button Clicked!"
+    End Sub
+End Class</code></p>
+<p><strong>4.2. Using a ListBox to Display Data</strong></p>
+<p><code>ListBox1.Items.Add("Item 1")
+ListBox1.Items.Add("Item 2")</code></p>
+<p><strong>4.3. Loading Data from SQL into a DataGridView</strong></p>
+<p><code>Dim query As String = "SELECT * FROM Users"
+Dim adapter As New SqlDataAdapter(query, connection)
+Dim table As New DataTable()
+adapter.Fill(table)
+DataGridView1.DataSource = table</code></p>
+<hr />
+<p><strong>5. Exception Handling &amp; Logging</strong></p>
+<p><strong>5.1. Using Try-Catch for Error Handling</strong></p>
+<p><code>Try
+    Dim result As Integer = 10 / 0  ' Will cause error
+Catch ex As DivideByZeroException
+    Console.WriteLine("Error: " &amp; ex.Message)
+End Try</code></p>
+<p><strong>5.2. Logging Errors to a File</strong></p>
+<p>```
+Imports System.IO</p>
+<p>Try
+    Dim result As Integer = 10 / 0
+Catch ex As Exception
+    File.WriteAllText("error.log", "Error: " &amp; ex.Message)
+End Try
+```</p>
+<hr />
+<p><strong>6. Deploying a VB.NET Application</strong></p>
+<p><strong>6.1. Publishing a Windows Forms Application</strong></p>
+<ol>
+<li>
+<p>Open <strong>Visual Studio</strong> → Click <strong>Build</strong> → Select <strong>Publish</strong>.</p>
+</li>
+<li>
+<p>Choose <strong>Folder or ClickOnce Deployment</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Publish</strong> to generate the installer.</p>
+</li>
+</ol>
+<hr />
+<p><strong>7. Building a Full Database-Connected Windows Application</strong></p>
+<p><strong>7.1. Creating a Windows Form with a Database Connection</strong></p>
+<ol>
+<li><strong>Create a Form (Form1.vb)</strong> with:</li>
+</ol>
+<p>• <strong>TextBox</strong> (txtName)</p>
+<p>• <strong>TextBox</strong> (txtEmail)</p>
+<p>• <strong>Button</strong> (btnAdd)</p>
+<p>• <strong>DataGridView</strong> (dataGridView1)</p>
+<ol>
+<li><strong>Add Code to btnAdd Click Event:</strong></li>
+</ol>
+<p>```
+Imports System.Data.SqlClient</p>
+<p>Dim connString As String = "Server=localhost;Database=MyDatabase;Trusted_Connection=True;"
+Dim connection As New SqlConnection(connString)</p>
+<p>Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+    Dim query As String = "INSERT INTO Users (Name, Email) VALUES (@Name, @Email)"
+    Dim cmd As New SqlCommand(query, connection)
+    cmd.Parameters.AddWithValue("@Name", txtName.Text)
+    cmd.Parameters.AddWithValue("@Email", txtEmail.Text)</p>
+<pre><code>connection.Open()
+cmd.ExecuteNonQuery()
+connection.Close()
+
+MessageBox.Show("User added successfully!")
+LoadData()
+</code></pre>
+<p>End Sub</p>
+<p>Private Sub LoadData()
+    Dim query As String = "SELECT * FROM Users"
+    Dim adapter As New SqlDataAdapter(query, connection)
+    Dim table As New DataTable()
+    adapter.Fill(table)
+    dataGridView1.DataSource = table
+End Sub
+```</p>
+<hr />
+<p><strong>8. Conclusion</strong></p>
+<p><strong>What You Learned in VB.NET Level 2:</strong></p>
+<p>✅ <strong>Working with Databases (SQL, ADO.NET, CRUD Operations)</strong></p>
+<p>✅ <strong>Multi-Threading &amp; Background Tasks</strong></p>
+<p>✅ <strong>Networking (Sockets, HTTP Requests, API Calls)</strong></p>
+<p>✅ <strong>Advanced Windows Forms UI (Custom Controls, Events)</strong></p>
+<p>✅ <strong>Error Handling &amp; Logging</strong></p>
+<p>✅ <strong>Deploying a VB.NET Application</strong></p>
+<p>✅ <strong>Built a Full Database-Connected Windows Application</strong></p>
+<p>Now, you’re ready for <strong>VB.NET Level 3</strong>, where we explore <strong>Advanced Web Development, Cloud Integration, API Development, and Microservices with VB.NET!</strong> 🚀</p></body></html>

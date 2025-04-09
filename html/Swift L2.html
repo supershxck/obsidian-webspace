@@ -1,0 +1,223 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:48:16</strong> 
+<strong>Topics:</strong> [[Rust L1]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Swift Level 2: Intermediate to Advanced Swift Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you understand <strong>Swift fundamentals</strong>, it’s time to explore <strong>intermediate and advanced Swift programming techniques</strong> for building <strong>efficient and scalable iOS applications</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Functions (Higher-Order Functions, Closures, Generics)</strong></p>
+<p>✅ <strong>Protocols &amp; Protocol-Oriented Programming (POP)</strong></p>
+<p>✅ <strong>Concurrency with Grand Central Dispatch (GCD) &amp; Async/Await</strong></p>
+<p>✅ <strong>Networking with URLSession &amp; API Calls</strong></p>
+<p>✅ <strong>Data Persistence (UserDefaults, Core Data, SQLite, CloudKit)</strong></p>
+<p>✅ <strong>Dependency Management with Swift Package Manager &amp; CocoaPods</strong></p>
+<p>✅ <strong>Advanced SwiftUI Techniques (Animations, Navigation, State Management)</strong></p>
+<p>✅ <strong>Building a Full-Stack iOS App with a Backend</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write advanced Swift programs, interact with APIs, manage data efficiently, and build production-ready iOS apps</strong>.</p>
+<hr />
+<p><strong>1. Advanced Functions &amp; Closures</strong></p>
+<p><strong>1.1. Higher-Order Functions (Map, Filter, Reduce)</strong></p>
+<p>Swift allows <strong>functional programming</strong> with <strong>higher-order functions</strong>.</p>
+<p>```
+let numbers = [1, 2, 3, 4, 5]</p>
+<p>// Map: Multiply each element by 2
+let doubled = numbers.map { $0 * 2 }
+print(doubled)  // [2, 4, 6, 8, 10]</p>
+<p>// Filter: Keep only even numbers
+let evens = numbers.filter { $0 % 2 == 0 }
+print(evens)  // [2, 4]</p>
+<p>// Reduce: Sum all numbers
+let sum = numbers.reduce(0, +)
+print(sum)  // 15
+```</p>
+<p><strong>1.2. Closures with Capturing Values</strong></p>
+<p>```
+func makeIncrementer(incrementAmount: Int) -&gt; () -&gt; Int {
+    var total = 0
+    return {
+        total += incrementAmount
+        return total
+    }
+}</p>
+<p>let incrementByTwo = makeIncrementer(incrementAmount: 2)
+print(incrementByTwo()) // 2
+print(incrementByTwo()) // 4
+```</p>
+<p><strong>1.3. Generics (Reusable Code)</strong></p>
+<p>Generics allow <strong>flexible and type-safe functions</strong>.</p>
+<p>```
+func swapValues<T>(_ a: inout T, _ b: inout T) {
+    let temp = a
+    a = b
+    b = temp
+}</p>
+<p>var x = 5, y = 10
+swapValues(&amp;x, &amp;y)
+print(x, y) // 10, 5
+```</p>
+<hr />
+<p><strong>2. Protocols &amp; Protocol-Oriented Programming (POP)</strong></p>
+<p><strong>2.1. Defining &amp; Conforming to a Protocol</strong></p>
+<p>```
+protocol Drawable {
+    func draw()
+}</p>
+<p>class Circle: Drawable {
+    func draw() {
+        print("Drawing a circle")
+    }
+}
+```</p>
+<p><strong>2.2. Protocol Extensions</strong></p>
+<p>```
+extension Drawable {
+    func fill() {
+        print("Filling with color")
+    }
+}</p>
+<p>let shape: Drawable = Circle()
+shape.fill() // "Filling with color"
+```</p>
+<hr />
+<p><strong>3. Concurrency &amp; Multithreading</strong></p>
+<p><strong>3.1. Grand Central Dispatch (GCD)</strong></p>
+<p><code>DispatchQueue.global().async {
+    print("Running in background")
+}</code></p>
+<p><strong>3.2. Async/Await (Swift 5.5+)</strong></p>
+<p>```
+func fetchData() async -&gt; String {
+    return "Data fetched"
+}</p>
+<p>Task {
+    let result = await fetchData()
+    print(result)
+}
+```</p>
+<hr />
+<p><strong>4. Networking &amp; API Calls</strong></p>
+<p><strong>4.1. Fetching Data with URLSession</strong></p>
+<p><code>func fetchUsers() {
+    let url = URL(string: "https://jsonplaceholder.typicode.com/users")!
+    URLSession.shared.dataTask(with: url) { data, _, _ in
+        if let data = data {
+            let users = try? JSONDecoder().decode([User].self, from: data)
+            print(users ?? [])
+        }
+    }.resume()
+}</code></p>
+<p><strong>4.2. Decoding JSON into a Model</strong></p>
+<p><code>struct User: Codable {
+    let id: Int
+    let name: String
+}</code></p>
+<hr />
+<p><strong>5. Data Persistence &amp; Storage</strong></p>
+<p><strong>5.1. UserDefaults (Simple Key-Value Storage)</strong></p>
+<p><code>UserDefaults.standard.set("Alice", forKey: "username")
+let username = UserDefaults.standard.string(forKey: "username")
+print(username ?? "No user")</code></p>
+<p><strong>5.2. Core Data (Database for iOS)</strong></p>
+<p>```
+import CoreData</p>
+<p>func saveUser(name: String, context: NSManagedObjectContext) {
+    let user = UserEntity(context: context)
+    user.name = name
+    try? context.save()
+}
+```</p>
+<hr />
+<p><strong>6. Dependency Management</strong></p>
+<p><strong>6.1. Swift Package Manager (SPM)</strong></p>
+<p><code>swift package init --type library</code></p>
+<p>Add dependencies in <strong>Package.swift</strong>:</p>
+<p><code>dependencies: [
+    .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.4.0")
+]</code></p>
+<p><strong>6.2. CocoaPods</strong></p>
+<p><code>pod init
+pod install</code></p>
+<hr />
+<p><strong>7. Advanced SwiftUI Techniques</strong></p>
+<p><strong>7.1. Animations</strong></p>
+<p>```
+import SwiftUI</p>
+<p>struct AnimatedView: View {
+    @State private var scale: CGFloat = 1.0</p>
+<pre><code>var body: some View {
+    Button("Tap Me") {
+        withAnimation {
+            scale += 0.2
+        }
+    }
+    .scaleEffect(scale)
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>7.2. Navigation &amp; State Management</strong></p>
+<p>```
+import SwiftUI</p>
+<p>struct MainView: View {
+    var body: some View {
+        NavigationView {
+            NavigationLink("Go to Details", destination: DetailView())
+        }
+    }
+}</p>
+<p>struct DetailView: View {
+    var body: some View {
+        Text("Detail Screen")
+    }
+}
+```</p>
+<hr />
+<p><strong>8. Building a Full-Stack iOS App</strong></p>
+<p><strong>8.1. Project: Weather App</strong></p>
+<p><strong>1. Fetch Weather Data</strong></p>
+<p>```
+struct Weather: Codable {
+    let temperature: Double
+}</p>
+<p>func fetchWeather() async -&gt; Weather? {
+    let url = URL(string: "https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&amp;q=London")!
+    let (data, _) = try! await URLSession.shared.data(from: url)
+    return try? JSONDecoder().decode(Weather.self, from: data)
+}
+```</p>
+<p><strong>2. Display Data in SwiftUI</strong></p>
+<p>```
+import SwiftUI</p>
+<p>struct ContentView: View {
+    @State private var weather: Weather?</p>
+<pre><code>var body: some View {
+    VStack {
+        Text(weather?.temperature.description ?? "Loading...")
+            .font(.largeTitle)
+            .padding()
+
+        Button("Fetch Weather") {
+            Task {
+                weather = await fetchWeather()
+            }
+        }
+    }
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Swift Level 2:</strong></p>
+<p>✅ <strong>Advanced Functions (Higher-Order Functions, Closures, Generics)</strong></p>
+<p>✅ <strong>Protocols &amp; Protocol-Oriented Programming (POP)</strong></p>
+<p>✅ <strong>Concurrency with Grand Central Dispatch (GCD) &amp; Async/Await</strong></p>
+<p>✅ <strong>Networking with URLSession &amp; API Calls</strong></p>
+<p>✅ <strong>Data Persistence (UserDefaults, Core Data, SQLite, CloudKit)</strong></p>
+<p>✅ <strong>Dependency Management with Swift Package Manager &amp; CocoaPods</strong></p>
+<p>✅ <strong>Advanced SwiftUI Techniques (Animations, Navigation, State Management)</strong></p>
+<p>✅ <strong>Built a Full-Stack iOS App</strong></p>
+<p>Now, you’re ready for <strong>Swift Level 3</strong>, where we explore <strong>Machine Learning, Augmented Reality (ARKit), Advanced Security, and Performance Optimization in Swift!</strong> 🚀</p></body></html>

@@ -1,0 +1,107 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>15:13:02</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Type Systems in Programming Languages</strong></p>
+<p><strong>1. What is a Type System?</strong></p>
+<p>A <strong>type system</strong> is a set of rules that define how variables and expressions interact in a programming language. It ensures that <strong>operations are performed on compatible data types</strong>, reducing errors and improving code reliability.</p>
+<p><strong>Why Are Type Systems Important?</strong></p>
+<p>✔ <strong>Prevents unintended operations</strong> – Avoids adding numbers to strings.</p>
+<p>✔ <strong>Improves performance</strong> – Optimizes memory usage.</p>
+<p>✔ <strong>Enhances readability</strong> – Helps developers understand variable usage.</p>
+<p>✔ <strong>Enforces constraints</strong> – Prevents bugs due to incorrect type assignments.</p>
+<p><strong>2. Types of Type Systems</strong></p>
+<p>Type systems are classified based on <strong>how types are checked and enforced</strong>.</p>
+<p><strong>1. Static vs. Dynamic Typing</strong></p>
+<p>|<strong>Type System</strong>|<strong>Description</strong>|<strong>Example Languages</strong>|
+|---|---|---|
+|<strong>Static Typing</strong>|Types are checked at <strong>compile time</strong>.|Java, C, C++, Rust|
+|<strong>Dynamic Typing</strong>|Types are checked at <strong>runtime</strong>.|Python, JavaScript, Ruby|</p>
+<p>✔ <strong>Example: Static Typing in Java</strong></p>
+<p><code>int age = "25";  // ERROR: Type mismatch (string assigned to int)</code></p>
+<p>✔ <strong>Example: Dynamic Typing in Python</strong></p>
+<p><code>age = 25  # Integer type
+age = "Twenty-five"  # Now a string (allowed)</code></p>
+<p>✔ <strong>Trade-offs:</strong></p>
+<p>• <strong>Static typing</strong> reduces runtime errors but requires explicit type declarations.</p>
+<p>• <strong>Dynamic typing</strong> is flexible but can lead to runtime errors.</p>
+<p><strong>2. Strong vs. Weak Typing</strong></p>
+<p>|<strong>Type System</strong>|<strong>Description</strong>|<strong>Example Languages</strong>|
+|---|---|---|
+|<strong>Strong Typing</strong>|Strict type enforcement; implicit conversions are limited.|Python, Java, Rust|
+|<strong>Weak Typing</strong>|Allows implicit conversions between types.|JavaScript, C|</p>
+<p>✔ <strong>Example: Strong Typing in Python</strong></p>
+<p><code>print("5" + 5)  # ERROR: Cannot add string and integer</code></p>
+<p>✔ <strong>Example: Weak Typing in JavaScript</strong></p>
+<p><code>console.log("5" + 5);  // Output: "55" (string concatenation)</code></p>
+<p>✔ <strong>Trade-offs:</strong></p>
+<p>• <strong>Strong typing</strong> prevents unintended behavior but requires explicit conversions.</p>
+<p>• <strong>Weak typing</strong> allows flexibility but can cause unexpected results.</p>
+<p><strong>3. Nominal vs. Structural Typing</strong></p>
+<p>|<strong>Type System</strong>|<strong>Description</strong>|<strong>Example Languages</strong>|
+|---|---|---|
+|<strong>Nominal Typing</strong>|Types are distinguished by names.|Java, C++|
+|<strong>Structural Typing</strong>|Types are compatible if they have the same structure.|TypeScript, Go|</p>
+<p>✔ <strong>Example: Nominal Typing in Java</strong></p>
+<p>```
+class Animal {}
+class Dog extends Animal {}</p>
+<p>Animal pet = new Dog();  // Allowed (Dog is an Animal)
+Dog myDog = new Animal(); // ERROR: Animal is not a Dog
+```</p>
+<p>✔ <strong>Example: Structural Typing in TypeScript</strong></p>
+<p>```
+type Car = { wheels: number };
+type Bike = { wheels: number };</p>
+<p>let vehicle: Car = { wheels: 4 };
+let cycle: Bike = vehicle;  // Allowed (same structure)
+```</p>
+<p>✔ <strong>Trade-offs:</strong></p>
+<p>• <strong>Nominal typing</strong> enforces explicit type relationships (better for large applications).</p>
+<p>• <strong>Structural typing</strong> is more flexible and allows type reuse.</p>
+<p><strong>4. Manifest vs. Inferred Typing</strong></p>
+<p>|<strong>Type System</strong>|<strong>Description</strong>|<strong>Example Languages</strong>|
+|---|---|---|
+|<strong>Manifest Typing</strong>|Types must be explicitly declared.|Java, C++|
+|<strong>Type Inference</strong>|The compiler infers the type.|Python, JavaScript, Rust|</p>
+<p>✔ <strong>Example: Manifest Typing in Java</strong></p>
+<p><code>int x = 10;  // Type explicitly declared</code></p>
+<p>✔ <strong>Example: Type Inference in Python</strong></p>
+<p><code>x = 10  # Python infers type as int</code></p>
+<p>✔ <strong>Example: Type Inference in Rust</strong></p>
+<p><code>let x = 42;  // Compiler infers x as an integer</code></p>
+<p>✔ <strong>Trade-offs:</strong></p>
+<p>• <strong>Manifest typing</strong> makes types explicit, improving readability in complex systems.</p>
+<p>• <strong>Type inference</strong> reduces boilerplate but may make debugging harder.</p>
+<p><strong>3. Static Type Checking Tools</strong></p>
+<p>Even dynamically typed languages can use tools for <strong>type checking</strong>.</p>
+<p>|<strong>Tool</strong>|<strong>Used For</strong>|<strong>Language</strong>|
+|---|---|---|
+|<strong>TypeScript</strong>|Adds static typing to JavaScript|JavaScript|
+|<strong>MyPy</strong>|Checks types in Python|Python|
+|<strong>Flow</strong>|Type checker for JavaScript|JavaScript|
+|<strong>Rust Compiler</strong>|Enforces strong, static typing|Rust|</p>
+<p>✔ <strong>Example: Type Checking in TypeScript</strong></p>
+<p>```
+function add(a: number, b: number): number {
+    return a + b;
+}</p>
+<p>console.log(add(5, "10")); // ERROR: Argument must be a number
+```</p>
+<p>✔ <strong>Example: Type Checking in Python with MyPy</strong></p>
+<p>```
+def greet(name: str) -&gt; str:
+    return "Hello, " + name</p>
+<p>print(greet(5))  # MyPy will detect a type error
+```</p>
+<p><strong>4. Choosing the Right Type System</strong></p>
+<p>|<strong>Requirement</strong>|<strong>Best Type System</strong>|
+|---|---|
+|<strong>High performance, low-level control</strong>|<strong>Static typing (C, Rust)</strong>|
+|<strong>Fast development and prototyping</strong>|<strong>Dynamic typing (Python, JavaScript)</strong>|
+|<strong>Strict type safety</strong>|<strong>Strong typing (Rust, Java)</strong>|
+|<strong>Flexibility in function arguments</strong>|<strong>Structural typing (TypeScript, Go)</strong>|</p>
+<p><strong>5. Conclusion</strong></p>
+<p>A <strong>type system</strong> enforces <strong>rules about variable usage</strong>, reducing errors and improving performance. Understanding <strong>static vs. dynamic, strong vs. weak, nominal vs. structural, and type inference</strong> helps developers <strong>choose the best programming language</strong> for their needs. 🚀</p></body></html>

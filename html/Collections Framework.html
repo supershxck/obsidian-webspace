@@ -1,0 +1,184 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>15:04:44</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Java Collections Framework: Managing Data Efficiently</strong></p>
+<p><strong>1. What is the Java Collections Framework?</strong></p>
+<p>The <strong>Java Collections Framework (JCF)</strong> is a set of <strong>classes and interfaces</strong> in java.util package that provides <strong>efficient data structures</strong> to store, manipulate, and process collections of objects.</p>
+<p><strong>Why Use Collections Framework?</strong></p>
+<p>✔ <strong>Efficient data manipulation</strong> – Sorting, searching, and filtering data.</p>
+<p>✔ <strong>Scalability</strong> – Handles large datasets efficiently.</p>
+<p>✔ <strong>Reusability</strong> – Predefined implementations save time.</p>
+<p>✔ <strong>Type safety</strong> – Supports <strong>generics</strong> to avoid type mismatches.</p>
+<p><strong>2. Core Interfaces in Collections Framework</strong></p>
+<p>|<strong>Interface</strong>|<strong>Description</strong>|<strong>Common Implementations</strong>|
+|---|---|---|
+|<strong>List</strong>|Ordered collection (duplicates allowed)|ArrayList, LinkedList, Vector|
+|<strong>Set</strong>|Unique elements (no duplicates)|HashSet, TreeSet, LinkedHashSet|
+|<strong>Queue</strong>|FIFO (First-In-First-Out) processing|PriorityQueue, LinkedList|
+|<strong>Map</strong>|Key-value pairs|HashMap, TreeMap, LinkedHashMap|</p>
+<p><strong>3. List Interface (Ordered, Allows Duplicates)</strong></p>
+<p>The List interface allows <strong>index-based access</strong> and stores elements in <strong>insertion order</strong>.</p>
+<p><strong>1. ArrayList (Resizable Array)</strong></p>
+<p>✔ <strong>Fast random access (O(1)) but slow insert/delete (O(n))</strong>.</p>
+<p>✔ <strong>Best for read-heavy applications</strong>.</p>
+<p>✔ <strong>Example: Using ArrayList</strong></p>
+<p>```
+import java.util.ArrayList;</p>
+<p>public class ArrayListExample {
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList&lt;&gt;();
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");</p>
+<pre><code>    System.out.println(names.get(1)); // Bob
+    names.remove("Alice");
+    System.out.println(names); // [Bob, Charlie]
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>2. LinkedList (Doubly Linked List)</strong></p>
+<p>✔ <strong>Fast insert/delete (O(1)) but slow access (O(n))</strong>.</p>
+<p>✔ <strong>Best for frequently modified lists</strong>.</p>
+<p>✔ <strong>Example: Using LinkedList</strong></p>
+<p>```
+import java.util.LinkedList;</p>
+<p>public class LinkedListExample {
+    public static void main(String[] args) {
+        LinkedList<Integer> numbers = new LinkedList&lt;&gt;();
+        numbers.addFirst(10);
+        numbers.addLast(20);
+        numbers.add(1, 15); // Insert at index 1</p>
+<pre><code>    System.out.println(numbers); // [10, 15, 20]
+    numbers.removeFirst();
+    System.out.println(numbers); // [15, 20]
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>4. Set Interface (No Duplicates, Unordered)</strong></p>
+<p>The Set interface <strong>stores unique elements</strong> and does not allow duplicates.</p>
+<p><strong>1. HashSet (Unordered, Fastest)</strong></p>
+<p>✔ <strong>Uses a Hash Table (O(1) insert/delete)</strong>.</p>
+<p>✔ <strong>Does not maintain insertion order</strong>.</p>
+<p>✔ <strong>Example: Using HashSet</strong></p>
+<p>```
+import java.util.HashSet;</p>
+<p>public class HashSetExample {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet&lt;&gt;();
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Apple"); // Duplicate, ignored</p>
+<pre><code>    System.out.println(set); // [Banana, Apple] (Order may vary)
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>2. TreeSet (Sorted Set)</strong></p>
+<p>✔ <strong>Stores elements in ascending order (O(log n))</strong>.</p>
+<p>✔ <strong>Does not allow null elements</strong>.</p>
+<p>✔ <strong>Example: Using TreeSet</strong></p>
+<p>```
+import java.util.TreeSet;</p>
+<p>public class TreeSetExample {
+    public static void main(String[] args) {
+        TreeSet<Integer> numbers = new TreeSet&lt;&gt;();
+        numbers.add(50);
+        numbers.add(10);
+        numbers.add(30);</p>
+<pre><code>    System.out.println(numbers); // [10, 30, 50] (Sorted order)
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>5. Queue Interface (FIFO Processing)</strong></p>
+<p>The Queue interface follows <strong>First-In-First-Out (FIFO)</strong> order.</p>
+<p><strong>1. PriorityQueue (Sorted Queue)</strong></p>
+<p>✔ <strong>Elements are processed based on priority</strong>.</p>
+<p>✔ <strong>Does not allow null elements</strong>.</p>
+<p>✔ <strong>Example: Using PriorityQueue</strong></p>
+<p>```
+import java.util.PriorityQueue;</p>
+<p>public class PriorityQueueExample {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> pq = new PriorityQueue&lt;&gt;();
+        pq.add(30);
+        pq.add(10);
+        pq.add(20);</p>
+<pre><code>    System.out.println(pq.poll()); // 10 (Smallest element first)
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>6. Map Interface (Key-Value Pairs)</strong></p>
+<p>The Map interface stores <strong>key-value pairs</strong> where each key is <strong>unique</strong>.</p>
+<p><strong>1. HashMap (Fastest, Unordered)</strong></p>
+<p>✔ <strong>Uses hashing (O(1) insert/search)</strong>.</p>
+<p>✔ <strong>Allows null values but only one null key</strong>.</p>
+<p>✔ <strong>Example: Using HashMap</strong></p>
+<p>```
+import java.util.HashMap;</p>
+<p>public class HashMapExample {
+    public static void main(String[] args) {
+        HashMap<Integer, String> map = new HashMap&lt;&gt;();
+        map.put(1, "Alice");
+        map.put(2, "Bob");</p>
+<pre><code>    System.out.println(map.get(1)); // Alice
+    map.remove(2);
+    System.out.println(map); // {1=Alice}
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>2. TreeMap (Sorted Keys)</strong></p>
+<p>✔ <strong>Stores keys in </strong>ascending order (O(log n))**.</p>
+<p>✔ <strong>Does not allow null keys</strong>.</p>
+<p>✔ <strong>Example: Using TreeMap</strong></p>
+<p>```
+import java.util.TreeMap;</p>
+<p>public class TreeMapExample {
+    public static void main(String[] args) {
+        TreeMap<String, Integer> treeMap = new TreeMap&lt;&gt;();
+        treeMap.put("Banana", 20);
+        treeMap.put("Apple", 30);
+        treeMap.put("Mango", 10);</p>
+<pre><code>    System.out.println(treeMap); // {Apple=30, Banana=20, Mango=10}
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>7. Iterating Through Collections</strong></p>
+<p><strong>1. Using forEach Loop</strong></p>
+<p><code>for (String name : names) {
+    System.out.println(name);
+}</code></p>
+<p><strong>2. Using Iterator (Iterator Interface)</strong></p>
+<p>```
+import java.util.*;</p>
+<p>public class IteratorExample {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList&lt;&gt;(Arrays.asList("A", "B", "C"));
+        Iterator<String> iterator = list.iterator();</p>
+<pre><code>    while (iterator.hasNext()) {
+        System.out.println(iterator.next());
+    }
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>8. Choosing the Right Collection</strong></p>
+<p>|<strong>Collection Type</strong>|<strong>Best For</strong>|<strong>Example</strong>|
+|---|---|---|
+|<strong>ArrayList</strong>|Fast lookups, dynamic array|Managing UI elements|
+|<strong>LinkedList</strong>|Frequent insert/delete|Queue-based applications|
+|<strong>HashSet</strong>|Unique items, fast lookup|Storing user IDs|
+|<strong>TreeSet</strong>|Sorted unique elements|Storing sorted names|
+|<strong>PriorityQueue</strong>|Processing elements by priority|Scheduling tasks|
+|<strong>HashMap</strong>|Fast key-value lookup|Caching data|
+|<strong>TreeMap</strong>|Sorted key-value mapping|Sorting employee records|</p>
+<p><strong>9. Conclusion</strong></p>
+<p>The <strong>Java Collections Framework</strong> provides a set of powerful <strong>data structures</strong> for handling lists, sets, queues, and maps efficiently. Choosing the <strong>right collection</strong> depends on <strong>performance needs, ordering, and duplication rules</strong>. 🚀</p></body></html>

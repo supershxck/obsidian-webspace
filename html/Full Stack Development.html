@@ -1,0 +1,112 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>14:04:08</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Full Stack Development: Mastering Both Frontend &amp; Backend</strong></p>
+<p><strong>1. What is Full Stack Development?</strong></p>
+<p>Full Stack Development refers to <strong>building both the frontend (client-side) and backend (server-side) of a web application</strong>. A <strong>Full Stack Developer</strong> is skilled in <strong>frontend, backend, databases, APIs, and deployment</strong>.</p>
+<p><strong>Why Full Stack?</strong></p>
+<p>✔ <strong>Complete Control</strong> → Work on both UI &amp; business logic.</p>
+<p>✔ <strong>Higher Demand</strong> → Companies prefer developers with full-stack skills.</p>
+<p>✔ <strong>Better Debugging</strong> → Understands the entire architecture.</p>
+<p><strong>2. Components of Full Stack Development</strong></p>
+<p><strong>1. Frontend (Client-Side)</strong></p>
+<p>• <strong>Handles UI &amp; User Experience</strong></p>
+<p>• <strong>Technologies</strong>: HTML, CSS, JavaScript</p>
+<p>• <strong>Frameworks</strong>: React.js, Vue.js, Angular</p>
+<p>• <strong>Example: React Component</strong></p>
+<p><code>function Button() {
+    return &lt;button&gt;Click Me&lt;/button&gt;;
+}</code></p>
+<p><strong>2. Backend (Server-Side)</strong></p>
+<p>• <strong>Handles business logic &amp; APIs</strong></p>
+<p>• <strong>Technologies</strong>: Node.js, Django, Spring Boot</p>
+<p>• <strong>Example: Express.js API</strong></p>
+<p>```
+const express = require("express");
+const app = express();</p>
+<p>app.get("/", (req, res) =&gt; {
+    res.send("Backend Response!");
+});</p>
+<p>app.listen(3000, () =&gt; console.log("Server running on port 3000"));
+```</p>
+<p><strong>3. Database</strong></p>
+<p>• <strong>Stores user data</strong></p>
+<p>• <strong>Databases</strong>: MongoDB (NoSQL), PostgreSQL, MySQL (SQL)</p>
+<p>• <strong>Example: MongoDB Connection</strong></p>
+<p><code>const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/mydb", { useNewUrlParser: true });</code></p>
+<p><strong>4. APIs (REST &amp; GraphQL)</strong></p>
+<p>• Connects <strong>frontend &amp; backend</strong>.</p>
+<p>• Example: Fetch API in React</p>
+<p><code>fetch("http://localhost:3000")
+    .then(res =&gt; res.json())
+    .then(data =&gt; console.log(data));</code></p>
+<p><strong>3. Popular Full Stack Technologies (Stacks)</strong></p>
+<p>|<strong>Stack</strong>|<strong>Technologies Used</strong>|
+|---|---|
+|<strong>MERN</strong>|MongoDB, Express.js, React.js, Node.js|
+|<strong>MEAN</strong>|MongoDB, Express.js, Angular, Node.js|
+|<strong>LAMP</strong>|Linux, Apache, MySQL, PHP|
+|<strong>Django Stack</strong>|Python (Django), PostgreSQL, React|</p>
+<p><strong>4. Example: Full Stack Application</strong></p>
+<p><strong>1. Backend (Express + MongoDB)</strong></p>
+<p>```
+const express = require("express");
+const mongoose = require("mongoose");</p>
+<p>const app = express();
+app.use(express.json());</p>
+<p>mongoose.connect("mongodb://localhost:27017/fullstackDB", { useNewUrlParser: true });</p>
+<p>const UserSchema = new mongoose.Schema({ name: String });
+const User = mongoose.model("User", UserSchema);</p>
+<p>app.post("/user", async (req, res) =&gt; {
+    const newUser = new User(req.body);
+    await newUser.save();
+    res.send("User Saved!");
+});</p>
+<p>app.listen(3000, () =&gt; console.log("Backend running on port 3000"));
+```</p>
+<p><strong>2. Frontend (React)</strong></p>
+<p>```
+import { useState } from "react";</p>
+<p>function App() {
+    const [name, setName] = useState("");</p>
+<pre><code>const handleSubmit = async () =&gt; {
+    await fetch("http://localhost:3000/user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name }),
+    });
+    alert("User Created!");
+};
+
+return (
+    &lt;div&gt;
+        &lt;input type="text" onChange={(e) =&gt; setName(e.target.value)} /&gt;
+        &lt;button onClick={handleSubmit}&gt;Save&lt;/button&gt;
+    &lt;/div&gt;
+);
+</code></pre>
+<p>}</p>
+<p>export default App;
+```</p>
+<p><strong>5. Full Stack Deployment</strong></p>
+<p><strong>1. Backend Deployment</strong></p>
+<p>• <strong>Platforms</strong>: AWS, DigitalOcean, Heroku, Firebase</p>
+<p>• <strong>Example: Deploying Node.js to Heroku</strong></p>
+<p><code>heroku create my-app
+git push heroku main</code></p>
+<p><strong>2. Frontend Deployment</strong></p>
+<p>• <strong>Platforms</strong>: Netlify, Vercel</p>
+<p>• <strong>Example: Deploy React to Vercel</strong></p>
+<p><code>vercel deploy</code></p>
+<p><strong>6. Becoming a Full Stack Developer</strong></p>
+<p>✔ Learn <strong>HTML, CSS, JavaScript</strong></p>
+<p>✔ Master <strong>React.js or Vue.js (Frontend)</strong></p>
+<p>✔ Learn <strong>Node.js, Django, or Laravel (Backend)</strong></p>
+<p>✔ Work with <strong>Databases (MongoDB, SQL, Firebase)</strong></p>
+<p>✔ Practice <strong>APIs, Authentication, Deployment</strong></p>
+<p><strong>7. Conclusion</strong></p>
+<p>Full Stack Development gives you the <strong>power to build complete applications</strong>. With skills in both <strong>frontend and backend</strong>, you can create <strong>fully functional, scalable, and dynamic</strong> web applications! 🚀</p></body></html>

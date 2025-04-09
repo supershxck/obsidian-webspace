@@ -1,0 +1,96 @@
+> **March 27th, 2025**  **14:58:52** 
+> **Topics:** [[
+> **Tags:** #
+---
+
+**Pope Gregory XI (1330–1378): Last Avignon Pope and Restorer of the Roman See**
+
+---
+
+**Introduction**
+
+  
+
+Pope Gregory XI was the 202nd pope of the Catholic Church (1370–1378) and the final pontiff of the **[[Avignon Papacy]]**. His decision to return the papal court to Rome ended nearly seven decades of French‑based pontificates, reshaping Church authority and precipitating the Western Schism.
+
+---
+
+**Early Life & Rise to the Papacy**
+
+• **Born:** 1330 in Limoges, France (birth name: Pierre Roger)
+
+• Joined the Cistercian order; served as Archbishop of Bordeaux (1350s)
+
+• Elevated to cardinal by Pope Innocent VI (1356) and elected pope in December 1370
+
+---
+
+**The Avignon Papacy (1309–1377)**
+
+• Successor to six French popes governing from Avignon, France
+
+• Papacy criticized for French political influence, perceived luxury, and weakened Roman authority
+
+---
+
+**Return to Rome (1376–1377)**
+
+|**Event**|**Date**|**Significance**|
+|---|---|---|
+|Appeal by St. Catherine of Siena|1376|Spiritual persuasion urging restoration of Rome’s primacy [[St. Catherine of Siena]]|
+|Departure from Avignon|September 13, 1376|Began arduous journey to Rome|
+|Arrival in Rome|January 17, 1377|Reestablished papal seat, reaffirming spiritual legitimacy|
+
+  
+
+---
+
+**Challenges & Death**
+
+• Faced political instability, Roman factionalism, and financial strain
+
+• Died March 27, 1378 in Rome — shortly before the papal conclave that triggered the Western Schism (two rival popes)
+
+---
+
+**Psychological & Philosophical Reflections**
+
+|**Dimension**|**Insight**|
+|---|---|
+|Collective Shadow|Gregory’s move symbolized confrontation with institutional corruption and the need for authentic spiritual authority (Jungian)|
+|Ethical Leadership|Balanced political pressures with pastoral duty, embodying tension between power and service|
+
+  
+
+---
+
+**Legacy**
+
+|**Aspect**|**Outcome**|
+|---|---|
+|End of Avignon Papacy|Restored Rome as ecclesiastical center, but precipitated 40-year Western Schism|
+|Precedent for Reform|Highlighted need for Church reform, foreshadowing later Conciliar Movement|
+
+  
+
+---
+
+**Key Vocabulary**
+
+• **Avignon Papacy:** Period when popes resided in Avignon, France (1309–1377)
+
+• **Western Schism:** Division (1378–1417) with multiple claimants to the papacy
+
+• **Cistercian Order:** Monastic order emphasizing austerity and contemplative life
+
+• **Conclave:** Assembly for electing a pope
+
+---
+
+**Potential Follow‑Up Questions**
+
+• How did Gregory XI’s return influence the onset of the Western Schism?
+
+• What role did [[Catholic mysticism]] play in motivating ecclesiastical reform during the 14th century?
+
+• In what ways did Gregory’s papacy set the stage for later Church councils and the Reformation?

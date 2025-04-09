@@ -1,0 +1,152 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>15:47:37</strong> 
+<strong>Topics:</strong> [[Linux L2]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Linux Level 1: Introduction to Linux &amp; Basic Commands</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Linux is an <strong>open-source operating system</strong> widely used for <strong>servers, development, cybersecurity, and embedded systems</strong>. This lesson will introduce you to <strong>Linux basics, file management, process control, and user permissions</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Linux Basics (Filesystem Structure, Terminal, Users &amp; Groups)</strong></p>
+<p>✅ <strong>Essential Commands (ls, cd, cp, mv, rm, cat, grep, find)</strong></p>
+<p>✅ <strong>File &amp; Directory Permissions (chmod, chown, umask)</strong></p>
+<p>✅ <strong>Process Management (ps, kill, top, htop, jobs, fg, bg)</strong></p>
+<p>✅ <strong>Networking Basics (ping, ifconfig, netstat, curl, wget)</strong></p>
+<p>✅ <strong>Package Management (apt, yum, pacman, snap, flatpak)</strong></p>
+<p>✅ <strong>Building a Simple Bash Script in Linux</strong></p>
+<p>By the end of this lesson, you will be able to <strong>navigate Linux efficiently, manage files, control processes, and automate tasks</strong>.</p>
+<hr />
+<p><strong>1. Understanding Linux &amp; Filesystem Structure</strong></p>
+<p><strong>1.1. The Linux Filesystem Hierarchy</strong></p>
+<p>|<strong>Directory</strong>|<strong>Purpose</strong>|
+|---|---|
+|/|Root directory (everything starts here)|
+|/home|User home directories|
+|/etc|System configuration files|
+|/var|Logs, temporary files|
+|/bin|Essential user binaries (ls, cat, cp, mv)|
+|/usr/bin|Installed user programs|
+|/sbin|System binaries (shutdown, reboot)|
+|/dev|Device files (hard drives, USB, keyboard)|
+|/proc|System information (processes, CPU, memory)|</p>
+<hr />
+<p><strong>2. Essential Linux Commands</strong></p>
+<p><strong>2.1. Navigating the Filesystem</strong></p>
+<p><code>pwd        # Show current directory
+ls         # List files and directories
+ls -l      # Detailed list with permissions
+cd /home   # Change directory to /home
+cd ..      # Move up one directory
+cd ~       # Go to home directory</code></p>
+<p><strong>2.2. File &amp; Directory Operations</strong></p>
+<p><code>touch file.txt      # Create a new empty file
+mkdir new_folder    # Create a new directory
+cp file.txt backup/ # Copy file to backup folder
+mv file.txt docs/   # Move file to docs folder
+rm file.txt         # Delete a file
+rm -r folder/       # Delete a directory and its contents</code></p>
+<p><strong>2.3. Viewing &amp; Editing Files</strong></p>
+<p><code>cat file.txt        # View file contents
+less file.txt       # View large file (scrollable)
+nano file.txt       # Edit file using Nano editor
+vim file.txt        # Edit file using Vim editor
+echo "Hello" &gt; file.txt  # Write text to a file
+echo "New Line" &gt;&gt; file.txt  # Append text to a file</code></p>
+<hr />
+<p><strong>3. File &amp; Directory Permissions</strong></p>
+<p><strong>3.1. Checking File Permissions</strong></p>
+<p><code>ls -l file.txt</code></p>
+<p>Example output:</p>
+<p><code>-rw-r--r--  1 user user  1024 Mar 1 10:00 file.txt</code></p>
+<p>• r (read), w (write), x (execute)</p>
+<p>• <strong>First character (- or d)</strong>: File (-) or directory (d)</p>
+<p>• <strong>Owner, Group, Others</strong>: rw- r-- r-- (Owner can read/write, others can only read)</p>
+<p><strong>3.2. Changing File Permissions</strong></p>
+<p><code>chmod 755 script.sh   # Owner full, others read/execute
+chmod +x script.sh    # Make file executable
+chmod -w file.txt     # Remove write permission</code></p>
+<p><strong>3.3. Changing Ownership</strong></p>
+<p><code>sudo chown user:user file.txt  # Change file owner
+sudo chown -R user:user dir/   # Change owner recursively</code></p>
+<hr />
+<p><strong>4. Process Management</strong></p>
+<p><strong>4.1. Viewing Processes</strong></p>
+<p><code>ps aux        # Show running processes
+top           # Interactive process viewer
+htop          # Advanced process viewer (install with: sudo apt install htop)</code></p>
+<p><strong>4.2. Managing Processes</strong></p>
+<p><code>kill PID      # Terminate a process by ID
+kill -9 PID   # Force kill a process
+pkill firefox # Kill process by name
+jobs          # List background processes
+fg 1          # Bring process 1 to foreground
+bg 1          # Move process 1 to background</code></p>
+<hr />
+<p><strong>5. Networking Basics</strong></p>
+<p><strong>5.1. Checking Network Information</strong></p>
+<p><code>ip a        # Show IP address
+ifconfig    # (Alternative) Show network interfaces
+hostname -I # Show current IP</code></p>
+<p><strong>5.2. Testing Network Connectivity</strong></p>
+<p><code>ping google.com    # Check internet connectivity
+wget example.com   # Download file from the internet
+curl example.com   # Fetch page content
+netstat -tulnp     # Show open ports and services</code></p>
+<hr />
+<p><strong>6. Package Management</strong></p>
+<p><strong>6.1. Debian-based Systems (Ubuntu, Debian)</strong></p>
+<p><code>sudo apt update           # Update package list
+sudo apt upgrade          # Upgrade all installed packages
+sudo apt install vim      # Install a package
+sudo apt remove vim       # Remove a package</code></p>
+<p><strong>6.2. Red Hat-based Systems (CentOS, Fedora)</strong></p>
+<p><code>sudo yum update
+sudo yum install vim
+sudo yum remove vim</code></p>
+<p><strong>6.3. Arch-based Systems</strong></p>
+<p><code>sudo pacman -Syu         # Update system
+sudo pacman -S vim       # Install package</code></p>
+<p><strong>6.4. Universal Package Managers</strong></p>
+<p><code>snap install package    # Install a snap package
+flatpak install package # Install a Flatpak package</code></p>
+<hr />
+<p><strong>7. Creating a Simple Bash Script</strong></p>
+<p><strong>7.1. Writing a Script</strong></p>
+<ol>
+<li>Create a new script file:</li>
+</ol>
+<p><code>nano myscript.sh</code></p>
+<ol>
+<li>Add the following:</li>
+</ol>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>echo "Hello, Linux!"
+date
+uptime
+```</p>
+<ol>
+<li>
+<p>Save and exit (CTRL+X, Y, Enter).</p>
+</li>
+<li>
+<p>Make the script executable:</p>
+</li>
+</ol>
+<p><code>chmod +x myscript.sh</code></p>
+<ol>
+<li>Run the script:</li>
+</ol>
+<p><code>./myscript.sh</code></p>
+<hr />
+<p><strong>8. Conclusion</strong></p>
+<p><strong>What You Learned in Linux Level 1:</strong></p>
+<p>✅ <strong>Linux Basics (Filesystem Structure, Terminal, Users &amp; Groups)</strong></p>
+<p>✅ <strong>Essential Commands (ls, cd, cp, mv, rm, cat, grep, find)</strong></p>
+<p>✅ <strong>File &amp; Directory Permissions (chmod, chown, umask)</strong></p>
+<p>✅ <strong>Process Management (ps, kill, top, htop, jobs, fg, bg)</strong></p>
+<p>✅ <strong>Networking Basics (ping, ifconfig, netstat, curl, wget)</strong></p>
+<p>✅ <strong>Package Management (apt, yum, pacman, snap, flatpak)</strong></p>
+<p>✅ <strong>Built a Simple Bash Script in Linux</strong></p>
+<p>Now, you’re ready for <strong>Linux Level 2</strong>, where we explore <strong>Advanced Bash Scripting, System Administration, User Management, Firewalls, and Automation!</strong> 🚀</p></body></html>

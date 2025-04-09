@@ -1,0 +1,142 @@
+<html><body><blockquote>
+<p><strong>April 9th, 2025</strong>  <strong>11:16:32</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p>Here’s a comprehensive setup that will allow you to run a <strong>local, multifaceted webspace</strong> leveraging:</p>
+<p>• <strong>Docker + Docker Compose</strong> to manage containers</p>
+<p>• <strong>Nginx or Caddy</strong> as reverse proxy</p>
+<p>• A <strong>Markdown-powered web frontend</strong> like <a href="https://github.com/hedgedoc/hedgedoc">HedgeDoc</a>, <a href="https://github.com/obsidian-html/obsidian-html">Obsidian Publish (unofficial clone)</a>, or a <strong>custom static site generator</strong></p>
+<p>• Interactive programming with <strong>Python, JS, Ruby</strong></p>
+<p>• Auto-indexing and browsing of your vault/ folder</p>
+<hr />
+<p><strong>🔧 Structure of the Project</strong></p>
+<p>Your dockerized workspace will include:</p>
+<p><code>/obsidian-dock/
+│
+├── docker-compose.yml
+├── nginx.conf
+├── vault/              ← your local Obsidian vault
+├── frontend/           ← optional custom frontend
+├── scripts/            ← interactive backend with Python, JS, Ruby
+└── README.md</code></p>
+<hr />
+<p><strong>🔥 Step 1: Pull Required Images</strong></p>
+<p>Here’s a set of images that we’ll use:</p>
+<p>• <a href="https://hub.docker.com/_/nginx">nginx</a> – for routing</p>
+<p>• <a href="https://hub.docker.com/r/linuxserver/hedgedoc">hedgedoc</a> or jekyll, mkdocs, obsidian-html</p>
+<p>• python:3, ruby, node:alpine – to expose runtime environments</p>
+<hr />
+<p><strong>📜 Docker Compose File</strong></p>
+<p>```
+version: '3.8'</p>
+<p>services:</p>
+<p>nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./vault:/usr/share/nginx/html/vault:ro
+    depends_on:
+      - frontend</p>
+<p>frontend:
+    image: nginx:alpine
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    restart: always</p>
+<p>python:
+    image: python:3
+    volumes:
+      - ./scripts:/scripts
+    working_dir: /scripts
+    command: tail -f /dev/null</p>
+<p>ruby:
+    image: ruby
+    volumes:
+      - ./scripts:/scripts
+    working_dir: /scripts
+    command: tail -f /dev/null</p>
+<p>node:
+    image: node:alpine
+    volumes:
+      - ./scripts:/scripts
+    working_dir: /scripts
+    command: tail -f /dev/null</p>
+<p>hedgedoc:
+    image: linuxserver/hedgedoc
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - CMD_USECDN=false
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./vault:/config/docs
+```</p>
+<hr />
+<p><strong>🌀 nginx.conf for Proxying</strong></p>
+<p>```
+events {}
+http {
+    server {
+        listen 80;</p>
+<pre><code>    location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+    }
+
+    location /vault/ {
+        alias /usr/share/nginx/html/vault/;
+        autoindex on;
+    }
+
+    location /hedgedoc/ {
+        proxy_pass http://hedgedoc:3000/;
+    }
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>🌐 Getting Started</strong></p>
+<p><strong>1. Create directory structure:</strong></p>
+<p><code>mkdir -p obsidian-dock/{vault,frontend,scripts}
+cd obsidian-dock</code></p>
+<p><strong>2. Add your .md files into /vault/</strong></p>
+<p><strong>3. Add optional HTML to /frontend/</strong></p>
+<p>Use this to build your custom dashboard (can use JS, static Vue/React, or templating engines).</p>
+<p><strong>4. Spin up your workspace:</strong></p>
+<p><code>docker-compose up -d</code></p>
+<p>Access it at <a href="http://localhost:8080">http://localhost:8080</a></p>
+<hr />
+<p><strong>🧠 Extendable Ideas</strong></p>
+<p>|<strong>Purpose</strong>|<strong>Tools / Stack</strong>|
+|---|---|
+|<strong>Markdown rendering</strong>|HedgeDoc, MkDocs, Jekyll|
+|<strong>Search + Indexing</strong>|Lunr.js, ElasticSearch, Fuse.js|
+|<strong>Custom SSG</strong>|Use obsidian-html, obsidian-export, or Pandoc|
+|<strong>Script Interactivity</strong>|Flask (Python), Sinatra (Ruby), Express (JS)|
+|<strong>Cron jobs</strong>|Auto-backup your notes, extract tags or backlinks|
+|<strong>AI Agents</strong>|Dockerize a local LLM frontend or Python tool for summarizing|</p>
+<hr />
+<p><strong>📁 Example: Add a Python Script</strong></p>
+<p>Inside /scripts/example.py:</p>
+<p>```
+import os</p>
+<p>for file in os.listdir("../vault"):
+    if file.endswith(".md"):
+        print(f"Found markdown: {file}")
+```</p>
+<p>Then:</p>
+<p><code>docker exec -it obsidian-dock_python_1 python example.py</code></p>
+<hr />
+<p><strong>🌱 Future Upgrades</strong></p>
+<p>• Integrate [[LangChain]] to index and query vault</p>
+<p>• Add a personal [[Jupyter Notebook]] or [[Observable]] environment</p>
+<p>• Use [[Redis]] or [[PostgreSQL]] for metadata and tag tracking</p>
+<p>• Build an interactive [[Tarot Spread Generator]] as an app inside the frontend</p>
+<hr />
+<p>Would you like me to auto-generate these files and zip them for you? I can create them right here and provide you with a download link.</p></body></html>

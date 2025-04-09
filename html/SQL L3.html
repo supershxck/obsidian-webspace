@@ -1,0 +1,183 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>12:11:02</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>SQL Lesson 3: Mastering Big Data, Cloud Databases, and Performance Tuning</strong></p>
+<p><strong>Introduction</strong></p>
+<p>At this stage, you already understand <strong>SQL fundamentals and advanced database techniques</strong>. Now, we move into <strong>enterprise-level SQL</strong> by covering:</p>
+<p>• <strong>Big Data &amp; Cloud Databases</strong></p>
+<p>• <strong>Data Warehousing</strong></p>
+<p>• <strong>Partitioning &amp; Sharding</strong></p>
+<p>• <strong>Query Optimization &amp; Indexing</strong></p>
+<p>• <strong>Performance Tuning</strong></p>
+<p>• <strong>Stored Procedures &amp; Dynamic SQL</strong></p>
+<p>• <strong>Database Security Best Practices</strong></p>
+<p>• <strong>Working with JSON &amp; NoSQL in SQL</strong></p>
+<p>By the end of this lesson, you’ll be able to handle <strong>large-scale, high-performance databases</strong> used in modern web applications, AI, and analytics.</p>
+<hr />
+<p><strong>1. Big Data &amp; Cloud Databases</strong></p>
+<p>Big Data systems handle <strong>massive datasets</strong> beyond traditional databases. SQL databases integrate with <strong>Big Data platforms</strong> like <strong>Google BigQuery, Amazon Redshift, Snowflake, and Apache Hive</strong>.</p>
+<p><strong>1.1. Cloud Databases</strong></p>
+<p>• <strong>Google BigQuery</strong> (Google Cloud)</p>
+<p>• <strong>Amazon Redshift</strong> (AWS)</p>
+<p>• <strong>Snowflake</strong> (Cross-cloud)</p>
+<p>• <strong>Azure SQL Database</strong> (Microsoft Azure)</p>
+<p><strong>1.2. Querying a Cloud Database (BigQuery Example)</strong></p>
+<p><code>SELECT user_id, COUNT(*) AS total_purchases  
+FROM `project.dataset.transactions`  
+WHERE purchase_date &gt;= '2024-01-01'  
+GROUP BY user_id  
+ORDER BY total_purchases DESC;</code></p>
+<p><strong>Cloud Benefits</strong>:</p>
+<p>• <strong>Scalability</strong>: Handles terabytes of data.</p>
+<p>• <strong>Speed</strong>: Optimized for high-performance queries.</p>
+<p>• <strong>Security</strong>: Built-in encryption and access control.</p>
+<hr />
+<p><strong>2. Data Warehousing (OLAP)</strong></p>
+<p>A <strong>Data Warehouse</strong> stores historical data optimized for analytics, unlike normal databases used for daily transactions (<strong>OLTP</strong>).</p>
+<p><strong>2.1. Star Schema (Data Warehousing Model)</strong></p>
+<p>A <strong>star schema</strong> consists of:</p>
+<p>• <strong>Fact Table</strong> (Central table with numerical data)</p>
+<p>• <strong>Dimension Tables</strong> (Descriptive data)</p>
+<p>Example:</p>
+<p>|<strong>Sales_ID</strong>|<strong>Product_ID</strong>|<strong>Customer_ID</strong>|<strong>Amount</strong>|
+|---|---|---|---|
+|1|101|1001|500.00|
+|2|102|1002|700.00|</p>
+<p><strong>Query Example:</strong></p>
+<p><code>SELECT d.category, SUM(f.amount) AS total_sales  
+FROM fact_sales f  
+JOIN dim_products d ON f.product_id = d.product_id  
+GROUP BY d.category;</code></p>
+<hr />
+<p><strong>3. Partitioning &amp; Sharding for Large Databases</strong></p>
+<p>When databases <strong>scale</strong>, traditional tables become slow. Solutions include:</p>
+<p><strong>3.1. Partitioning</strong></p>
+<p>Breaks large tables into smaller partitions.</p>
+<p><code>CREATE TABLE sales (
+    id INT,
+    sale_date DATE,
+    amount DECIMAL(10,2)
+) PARTITION BY RANGE (sale_date) (
+    PARTITION p1 VALUES LESS THAN ('2023-01-01'),
+    PARTITION p2 VALUES LESS THAN ('2024-01-01')
+);</code></p>
+<p><strong>3.2. Sharding</strong></p>
+<p>Spreads data across <strong>multiple servers</strong> to handle massive traffic.</p>
+<p><code>SELECT * FROM sales_2023 WHERE sale_date &gt;= '2023-06-01';</code></p>
+<hr />
+<p><strong>4. Query Optimization &amp; Performance Tuning</strong></p>
+<p>Slow queries hurt performance. Techniques to optimize them:</p>
+<p><strong>4.1. Use EXPLAIN to Debug Queries</strong></p>
+<p><code>EXPLAIN SELECT * FROM employees WHERE salary &gt; 70000;</code></p>
+<p><strong>4.2. Indexing</strong></p>
+<p><strong>Indexes</strong> speed up data retrieval.</p>
+<p><code>CREATE INDEX idx_salary ON employees(salary);</code></p>
+<p><strong>4.3. Avoid SELECT * (Retrieve Only Needed Columns)</strong></p>
+<p><code>SELECT name, salary FROM employees WHERE salary &gt; 70000;</code></p>
+<p><strong>4.4. Optimize Joins with Indexes</strong></p>
+<p><code>CREATE INDEX idx_department ON employees(department_id);</code></p>
+<p><strong>4.5. Use LIMIT to Reduce Query Load</strong></p>
+<p><code>SELECT * FROM transactions ORDER BY purchase_date DESC LIMIT 10;</code></p>
+<hr />
+<p><strong>5. Stored Procedures &amp; Dynamic SQL</strong></p>
+<p>Stored procedures improve efficiency by storing reusable SQL logic.</p>
+<p><strong>5.1. Advanced Stored Procedure</strong></p>
+<p><code>DELIMITER //
+CREATE PROCEDURE GetHighEarners(IN min_salary DECIMAL(10,2))
+BEGIN
+    SELECT * FROM employees WHERE salary &gt; min_salary;
+END //
+DELIMITER ;</code></p>
+<p><strong>Call the Procedure:</strong></p>
+<p><code>CALL GetHighEarners(80000);</code></p>
+<p><strong>5.2. Dynamic SQL (Flexible Query Execution)</strong></p>
+<p><code>SET @dept = 'Engineering';
+SET @query = CONCAT('SELECT * FROM employees WHERE department = "', @dept, '"');
+PREPARE stmt FROM @query;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;</code></p>
+<hr />
+<p><strong>6. Security Best Practices</strong></p>
+<p><strong>6.1. User Role Management</strong></p>
+<p><code>CREATE USER 'report_user'@'localhost' IDENTIFIED BY 'password123';
+GRANT SELECT ON company.* TO 'report_user'@'localhost';</code></p>
+<p><strong>6.2. Prevent SQL Injection (Use Prepared Statements)</strong></p>
+<p><code>PREPARE stmt FROM 'SELECT * FROM employees WHERE id = ?';
+EXECUTE stmt USING @id;</code></p>
+<hr />
+<p><strong>7. Working with JSON &amp; NoSQL in SQL</strong></p>
+<p>Modern databases store <strong>semi-structured data</strong> like JSON.</p>
+<p><strong>7.1. Storing JSON in SQL</strong></p>
+<p><code>CREATE TABLE orders (
+    id INT PRIMARY KEY,
+    order_data JSON
+);</code></p>
+<p><strong>7.2. Querying JSON Data</strong></p>
+<p><code>SELECT order_data-&gt;&gt;'$.customer_name' AS customer_name FROM orders;</code></p>
+<p><strong>7.3. Converting JSON to Relational Data</strong></p>
+<p><code>SELECT JSON_VALUE(order_data, '$.product_id') AS product_id FROM orders;</code></p>
+<hr />
+<p><strong>8. SQL in Big Data: Using Apache Hive</strong></p>
+<p>Hive enables <strong>SQL-like querying on massive datasets</strong> stored in Hadoop.</p>
+<p><strong>8.1. Creating a Hive Table</strong></p>
+<p><code>CREATE TABLE transactions (
+    user_id STRING,
+    product STRING,
+    purchase_amount DOUBLE
+) ROW FORMAT DELIMITED  
+FIELDS TERMINATED BY ','  
+STORED AS TEXTFILE;</code></p>
+<p><strong>8.2. Querying Data in Hive</strong></p>
+<p><code>SELECT user_id, SUM(purchase_amount) FROM transactions GROUP BY user_id;</code></p>
+<hr />
+<p><strong>Final Project: Enterprise-Level Analytics Dashboard</strong></p>
+<p><strong>Goal</strong>: Build a query system for company-wide sales reports.</p>
+<p><strong>1. Create a Sales Table</strong></p>
+<p><code>CREATE TABLE sales (
+    sale_id INT PRIMARY KEY,
+    product VARCHAR(50),
+    customer VARCHAR(50),
+    sale_date DATE,
+    amount DECIMAL(10,2)
+);</code></p>
+<p><strong>2. Insert Sample Data</strong></p>
+<p><code>INSERT INTO sales (sale_id, product, customer, sale_date, amount)
+VALUES (1, 'Laptop', 'Alice', '2024-02-01', 1200.00),
+       (2, 'Phone', 'Bob', '2024-02-03', 800.00);</code></p>
+<p><strong>3. Optimize for Faster Queries</strong></p>
+<p><code>CREATE INDEX idx_sale_date ON sales(sale_date);</code></p>
+<p><strong>4. Query Monthly Sales Report</strong></p>
+<p><code>SELECT YEAR(sale_date) AS year, MONTH(sale_date) AS month,  
+       SUM(amount) AS total_revenue  
+FROM sales  
+GROUP BY YEAR(sale_date), MONTH(sale_date);</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned:</strong></p>
+<p>✅ <strong>Big Data &amp; Cloud Databases</strong> (Google BigQuery, Amazon Redshift)</p>
+<p>✅ <strong>Data Warehousing &amp; OLAP (Star Schema, Fact Tables)</strong></p>
+<p>✅ <strong>Partitioning &amp; Sharding for Large Datasets</strong></p>
+<p>✅ <strong>Query Optimization &amp; Performance Tuning (Indexes, EXPLAIN, LIMIT)</strong></p>
+<p>✅ <strong>Stored Procedures &amp; Dynamic SQL</strong></p>
+<p>✅ <strong>Database Security Best Practices</strong></p>
+<p>✅ <strong>Working with JSON &amp; NoSQL inside SQL</strong></p>
+<p>✅ <strong>SQL in Big Data (Apache Hive &amp; Hadoop)</strong></p>
+<p>With this knowledge, you’re now ready to:</p>
+<ol>
+<li>
+<p><strong>Work with large-scale enterprise databases</strong></p>
+</li>
+<li>
+<p><strong>Optimize SQL queries for speed and efficiency</strong></p>
+</li>
+<li>
+<p><strong>Secure and manage cloud databases</strong></p>
+</li>
+<li>
+<p><strong>Analyze Big Data efficiently</strong></p>
+</li>
+</ol>
+<p>🚀 Next step? <strong>Machine Learning with SQL, ETL Pipelines, and Data Engineering!</strong> 🚀</p></body></html>

@@ -1,0 +1,176 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>19:06:23</strong> 
+<strong>Topics:</strong> [[MATLAB L3]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>MATLAB Level 2: Intermediate to Advanced MATLAB Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you have learned the <strong>basics of MATLAB</strong>, it’s time to dive deeper into <strong>advanced topics like signal processing, machine learning, image processing, and Simulink</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Matrix Operations &amp; Linear Algebra</strong></p>
+<p>✅ <strong>Signal Processing &amp; Fourier Transform (FFT)</strong></p>
+<p>✅ <strong>Machine Learning with MATLAB</strong></p>
+<p>✅ <strong>Image Processing &amp; Computer Vision</strong></p>
+<p>✅ <strong>Simulink for System Modeling</strong></p>
+<p>✅ <strong>Optimization &amp; Numerical Methods</strong></p>
+<p>✅ <strong>Parallel Computing &amp; Performance Optimization</strong></p>
+<p>✅ <strong>Building a Full MATLAB Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>analyze signals, build machine learning models, process images, and optimize MATLAB performance</strong>.</p>
+<hr />
+<p><strong>1. Advanced Matrix Operations &amp; Linear Algebra</strong></p>
+<p><strong>1.1. Eigenvalues &amp; Eigenvectors</strong></p>
+<p><code>A = [4 -2; 1 1];
+[eigenVectors, eigenValues] = eig(A);
+disp(eigenValues);
+disp(eigenVectors);</code></p>
+<p><strong>1.2. Solving Linear Systems</strong></p>
+<p><code>A = [3 2; 1 4];
+b = [5; 6];
+x = A\b;  % Solves Ax = b
+disp(x);</code></p>
+<p><strong>1.3. Matrix Inversion</strong></p>
+<p><code>A = [2 3; 5 7];
+A_inv = inv(A);
+disp(A_inv);</code></p>
+<hr />
+<p><strong>2. Signal Processing &amp; Fourier Transform</strong></p>
+<p><strong>2.1. Generating &amp; Plotting a Signal</strong></p>
+<p><code>fs = 1000;       % Sampling frequency
+t = 0:1/fs:1;    % Time vector
+f = 5;           % Frequency of the sine wave
+signal = sin(2*pi*f*t);
+plot(t, signal);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Sine Wave');</code></p>
+<p><strong>2.2. Computing the Fast Fourier Transform (FFT)</strong></p>
+<p><code>Y = fft(signal);
+n = length(signal);
+frequencies = (0:n-1)*(fs/n);
+plot(frequencies, abs(Y));
+xlabel('Frequency (Hz)');
+ylabel('Magnitude');
+title('FFT of Sine Wave');</code></p>
+<p><strong>2.3. Designing a Low-Pass Filter</strong></p>
+<p><code>fc = 10;   % Cutoff frequency
+[b, a] = butter(4, fc/(fs/2));  % 4th order Butterworth filter
+filtered_signal = filter(b, a, signal);
+plot(t, filtered_signal);
+title('Filtered Signal');</code></p>
+<hr />
+<p><strong>3. Machine Learning with MATLAB</strong></p>
+<p><strong>3.1. Loading a Dataset</strong></p>
+<p><code>load fisheriris;
+data = meas;      % Features
+labels = species; % Labels</code></p>
+<p><strong>3.2. Training a Decision Tree Classifier</strong></p>
+<p><code>tree = fitctree(data, labels);
+view(tree, 'Mode', 'graph');  % Display tree</code></p>
+<p><strong>3.3. Using a Support Vector Machine (SVM)</strong></p>
+<p><code>svmModel = fitcsvm(data, labels);
+prediction = predict(svmModel, data(1, :));
+disp(['Predicted label: ', prediction]);</code></p>
+<p><strong>3.4. Performing k-Means Clustering</strong></p>
+<p><code>k = 3;
+[idx, centroids] = kmeans(data, k);
+gscatter(data(:,1), data(:,2), idx);
+title('k-Means Clustering');</code></p>
+<hr />
+<p><strong>4. Image Processing &amp; Computer Vision</strong></p>
+<p><strong>4.1. Reading &amp; Displaying an Image</strong></p>
+<p><code>img = imread('peppers.png');
+imshow(img);
+title('Original Image');</code></p>
+<p><strong>4.2. Converting to Grayscale</strong></p>
+<p><code>gray_img = rgb2gray(img);
+imshow(gray_img);
+title('Grayscale Image');</code></p>
+<p><strong>4.3. Edge Detection using Sobel Filter</strong></p>
+<p><code>edges = edge(gray_img, 'sobel');
+imshow(edges);
+title('Edge Detection');</code></p>
+<p><strong>4.4. Object Detection using Haar Cascades</strong></p>
+<p><code>faceDetector = vision.CascadeObjectDetector;
+bbox = step(faceDetector, img);
+imshow(img);
+hold on;
+rectangle('Position', bbox, 'EdgeColor', 'r', 'LineWidth', 2);
+title('Face Detection');</code></p>
+<hr />
+<p><strong>5. Simulink for System Modeling</strong></p>
+<p><strong>5.1. Opening Simulink</strong></p>
+<p><code>simulink;</code></p>
+<p><strong>5.2. Creating a Simple Model</strong></p>
+<ol>
+<li>
+<p>Open Simulink.</p>
+</li>
+<li>
+<p>Add a <strong>Sine Wave Block</strong> (from Sources).</p>
+</li>
+<li>
+<p>Add a <strong>Scope Block</strong> (from Sinks).</p>
+</li>
+<li>
+<p>Connect the blocks and run the simulation.</p>
+</li>
+</ol>
+<hr />
+<p><strong>6. Optimization &amp; Numerical Methods</strong></p>
+<p><strong>6.1. Finding Minima with fminsearch</strong></p>
+<p><code>f = @(x) x.^2 + 4*x + 5;
+x_min = fminsearch(f, 0);
+disp(['Minimum at x = ', num2str(x_min)]);</code></p>
+<p><strong>6.2. Solving Differential Equations using ode45</strong></p>
+<p><code>dydt = @(t,y) -2*y + sin(t);
+[t, y] = ode45(dydt, [0 10], 1);
+plot(t, y);
+xlabel('Time');
+ylabel('y');
+title('Solution of dy/dt = -2y + sin(t)');</code></p>
+<hr />
+<p><strong>7. Parallel Computing &amp; Performance Optimization</strong></p>
+<p><strong>7.1. Running Loops in Parallel</strong></p>
+<p><code>parpool(4);  % Open 4 parallel workers
+parfor i = 1:100
+    disp(i);
+end
+delete(gcp); % Close parallel pool</code></p>
+<p><strong>7.2. Profiling MATLAB Code for Optimization</strong></p>
+<p><code>profile on;
+for i = 1:1000
+    sqrt(i);
+end
+profile viewer;</code></p>
+<hr />
+<p><strong>8. Building a Full MATLAB Application</strong></p>
+<p><strong>8.1. Creating a GUI in MATLAB</strong></p>
+<p><code>app = uifigure;
+btn = uibutton(app, 'Text', 'Click Me', 'Position', [100, 100, 100, 50]);
+btn.ButtonPushedFcn = @(src, event) disp('Button Clicked!');</code></p>
+<p><strong>8.2. MATLAB App Designer (Drag &amp; Drop UI)</strong></p>
+<ol>
+<li>
+<p>Open MATLAB.</p>
+</li>
+<li>
+<p>Type:</p>
+</li>
+</ol>
+<p><code>appdesigner</code></p>
+<ol>
+<li>Create buttons, graphs, and callbacks.</li>
+</ol>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in MATLAB Level 2:</strong></p>
+<p>✅ <strong>Advanced Matrix Operations &amp; Linear Algebra</strong></p>
+<p>✅ <strong>Signal Processing &amp; Fourier Transform (FFT)</strong></p>
+<p>✅ <strong>Machine Learning with MATLAB</strong></p>
+<p>✅ <strong>Image Processing &amp; Computer Vision</strong></p>
+<p>✅ <strong>Simulink for System Modeling</strong></p>
+<p>✅ <strong>Optimization &amp; Numerical Methods</strong></p>
+<p>✅ <strong>Parallel Computing &amp; Performance Optimization</strong></p>
+<p>✅ <strong>Built a Full MATLAB Application</strong></p>
+<p>Now, you’re ready for <strong>MATLAB Level 3</strong>, where we explore <strong>Deep Learning, Hardware Interfacing (Arduino, Raspberry Pi), Financial Modeling, and Cloud Deployment!</strong> 🚀</p></body></html>

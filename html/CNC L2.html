@@ -1,0 +1,133 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:41:45</strong> 
+<strong>Topics:</strong> [[Swift L1]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>CNC Level 2: Advanced CNC Programming &amp; Multi-Axis Machining</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve mastered <strong>basic CNC programming</strong>, it’s time to explore <strong>advanced techniques</strong> such as <strong>multi-axis machining, parametric programming, and automation</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced G-Code &amp; M-Code Commands</strong></p>
+<p>✅ <strong>4-Axis &amp; 5-Axis CNC Machining</strong></p>
+<p>✅ <strong>Macro &amp; Parametric Programming</strong></p>
+<p>✅ <strong>Subprograms &amp; Loops in CNC</strong></p>
+<p>✅ <strong>CNC Probing &amp; Tool Compensation</strong></p>
+<p>✅ <strong>CNC Automation with Robots</strong></p>
+<p>✅ <strong>Building an Advanced CNC Program</strong></p>
+<p>By the end of this lesson, you will be able to <strong>program complex CNC operations and automate machining tasks</strong>.</p>
+<hr />
+<p><strong>1. Advanced G-Code &amp; M-Code Commands</strong></p>
+<p><strong>1.1. Advanced G-Code</strong></p>
+<p>|<strong>G-Code</strong>|<strong>Function</strong>|
+|---|---|
+|<strong>G17, G18, G19</strong>|Select Plane (XY, XZ, YZ)|
+|<strong>G41, G42</strong>|Cutter Compensation (Left/Right)|
+|<strong>G43, G49</strong>|Tool Length Compensation|
+|<strong>G53, G54-G59</strong>|Work Coordinate Systems|
+|<strong>G70, G71</strong>|Finishing &amp; Roughing Cycles|
+|<strong>G73, G83</strong>|Peck Drilling Cycles|</p>
+<p><strong>Example: Cutter Compensation (G41/G42)</strong></p>
+<p><code>G41 D1 ; Enable Left Cutter Compensation  
+G01 X50 Y50 F200 ; Move tool with offset  
+G40 ; Cancel Cutter Compensation</code></p>
+<p><strong>1.2. Advanced M-Code</strong></p>
+<p>|<strong>M-Code</strong>|<strong>Function</strong>|
+|---|---|
+|<strong>M97</strong>|Call Local Subprogram|
+|<strong>M98</strong>|Call External Subprogram|
+|<strong>M99</strong>|Return from Subprogram|
+|<strong>M30</strong>|End of Program (Reset)|
+|<strong>M60</strong>|Automatic Pallet Change|</p>
+<p><strong>Example: Calling a Subprogram</strong></p>
+<p><code>M98 P1000 L2 ; Call subprogram O1000, repeat 2 times</code></p>
+<hr />
+<p><strong>2. Multi-Axis CNC Machining (4-Axis &amp; 5-Axis)</strong></p>
+<p><strong>2.1. Understanding Additional Axes</strong></p>
+<p>|<strong>Axis</strong>|<strong>Function</strong>|
+|---|---|
+|<strong>A-Axis</strong>|Rotates around X-axis|
+|<strong>B-Axis</strong>|Rotates around Y-axis|
+|<strong>C-Axis</strong>|Rotates around Z-axis|</p>
+<p><strong>2.2. 4-Axis CNC Milling</strong></p>
+<p>• A <strong>4th axis</strong> (A-axis) allows for <strong>rotary indexing</strong>.</p>
+<p><code>G01 X50 Y50 A90 F200 ; Move to X50, Y50, rotate A-axis 90°</code></p>
+<p><strong>2.3. 5-Axis CNC Milling</strong></p>
+<p>• A <strong>5th axis</strong> (B or C) allows the tool to tilt.</p>
+<p><code>G01 X50 Y50 Z10 B30 C20 F200 ; Move with tool tilted</code></p>
+<hr />
+<p><strong>3. Macro &amp; Parametric Programming</strong></p>
+<p>Macros allow <strong>automated, flexible programming</strong>.</p>
+<p><strong>3.1. Variables in CNC (G-Code Parameters)</strong></p>
+<p>|<strong>Parameter</strong>|<strong>Function</strong>|
+|---|---|
+|<strong>#1 - #33</strong>|Local Variables|
+|<strong>#100 - #199</strong>|General Variables|
+|<strong>#500 - #999</strong>|System Variables|</p>
+<p><strong>Example: Simple Macro (Using Variables)</strong></p>
+<p>```</p>
+<h1>100 = 50 ; Set X position</h1>
+<h1>101 = 100 ; Set Y position</h1>
+<p>G01 X#100 Y#101 F200 ; Move to (50,100)
+```</p>
+<hr />
+<p><strong>4. Subprograms &amp; Loops in CNC</strong></p>
+<p>Subprograms help <strong>reuse code</strong>.</p>
+<p><strong>4.1. Creating a Subprogram</strong></p>
+<p><code>O1000 ; Subprogram Start  
+G01 X50 Y50 F200  
+M99 ; Return from Subprogram</code></p>
+<p><strong>4.2. Calling a Subprogram</strong></p>
+<p><code>M98 P1000 L3 ; Call O1000, repeat 3 times</code></p>
+<hr />
+<p><strong>5. CNC Probing &amp; Tool Compensation</strong></p>
+<p><strong>5.1. CNC Probing (G31)</strong></p>
+<p>• Used for <strong>workpiece measurement</strong>.</p>
+<p><code>G31 X100 Y50 Z0 F100 ; Probe to surface</code></p>
+<p><strong>5.2. Tool Compensation (G43, G44)</strong></p>
+<p><code>G43 H1 ; Apply tool offset</code></p>
+<hr />
+<p><strong>6. CNC Automation with Robots</strong></p>
+<p>• Robots can <strong>load/unload workpieces automatically</strong>.</p>
+<p>• Uses <strong>PLC &amp; CNC Integration (Modbus, Ethernet/IP)</strong>.</p>
+<p><strong>6.1. Basic Robot Pick &amp; Place</strong></p>
+<p><code>M60 ; Call Robot Load  
+G01 X50 Y50 ; Perform Machining  
+M61 ; Call Robot Unload</code></p>
+<hr />
+<p><strong>7. Building an Advanced CNC Program</strong></p>
+<p><strong>Objective:</strong></p>
+<p>• Machine a <strong>rectangular pocket</strong> using a <strong>loop</strong>.</p>
+<p>• Use <strong>tool compensation and work offsets</strong>.</p>
+<p>```
+G21 ; Set mm Mode<br />
+G90 ; Absolute Positioning<br />
+G54 ; Work Offset  </p>
+<h1>100 = 10 ; Set Pocket Depth</h1>
+<h1>101 = 50 ; Set Pocket Length</h1>
+<h1>102 = 30 ; Set Pocket Width</h1>
+<p>M06 T1 ; Tool Change<br />
+G43 H1 ; Apply Tool Compensation<br />
+M03 S1200 ; Start Spindle  </p>
+<p>WHILE [#100 GT 0] DO1<br />
+    G01 X0 Y0 Z-#100 F200<br />
+    G01 X#101<br />
+    G01 Y#102<br />
+    G01 X0<br />
+    G01 Y0<br />
+    #100 = #100 - 2 ; Reduce Depth<br />
+END1  </p>
+<p>M05 ; Stop Spindle<br />
+M30 ; End Program<br />
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in CNC Level 2:</strong></p>
+<p>✅ <strong>Advanced G-Code &amp; M-Code Commands</strong></p>
+<p>✅ <strong>4-Axis &amp; 5-Axis CNC Machining</strong></p>
+<p>✅ <strong>Macro &amp; Parametric Programming</strong></p>
+<p>✅ <strong>Subprograms &amp; Loops in CNC</strong></p>
+<p>✅ <strong>CNC Probing &amp; Tool Compensation</strong></p>
+<p>✅ <strong>CNC Automation with Robots</strong></p>
+<p>✅ <strong>Built an Advanced CNC Program</strong></p>
+<p>Now, you’re ready for <strong>CNC Level 3</strong>, where we explore <strong>CAM Software, AI-Powered CNC Optimization, and CNC in Industry 4.0!</strong> 🚀</p></body></html>

@@ -1,0 +1,251 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>18:27:31</strong> 
+<strong>Topics:</strong> [[Java L4]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Java Level 3: Advanced Java &amp; Enterprise Development</strong></p>
+<p><strong>Introduction</strong></p>
+<p>At <strong>Java Level 3</strong>, we move into <strong>enterprise-level development</strong>, covering topics required for <strong>high-performance applications, cloud computing, security, and microservices</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Multi-threading &amp; Concurrency (Thread Pools, Executors, Fork/Join)</strong></p>
+<p>✅ <strong>Microservices with Spring Boot &amp; REST APIs</strong></p>
+<p>✅ <strong>Cloud Deployment (AWS, Docker, Kubernetes)</strong></p>
+<p>✅ <strong>Spring Security &amp; Authentication (OAuth, JWT, Role-Based Access Control)</strong></p>
+<p>✅ <strong>Reactive Programming (Spring WebFlux, Reactive Streams)</strong></p>
+<p>✅ <strong>GraphQL APIs</strong></p>
+<p>✅ <strong>Message Queues (RabbitMQ, Kafka for Event-Driven Systems)</strong></p>
+<p>✅ <strong>Distributed Systems &amp; Caching (Redis, Memcached)</strong></p>
+<p>✅ <strong>Building a Scalable Java Microservice</strong></p>
+<p>By the end of this lesson, you will be able to <strong>design scalable, secure, and high-performance applications</strong>.</p>
+<hr />
+<p><strong>1. Advanced Multi-threading &amp; Concurrency</strong></p>
+<p><strong>1.1. Thread Pools &amp; Executors</strong></p>
+<p>Instead of creating multiple threads manually, use a <strong>thread pool</strong> to optimize resource usage.</p>
+<p>```
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;</p>
+<p>public class ThreadPoolExample {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+        for (int i = 0; i &lt; 5; i++) {
+            executor.submit(() -&gt; System.out.println(Thread.currentThread().getName() + " is running"));
+        }
+        executor.shutdown();
+    }
+}
+```</p>
+<p><strong>1.2. Fork/Join Framework (Parallel Processing)</strong></p>
+<p>```
+import java.util.concurrent.RecursiveTask;
+import java.util.concurrent.ForkJoinPool;</p>
+<p>class SumTask extends RecursiveTask<Integer> {
+    int start, end;
+    SumTask(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+    protected Integer compute() {
+        if (end - start &lt;= 10) {
+            int sum = 0;
+            for (int i = start; i &lt; end; i++) sum += i;
+            return sum;
+        } else {
+            int mid = (start + end) / 2;
+            SumTask left = new SumTask(start, mid);
+            SumTask right = new SumTask(mid, end);
+            left.fork();
+            return right.compute() + left.join();
+        }
+    }
+}</p>
+<p>public class ForkJoinExample {
+    public static void main(String[] args) {
+        ForkJoinPool pool = new ForkJoinPool();
+        int sum = pool.invoke(new SumTask(0, 100));
+        System.out.println("Sum: " + sum);
+    }
+}
+```</p>
+<hr />
+<p><strong>2. Microservices with Spring Boot</strong></p>
+<p><strong>2.1. Setting Up a Microservice</strong></p>
+<p>```
+import org.springframework.web.bind.annotation.*;</p>
+<p>@RestController
+@RequestMapping("/users")
+public class UserController {
+    @GetMapping("/{id}")
+    public String getUser(@PathVariable String id) {
+        return "User with ID: " + id;
+    }
+}
+```</p>
+<p><strong>2.2. Running Microservices with Spring Boot</strong></p>
+<p><code>mvn spring-boot:run</code></p>
+<hr />
+<p><strong>3. Cloud Deployment (AWS, Docker, Kubernetes)</strong></p>
+<p><strong>3.1. Dockerizing a Java Application</strong></p>
+<p><strong>Dockerfile</strong></p>
+<p><code>FROM openjdk:17
+COPY target/myapp.jar myapp.jar
+CMD ["java", "-jar", "myapp.jar"]</code></p>
+<p><code>docker build -t myapp .
+docker run -p 8080:8080 myapp</code></p>
+<p><strong>3.2. Deploying to AWS (Elastic Beanstalk)</strong></p>
+<p><code>eb init -p Java my-java-app
+eb create my-java-env</code></p>
+<hr />
+<p><strong>4. Security &amp; Authentication</strong></p>
+<p><strong>4.1. JWT-Based Authentication</strong></p>
+<p>```
+import io.jsonwebtoken.*;</p>
+<p>public class JwtUtil {
+    private static final String SECRET_KEY = "mySecretKey";</p>
+<pre><code>public static String generateToken(String username) {
+    return Jwts.builder()
+            .setSubject(username)
+            .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+            .compact();
+}
+
+public static String validateToken(String token) {
+    return Jwts.parser()
+            .setSigningKey(SECRET_KEY)
+            .parseClaimsJws(token)
+            .getBody().getSubject();
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>4.2. Spring Security for Role-Based Access</strong></p>
+<p>```
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;</p>
+<p>@EnableWebSecurity
+public class SecurityConfig {
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/user").authenticated()
+                .and()
+                .formLogin();
+    }
+}
+```</p>
+<hr />
+<p><strong>5. Reactive Programming (Spring WebFlux)</strong></p>
+<p>```
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;</p>
+<p>@RestController
+@RequestMapping("/reactive")
+public class ReactiveController {
+    @GetMapping("/{name}")
+    public Mono<String> greet(@PathVariable String name) {
+        return Mono.just("Hello " + name);
+    }
+}
+```</p>
+<hr />
+<p><strong>6. GraphQL APIs</strong></p>
+<p>```
+import graphql.kickstart.tools.GraphQLQueryResolver;
+import org.springframework.stereotype.Component;</p>
+<p>@Component
+public class UserQuery implements GraphQLQueryResolver {
+    public String getUser(String id) {
+        return "User " + id;
+    }
+}
+```</p>
+<hr />
+<p><strong>7. Message Queues (RabbitMQ, Kafka)</strong></p>
+<p><strong>7.1. Sending Messages to Kafka</strong></p>
+<p>```
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;</p>
+<p>@Service
+public class KafkaProducer {
+    private final KafkaTemplate<String, String> kafkaTemplate;</p>
+<pre><code>public KafkaProducer(KafkaTemplate&lt;String, String&gt; kafkaTemplate) {
+    this.kafkaTemplate = kafkaTemplate;
+}
+
+public void sendMessage(String message) {
+    kafkaTemplate.send("myTopic", message);
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>8. Distributed Systems &amp; Caching (Redis, Memcached)</strong></p>
+<p><strong>8.1. Using Redis for Caching</strong></p>
+<p>```
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Service;</p>
+<p>@Service
+public class RedisService {
+    private final StringRedisTemplate redisTemplate;</p>
+<pre><code>public RedisService(StringRedisTemplate redisTemplate) {
+    this.redisTemplate = redisTemplate;
+}
+
+public void cacheData(String key, String value) {
+    redisTemplate.opsForValue().set(key, value);
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>9. Building a Scalable Java Microservice</strong></p>
+<p><strong>9.1. Define the User Model</strong></p>
+<p>```
+import javax.persistence.*;</p>
+<p>@Entity
+public class User {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+}
+```</p>
+<p><strong>9.2. Create the Repository</strong></p>
+<p><code>import org.springframework.data.jpa.repository.JpaRepository;
+public interface UserRepository extends JpaRepository&lt;User, Long&gt; {}</code></p>
+<p><strong>9.3. Create the Controller</strong></p>
+<p>```
+import org.springframework.web.bind.annotation.*;</p>
+<p>import java.util.List;</p>
+<p>@RestController
+@RequestMapping("/users")
+public class UserController {
+    private final UserRepository repository;</p>
+<pre><code>public UserController(UserRepository repository) {
+    this.repository = repository;
+}
+
+@GetMapping
+public List&lt;User&gt; getUsers() {
+    return repository.findAll();
+}
+
+@PostMapping
+public User createUser(@RequestBody User user) {
+    return repository.save(user);
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Java Level 3:</strong></p>
+<p>✅ <strong>Advanced Multi-threading (Executors, Fork/Join, Thread Pools)</strong></p>
+<p>✅ <strong>Microservices with Spring Boot</strong></p>
+<p>✅ <strong>Cloud Deployment (AWS, Docker, Kubernetes)</strong></p>
+<p>✅ <strong>Spring Security (JWT, OAuth, Role-Based Access)</strong></p>
+<p>✅ <strong>Reactive Programming (Spring WebFlux)</strong></p>
+<p>✅ <strong>GraphQL APIs</strong></p>
+<p>✅ <strong>Message Queues (RabbitMQ, Kafka)</strong></p>
+<p>✅ <strong>Distributed Systems &amp; Caching (Redis, Memcached)</strong></p>
+<p>✅ <strong>Built a Scalable Java Microservice</strong></p>
+<p>Now, you’re ready for <strong>Java Level 4</strong>, where we explore <strong>AI/ML with Java, Big Data Processing (Apache Spark), Serverless Computing, and Blockchain Development with Java!</strong> 🚀</p></body></html>

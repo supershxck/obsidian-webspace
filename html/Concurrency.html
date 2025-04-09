@@ -1,0 +1,48 @@
+<html><body><blockquote>
+<p><strong>March 17th, 2025</strong>  <strong>16:29:14</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>What is Concurrency?</strong></p>
+<p><strong>Concurrency</strong> is the ability of a system to <strong>execute multiple tasks or processes seemingly at the same time</strong>. It is a fundamental concept in computing, allowing programs to <strong>handle multiple operations efficiently</strong> by overlapping execution.</p>
+<p><strong>Key Concepts of Concurrency</strong></p>
+<ol>
+<li><strong>Task Overlapping vs. True Parallelism</strong></li>
+</ol>
+<p>• <strong>Concurrency ≠ Parallelism</strong>:</p>
+<p>• <strong>Concurrency</strong>: Tasks appear to run simultaneously but may not be executing at the same instant.</p>
+<p>• <strong>Parallelism</strong>: Tasks run at the same time on multiple processors/cores.</p>
+<p>• Example: A single-core CPU <strong>switches between tasks (time-slicing)</strong>, making them appear concurrent.</p>
+<ol>
+<li><strong>Threading &amp; Processes</strong></li>
+</ol>
+<p>• <strong>Threads</strong>: Lightweight, share the same memory (e.g., Python threading module).</p>
+<p>• <strong>Processes</strong>: Independent memory, heavier (e.g., Python multiprocessing module).</p>
+<p>• <strong>Asynchronous Execution</strong>: Tasks don’t block each other (e.g., Python asyncio).</p>
+<ol>
+<li><strong>Synchronization &amp; Data Safety</strong></li>
+</ol>
+<p>• <strong>Race Conditions</strong>: When multiple threads/processes access shared data unpredictably.</p>
+<p>• <strong>Locks &amp; Mutexes</strong>: Prevent simultaneous access to critical sections.</p>
+<p>• <strong>Semaphores</strong>: Limit the number of concurrent processes.</p>
+<p>• <strong>Atomic Operations</strong>: Ensures operations are indivisible.</p>
+<ol>
+<li><strong>Concurrent Programming Models</strong></li>
+</ol>
+<p>• <strong>Multithreading</strong>: Threads share memory but require synchronization.</p>
+<p>• <strong>Multiprocessing</strong>: Separate memory space, safer but more resource-intensive.</p>
+<p>• <strong>Asynchronous Programming</strong>: Uses event loops &amp; callbacks (async/await).</p>
+<p>• <strong>Reactive Programming</strong>: Data-driven execution (RxJava, ReactiveX).</p>
+<hr />
+<p><strong>Examples of Concurrency</strong></p>
+<p>• <strong>Web Servers</strong>: Handling multiple client requests at once (e.g., Apache, Nginx).</p>
+<p>• <strong>Database Transactions</strong>: Processing multiple queries without conflicts.</p>
+<p>• <strong>Operating Systems</strong>: Running multiple applications simultaneously.</p>
+<p>• <strong>Game Engines</strong>: Handling physics, AI, and rendering in parallel.</p>
+<hr />
+<p><strong>Why Use Concurrency?</strong></p>
+<p>✅ <strong>Improves Performance</strong>: Makes efficient use of CPU cores.</p>
+<p>✅ <strong>Enhances Responsiveness</strong>: UI remains responsive while performing background tasks.</p>
+<p>✅ <strong>Handles Large Workloads</strong>: Supports high-scale web applications and real-time processing.</p>
+<p><strong>Concurrency is essential for modern computing</strong>, but it requires careful management to <strong>avoid deadlocks, race conditions, and excessive context switching</strong>.</p></body></html>

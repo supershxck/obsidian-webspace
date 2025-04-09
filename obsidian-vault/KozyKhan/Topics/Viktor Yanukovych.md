@@ -1,0 +1,14 @@
+> **July 5th, 2024** 
+> **19:07:58** 
+> **status:**
+> **topics:** [[Russian History]] 
+
+Viktor Yanukovych is the former President of Ukraine. He served as the fourth President of Ukraine from February 25, 2010, until he was removed from office on February 22, 2014. Here are some key points about Yanukovych:
+1. **Early Life and Political Career**: Yanukovych was born on July 9, 1950, in Yenakiieve, Ukrainian SSR, Soviet Union. He began his political career in the Donetsk region, eventually becoming the governor of Donetsk Oblast in 1997.
+2. **Prime Minister**: Before becoming president, Yanukovych served as Prime Minister of Ukraine twice, first from November 2002 to December 2004, and then from August 2006 to December 2007.
+3. **2004 Presidential Election**: Yanukovych first ran for president in 2004. He was initially declared the winner, but widespread allegations of electoral fraud led to the Orange Revolution, a series of protests and political events that resulted in the Supreme Court of Ukraine annulling the election results. A re-run of the election was held, and his opponent, Viktor Yushchenko, won.
+4. **2010 Presidential Election**: Yanukovych ran again for president in 2010 and won, defeating then-Prime Minister Yulia Tymoshenko in the run-off.
+5. **Presidency**: Yanukovych's presidency was marked by controversy and allegations of corruption. His decision to suspend preparations for the signing of an association agreement with the European Union in favor of closer ties with Russia led to widespread protests known as the Euromaidan movement in late 2013.
+6. **Removal from Office**: The Euromaidan protests escalated into violent clashes, leading to Yanukovych fleeing Kyiv in February 2014. The Ukrainian parliament then voted to remove him from office, citing his abandonment of his duties. He fled to Russia, where he remains in exile.
+7. **Post-Presidency**: Yanukovych has been largely absent from the public eye since fleeing Ukraine. He was convicted in absentia of treason by a Ukrainian court in January 2019.
+Yanukovych's presidency and the events surrounding his removal from office have had a lasting impact on Ukraine's political landscape and its relations with Russia and the West.

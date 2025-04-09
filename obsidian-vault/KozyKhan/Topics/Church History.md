@@ -1,0 +1,6 @@
+19:23 07/03/2024 
+status: #history #orthodox 
+topics: [[Eastern History]]  [[EOC]] [[the Church]] 
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zT-v3RT8678?si=eoHf7Gz1xBwdaT0I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

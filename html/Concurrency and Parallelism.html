@@ -1,0 +1,161 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>15:13:50</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Concurrency vs. Parallelism: Understanding Multitasking in Programming</strong></p>
+<p><strong>1. What are Concurrency and Parallelism?</strong></p>
+<p>Concurrency and parallelism are concepts used in <strong>multitasking</strong> to improve efficiency in programs. While they are related, they have <strong>different goals and execution models</strong>.</p>
+<p>• <strong>Concurrency</strong>: Deals with managing <strong>multiple tasks at the same time</strong> (interleaving execution).</p>
+<p>• <strong>Parallelism</strong>: Deals with executing <strong>multiple tasks simultaneously</strong> on multiple CPU cores.</p>
+<p><strong>Key Differences</strong></p>
+<p>|<strong>Feature</strong>|<strong>Concurrency</strong>|<strong>Parallelism</strong>|
+|---|---|---|
+|<strong>Definition</strong>|Multiple tasks making progress at the same time|Multiple tasks running at the exact same time|
+|<strong>Execution Model</strong>|Tasks take turns using shared resources|Tasks run independently on multiple processors|
+|<strong>Example</strong>|Handling multiple user requests on a web server|Processing large datasets with multiple CPU cores|
+|<strong>Performance Benefit</strong>|Improves responsiveness|Increases processing speed|
+|<strong>Hardware Dependency</strong>|Works on a <strong>single-core</strong> or <strong>multi-core CPU</strong>|Requires <strong>multi-core CPU or GPU</strong>|</p>
+<p><strong>2. Understanding Concurrency</strong></p>
+<p>Concurrency allows <strong>multiple tasks to start, run, and complete in overlapping time periods</strong>, but not necessarily at the same exact moment.</p>
+<p>✔ <strong>Example: Concurrency in Real Life</strong></p>
+<p>• A cashier at a grocery store <strong>switches between</strong> customers when handling payments and scanning items.</p>
+<p>• A web server <strong>handles multiple user requests</strong> by switching between them quickly.</p>
+<p><strong>How Concurrency Works in Programming</strong></p>
+<p>✔ <strong>Single-core CPU</strong>: Uses <strong>context switching</strong> to handle multiple tasks.</p>
+<p>✔ <strong>Multi-core CPU</strong>: Uses <strong>threads</strong> and <strong>asynchronous execution</strong>.</p>
+<p>✔ <strong>Example: Concurrency in Java (Multithreading)</strong></p>
+<p>```
+class MyThread extends Thread {
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " is running");
+    }
+}</p>
+<p>public class ConcurrencyExample {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        MyThread t2 = new MyThread();
+        t1.start();  // Starts thread 1
+        t2.start();  // Starts thread 2
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• The program <strong>creates multiple threads</strong>, which execute independently.</p>
+<p>• The <strong>CPU switches between threads</strong> to create concurrency.</p>
+<p>✔ <strong>Example: Concurrency in Python (AsyncIO)</strong></p>
+<p>```
+import asyncio</p>
+<p>async def task(name):
+    print(f"Task {name} started")
+    await asyncio.sleep(2)  # Simulates waiting
+    print(f"Task {name} completed")</p>
+<p>async def main():
+    await asyncio.gather(task(1), task(2), task(3))</p>
+<p>asyncio.run(main())
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• asyncio allows tasks to run <strong>concurrently</strong> by switching when waiting.</p>
+<p><strong>3. Understanding Parallelism</strong></p>
+<p>Parallelism <strong>divides a task into smaller sub-tasks</strong> and executes them <strong>simultaneously</strong> on multiple processors.</p>
+<p>✔ <strong>Example: Parallelism in Real Life</strong></p>
+<p>• A factory <strong>assembles a car using multiple workers</strong> simultaneously.</p>
+<p>• A GPU <strong>processes multiple pixels at the same time</strong> for graphics rendering.</p>
+<p><strong>How Parallelism Works in Programming</strong></p>
+<p>✔ <strong>Requires multiple CPU cores or GPUs</strong>.</p>
+<p>✔ <strong>No context switching</strong> – Each task runs on a <strong>separate processor core</strong>.</p>
+<p>✔ <strong>Example: Parallelism in Python (Multiprocessing)</strong></p>
+<p>```
+import multiprocessing</p>
+<p>def process_task(n):
+    print(f"Processing {n}")</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    with multiprocessing.Pool(4) as pool:
+        pool.map(process_task, range(4))  # Runs 4 processes in parallel
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• Uses multiprocessing.Pool(4), which <strong>spawns 4 separate processes</strong> on different CPU cores.</p>
+<p>✔ <strong>Example: Parallelism in Java (ForkJoinPool)</strong></p>
+<p>```
+import java.util.concurrent.RecursiveTask;
+import java.util.concurrent.ForkJoinPool;</p>
+<p>class ParallelSum extends RecursiveTask<Integer> {
+    private int start, end;</p>
+<pre><code>ParallelSum(int start, int end) {
+    this.start = start;
+    this.end = end;
+}
+
+@Override
+protected Integer compute() {
+    if (end - start &lt;= 2) {
+        return start + end;
+    }
+
+    int mid = (start + end) / 2;
+    ParallelSum left = new ParallelSum(start, mid);
+    ParallelSum right = new ParallelSum(mid + 1, end);
+
+    left.fork();
+    return right.compute() + left.join();
+}
+</code></pre>
+<p>}</p>
+<p>public class ParallelismExample {
+    public static void main(String[] args) {
+        ForkJoinPool pool = new ForkJoinPool();
+        int result = pool.invoke(new ParallelSum(1, 10));
+        System.out.println("Sum: " + result);
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• Uses <strong>ForkJoinPool</strong> to split the task into smaller <strong>parallel sub-tasks</strong>.</p>
+<p><strong>4. When to Use Concurrency vs. Parallelism</strong></p>
+<p>|<strong>Use Case</strong>|<strong>Best Approach</strong>|
+|---|---|
+|<strong>Handling many user requests</strong>|<strong>Concurrency</strong> (e.g., Web servers, async I/O)|
+|<strong>Processing large datasets</strong>|<strong>Parallelism</strong> (e.g., Data analysis, AI computations)|
+|<strong>Multitasking in a single-core system</strong>|<strong>Concurrency</strong>|
+|<strong>Heavy computation on multi-core systems</strong>|<strong>Parallelism</strong>|</p>
+<p>✔ <strong>Concurrency Example: Web Server Handling Multiple Users</strong></p>
+<p><code>Web request 1 → Processed
+Web request 2 → Processed
+Web request 3 → Processed</code></p>
+<p>✔ <strong>Parallelism Example: Image Processing on GPU</strong></p>
+<p><code>Pixel 1 → Processed
+Pixel 2 → Processed
+Pixel 3 → Processed</code></p>
+<p><strong>5. Combining Concurrency and Parallelism</strong></p>
+<p>Many modern systems <strong>use both</strong> concurrency and parallelism together.</p>
+<p>✔ <strong>Example: A Web Server with Concurrent &amp; Parallel Tasks</strong></p>
+<p>• <strong>Concurrency</strong>: Handles multiple user requests asynchronously.</p>
+<p>• <strong>Parallelism</strong>: Uses multiple CPU cores to process data faster.</p>
+<p>✔ <strong>Example: Python Concurrent + Parallel Execution</strong></p>
+<p>```
+import asyncio
+import concurrent.futures</p>
+<p>async def concurrent_task(name):
+    print(f"Task {name} started")
+    await asyncio.sleep(2)
+    print(f"Task {name} completed")</p>
+<p>def parallel_task(n):
+    return n * n</p>
+<p>async def main():
+    # Concurrency (Async Tasks)
+    await asyncio.gather(concurrent_task(1), concurrent_task(2))</p>
+<pre><code># Parallelism (Multiple Processes)
+with concurrent.futures.ProcessPoolExecutor() as executor:
+    results = list(executor.map(parallel_task, range(5)))
+    print(results)
+</code></pre>
+<p>asyncio.run(main())
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• <strong>asyncio.gather()</strong> runs <strong>concurrent</strong> tasks.</p>
+<p>• <strong>ProcessPoolExecutor()</strong> runs <strong>parallel</strong> tasks on multiple cores.</p>
+<p><strong>6. Conclusion</strong></p>
+<p>✔ <strong>Concurrency</strong> manages multiple tasks efficiently <strong>on a single or multi-core system</strong>.</p>
+<p>✔ <strong>Parallelism</strong> runs tasks <strong>simultaneously on multiple processors</strong>, increasing performance.</p>
+<p>✔ <strong>Modern applications use both</strong> to handle high performance workloads effectively. 🚀</p></body></html>

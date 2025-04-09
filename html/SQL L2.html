@@ -1,0 +1,201 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>12:10:41</strong> 
+<strong>Topics:</strong> [[SQL L3]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>SQL Lesson 2: Intermediate to Advanced SQL Mastery</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you understand the fundamentals of SQL, it’s time to explore <strong>advanced database concepts</strong> such as:</p>
+<p>• <strong>Transactions &amp; ACID Properties</strong></p>
+<p>• <strong>Views</strong></p>
+<p>• <strong>Stored Procedures &amp; Functions</strong></p>
+<p>• <strong>Triggers</strong></p>
+<p>• <strong>Window Functions</strong></p>
+<p>• <strong>CTEs (Common Table Expressions)</strong></p>
+<p>• <strong>Advanced Joins</strong></p>
+<p>• <strong>User Roles &amp; Permissions</strong></p>
+<p>• <strong>Database Optimization</strong></p>
+<p>• <strong>NoSQL vs. SQL</strong></p>
+<p>By the end of this lesson, you will have the skills needed to <strong>design, optimize, and manage complex databases</strong> effectively.</p>
+<hr />
+<p><strong>1. Transactions &amp; ACID Properties</strong></p>
+<p>A <strong>transaction</strong> is a group of SQL operations executed as a single unit, ensuring <strong>data integrity</strong> using <strong>ACID properties</strong>:</p>
+<p>• <strong>Atomicity</strong>: Either all statements succeed or none take effect.</p>
+<p>• <strong>Consistency</strong>: Data remains valid before and after transactions.</p>
+<p>• <strong>Isolation</strong>: Transactions run independently.</p>
+<p>• <strong>Durability</strong>: Changes are saved permanently.</p>
+<p><strong>1.1. Using Transactions</strong></p>
+<p>```
+START TRANSACTION;</p>
+<p>UPDATE employees SET salary = salary + 5000 WHERE department = 'Engineering';</p>
+<p>-- If everything is correct, commit the changes
+COMMIT;</p>
+<p>-- If there's an error, roll back the transaction
+ROLLBACK;
+```</p>
+<hr />
+<p><strong>2. Views (Virtual Tables)</strong></p>
+<p>A <strong>view</strong> is a stored SQL query that acts like a table. It <strong>simplifies queries</strong> and <strong>hides complex logic</strong>.</p>
+<p><strong>2.1. Creating a View</strong></p>
+<p><code>CREATE VIEW employee_salary AS  
+SELECT name, department, salary FROM employees WHERE salary &gt; 60000;</code></p>
+<p><strong>2.2. Using a View</strong></p>
+<p><code>SELECT * FROM employee_salary;</code></p>
+<p><strong>2.3. Updating a View</strong></p>
+<p><code>ALTER VIEW employee_salary AS  
+SELECT name, department, salary FROM employees WHERE salary &gt; 50000;</code></p>
+<p><strong>2.4. Dropping a View</strong></p>
+<p><code>DROP VIEW employee_salary;</code></p>
+<hr />
+<p><strong>3. Stored Procedures &amp; Functions</strong></p>
+<p>A <strong>stored procedure</strong> is a reusable SQL block that performs operations.</p>
+<p><strong>3.1. Creating a Stored Procedure</strong></p>
+<p><code>DELIMITER //
+CREATE PROCEDURE GetHighSalaryEmployees()
+BEGIN
+    SELECT * FROM employees WHERE salary &gt; 70000;
+END //
+DELIMITER ;</code></p>
+<p><strong>3.2. Calling a Stored Procedure</strong></p>
+<p><code>CALL GetHighSalaryEmployees();</code></p>
+<p><strong>3.3. Creating a Function</strong></p>
+<p>Unlike procedures, <strong>functions return a value</strong>.</p>
+<p><code>DELIMITER //
+CREATE FUNCTION GetAverageSalary()  
+RETURNS DECIMAL(10,2)  
+DETERMINISTIC  
+BEGIN
+    DECLARE avg_salary DECIMAL(10,2);
+    SELECT AVG(salary) INTO avg_salary FROM employees;
+    RETURN avg_salary;
+END //
+DELIMITER ;</code></p>
+<p><strong>3.4. Using the Function</strong></p>
+<p><code>SELECT GetAverageSalary();</code></p>
+<hr />
+<p><strong>4. Triggers (Automatic Actions on Data Change)</strong></p>
+<p>A <strong>trigger</strong> is an SQL script that runs automatically before or after an event.</p>
+<p><strong>4.1. Creating a Trigger</strong></p>
+<p><code>DELIMITER //
+CREATE TRIGGER before_employee_insert  
+BEFORE INSERT ON employees  
+FOR EACH ROW  
+BEGIN
+    IF NEW.salary &lt; 30000 THEN
+        SET NEW.salary = 30000;
+    END IF;
+END //
+DELIMITER ;</code></p>
+<p>This trigger ensures that no employee is added with a salary below <strong>$30,000</strong>.</p>
+<hr />
+<p><strong>5. Advanced Joins</strong></p>
+<p>Joins combine data from multiple tables.</p>
+<p><strong>5.1. LEFT JOIN (All from Left Table + Matches from Right Table)</strong></p>
+<p><code>SELECT employees.name, departments.name AS department  
+FROM employees  
+LEFT JOIN departments ON employees.department = departments.name;</code></p>
+<p><strong>5.2. RIGHT JOIN (All from Right Table + Matches from Left Table)</strong></p>
+<p><code>SELECT employees.name, departments.name AS department  
+FROM employees  
+RIGHT JOIN departments ON employees.department = departments.name;</code></p>
+<p><strong>5.3. FULL OUTER JOIN (All Data from Both Tables)</strong></p>
+<p><code>SELECT employees.name, departments.name AS department  
+FROM employees  
+FULL OUTER JOIN departments ON employees.department = departments.name;</code></p>
+<hr />
+<p><strong>6. Window Functions</strong></p>
+<p>Unlike aggregate functions (SUM, AVG), <strong>window functions</strong> return results <strong>without collapsing rows</strong>.</p>
+<p><strong>6.1. ROW_NUMBER()</strong></p>
+<p><code>SELECT name, salary, ROW_NUMBER() OVER (ORDER BY salary DESC) AS rank  
+FROM employees;</code></p>
+<p><strong>6.2. RANK() (Handles Ties)</strong></p>
+<p><code>SELECT name, salary, RANK() OVER (ORDER BY salary DESC) AS salary_rank  
+FROM employees;</code></p>
+<p><strong>6.3. PARTITION BY (Grouping Without Aggregation)</strong></p>
+<p><code>SELECT name, department, salary,  
+       AVG(salary) OVER (PARTITION BY department) AS avg_department_salary  
+FROM employees;</code></p>
+<hr />
+<p><strong>7. CTEs (Common Table Expressions)</strong></p>
+<p>A <strong>CTE</strong> is a temporary result set used in a query.</p>
+<p><strong>7.1. Using a CTE</strong></p>
+<p><code>WITH HighSalary AS (
+    SELECT * FROM employees WHERE salary &gt; 70000
+)
+SELECT * FROM HighSalary;</code></p>
+<hr />
+<p><strong>8. User Roles &amp; Permissions</strong></p>
+<p><strong>8.1. Creating a New User</strong></p>
+<p><code>CREATE USER 'john'@'localhost' IDENTIFIED BY 'securepassword';</code></p>
+<p><strong>8.2. Granting Permissions</strong></p>
+<p><code>GRANT SELECT, INSERT, UPDATE ON company.* TO 'john'@'localhost';</code></p>
+<p><strong>8.3. Revoking Permissions</strong></p>
+<p><code>REVOKE INSERT ON company.* FROM 'john'@'localhost';</code></p>
+<p><strong>8.4. Deleting a User</strong></p>
+<p><code>DROP USER 'john'@'localhost';</code></p>
+<hr />
+<p><strong>9. Database Optimization</strong></p>
+<p><strong>9.1. Creating an Index (Speeds Up Queries)</strong></p>
+<p><code>CREATE INDEX idx_salary ON employees(salary);</code></p>
+<p><strong>9.2. Checking Query Performance</strong></p>
+<p><code>EXPLAIN SELECT * FROM employees WHERE salary &gt; 60000;</code></p>
+<p><strong>9.3. Removing Unused Indexes</strong></p>
+<p><code>DROP INDEX idx_salary ON employees;</code></p>
+<hr />
+<p><strong>10. SQL vs. NoSQL</strong></p>
+<p><strong>10.1. When to Use SQL (Relational Databases)</strong></p>
+<p>• <strong>Structured, tabular data</strong></p>
+<p>• <strong>Strict relationships (foreign keys)</strong></p>
+<p>• <strong>Complex queries and transactions</strong></p>
+<p><strong>10.2. When to Use NoSQL (MongoDB, Firebase)</strong></p>
+<p>• <strong>Flexible, semi-structured or unstructured data</strong></p>
+<p>• <strong>Scalability (big data, distributed systems)</strong></p>
+<p>• <strong>Fast reads/writes without strict relations</strong></p>
+<p><strong>10.3. Example: NoSQL in MongoDB</strong></p>
+<p><code>{
+  "name": "Alice",
+  "department": "HR",
+  "salary": 50000
+}</code></p>
+<p>MongoDB stores data in <strong>JSON-like</strong> documents instead of relational tables.</p>
+<hr />
+<p><strong>Final Project: Advanced Employee Management System</strong></p>
+<p><strong>1. Create Database</strong></p>
+<p><code>CREATE DATABASE company_advanced;
+USE company_advanced;</code></p>
+<p><strong>2. Create Tables</strong></p>
+<p>```
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    department_id INT,
+    salary DECIMAL(10,2),
+    FOREIGN KEY (department_id) REFERENCES departments(id)
+);</p>
+<p>CREATE TABLE departments (
+    id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+```</p>
+<p><strong>3. Insert Sample Data</strong></p>
+<p>```
+INSERT INTO employees (id, name, department_id, salary)<br />
+VALUES (1, 'Alice', 1, 60000),
+       (2, 'Bob', 2, 75000);</p>
+<p>INSERT INTO departments (id, name) VALUES (1, 'HR'), (2, 'Engineering');
+```</p>
+<p><strong>4. Query Data</strong></p>
+<p><code>SELECT employees.name, employees.salary, departments.name AS department  
+FROM employees  
+JOIN departments ON employees.department_id = departments.id;</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p>Now you’ve mastered <strong>advanced SQL</strong>, including:</p>
+<p>• <strong>Transactions &amp; ACID</strong></p>
+<p>• <strong>Stored Procedures, Views, Triggers</strong></p>
+<p>• <strong>Advanced Joins, Window Functions, CTEs</strong></p>
+<p>• <strong>User Permissions &amp; Indexing</strong></p>
+<p>• <strong>SQL vs. NoSQL concepts</strong></p>
+<p>With this knowledge, you’re ready to build <strong>high-performance databases, optimize queries, and work on real-world applications.</strong> 🚀</p>
+<p>🔹 <strong>Next Step:</strong> Learn <strong>SQL Lesson 3</strong> (Big Data, Cloud Databases, and Performance Tuning).</p></body></html>

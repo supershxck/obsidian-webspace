@@ -1,0 +1,31 @@
+July 5th, 2024 
+00:03:02 
+status:
+topics: [[Personality course]] [[Jordan Peterson]] [[Personality type]] 
+
+Personality differences between men and women 
+
+The biggest differences are in neuroticism and agreeableness 
+60% of men are more aggressive 
+60% of women feel more negative emotion
+Men and women are more alike then they are different 
+Conscientious people are good at being managers 
+Open , Entrepreneurial, Creative people types are good at finding new pathways 
+
+|               |        |        |
+| ------------- | ------ | ------ |
+|               | Men    | Women  |
+| Compassion    |        | Higher |
+| Politeness    |        | Higher |
+| Withdrawal    |        | Higher |
+| Volatility    |        | higher |
+| Openness      |        | higher |
+| Enthusiasm    |        | higher |
+| Assertiveness | Higher |        |
+
+Where do differences come from?  
+The two major theories say
+Biological > Social
+Biological can also differ bc of culture
+Interest in people vs interest in things is a huge determining factor for men and women
+Small differences in distributions have large effects at the extreme end of the scale

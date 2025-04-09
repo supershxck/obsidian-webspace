@@ -1,0 +1,188 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>19:08:48</strong> 
+<strong>Topics:</strong> [[TypeScript L1]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Shell Scripting Level 2: Advanced Bash Scripting &amp; Automation</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve mastered <strong>basic shell scripting</strong>, it’s time to explore <strong>advanced topics like automation, file processing, networking, and system monitoring</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Working with Arrays &amp; Associative Arrays</strong></p>
+<p>✅ <strong>AWK &amp; Sed for Text Processing</strong></p>
+<p>✅ <strong>Networking &amp; Process Management</strong></p>
+<p>✅ <strong>Error Handling &amp; Debugging Scripts</strong></p>
+<p>✅ <strong>Automating System Administration Tasks</strong></p>
+<p>✅ <strong>Scheduling Jobs &amp; Log Monitoring</strong></p>
+<p>✅ <strong>Building a Full Shell Automation System</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write advanced shell scripts for automation, system monitoring, and networking tasks</strong>.</p>
+<hr />
+<p><strong>1. Working with Arrays &amp; Associative Arrays</strong></p>
+<p><strong>1.1. Defining and Accessing Arrays</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>fruits=("Apple" "Banana" "Cherry")
+echo "First fruit: ${fruits[0]}"
+echo "All fruits: ${fruits[@]}"
+```</p>
+<p><strong>1.2. Looping Through an Array</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>for fruit in "${fruits[@]}"; do
+    echo "I like $fruit"
+done
+```</p>
+<p><strong>1.3. Associative Arrays</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>declare -A person
+person[name]="Alice"
+person[age]=30
+echo "Name: ${person[name]}, Age: ${person[age]}"
+```</p>
+<hr />
+<p><strong>2. AWK &amp; Sed for Text Processing</strong></p>
+<p><strong>2.1. Using AWK to Process Files</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>awk '{print $1, $3}' employees.txt  # Print 1st and 3rd columns
+```</p>
+<p><strong>2.2. Using AWK for Conditional Processing</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>awk '$3 &gt; 50000 {print $1, $3}' employees.txt  # Print names where salary &gt; 50000
+```</p>
+<p><strong>2.3. Using Sed for Find &amp; Replace</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>sed -i 's/oldword/newword/g' file.txt  # Replace all occurrences of "oldword" with "newword"
+```</p>
+<p><strong>2.4. Extracting Specific Lines with Sed</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>sed -n '3,5p' file.txt  # Print lines 3 to 5
+```</p>
+<hr />
+<p><strong>3. Networking &amp; Process Management</strong></p>
+<p><strong>3.1. Checking Open Ports</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>netstat -tulnp  # List open ports
+```</p>
+<p><strong>3.2. Pinging a Server</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>ping -c 4 google.com
+```</p>
+<p><strong>3.3. Monitoring Network Traffic</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>ifconfig eth0
+```</p>
+<p><strong>3.4. Killing Processes</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>ps aux | grep firefox  # Find process ID of Firefox
+kill -9 <PID>  # Replace <PID> with actual process ID
+```</p>
+<hr />
+<p><strong>4. Error Handling &amp; Debugging Scripts</strong></p>
+<p><strong>4.1. Using set -e to Stop on Errors</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>set -e  # Stop script on error
+ls /nonexistent_folder  # This will cause an error and stop execution
+```</p>
+<p><strong>4.2. Logging Errors to a File</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>exec 2&gt;&gt;errors.log  # Redirect errors to a log file
+ls /nonexistent_folder
+```</p>
+<p><strong>4.3. Debugging with set -x</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>set -x  # Enable debug mode
+echo "Debugging script..."
+set +x  # Disable debug mode
+```</p>
+<hr />
+<p><strong>5. Automating System Administration Tasks</strong></p>
+<p><strong>5.1. Disk Space Monitoring</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>df -h | grep "^/dev"
+```</p>
+<p><strong>5.2. CPU &amp; Memory Usage Report</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>echo "CPU Usage:"
+top -b -n1 | grep "Cpu(s)"
+echo "Memory Usage:"
+free -h
+```</p>
+<p><strong>5.3. Automated Backup Script</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>backup_dir="/backup_$(date +%Y%m%d_%H%M%S)"
+mkdir -p $backup_dir
+cp /var/log/syslog $backup_dir/
+echo "Backup completed to $backup_dir"
+```</p>
+<hr />
+<p><strong>6. Scheduling Jobs &amp; Log Monitoring</strong></p>
+<p><strong>6.1. Creating a Cron Job</strong></p>
+<p>Edit the cron table:</p>
+<p><code>crontab -e</code></p>
+<p>Run a script every day at midnight:</p>
+<p><code>0 0 * * * /path/to/myscript.sh</code></p>
+<p><strong>6.2. Monitoring Log Files in Real-Time</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>tail -f /var/log/syslog
+```</p>
+<p><strong>6.3. Sending Alerts Based on Logs</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>tail -f /var/log/auth.log | while read line; do
+    if [[ "$line" == <em>"failed password"</em> ]]; then
+        echo "ALERT: Failed SSH login detected!"
+    fi
+done
+```</p>
+<hr />
+<p><strong>7. Building a Full Shell Automation System</strong></p>
+<p><strong>7.1. Automated User Account Creation</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>echo "Enter username:"
+read username
+sudo useradd -m $username
+echo "User $username created!"
+```</p>
+<p><strong>7.2. Server Health Check Script</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>echo "Checking system health..."
+df -h
+free -h
+top -b -n1 | grep "Cpu(s)"
+uptime
+```</p>
+<p><strong>7.3. Automated Software Updates</strong></p>
+<p>```</p>
+<h1>!/bin/bash</h1>
+<p>sudo apt update &amp;&amp; sudo apt upgrade -y
+echo "System updated!"
+```</p>
+<hr />
+<p><strong>8. Conclusion</strong></p>
+<p><strong>What You Learned in Shell Scripting Level 2:</strong></p>
+<p>✅ <strong>Working with Arrays &amp; Associative Arrays</strong></p>
+<p>✅ <strong>AWK &amp; Sed for Text Processing</strong></p>
+<p>✅ <strong>Networking &amp; Process Management</strong></p>
+<p>✅ <strong>Error Handling &amp; Debugging Scripts</strong></p>
+<p>✅ <strong>Automating System Administration Tasks</strong></p>
+<p>✅ <strong>Scheduling Jobs &amp; Log Monitoring</strong></p>
+<p>✅ <strong>Built a Full Shell Automation System</strong></p>
+<p>Now, you’re ready for <strong>Shell Scripting Level 3</strong>, where we explore <strong>Advanced System Security, Cloud Automation, Log Analysis, and AI Integration in Shell Scripts!</strong> 🚀</p></body></html>

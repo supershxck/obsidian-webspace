@@ -1,0 +1,193 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>12:15:02</strong> 
+<strong>Topics:</strong> [[SQL L5]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>SQL Lesson 4: Mastering Data Engineering, ETL Pipelines, and Machine Learning with SQL</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Welcome to <strong>SQL Lesson 4</strong>, where we explore <strong>Data Engineering, ETL (Extract, Transform, Load), Machine Learning with SQL, and Real-Time Data Processing</strong>. This lesson covers:</p>
+<p>• <strong>ETL Pipelines</strong> (Extract, Transform, Load)</p>
+<p>• <strong>Data Engineering Best Practices</strong></p>
+<p>• <strong>Real-Time Data Processing</strong></p>
+<p>• <strong>Machine Learning with SQL</strong></p>
+<p>• <strong>SQL in Data Science</strong></p>
+<p>• <strong>Event-Driven Databases</strong></p>
+<p>• <strong>Materialized Views &amp; Caching</strong></p>
+<p>• <strong>Federated Queries</strong></p>
+<p>• <strong>Graph Databases &amp; Advanced Data Structures</strong></p>
+<p>By the end of this lesson, you will be equipped to build <strong>scalable data pipelines</strong> and integrate SQL into <strong>machine learning workflows</strong>.</p>
+<hr />
+<p><strong>1. ETL Pipelines (Extract, Transform, Load)</strong></p>
+<p>ETL processes move data from <strong>multiple sources</strong> into a <strong>centralized data warehouse</strong>.</p>
+<p><strong>1.1. ETL Process</strong></p>
+<ol>
+<li>
+<p><strong>Extract</strong> → Get data from multiple sources (APIs, Databases, Logs).</p>
+</li>
+<li>
+<p><strong>Transform</strong> → Clean, aggregate, and structure data.</p>
+</li>
+<li>
+<p><strong>Load</strong> → Store processed data in a <strong>data warehouse</strong>.</p>
+</li>
+</ol>
+<p><strong>1.2. Example: Loading Data into a Data Warehouse</strong></p>
+<p><code>CREATE TABLE sales_data (
+    sale_id INT PRIMARY KEY,
+    product VARCHAR(50),
+    sale_date DATE,
+    amount DECIMAL(10,2)
+);</code></p>
+<p><strong>Extract Data from External Source</strong></p>
+<p><code>SELECT * FROM external_sales_database.sales WHERE sale_date &gt; '2024-01-01';</code></p>
+<p><strong>Transform Data (Convert Currencies, Fix Errors)</strong></p>
+<p><code>UPDATE sales_data  
+SET amount = amount * 0.9 WHERE sale_date &gt; '2024-01-01';</code></p>
+<p><strong>Load Data into a Warehouse</strong></p>
+<p><code>INSERT INTO warehouse_sales  
+SELECT * FROM sales_data WHERE sale_date &gt; '2024-01-01';</code></p>
+<hr />
+<p><strong>2. Data Engineering Best Practices</strong></p>
+<p><strong>2.1. Data Normalization (Reduce Redundancy)</strong></p>
+<p>Normalization organizes data into <strong>smaller, related tables</strong>.</p>
+<p><strong>Example: Split Employee Table into Two Tables</strong></p>
+<p><code>CREATE TABLE departments (
+    dept_id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+);</code></p>
+<p><strong>2.2. Denormalization (Faster Read Performance)</strong></p>
+<p>Used in <strong>analytics databases</strong> where read speed matters more than data duplication.</p>
+<p><code>CREATE TABLE employee_summary AS  
+SELECT e.emp_id, e.name, d.name AS department, COUNT(p.project_id) AS total_projects  
+FROM employees e  
+LEFT JOIN projects p ON e.emp_id = p.emp_id  
+LEFT JOIN departments d ON e.dept_id = d.dept_id  
+GROUP BY e.emp_id;</code></p>
+<hr />
+<p><strong>3. Real-Time Data Processing</strong></p>
+<p><strong>3.1. Streaming Data with SQL (Kafka + SQL)</strong></p>
+<p>SQL can process <strong>real-time data streams</strong> using <strong>Kafka</strong>.</p>
+<p><strong>Example: Creating a Streaming Table in Apache Kafka SQL</strong></p>
+<p><code>CREATE STREAM orders_stream (
+    order_id INT,
+    customer_name VARCHAR(50),
+    amount DECIMAL(10,2),
+    order_time TIMESTAMP
+) WITH (kafka_topic='orders', value_format='JSON');</code></p>
+<p><strong>Query Streaming Data in Real-Time</strong></p>
+<p><code>SELECT customer_name, SUM(amount) AS total_spent  
+FROM orders_stream  
+GROUP BY customer_name  
+HAVING SUM(amount) &gt; 500;</code></p>
+<hr />
+<p><strong>4. Machine Learning with SQL</strong></p>
+<p>Machine Learning (ML) often starts with <strong>feature engineering</strong>, performed using SQL.</p>
+<p><strong>4.1. Preparing Data for ML Models</strong></p>
+<p><code>SELECT customer_id,  
+       COUNT(order_id) AS total_orders,  
+       SUM(amount) AS total_spent,  
+       AVG(amount) AS avg_order_value  
+FROM orders  
+GROUP BY customer_id;</code></p>
+<p><strong>4.2. Predictive Analysis in SQL (Linear Regression)</strong></p>
+<p>Many databases support <strong>ML models directly</strong>.</p>
+<p><strong>Example: Building a Regression Model in SQL (BigQuery ML)</strong></p>
+<p><code>CREATE OR REPLACE MODEL sales_prediction  
+OPTIONS(model_type='linear_reg')  
+AS  
+SELECT product, SUM(amount) AS total_sales, MONTH(sale_date) AS sale_month  
+FROM sales  
+GROUP BY product, sale_month;</code></p>
+<p><strong>4.3. Using ML Model for Prediction</strong></p>
+<p><code>SELECT product, predicted_sales  
+FROM ML.PREDICT(MODEL sales_prediction,  
+                (SELECT 'Laptop' AS product, 6 AS sale_month));</code></p>
+<hr />
+<p><strong>5. SQL in Data Science</strong></p>
+<p>SQL is used to analyze <strong>big datasets</strong> for <strong>business intelligence (BI)</strong>.</p>
+<p><strong>5.1. Customer Segmentation Using SQL</strong></p>
+<p><code>SELECT customer_id,  
+       CASE  
+           WHEN SUM(amount) &gt; 1000 THEN 'VIP'  
+           WHEN SUM(amount) BETWEEN 500 AND 1000 THEN 'Regular'  
+           ELSE 'New'  
+       END AS customer_category  
+FROM orders  
+GROUP BY customer_id;</code></p>
+<p><strong>5.2. Anomaly Detection (Finding Outliers)</strong></p>
+<p><code>SELECT * FROM transactions  
+WHERE amount &gt; (SELECT AVG(amount) + 3 * STDDEV(amount) FROM transactions);</code></p>
+<hr />
+<p><strong>6. Event-Driven Databases</strong></p>
+<p>Event-driven databases <strong>react to changes</strong> in real-time.</p>
+<p><strong>6.1. Create an Event-Triggered Action</strong></p>
+<p><code>CREATE TRIGGER log_new_order  
+AFTER INSERT ON orders  
+FOR EACH ROW  
+INSERT INTO order_logs (order_id, action) VALUES (NEW.order_id, 'Order Created');</code></p>
+<hr />
+<p><strong>7. Materialized Views &amp; Caching</strong></p>
+<p><strong>7.1. Materialized Views (Stored Query Results)</strong></p>
+<p>Unlike normal views, <strong>materialized views store the result</strong> for <strong>faster queries</strong>.</p>
+<p><strong>Creating a Materialized View</strong></p>
+<p><code>CREATE MATERIALIZED VIEW sales_summary AS  
+SELECT product, SUM(amount) AS total_sales  
+FROM sales  
+GROUP BY product;</code></p>
+<p><strong>Refreshing Materialized Views</strong></p>
+<p><code>REFRESH MATERIALIZED VIEW sales_summary;</code></p>
+<hr />
+<p><strong>8. Federated Queries (Querying Across Databases)</strong></p>
+<p>Federated queries allow <strong>cross-database queries</strong>.</p>
+<p><strong>8.1. Querying External Databases</strong></p>
+<p><code>SELECT * FROM remote_server.sales_data WHERE sale_date &gt; '2024-01-01';</code></p>
+<hr />
+<p><strong>9. Graph Databases &amp; Advanced Data Structures</strong></p>
+<p>Graph databases (e.g., <strong>Neo4j, Amazon Neptune</strong>) use <strong>nodes and edges</strong> instead of tables.</p>
+<p><strong>9.1. Creating a Graph Database Table</strong></p>
+<p><code>CREATE TABLE social_network (
+    user_id INT PRIMARY KEY,
+    friend_id INT,
+    relationship VARCHAR(50)
+);</code></p>
+<p><strong>9.2. Finding Mutual Friends in SQL</strong></p>
+<p><code>SELECT a.user_id, b.friend_id  
+FROM social_network a  
+JOIN social_network b ON a.friend_id = b.user_id  
+WHERE a.user_id = 1 AND b.friend_id != 1;</code></p>
+<hr />
+<p><strong>Final Project: Scalable Data Engineering Pipeline</strong></p>
+<p><strong>1. Extract Data from Multiple Sources</strong></p>
+<p><code>SELECT * FROM external_db.sales_data WHERE sale_date &gt;= '2024-01-01';</code></p>
+<p><strong>2. Transform Data (Normalize Data)</strong></p>
+<p><code>INSERT INTO warehouse_sales (sale_id, product, sale_date, amount)  
+SELECT sale_id, UPPER(product), sale_date, amount FROM sales_data;</code></p>
+<p><strong>3. Create a Materialized View for Fast Queries</strong></p>
+<p><code>CREATE MATERIALIZED VIEW monthly_sales AS  
+SELECT YEAR(sale_date) AS year, MONTH(sale_date) AS month,  
+       SUM(amount) AS total_sales  
+FROM warehouse_sales  
+GROUP BY YEAR(sale_date), MONTH(sale_date);</code></p>
+<p><strong>4. Query Real-Time Data from Kafka Stream</strong></p>
+<p><code>SELECT customer_name, SUM(amount) AS total_spent  
+FROM orders_stream  
+GROUP BY customer_name  
+HAVING SUM(amount) &gt; 500;</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in SQL Level 4:</strong></p>
+<p>✅ <strong>ETL Pipelines &amp; Data Warehousing</strong></p>
+<p>✅ <strong>Real-Time Data Processing with Kafka SQL</strong></p>
+<p>✅ <strong>Machine Learning with SQL (BigQuery ML, Predictive Analytics)</strong></p>
+<p>✅ <strong>Data Science Techniques (Customer Segmentation, Anomaly Detection)</strong></p>
+<p>✅ <strong>Event-Driven Databases &amp; Federated Queries</strong></p>
+<p>✅ <strong>Graph Databases &amp; Social Network Analysis</strong></p>
+<p>With this knowledge, you can <strong>build scalable ETL pipelines, integrate machine learning, and manage real-time big data applications</strong>. 🚀</p>
+<p>🔹 <strong>Next Step:</strong> Learn <strong>SQL Level 5 (Advanced AI, AutoML, and Blockchain SQL)!</strong> 🚀</p></body></html>

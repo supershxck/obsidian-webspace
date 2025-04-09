@@ -1,0 +1,270 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>19:01:00</strong> 
+<strong>Topics:</strong> [[PHP L3]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>PHP Level 2: Intermediate to Advanced PHP Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve mastered <strong>PHP basics</strong>, it’s time to dive into <strong>database integration, authentication, object-oriented programming (OOP), and building dynamic web applications</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes, Inheritance, Interfaces, Traits)</strong></p>
+<p>✅ <strong>Database Interaction (MySQL, PDO, CRUD Operations)</strong></p>
+<p>✅ <strong>Sessions &amp; Cookies (User Authentication, Remember Me)</strong></p>
+<p>✅ <strong>Error Handling &amp; Logging</strong></p>
+<p>✅ <strong>File Uploads &amp; Image Processing</strong></p>
+<p>✅ <strong>Security Best Practices (SQL Injection Prevention, Hashing Passwords)</strong></p>
+<p>✅ <strong>Building a Full-Stack PHP Web App</strong></p>
+<p>By the end of this lesson, you will be able to <strong>develop dynamic PHP applications with secure authentication and database connectivity</strong>.</p>
+<hr />
+<p><strong>1. Object-Oriented Programming (OOP)</strong></p>
+<p><strong>1.1. Defining a Class &amp; Creating Objects</strong></p>
+<p>```</p>
+<?php
+class Car {
+    public $brand;
+    public $speed;
+
+    public function __construct($brand, $speed) {
+        $this->brand = $brand;
+        $this->speed = $speed;
+    }
+
+    public function drive() {
+        return "{$this->brand} is moving at {$this->speed} km/h";
+    }
+}
+
+$car = new Car("Tesla", 120);
+echo $car->drive();
+?>
+<p>```</p>
+<p><strong>1.2. Inheritance</strong></p>
+<p>```</p>
+<?php
+class Vehicle {
+    protected $brand;
+    public function __construct($brand) {
+        $this->brand = $brand;
+    }
+}
+
+class Car extends Vehicle {
+    public function drive() {
+        return "Driving a {$this->brand}";
+    }
+}
+
+$myCar = new Car("BMW");
+echo $myCar->drive();
+?>
+<p>```</p>
+<p><strong>1.3. Interfaces</strong></p>
+<p>```</p>
+<?php
+interface Animal {
+    public function makeSound();
+}
+
+class Dog implements Animal {
+    public function makeSound() {
+        return "Woof!";
+    }
+}
+
+$dog = new Dog();
+echo $dog->makeSound();
+?>
+<p>```</p>
+<p><strong>1.4. Traits (Multiple Inheritance Alternative)</strong></p>
+<p>```</p>
+<?php
+trait Logger {
+    public function log($message) {
+        echo "Log: $message";
+    }
+}
+
+class User {
+    use Logger;
+}
+
+$user = new User();
+$user->log("User logged in.");
+?>
+<p>```</p>
+<hr />
+<p><strong>2. Database Interaction (MySQL + PDO)</strong></p>
+<p><strong>2.1. Connecting to MySQL using PDO</strong></p>
+<p>```</p>
+<?php
+$dsn = "mysql:host=localhost;dbname=mydb";
+$username = "root";
+$password = "";
+try {
+    $db = new PDO($dsn, $username, $password);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected!";
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+?>
+<p>```</p>
+<p><strong>2.2. Creating a Table</strong></p>
+<p>```</p>
+<?php
+$db->exec("CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE
+)");
+?>
+<p>```</p>
+<p><strong>2.3. Insert Data</strong></p>
+<p>```</p>
+<?php
+$stmt = $db->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
+$stmt->execute(["Alice", "alice@example.com"]);
+?>
+<p>```</p>
+<p><strong>2.4. Fetch Data</strong></p>
+<p>```</p>
+<?php
+$stmt = $db->query("SELECT * FROM users");
+foreach ($stmt as $row) {
+    echo $row['name'] . " - " . $row['email'] . "<br>";
+}
+?>
+<p>```</p>
+<hr />
+<p><strong>3. Sessions &amp; Cookies</strong></p>
+<p><strong>3.1. Using Sessions (User Login)</strong></p>
+<p>```</p>
+<?php
+session_start();
+$_SESSION['username'] = "Alice";
+echo "Session started for " . $_SESSION['username'];
+?>
+<p>```</p>
+<p><strong>3.2. Using Cookies (Remember Me)</strong></p>
+<p>```</p>
+<?php
+setcookie("user", "Alice", time() + 3600);
+if (isset($_COOKIE["user"])) {
+    echo "Welcome back, " . $_COOKIE["user"];
+}
+?>
+<p>```</p>
+<hr />
+<p><strong>4. Error Handling &amp; Logging</strong></p>
+<p><strong>4.1. Try-Catch Blocks</strong></p>
+<p>```</p>
+<?php
+try {
+    $db->query("SELECT * FROM nonexistent_table");
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+<p>```</p>
+<p><strong>4.2. Logging Errors to a File</strong></p>
+<p>```</p>
+<?php
+error_log("An error occurred!", 3, "errors.log");
+?>
+<p>```</p>
+<hr />
+<p><strong>5. File Uploads &amp; Image Processing</strong></p>
+<p><strong>5.1. Handling File Uploads</strong></p>
+<p>```</p>
+<form method="POST" enctype="multipart/form-data">
+    Upload File: <input type="file" name="file">
+    <input type="submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"]);
+    echo "File uploaded successfully!";
+}
+?>
+<p>```</p>
+<p><strong>5.2. Resizing Images with GD Library</strong></p>
+<p>```</p>
+<?php
+$image = imagecreatefromjpeg("uploads/sample.jpg");
+$resized = imagescale($image, 200, 200);
+imagejpeg($resized, "uploads/resized.jpg");
+?>
+<p>```</p>
+<hr />
+<p><strong>6. Security Best Practices</strong></p>
+<p><strong>6.1. Preventing SQL Injection</strong></p>
+<p>```</p>
+<?php
+$stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
+$stmt->execute([$_GET["email"]]);
+?>
+<p>```</p>
+<p><strong>6.2. Hashing Passwords</strong></p>
+<p>```</p>
+<?php
+$hashed = password_hash("mypassword", PASSWORD_BCRYPT);
+if (password_verify("mypassword", $hashed)) {
+    echo "Password is correct!";
+}
+?>
+<p>```</p>
+<hr />
+<p><strong>7. Building a Full-Stack PHP Web App</strong></p>
+<p><strong>7.1. User Registration Form</strong></p>
+<p>```</p>
+<form method="POST">
+    Name: <input type="text" name="name"><br>
+    Email: <input type="email" name="email"><br>
+    <input type="submit" name="register">
+</form>
+
+<?php
+if (isset($_POST["register"])) {
+    $stmt = $db->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
+    $stmt->execute([$_POST["name"], $_POST["email"]]);
+    echo "User registered!";
+}
+?>
+<p>```</p>
+<p><strong>7.2. User Login System</strong></p>
+<p>```</p>
+<form method="POST">
+    Email: <input type="email" name="email"><br>
+    <input type="submit" name="login">
+</form>
+
+<?php
+if (isset($_POST["login"])) {
+    session_start();
+    $_SESSION["user"] = $_POST["email"];
+    echo "Welcome, " . $_SESSION["user"];
+}
+?>
+<p>```</p>
+<p><strong>7.3. Displaying User Data</strong></p>
+<p>```</p>
+<?php
+$stmt = $db->query("SELECT * FROM users");
+foreach ($stmt as $row) {
+    echo $row["name"] . " - " . $row["email"] . "<br>";
+}
+?>
+<p>```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in PHP Level 2:</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes, Inheritance, Interfaces, Traits)</strong></p>
+<p>✅ <strong>Database Interaction (MySQL, PDO, CRUD Operations)</strong></p>
+<p>✅ <strong>Sessions &amp; Cookies (User Authentication, Remember Me)</strong></p>
+<p>✅ <strong>Error Handling &amp; Logging</strong></p>
+<p>✅ <strong>File Uploads &amp; Image Processing</strong></p>
+<p>✅ <strong>Security Best Practices (SQL Injection Prevention, Hashing Passwords)</strong></p>
+<p>✅ <strong>Built a Full-Stack PHP Web App</strong></p>
+<p>Now, you’re ready for <strong>PHP Level 3</strong>, where we explore <strong>REST APIs, MVC Architecture, Laravel Framework, and Cloud Deployment!</strong> 🚀</p></body></html>

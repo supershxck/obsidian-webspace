@@ -1,0 +1,136 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>15:19:35</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Logic and Proofs in Discrete Mathematics</strong></p>
+<p><strong>1. What is Logic?</strong></p>
+<p>Logic is the <strong>foundation of mathematical reasoning</strong> and is used to <strong>analyze, construct, and validate arguments</strong>. It involves the use of <strong>symbols, statements, and rules</strong> to determine the truth of expressions.</p>
+<p><strong>Why is Logic Important?</strong></p>
+<p>✔ <strong>Used in computer science</strong> – Essential for algorithms, AI, and programming.</p>
+<p>✔ <strong>Foundation of mathematical proofs</strong> – Ensures correctness of theorems.</p>
+<p>✔ <strong>Forms basis for digital circuits</strong> – Boolean logic is used in computers.</p>
+<p>✔ <strong>Improves reasoning skills</strong> – Helps in problem-solving and decision-making.</p>
+<p><strong>2. Propositional Logic</strong></p>
+<p><strong>1. What is a Proposition?</strong></p>
+<p>A <strong>proposition</strong> is a <strong>statement that is either true (T) or false (F)</strong>.</p>
+<p>✔ <strong>Examples:</strong></p>
+<p>• “2 + 2 = 4” (<strong>True</strong>)</p>
+<p>• “The sun is a planet” (<strong>False</strong>)</p>
+<p>✔ <strong>Non-Propositions:</strong></p>
+<p>• “How are you?” (Not a statement)</p>
+<p>• “x + 2 = 5” (Depends on x, not a fixed truth value)</p>
+<p><strong>2. Logical Operators</strong></p>
+<p>|<strong>Operator</strong>|<strong>Symbol</strong>|<strong>Meaning</strong>|<strong>Example</strong>|
+|---|---|---|---|
+|<strong>Negation</strong>|¬P|NOT P|¬(True) = False|
+|<strong>Conjunction</strong>|P ∧ Q|AND|True ∧ False = False|
+|<strong>Disjunction</strong>|P ∨ Q|OR|True ∨ False = True|
+|<strong>Implication</strong>|P → Q|If P then Q|True → False = False|
+|<strong>Biconditional</strong>|P ↔ Q|P if and only if Q|True ↔ True = True|</p>
+<p>✔ <strong>Example: Truth Table for AND (∧)</strong></p>
+<p>|<strong>P</strong>|<strong>Q</strong>|<strong>P ∧ Q</strong>|
+|---|---|---|
+|T|T|T|
+|T|F|F|
+|F|T|F|
+|F|F|F|</p>
+<p>✔ <strong>Example: Truth Table for OR (∨)</strong></p>
+<p>|<strong>P</strong>|<strong>Q</strong>|<strong>P ∨ Q</strong>|
+|---|---|---|
+|T|T|T|
+|T|F|T|
+|F|T|T|
+|F|F|F|</p>
+<p><strong>3. Logical Equivalences</strong></p>
+<p>Logical equivalences are <strong>statements that have the same truth values</strong> in all possible cases.</p>
+<p>✔ <strong>Important Logical Laws:</strong></p>
+<p>|<strong>Law</strong>|<strong>Formula</strong>|
+|---|---|
+|<strong>Identity Law</strong>|P ∨ False = P, P ∧ True = P|
+|<strong>Domination Law</strong>|P ∨ True = True, P ∧ False = False|
+|<strong>Idempotent Law</strong>|P ∨ P = P, P ∧ P = P|
+|<strong>Double Negation</strong>|¬(¬P) = P|
+|<strong>De Morgan’s Laws</strong>|¬(P ∧ Q) = ¬P ∨ ¬Q, ¬(P ∨ Q) = ¬P ∧ ¬Q|
+|<strong>Implication Law</strong>|P → Q = ¬P ∨ Q|</p>
+<p>✔ <strong>Example: Using De Morgan’s Law</strong></p>
+<p><code>¬(P ∧ Q) = ¬P ∨ ¬Q</code></p>
+<p>✔ <strong>Example: Converting Implication</strong></p>
+<p><code>P → Q = ¬P ∨ Q</code></p>
+<p><strong>4. Predicate Logic (First-Order Logic)</strong></p>
+<p>Predicate Logic extends propositional logic by <strong>introducing variables and quantifiers</strong>.</p>
+<p>✔ <strong>Example of a Predicate Statement:</strong></p>
+<p><code>P(x): x is an even number</code></p>
+<p>✔ <strong>Quantifiers:</strong></p>
+<p>|<strong>Symbol</strong>|<strong>Meaning</strong>|<strong>Example</strong>|
+|---|---|---|
+|<strong>Universal Quantifier</strong>|∀x (For all x)|∀x P(x): “All x are even”|
+|<strong>Existential Quantifier</strong>|∃x (There exists an x)|∃x P(x): “There is at least one even x”|</p>
+<p>✔ <strong>Example: Translating Statements to Logic</strong></p>
+<p>• “All humans are mortal.”</p>
+<p><code>∀x (Human(x) → Mortal(x))</code></p>
+<p>• “Some numbers are even.”</p>
+<p><code>∃x (Even(x))</code></p>
+<p><strong>5. Methods of Proof</strong></p>
+<p>Mathematical proofs are <strong>structured arguments</strong> used to demonstrate the truth of a statement.</p>
+<p><strong>1. Direct Proof</strong></p>
+<p>A direct proof shows that <strong>if P is true, then Q must also be true</strong>.</p>
+<p>✔ <strong>Example:</strong> Prove that if n is even, then n² is even.</p>
+<p>✔ <strong>Proof:</strong></p>
+<p>• Let n = 2k (definition of even numbers).</p>
+<p>• Then n² = (2k)² = 4k² = 2(2k²), which is <strong>even</strong>.</p>
+<p><strong>2. Proof by Contrapositive</strong></p>
+<p>Proves P → Q by proving ¬Q → ¬P.</p>
+<p>✔ <strong>Example:</strong> Prove that if n² is odd, then n is odd.</p>
+<p>✔ <strong>Proof:</strong></p>
+<p>• Assume n is even (n = 2k).</p>
+<p>• Then n² = 4k², which is <strong>even</strong>.</p>
+<p>• Since n² is not odd, n must be <strong>odd</strong>.</p>
+<p><strong>3. Proof by Contradiction</strong></p>
+<p>Assumes the <strong>opposite of the statement</strong> and derives a contradiction.</p>
+<p>✔ <strong>Example: Proof that √2 is irrational</strong></p>
+<p>• Assume √2 <strong>is rational</strong>, so √2 = p/q (where p and q are integers with no common factors).</p>
+<p>• Squaring both sides: 2 = p² / q² → p² = 2q², so p² is even.</p>
+<p>• Since p² is even, p must be even, so p = 2k.</p>
+<p>• Substituting: (2k)² = 2q² → 4k² = 2q² → q² = 2k², so q is even.</p>
+<p>• Since p and q are both even, they share a common factor (2), which contradicts our assumption.</p>
+<p>• ∴ <strong>√2 is irrational</strong>.</p>
+<p><strong>4. Proof by Induction</strong></p>
+<p>Used for proving statements about <strong>natural numbers</strong>.</p>
+<p>✔ <strong>Example: Prove that the sum of the first n positive integers is</strong>:</p>
+<p><code>1 + 2 + ... + n = n(n+1)/2</code></p>
+<p>✔ <strong>Proof (Induction):</strong></p>
+<ol>
+<li><strong>Base Case (n = 1)</strong>:</li>
+</ol>
+<p><code>1 = 1(1+1)/2 = 1</code></p>
+<p>✅ Holds true.</p>
+<ol>
+<li><strong>Inductive Step (n = k to n = k+1)</strong>:</li>
+</ol>
+<p>Assume 1 + 2 + ... + k = k(k+1)/2.</p>
+<ol>
+<li>Prove for n = k + 1:</li>
+</ol>
+<p><code>(1 + 2 + ... + k) + (k+1) = (k(k+1)/2) + (k+1)</code></p>
+<p>Simplifies to:</p>
+<p><code>(k+1)(k+2)/2</code></p>
+<p>✅ Matches formula, so <strong>proof is complete</strong>.</p>
+<p><strong>6. Applications of Logic and Proofs</strong></p>
+<p>|<strong>Field</strong>|<strong>Application</strong>|
+|---|---|
+|<strong>Computer Science</strong>|Algorithm design, AI, formal verification|
+|<strong>Mathematics</strong>|Theorem proving, set theory|
+|<strong>AI &amp; Machine Learning</strong>|Logical reasoning, rule-based systems|
+|<strong>Cybersecurity</strong>|Cryptographic proofs|
+|<strong>Software Engineering</strong>|Testing, debugging, verifying correctness|</p>
+<p>✔ <strong>Example: Boolean Logic in Programming</strong></p>
+<p><code>if not (A and B):
+    print("Condition met")</code></p>
+<p>✔ <strong>Example: AI Decision Making Using Logic</strong></p>
+<p><code>mortal(X) :- human(X).
+human(socrates).
+?- mortal(socrates).  // True</code></p>
+<p><strong>7. Conclusion</strong></p>
+<p>Logic and proofs <strong>form the backbone of mathematics and computer science</strong>. Understanding <strong>propositional logic, predicate logic, proof techniques, and logical equivalences</strong> is essential for <strong>algorithms, programming, AI, and cybersecurity</strong>. 🚀</p></body></html>

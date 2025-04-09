@@ -1,0 +1,904 @@
+<html><body><h1>Implementation Examples for Markdown Database Question-Answering Bot</h1>
+<p>This document provides practical implementation examples for building a markdown database question-answering bot. These examples complement the step-by-step guide and demonstrate how to implement key components of the system.</p>
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#example-1-basic-rag-implementation">Example 1: Basic RAG Implementation</a></li>
+<li><a href="#example-2-batch-processing-for-large-collections">Example 2: Batch Processing for Large Collections</a></li>
+<li><a href="#example-3-relationship-detection-between-documents">Example 3: Relationship Detection Between Documents</a></li>
+<li><a href="#example-4-command-line-interface-implementation">Example 4: Command-Line Interface Implementation</a></li>
+<li><a href="#example-5-local-model-implementation">Example 5: Local Model Implementation</a></li>
+</ol>
+<h2>Example 1: Basic RAG Implementation</h2>
+<p>This example demonstrates a minimal implementation of a Retrieval Augmented Generation (RAG) system for markdown files using LangChain.</p>
+<p>```python</p>
+<h1>basic_rag.py</h1>
+<p>import os
+import sys
+from langchain.document_loaders import DirectoryLoader
+from langchain.text_splitters import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_openai import ChatOpenAI
+from langchain.chains import RetrievalQA</p>
+<h1>Set your OpenAI API key</h1>
+<p>os.environ["OPENAI_API_KEY"] = "your-api-key-here"</p>
+<p>def create_vector_db(markdown_dir):
+    """Create a vector database from markdown files."""
+    # Load markdown files
+    loader = DirectoryLoader(markdown_dir, glob="*<em>/</em>.md")
+    documents = loader.load()
+    print(f"Loaded {len(documents)} documents")</p>
+<pre><code># Split documents into chunks
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200,
+    separators=["\n## ", "\n### ", "\n#### ", "\n", " ", ""]
+)
+chunks = text_splitter.split_documents(documents)
+print(f"Split into {len(chunks)} chunks")
+
+# Create embeddings and vector store
+embeddings = OpenAIEmbeddings()
+vector_store = FAISS.from_documents(chunks, embeddings)
+
+# Save vector store
+vector_store.save_local("faiss_index")
+print("Vector database created and saved")
+
+return vector_store
+</code></pre>
+<p>def load_vector_db():
+    """Load the vector database."""
+    embeddings = OpenAIEmbeddings()
+    vector_store = FAISS.load_local("faiss_index", embeddings)
+    return vector_store</p>
+<p>def query_system(question, vector_store=None):
+    """Query the system with a question."""
+    if vector_store is None:
+        vector_store = load_vector_db()</p>
+<pre><code># Create retrieval chain
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+qa_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    chain_type="stuff",
+    retriever=vector_store.as_retriever(search_kwargs={"k": 5})
+)
+
+# Query
+result = qa_chain.invoke({"query": question})
+return result["result"]
+</code></pre>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    if len(sys.argv) &lt; 2:
+        print("Usage: python basic_rag.py [index|query] [directory|question]")
+        sys.exit(1)</p>
+<pre><code>command = sys.argv[1]
+
+if command == "index":
+    if len(sys.argv) &lt; 3:
+        print("Please provide a directory path")
+        sys.exit(1)
+    markdown_dir = sys.argv[2]
+    create_vector_db(markdown_dir)
+
+elif command == "query":
+    if len(sys.argv) &lt; 3:
+        print("Please provide a question")
+        sys.exit(1)
+    question = sys.argv[2]
+    answer = query_system(question)
+    print(f"\nQuestion: {question}")
+    print(f"\nAnswer: {answer}")
+
+else:
+    print("Unknown command. Use 'index' or 'query'")
+</code></pre>
+<p>```</p>
+<h3>Usage:</h3>
+<p>```bash</p>
+<h1>Index your markdown files</h1>
+<p>python basic_rag.py index /path/to/markdown/files</p>
+<h1>Query the system</h1>
+<p>python basic_rag.py query "What is the relationship between X and Y?"
+```</p>
+<h2>Example 2: Batch Processing for Large Collections</h2>
+<p>This example demonstrates how to process large collections of markdown files (4000+) in batches to avoid memory issues.</p>
+<p>```python</p>
+<h1>batch_processor.py</h1>
+<p>import os
+import json
+import hashlib
+import time
+from tqdm import tqdm
+from concurrent.futures import ProcessPoolExecutor
+from langchain.document_loaders import TextLoader
+from langchain.text_splitters import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS</p>
+<h1>Set your OpenAI API key</h1>
+<p>os.environ["OPENAI_API_KEY"] = "your-api-key-here"</p>
+<p>class BatchProcessor:
+    def <strong>init</strong>(self, batch_size=100, max_workers=4):
+        self.batch_size = batch_size
+        self.max_workers = max_workers
+        self.hash_file = "file_hashes.json"
+        self.file_hashes = self._load_hashes()
+        self.embeddings = OpenAIEmbeddings()</p>
+<pre><code>    # Create or load vector store
+    if os.path.exists("faiss_index"):
+        self.vector_store = FAISS.load_local("faiss_index", self.embeddings)
+        print(f"Loaded existing vector store")
+    else:
+        self.vector_store = None
+
+def _load_hashes(self):
+    """Load file hashes from disk."""
+    if os.path.exists(self.hash_file):
+        with open(self.hash_file, 'r') as f:
+            return json.load(f)
+    return {}
+
+def _save_hashes(self):
+    """Save file hashes to disk."""
+    with open(self.hash_file, 'w') as f:
+        json.dump(self.file_hashes, f)
+
+def _get_file_hash(self, file_path):
+    """Calculate MD5 hash of a file."""
+    with open(file_path, 'rb') as f:
+        return hashlib.md5(f.read()).hexdigest()
+
+def _find_markdown_files(self, directory):
+    """Find all markdown files in a directory."""
+    markdown_files = []
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.md'):
+                markdown_files.append(os.path.join(root, file))
+    return markdown_files
+
+def _process_file(self, file_path):
+    """Process a single markdown file."""
+    try:
+        loader = TextLoader(file_path)
+        documents = loader.load()
+
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=1000,
+            chunk_overlap=200,
+            separators=["\n## ", "\n### ", "\n#### ", "\n", " ", ""]
+        )
+        chunks = text_splitter.split_documents(documents)
+
+        # Add source information to metadata
+        for chunk in chunks:
+            chunk.metadata["source"] = file_path
+            chunk.metadata["filename"] = os.path.basename(file_path)
+
+        return chunks
+    except Exception as e:
+        print(f"Error processing {file_path}: {e}")
+        return []
+
+def process_directory(self, directory, force_reprocess=False):
+    """Process all markdown files in a directory in batches."""
+    # Find all markdown files
+    all_files = self._find_markdown_files(directory)
+    print(f"Found {len(all_files)} markdown files")
+
+    # Determine which files need processing
+    files_to_process = []
+    for file_path in all_files:
+        if force_reprocess:
+            files_to_process.append(file_path)
+        else:
+            current_hash = self._get_file_hash(file_path)
+            if file_path not in self.file_hashes or self.file_hashes[file_path] != current_hash:
+                files_to_process.append(file_path)
+                self.file_hashes[file_path] = current_hash
+
+    print(f"Processing {len(files_to_process)} new or modified files")
+
+    # Process files in batches
+    batches = [files_to_process[i:i+self.batch_size] for i in range(0, len(files_to_process), self.batch_size)]
+
+    for i, batch in enumerate(batches):
+        print(f"Processing batch {i+1}/{len(batches)} ({len(batch)} files)")
+
+        # Process files in parallel
+        all_chunks = []
+        with ProcessPoolExecutor(max_workers=self.max_workers) as executor:
+            for chunks in tqdm(executor.map(self._process_file, batch), total=len(batch)):
+                all_chunks.extend(chunks)
+
+        print(f"Created {len(all_chunks)} chunks from batch {i+1}")
+
+        # Add to vector store
+        if all_chunks:
+            if self.vector_store is None:
+                self.vector_store = FAISS.from_documents(all_chunks, self.embeddings)
+            else:
+                self.vector_store.add_documents(all_chunks)
+
+            # Save vector store after each batch
+            self.vector_store.save_local("faiss_index")
+            print(f"Updated vector store with batch {i+1}")
+
+        # Save hashes after each batch
+        self._save_hashes()
+
+        # Sleep between batches to avoid API rate limits
+        if i &lt; len(batches) - 1:
+            print("Sleeping between batches...")
+            time.sleep(10)
+
+    print("Processing complete")
+    return self.vector_store
+</code></pre>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    import sys</p>
+<pre><code>if len(sys.argv) &lt; 2:
+    print("Usage: python batch_processor.py [directory] [--force]")
+    sys.exit(1)
+
+directory = sys.argv[1]
+force_reprocess = "--force" in sys.argv
+
+processor = BatchProcessor(batch_size=100, max_workers=4)
+processor.process_directory(directory, force_reprocess)
+</code></pre>
+<p>```</p>
+<h3>Usage:</h3>
+<p>```bash</p>
+<h1>Process markdown files in batches</h1>
+<p>python batch_processor.py /path/to/markdown/files</p>
+<h1>Force reprocessing of all files</h1>
+<p>python batch_processor.py /path/to/markdown/files --force
+```</p>
+<h2>Example 3: Relationship Detection Between Documents</h2>
+<p>This example demonstrates how to detect and visualize relationships between markdown documents.</p>
+<p>```python</p>
+<h1>relationship_detector.py</h1>
+<p>import os
+import re
+import networkx as nx
+import matplotlib.pyplot as plt
+from langchain.document_loaders import DirectoryLoader
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np</p>
+<h1>Set your OpenAI API key</h1>
+<p>os.environ["OPENAI_API_KEY"] = "your-api-key-here"</p>
+<p>class RelationshipDetector:
+    def <strong>init</strong>(self, vector_store_path="faiss_index"):
+        self.embeddings = OpenAIEmbeddings()
+        self.vector_store = FAISS.load_local(vector_store_path, self.embeddings)
+        self.graph = nx.Graph()</p>
+<pre><code>def extract_links(self, content, base_path):
+    """Extract markdown links to other documents."""
+    links = []
+    # Find markdown links: [text](url)
+    for match in re.finditer(r'\[([^\]]+)\]\(([^)]+)\)', content):
+        link_text = match.group(1)
+        link_url = match.group(2)
+
+        # Only consider links to markdown files
+        if link_url.endswith('.md'):
+            # Handle relative paths
+            if not os.path.isabs(link_url):
+                link_url = os.path.normpath(os.path.join(os.path.dirname(base_path), link_url))
+
+            links.append({
+                "text": link_text,
+                "url": link_url
+            })
+
+    return links
+
+def build_explicit_graph(self, markdown_dir):
+    """Build a graph based on explicit links between documents."""
+    # Load markdown files
+    loader = DirectoryLoader(markdown_dir, glob="**/*.md")
+    documents = loader.load()
+
+    # Add nodes for each document
+    for doc in documents:
+        file_path = doc.metadata["source"]
+        filename = os.path.basename(file_path)
+
+        # Add node if it doesn't exist
+        if not self.graph.has_node(file_path):
+            self.graph.add_node(file_path, 
+                               filename=filename, 
+                               content=doc.page_content[:100] + "...")
+
+    # Add edges for explicit links
+    for doc in documents:
+        file_path = doc.metadata["source"]
+        links = self.extract_links(doc.page_content, file_path)
+
+        for link in links:
+            target_url = link["url"]
+
+            # Check if target node exists
+            if self.graph.has_node(target_url):
+                # Add edge
+                if not self.graph.has_edge(file_path, target_url):
+                    self.graph.add_edge(file_path, target_url, 
+                                      type="explicit_link",
+                                      text=link["text"])
+
+    print(f"Built explicit graph with {self.graph.number_of_nodes()} nodes and {self.graph.number_of_edges()} edges")
+
+def build_semantic_graph(self, threshold=0.7):
+    """Build a graph based on semantic similarity between documents."""
+    # Get all documents and their embeddings
+    docs = []
+    doc_embeddings = []
+
+    # Extract documents and embeddings from vector store
+    for i in range(len(self.vector_store.index_to_docstore_id)):
+        doc_id = self.vector_store.index_to_docstore_id[i]
+        doc = self.vector_store.docstore.search(doc_id)
+        docs.append(doc)
+
+        # Get embedding for this document
+        embedding = self.vector_store.index.reconstruct(i)
+        doc_embeddings.append(embedding)
+
+    # Convert to numpy array
+    doc_embeddings = np.array(doc_embeddings)
+
+    # Calculate similarity matrix
+    similarity_matrix = cosine_similarity(doc_embeddings)
+
+    # Add semantic edges to graph
+    for i in range(len(docs)):
+        for j in range(i+1, len(docs)):
+            similarity = similarity_matrix[i][j]
+
+            if similarity &gt;= threshold:
+                source_path = docs[i].metadata["source"]
+                target_path = docs[j].metadata["source"]
+
+                # Add nodes if they don't exist
+                if not self.graph.has_node(source_path):
+                    self.graph.add_node(source_path, 
+                                       filename=os.path.basename(source_path), 
+                                       content=docs[i].page_content[:100] + "...")
+
+                if not self.graph.has_node(target_path):
+                    self.graph.add_node(target_path, 
+                                       filename=os.path.basename(target_path), 
+                                       content=docs[j].page_content[:100] + "...")
+
+                # Add edge
+                if not self.graph.has_edge(source_path, target_path):
+                    self.graph.add_edge(source_path, target_path, 
+                                      type="semantic_similarity",
+                                      similarity=float(similarity))
+
+    print(f"Added semantic relationships to graph. Now has {self.graph.number_of_edges()} total edges")
+
+def find_related_documents(self, doc_path, max_results=5):
+    """Find documents related to a specific document."""
+    if not self.graph.has_node(doc_path):
+        print(f"Document {doc_path} not found in graph")
+        return []
+
+    # Get neighbors
+    neighbors = list(self.graph.neighbors(doc_path))
+
+    # Sort by relationship strength
+    related_docs = []
+    for neighbor in neighbors:
+        edge_data = self.graph.get_edge_data(doc_path, neighbor)
+
+        if edge_data["type"] == "explicit_link":
+            strength = 1.0  # Explicit links are strongest
+        else:
+            strength = edge_data["similarity"]
+
+        related_docs.append({
+            "path": neighbor,
+            "filename": self.graph.nodes[neighbor]["filename"],
+            "preview": self.graph.nodes[neighbor]["content"],
+            "relationship": {
+                "type": edge_data["type"],
+                "strength": strength,
+                "description": edge_data.get("text", f"Similarity: {strength:.2f}")
+            }
+        })
+
+    # Sort by relationship strength
+    related_docs.sort(key=lambda x: x["relationship"]["strength"], reverse=True)
+
+    return related_docs[:max_results]
+
+def visualize_relationships(self, center_doc=None, output_file="relationships.png"):
+    """Visualize relationships between documents."""
+    if center_doc and self.graph.has_node(center_doc):
+        # Extract subgraph of nodes connected to center_doc
+        neighbors = list(self.graph.neighbors(center_doc))
+        nodes = [center_doc] + neighbors
+        subgraph = self.graph.subgraph(nodes)
+    else:
+        # Use full graph
+        subgraph = self.graph
+
+    # Create visualization
+    plt.figure(figsize=(12, 8))
+    pos = nx.spring_layout(subgraph)
+
+    # Draw nodes
+    nx.draw_networkx_nodes(subgraph, pos, 
+                          node_color='lightblue', 
+                          node_size=500)
+
+    # Highlight center node if specified
+    if center_doc and self.graph.has_node(center_doc):
+        nx.draw_networkx_nodes(subgraph, pos, 
+                              nodelist=[center_doc],
+                              node_color='red', 
+                              node_size=700)
+
+    # Draw edges with different colors based on type
+    explicit_edges = [(u, v) for u, v, d in subgraph.edges(data=True) if d['type'] == 'explicit_link']
+    semantic_edges = [(u, v) for u, v, d in subgraph.edges(data=True) if d['type'] == 'semantic_similarity']
+
+    nx.draw_networkx_edges(subgraph, pos, 
+                          edgelist=explicit_edges,
+                          width=2.0, alpha=0.7, 
+                          edge_color='blue')
+
+    nx.draw_networkx_edges(subgraph, pos, 
+                          edgelist=semantic_edges,
+                          width=1.0, alpha=0.5, 
+                          edge_color='green')
+
+    # Draw labels
+    labels = {node: subgraph.nodes[node].get('filename', node) for node in subgraph.nodes()}
+    nx.draw_networkx_labels(subgraph, pos, labels=labels, font_size=8)
+
+    # Save figure
+    plt.axis('off')
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300, bbox_inches='tight')
+    plt.close()
+
+    print(f"Relationship visualization saved to {output_file}")
+</code></pre>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    import sys</p>
+<pre><code>if len(sys.argv) &lt; 2:
+    print("Usage: python relationship_detector.py [markdown_dir] [doc_path]")
+    sys.exit(1)
+
+markdown_dir = sys.argv[1]
+doc_path = sys.argv[2] if len(sys.argv) &gt; 2 else None
+
+detector = RelationshipDetector()
+
+# Build relationship graph
+detector.build_explicit_graph(markdown_dir)
+detector.build_semantic_graph(threshold=0.7)
+
+# Visualize relationships
+if doc_path:
+    related_docs = detector.find_related_documents(doc_path)
+
+    print(f"\nDocuments related to {os.path.basename(doc_path)}:")
+    for i, doc in enumerate(related_docs):
+        print(f"\n[{i+1}] {doc['filename']}")
+        print(f"Relationship: {doc['relationship']['type']} - {doc['relationship']['description']}")
+        print(f"Preview: {doc['preview']}")
+
+    detector.visualize_relationships(doc_path)
+else:
+    detector.visualize_relationships()
+</code></pre>
+<p>```</p>
+<h3>Usage:</h3>
+<p>```bash</p>
+<h1>Build relationship graph and visualize all relationships</h1>
+<p>python relationship_detector.py /path/to/markdown/files</p>
+<h1>Find and visualize relationships for a specific document</h1>
+<p>python relationship_detector.py /path/to/markdown/files /path/to/specific/document.md
+```</p>
+<h2>Example 4: Command-Line Interface Implementation</h2>
+<p>This example demonstrates a complete command-line interface for the markdown database question-answering bot.</p>
+<p>```python</p>
+<h1>markdown_qa_cli.py</h1>
+<p>import os
+import sys
+import argparse
+import re
+from langchain.document_loaders import DirectoryLoader
+from langchain.text_splitters import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_openai import ChatOpenAI
+from langchain.chains import RetrievalQA</p>
+<h1>Set your OpenAI API key</h1>
+<p>os.environ["OPENAI_API_KEY"] = "your-api-key-here"</p>
+<p>class MarkdownQABot:
+    def <strong>init</strong>(self):
+        self.embeddings = OpenAIEmbeddings()
+        self.vector_store = None
+        self.qa_chain = None
+        self.comparative_mode = False</p>
+<pre><code>def index_directory(self, directory, force_reindex=False):
+    """Index markdown files in a directory."""
+    vector_store_path = "faiss_index"
+
+    # Check if index already exists
+    if os.path.exists(vector_store_path) and not force_reindex:
+        print("Loading existing vector store...")
+        self.vector_store = FAISS.load_local(vector_store_path, self.embeddings)
+        print("Vector store loaded")
+        return
+
+    print(f"Indexing markdown files in {directory}...")
+
+    # Load markdown files
+    loader = DirectoryLoader(directory, glob="**/*.md")
+    documents = loader.load()
+    print(f"Loaded {len(documents)} documents")
+
+    # Split documents into chunks
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=200,
+        separators=["\n## ", "\n### ", "\n#### ", "\n", " ", ""]
+    )
+    chunks = text_splitter.split_documents(documents)
+    print(f"Split into {len(chunks)} chunks")
+
+    # Create vector store
+    self.vector_store = FAISS.from_documents(chunks, self.embeddings)
+
+    # Save vector store
+    self.vector_store.save_local(vector_store_path)
+    print("Vector store created and saved")
+
+def setup_qa_chain(self):
+    """Set up the question-answering chain."""
+    if self.vector_store is None:
+        if os.path.exists("faiss_index"):
+            self.vector_store = FAISS.load_local("faiss_index", self.embeddings)
+        else:
+            print("No vector store found. Please index a directory first.")
+            return False
+
+    # Create LLM
+    llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+
+    # Create retrieval chain
+    self.qa_chain = RetrievalQA.from_chain_type(
+        llm=llm,
+        chain_type="stuff",
+        retriever=self.vector_store.as_retriever(search_kwargs={"k": 5})
+    )
+
+    return True
+
+def query(self, question):
+    """Query the system with a question."""
+    if self.qa_chain is None:
+        if not self.setup_qa_chain():
+            return {"error": "Failed to set up QA chain"}
+
+    # Determine prompt based on mode
+    if self.comparative_mode:
+        # Use a prompt that encourages comparative analysis
+        prompt_template = """
+        You are an intelligent assistant that specializes in comparative analysis and connecting ideas.
+        Analyze the provided context from multiple documents and identify relationships, patterns, and connections.
+        Synthesize this information to answer the question comprehensively.
+
+        Question: {query}
+
+        Provide a detailed answer that compares and connects ideas across the documents.
+        """
+
+        # Modify the query to include the prompt
+        modified_question = prompt_template.format(query=question)
+        result = self.qa_chain.invoke({"query": modified_question})
+    else:
+        # Use standard retrieval
+        result = self.qa_chain.invoke({"query": question})
+
+    return result
+
+def toggle_comparative_mode(self):
+    """Toggle comparative analysis mode."""
+    self.comparative_mode = not self.comparative_mode
+    return self.comparative_mode
+</code></pre>
+<p>def main():
+    parser = argparse.ArgumentParser(description="Markdown Database Question-Answering Bot")</p>
+<pre><code># Create subparsers for different commands
+subparsers = parser.add_subparsers(dest="command", help="Command to execute")
+
+# Index command
+index_parser = subparsers.add_parser("index", help="Index markdown files")
+index_parser.add_argument("directory", help="Directory containing markdown files")
+index_parser.add_argument("--force", action="store_true", help="Force reindexing")
+
+# Query command
+query_parser = subparsers.add_parser("query", help="Query the markdown database")
+query_parser.add_argument("question", help="Question to ask")
+query_parser.add_argument("--comparative", action="store_true", help="Enable comparative analysis mode")
+
+# Interactive mode command
+subparsers.add_parser("interactive", help="Start interactive mode")
+
+args = parser.parse_args()
+
+bot = MarkdownQABot()
+
+if args.command == "index":
+    bot.index_directory(args.directory, args.force)
+
+elif args.command == "query":
+    if args.comparative:
+        bot.toggle_comparative_mode()
+
+    result = bot.query(args.question)
+
+    print("\n" + "="*80)
+    print(f"Question: {args.question}")
+    print("="*80)
+    print("\nAnswer:")
+    print("-"*80)
+    print(result["result"])
+    print("="*80 + "\n")
+
+elif args.command == "interactive":
+    print("\n" + "="*80)
+    print("Markdown Database Question-Answering Bot - Interactive Mode")
+    print("Type 'exit' to quit, 'help' for commands")
+    print("="*80 + "\n")
+
+    while True:
+        try:
+            user_input = input("\nEnter a question or command: ")
+
+            if user_input.lower() == 'exit':
+                break
+
+            elif user_input.lower() == 'help':
+                print("\nAvailable commands:")
+                print("  help - Show this help message")
+                print("  exit - Exit interactive mode")
+                print("  index &lt;directory&gt; - Index markdown files in directory")
+                print("  comparative - Toggle comparative analysis mode")
+                print("  Any other input will be treated as a question")
+
+            elif user_input.lower().startswith('index '):
+                directory = user_input[6:].strip()
+                bot.index_directory(directory)
+
+            elif user_input.lower() == 'comparative':
+                mode = bot.toggle_comparative_mode()
+                print(f"Comparative analysis mode {'enabled' if mode else 'disabled'}")
+
+            else:
+                # Treat as a question
+                result = bot.query(user_input)
+
+                print("\n" + "="*80)
+                print(f"Question: {user_input}")
+                print("="*80)
+                print("\nAnswer:")
+                print("-"*80)
+                print(result["result"])
+                print("="*80 + "\n")
+
+        except KeyboardInterrupt:
+            print("\nExiting interactive mode...")
+            break
+
+        except Exception as e:
+            print(f"\nError: {e}")
+
+else:
+    parser.print_help()
+</code></pre>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    main()
+```</p>
+<h3>Usage:</h3>
+<p>```bash</p>
+<h1>Index markdown files</h1>
+<p>python markdown_qa_cli.py index /path/to/markdown/files</p>
+<h1>Query the system</h1>
+<p>python markdown_qa_cli.py query "What is the relationship between X and Y?"</p>
+<h1>Query with comparative analysis mode</h1>
+<p>python markdown_qa_cli.py query "Compare the approaches to X described in the documents" --comparative</p>
+<h1>Start interactive mode</h1>
+<p>python markdown_qa_cli.py interactive
+```</p>
+<h2>Example 5: Local Model Implementation</h2>
+<p>This example demonstrates how to use local models instead of OpenAI for a fully local implementation.</p>
+<p>```python</p>
+<h1>local_markdown_qa.py</h1>
+<p>import os
+import sys
+import argparse
+from langchain.document_loaders import DirectoryLoader
+from langchain.text_splitters import RecursiveCharacterTextSplitter
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.llms import LlamaCpp
+from langchain.chains import RetrievalQA
+from langchain.prompts import PromptTemplate</p>
+<p>class LocalMarkdownQABot:
+    def <strong>init</strong>(self, 
+                embedding_model="all-MiniLM-L6-v2", 
+                llm_model_path="models/llama-2-7b-chat.gguf"):
+        # Initialize embeddings
+        self.embeddings = HuggingFaceEmbeddings(model_name=embedding_model)</p>
+<pre><code>    # Initialize LLM
+    self.llm = LlamaCpp(
+        model_path=llm_model_path,
+        temperature=0.1,
+        max_tokens=2000,
+        n_ctx=4096
+    )
+
+    self.vector_store = None
+    self.qa_chain = None
+
+def index_directory(self, directory, force_reindex=False):
+    """Index markdown files in a directory."""
+    vector_store_path = "faiss_index_local"
+
+    # Check if index already exists
+    if os.path.exists(vector_store_path) and not force_reindex:
+        print("Loading existing vector store...")
+        self.vector_store = FAISS.load_local(vector_store_path, self.embeddings)
+        print("Vector store loaded")
+        return
+
+    print(f"Indexing markdown files in {directory}...")
+
+    # Load markdown files
+    loader = DirectoryLoader(directory, glob="**/*.md")
+    documents = loader.load()
+    print(f"Loaded {len(documents)} documents")
+
+    # Split documents into chunks
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=200,
+        separators=["\n## ", "\n### ", "\n#### ", "\n", " ", ""]
+    )
+    chunks = text_splitter.split_documents(documents)
+    print(f"Split into {len(chunks)} chunks")
+
+    # Create vector store
+    self.vector_store = FAISS.from_documents(chunks, self.embeddings)
+
+    # Save vector store
+    self.vector_store.save_local(vector_store_path)
+    print("Vector store created and saved")
+
+def setup_qa_chain(self):
+    """Set up the question-answering chain."""
+    if self.vector_store is None:
+        if os.path.exists("faiss_index_local"):
+            self.vector_store = FAISS.load_local("faiss_index_local", self.embeddings)
+        else:
+            print("No vector store found. Please index a directory first.")
+            return False
+
+    # Create prompt template
+    prompt_template = """
+    You are an intelligent assistant that answers questions based on the provided context.
+    Use only the information from the context to answer the question.
+    If the context doesn't contain the answer, say "I don't have enough information to answer this question."
+
+    Context:
+    {context}
+
+    Question: {question}
+
+    Answer:
+    """
+
+    PROMPT = PromptTemplate(
+        template=prompt_template,
+        input_variables=["context", "question"]
+    )
+
+    # Create retrieval chain
+    self.qa_chain = RetrievalQA.from_chain_type(
+        llm=self.llm,
+        chain_type="stuff",
+        retriever=self.vector_store.as_retriever(search_kwargs={"k": 5}),
+        chain_type_kwargs={"prompt": PROMPT}
+    )
+
+    return True
+
+def query(self, question):
+    """Query the system with a question."""
+    if self.qa_chain is None:
+        if not self.setup_qa_chain():
+            return {"error": "Failed to set up QA chain"}
+
+    result = self.qa_chain.invoke({"query": question})
+    return result
+</code></pre>
+<p>def main():
+    parser = argparse.ArgumentParser(description="Local Markdown Database Question-Answering Bot")</p>
+<pre><code># Create subparsers for different commands
+subparsers = parser.add_subparsers(dest="command", help="Command to execute")
+
+# Index command
+index_parser = subparsers.add_parser("index", help="Index markdown files")
+index_parser.add_argument("directory", help="Directory containing markdown files")
+index_parser.add_argument("--force", action="store_true", help="Force reindexing")
+
+# Query command
+query_parser = subparsers.add_parser("query", help="Query the markdown database")
+query_parser.add_argument("question", help="Question to ask")
+
+# Download models command
+download_parser = subparsers.add_parser("download", help="Download required models")
+
+args = parser.parse_args()
+
+if args.command == "download":
+    print("Downloading required models...")
+
+    # Create models directory
+    os.makedirs("models", exist_ok=True)
+
+    # Download LLaMA model
+    if not os.path.exists("models/llama-2-7b-chat.gguf"):
+        print("Downloading LLaMA model (this may take a while)...")
+        os.system("wget -O models/llama-2-7b-chat.gguf https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf")
+
+    print("Models downloaded")
+    return
+
+# Check if LLaMA model exists
+if not os.path.exists("models/llama-2-7b-chat.gguf"):
+    print("LLaMA model not found. Please run 'python local_markdown_qa.py download' first.")
+    return
+
+bot = LocalMarkdownQABot()
+
+if args.command == "index":
+    bot.index_directory(args.directory, args.force)
+
+elif args.command == "query":
+    result = bot.query(args.question)
+
+    print("\n" + "="*80)
+    print(f"Question: {args.question}")
+    print("="*80)
+    print("\nAnswer:")
+    print("-"*80)
+    print(result["result"])
+    print("="*80 + "\n")
+
+else:
+    parser.print_help()
+</code></pre>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    main()
+```</p>
+<h3>Usage:</h3>
+<p>```bash</p>
+<h1>Download required models</h1>
+<p>python local_markdown_qa.py download</p>
+<h1>Index markdown files</h1>
+<p>python local_markdown_qa.py index /path/to/markdown/files</p>
+<h1>Query the system</h1>
+<p>python local_markdown_qa.py query "What is the relationship between X and Y?"
+```</p>
+<p>These implementation examples provide practical code that you can adapt and extend to build your markdown database question-answering bot. They cover the core functionality needed to process your 4000+ markdown files and enable complex queries for comparative studies, note connecting, and idea improvement.</p></body></html>

@@ -1,0 +1,202 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>21:47:06</strong> 
+<strong>Topics:</strong> [[VB.Net L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>VB.NET Level 1: Introduction to VB.NET Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Visual Basic .NET (VB.NET) is a <strong>modern, object-oriented programming language</strong> developed by Microsoft. It is primarily used for <strong>desktop applications, database integration, and enterprise software</strong> using the .NET framework.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>VB.NET Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Select Case)</strong></p>
+<p>✅ <strong>Functions &amp; Subroutines</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes &amp; Objects)</strong></p>
+<p>✅ <strong>Working with Arrays &amp; Collections</strong></p>
+<p>✅ <strong>Exception Handling</strong></p>
+<p>✅ <strong>File Handling (Reading &amp; Writing Files)</strong></p>
+<p>✅ <strong>Building a Simple Windows Forms Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic VB.NET programs, work with OOP, and create a Windows Forms application</strong>.</p>
+<hr />
+<p><strong>1. Setting Up VB.NET</strong></p>
+<p><strong>1.1. Installing VB.NET</strong></p>
+<p>• <strong>Option 1: Visual Studio (Recommended)</strong></p>
+<p>• Download <strong>Visual Studio Community Edition</strong> from <a href="https://visualstudio.microsoft.com">Visual Studio</a>.</p>
+<p>• Install <strong>.NET Desktop Development</strong>.</p>
+<p>• <strong>Option 2: .NET Core CLI (For Console Apps)</strong></p>
+<p><code>dotnet new console -n MyVBApp
+cd MyVBApp
+dotnet run</code></p>
+<hr />
+<p><strong>2. VB.NET Basics: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>2.1. Declaring Variables</strong></p>
+<p>```
+Module Program
+    Sub Main()
+        Dim name As String = "Alice"
+        Dim age As Integer = 25
+        Dim pi As Double = 3.14159
+        Dim isVB As Boolean = True</p>
+<pre><code>    Console.WriteLine("Name: " &amp; name)
+    Console.WriteLine("Age: " &amp; age)
+    Console.WriteLine("Pi: " &amp; pi)
+    Console.WriteLine("VB.NET is awesome: " &amp; isVB)
+End Sub
+</code></pre>
+<p>End Module
+```</p>
+<p><strong>2.2. Operators</strong></p>
+<p><code>Dim a As Integer = 10
+Dim b As Integer = 3
+Console.WriteLine("Sum: " &amp; (a + b))
+Console.WriteLine("Product: " &amp; (a * b))
+Console.WriteLine("Exponent: " &amp; (a ^ b)) ' 10^3 = 1000</code></p>
+<hr />
+<p><strong>3. Control Flow (If-Else, Loops, Select Case)</strong></p>
+<p><strong>3.1. If-Else Statement</strong></p>
+<p><code>Dim num As Integer = 15
+If num &gt; 10 Then
+    Console.WriteLine("Number is greater than 10")
+Else
+    Console.WriteLine("Number is 10 or less")
+End If</code></p>
+<p><strong>3.2. For Loop</strong></p>
+<p><code>For i As Integer = 1 To 5
+    Console.WriteLine("Iteration " &amp; i)
+Next</code></p>
+<p><strong>3.3. While Loop</strong></p>
+<p><code>Dim count As Integer = 0
+While count &lt; 3
+    Console.WriteLine("Count: " &amp; count)
+    count += 1
+End While</code></p>
+<p><strong>3.4. Select Case Statement</strong></p>
+<p><code>Dim grade As String = "A"
+Select Case grade
+    Case "A"
+        Console.WriteLine("Excellent")
+    Case "B"
+        Console.WriteLine("Good")
+    Case "C"
+        Console.WriteLine("Average")
+    Case Else
+        Console.WriteLine("Failed")
+End Select</code></p>
+<hr />
+<p><strong>4. Functions &amp; Subroutines</strong></p>
+<p><strong>4.1. Defining a Function</strong></p>
+<p>```
+Function Square(num As Integer) As Integer
+    Return num * num
+End Function</p>
+<p>Dim result As Integer = Square(5)
+Console.WriteLine("Square of 5: " &amp; result)
+```</p>
+<p><strong>4.2. Subroutines (No Return Value)</strong></p>
+<p>```
+Sub Greet(name As String)
+    Console.WriteLine("Hello, " &amp; name &amp; "!")
+End Sub</p>
+<p>Greet("Alice")
+```</p>
+<hr />
+<p><strong>5. Object-Oriented Programming (Classes &amp; Objects)</strong></p>
+<p><strong>5.1. Creating a Class &amp; Object</strong></p>
+<p>```
+Class Car
+    Public Brand As String
+    Public Speed As Integer</p>
+<pre><code>Public Sub Drive()
+    Console.WriteLine(Brand &amp; " is moving at " &amp; Speed &amp; " km/h")
+End Sub
+</code></pre>
+<p>End Class</p>
+<p>Dim myCar As New Car()
+myCar.Brand = "Tesla"
+myCar.Speed = 120
+myCar.Drive()
+```</p>
+<p><strong>5.2. Constructors in VB.NET</strong></p>
+<p>```
+Class Car
+    Public Brand As String
+    Public Speed As Integer</p>
+<pre><code>Public Sub New(brand As String, speed As Integer)
+    Me.Brand = brand
+    Me.Speed = speed
+End Sub
+
+Public Sub Drive()
+    Console.WriteLine(Brand &amp; " is moving at " &amp; Speed &amp; " km/h")
+End Sub
+</code></pre>
+<p>End Class</p>
+<p>Dim myCar As New Car("BMW", 150)
+myCar.Drive()
+```</p>
+<hr />
+<p><strong>6. Working with Arrays &amp; Collections</strong></p>
+<p><strong>6.1. Arrays</strong></p>
+<p><code>Dim fruits As String() = {"Apple", "Banana", "Cherry"}
+Console.WriteLine(fruits(1)) ' Output: Banana</code></p>
+<p><strong>6.2. Lists (Collections)</strong></p>
+<p>```
+Imports System.Collections.Generic</p>
+<p>Dim numbers As New List(Of Integer)({1, 2, 3, 4, 5})
+numbers.Add(6)
+Console.WriteLine(numbers(2)) ' Output: 3
+```</p>
+<hr />
+<p><strong>7. Exception Handling</strong></p>
+<p><code>Try
+    Dim num As Integer = 10 / 0 ' Causes division by zero error
+Catch ex As DivideByZeroException
+    Console.WriteLine("Error: Division by zero is not allowed")
+Finally
+    Console.WriteLine("Execution continues")
+End Try</code></p>
+<hr />
+<p><strong>8. File Handling (Reading &amp; Writing Files)</strong></p>
+<p><strong>8.1. Writing to a File</strong></p>
+<p>```
+Imports System.IO</p>
+<p>Dim path As String = "output.txt"
+File.WriteAllText(path, "Hello, VB.NET!")
+```</p>
+<p><strong>8.2. Reading from a File</strong></p>
+<p><code>Dim content As String = File.ReadAllText("output.txt")
+Console.WriteLine(content)</code></p>
+<hr />
+<p><strong>9. Building a Simple Windows Forms Application</strong></p>
+<p><strong>9.1. Creating a Windows Forms App</strong></p>
+<ol>
+<li>
+<p><strong>Open Visual Studio</strong> → <strong>Create New Project</strong> → <strong>Windows Forms App (.NET)</strong></p>
+</li>
+<li>
+<p><strong>Drag a Button &amp; Label</strong> from the Toolbox.</p>
+</li>
+<li>
+<p><strong>Double-click the Button</strong> and add:</p>
+</li>
+</ol>
+<p><code>Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Label1.Text = "Hello, VB.NET!"
+    End Sub
+End Class</code></p>
+<ol>
+<li><strong>Run the App</strong> (F5).</li>
+</ol>
+<hr />
+<p><strong>10. Conclusion</strong></p>
+<p><strong>What You Learned in VB.NET Level 1:</strong></p>
+<p>✅ <strong>VB.NET Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Select Case)</strong></p>
+<p>✅ <strong>Functions &amp; Subroutines</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes &amp; Objects)</strong></p>
+<p>✅ <strong>Working with Arrays &amp; Collections</strong></p>
+<p>✅ <strong>Exception Handling</strong></p>
+<p>✅ <strong>File Handling (Reading &amp; Writing Files)</strong></p>
+<p>✅ <strong>Built a Simple Windows Forms Application</strong></p>
+<p>Now, you’re ready for <strong>VB.NET Level 2</strong>, where we explore <strong>Database Integration (SQL), Multi-threading, Networking, and Advanced UI Development with WinForms &amp; WPF!</strong> 🚀</p></body></html>

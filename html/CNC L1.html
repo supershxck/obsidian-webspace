@@ -1,0 +1,166 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:40:30</strong> 
+<strong>Topics:</strong> [[CNC L2]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>CNC Level 1: Introduction to CNC Programming &amp; Machine Operation</strong></p>
+<p><strong>Introduction</strong></p>
+<p>A <strong>CNC (Computer Numerical Control) machine</strong> is a computer-controlled system used to <strong>automate machining processes</strong>, such as milling, turning, and drilling. It provides <strong>high precision, repeatability, and efficiency</strong> in manufacturing.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>What is a CNC Machine?</strong></p>
+<p>✅ <strong>Types of CNC Machines (Milling, Turning, Laser, EDM, etc.)</strong></p>
+<p>✅ <strong>CNC Components &amp; Axis Movement</strong></p>
+<p>✅ <strong>Introduction to G-Code &amp; M-Code</strong></p>
+<p>✅ <strong>Basic CNC Operations (Tool Setup, Work Offsets, Speeds &amp; Feeds)</strong></p>
+<p>✅ <strong>CNC Safety &amp; Troubleshooting</strong></p>
+<p>✅ <strong>Building a Simple CNC Program</strong></p>
+<p>By the end of this lesson, you will understand <strong>how CNC machines work and how to write basic G-code programs</strong>.</p>
+<hr />
+<p><strong>1. What is a CNC Machine?</strong></p>
+<p>A <strong>CNC machine</strong> is a manufacturing tool controlled by <strong>computer programs</strong> to perform <strong>precise machining operations</strong>.</p>
+<p><strong>1.1. Why Use CNC Machines?</strong></p>
+<p>✅ <strong>High Precision</strong> – Achieves <strong>micron-level accuracy</strong></p>
+<p>✅ <strong>Automation</strong> – Reduces <strong>manual labor</strong></p>
+<p>✅ <strong>Efficiency</strong> – Produces parts <strong>faster</strong> than manual machining</p>
+<p>✅ <strong>Repeatability</strong> – Ensures <strong>consistent quality</strong></p>
+<hr />
+<p><strong>2. Types of CNC Machines</strong></p>
+<p><strong>2.1. Common CNC Machine Types</strong></p>
+<p>🔹 <strong>CNC Milling Machine</strong> – Cuts material using a rotating tool</p>
+<p>🔹 <strong>CNC Lathe (Turning Center)</strong> – Rotates material and cuts with a stationary tool</p>
+<p>🔹 <strong>CNC Laser Cutter</strong> – Uses high-energy laser beams to cut material</p>
+<p>🔹 <strong>CNC Plasma Cutter</strong> – Uses a plasma torch to cut metal</p>
+<p>🔹 <strong>CNC Electrical Discharge Machining (EDM)</strong> – Uses electrical discharges to remove material</p>
+<p><strong>2.2. Difference Between CNC Milling vs. CNC Turning</strong></p>
+<p>|<strong>Feature</strong>|<strong>CNC Milling</strong>|<strong>CNC Turning</strong>|
+|---|---|---|
+|Tool Movement|Rotating Cutting Tool|Stationary Tool|
+|Workpiece|Fixed, Moved in Axes|Rotating Material|
+|Common Use|Complex 3D Shapes|Cylindrical Parts|</p>
+<hr />
+<p><strong>3. CNC Components &amp; Axis Movement</strong></p>
+<p><strong>3.1. Key CNC Machine Components</strong></p>
+<p>🔹 <strong>Control Unit</strong> – Computer that interprets the CNC program</p>
+<p>🔹 <strong>Spindle</strong> – Holds the cutting tool</p>
+<p>🔹 <strong>Tool Changer</strong> – Automatically switches tools</p>
+<p>🔹 <strong>Worktable</strong> – Holds the workpiece</p>
+<p>🔹 <strong>Coolant System</strong> – Keeps tools from overheating</p>
+<p><strong>3.2. Understanding CNC Axis Movements</strong></p>
+<p>|<strong>Axis</strong>|<strong>Description</strong>|
+|---|---|
+|X-Axis|Left &amp; Right Movement|
+|Y-Axis|Front &amp; Back Movement|
+|Z-Axis|Up &amp; Down Movement|
+|A, B, C|Rotational Axes|</p>
+<p><strong>Example: 3-Axis CNC Milling Machine</strong></p>
+<p><code>X → Moves Left/Right
+Y → Moves Forward/Backward
+Z → Moves Up/Down</code></p>
+<hr />
+<p><strong>4. Introduction to G-Code &amp; M-Code</strong></p>
+<p><strong>4.1. What is G-Code?</strong></p>
+<p>• <strong>G-Code</strong> is the language used to control CNC machines.</p>
+<p>• It tells the machine <strong>how to move, where to cut, and how fast to operate</strong>.</p>
+<p><strong>4.2. What is M-Code?</strong></p>
+<p>• <strong>M-Code</strong> controls <strong>machine-specific commands</strong>, such as <strong>coolant, tool changes, and spindle control</strong>.</p>
+<hr />
+<p><strong>5. Basic CNC G-Code Commands</strong></p>
+<p><strong>5.1. Essential G-Code Commands</strong></p>
+<p>|<strong>G-Code</strong>|<strong>Function</strong>|
+|---|---|
+|<strong>G00</strong>|Rapid Positioning (Fast Move)|
+|<strong>G01</strong>|Linear Interpolation (Cut)|
+|<strong>G02</strong>|Clockwise Arc|
+|<strong>G03</strong>|Counterclockwise Arc|
+|<strong>G28</strong>|Return to Machine Home|
+|<strong>G90</strong>|Absolute Positioning|
+|<strong>G91</strong>|Relative Positioning|</p>
+<p><strong>Example: Moving to a Position</strong></p>
+<p><code>G00 X50 Y25 Z10  ; Move to (X50, Y25, Z10) at rapid speed
+G01 X100 Y50 F200 ; Cut to (X100, Y50) at 200mm/min feedrate</code></p>
+<p><strong>5.2. Essential M-Code Commands</strong></p>
+<p>|<strong>M-Code</strong>|<strong>Function</strong>|
+|---|---|
+|<strong>M03</strong>|Start Spindle Clockwise|
+|<strong>M04</strong>|Start Spindle Counterclockwise|
+|<strong>M05</strong>|Stop Spindle|
+|<strong>M06</strong>|Tool Change|
+|<strong>M08</strong>|Coolant On|
+|<strong>M09</strong>|Coolant Off|
+|<strong>M30</strong>|Program End|</p>
+<p><strong>Example: Start Spindle &amp; Coolant</strong></p>
+<p><code>M03 S1000 ; Start spindle at 1000 RPM
+M08       ; Turn coolant ON</code></p>
+<hr />
+<p><strong>6. Basic CNC Operations</strong></p>
+<p><strong>6.1. Tool Setup &amp; Tool Offsets</strong></p>
+<ol>
+<li>
+<p><strong>Insert the correct tool</strong> into the spindle.</p>
+</li>
+<li>
+<p><strong>Set tool length offset</strong> to ensure proper depth.</p>
+</li>
+<li>
+<p><strong>Use a tool probe</strong> to measure tool length.</p>
+</li>
+</ol>
+<p><strong>Example: Setting Tool Offset (T1)</strong></p>
+<p><code>G43 H1  ; Apply Tool Offset for Tool 1</code></p>
+<p><strong>6.2. Work Offsets &amp; Machine Zero</strong></p>
+<p>• <strong>G54 to G59</strong> – Work Offset Commands (Set Workpiece Zero)</p>
+<p>• <strong>G28</strong> – Machine Home</p>
+<p><strong>Example: Setting Workpiece Zero</strong></p>
+<p><code>G54 ; Use Work Offset 1
+G00 X0 Y0 Z0 ; Move to Zero Position</code></p>
+<p><strong>6.3. Feeds &amp; Speeds</strong></p>
+<p>• <strong>Feed Rate (F)</strong> – Speed at which the tool moves</p>
+<p>• <strong>Spindle Speed (S)</strong> – Rotational speed of the tool</p>
+<p><strong>Example: Setting Feed &amp; Speed</strong></p>
+<p><code>G01 X100 Y50 F200 ; Move with a feed rate of 200 mm/min
+M03 S1500 ; Set spindle speed to 1500 RPM</code></p>
+<hr />
+<p><strong>7. CNC Safety &amp; Troubleshooting</strong></p>
+<p><strong>7.1. Safety Tips</strong></p>
+<p>✅ <strong>Use Safety Glasses &amp; Gloves</strong> – Protects against flying debris</p>
+<p>✅ <strong>Double-Check G-Code</strong> – Prevents crashes</p>
+<p>✅ <strong>Use Emergency Stop (E-Stop)</strong> – Stops the machine instantly</p>
+<p>✅ <strong>Secure Workpiece</strong> – Prevents vibrations and movement</p>
+<p><strong>7.2. Common CNC Errors &amp; Solutions</strong></p>
+<p>|<strong>Issue</strong>|<strong>Possible Cause</strong>|<strong>Solution</strong>|
+|---|---|---|
+|Tool Breakage|Incorrect Feeds/Speeds|Adjust feed &amp; speed|
+|Material Burning|Tool moving too slow|Increase feed rate|
+|Workpiece Shifted|Loose clamping|Re-tighten clamps|
+|G-Code Error|Syntax mistake|Debug program|</p>
+<hr />
+<p><strong>8. Building a Simple CNC Program</strong></p>
+<p><strong>Objective:</strong></p>
+<p>• Start the <strong>spindle at 1200 RPM</strong></p>
+<p>• Move to <strong>X50, Y50</strong> at <strong>rapid speed</strong></p>
+<p>• Cut a <strong>50mm straight line</strong></p>
+<p>• Stop the <strong>spindle and coolant</strong></p>
+<p>```
+G21        ; Use millimeters
+G90        ; Absolute positioning
+G54        ; Work offset</p>
+<p>M06 T1     ; Select Tool 1
+M03 S1200  ; Start spindle at 1200 RPM
+M08        ; Turn on coolant</p>
+<p>G00 X50 Y50 ; Rapid move to start position
+G01 X100 Y50 F200 ; Cut a straight line at 200mm/min</p>
+<p>M09        ; Coolant OFF
+M05        ; Spindle OFF
+M30        ; End program
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in CNC Level 1:</strong></p>
+<p>✅ <strong>CNC Machine Basics &amp; Types</strong></p>
+<p>✅ <strong>CNC Components &amp; Axis Movements</strong></p>
+<p>✅ <strong>G-Code &amp; M-Code Programming</strong></p>
+<p>✅ <strong>Basic CNC Operations (Tool Setup, Work Offsets, Feeds &amp; Speeds)</strong></p>
+<p>✅ <strong>CNC Safety &amp; Troubleshooting</strong></p>
+<p>✅ <strong>Built a Simple CNC Program</strong></p>
+<p>Now, you’re ready for <strong>CNC Level 2</strong>, where we explore <strong>Advanced CNC Programming, 4-Axis &amp; 5-Axis Machining, and CNC Automation with Robots!</strong> 🚀</p></body></html>

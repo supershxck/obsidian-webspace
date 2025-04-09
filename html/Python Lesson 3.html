@@ -1,0 +1,193 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>12:02:14</strong> 
+<strong>Topics:</strong> [[SQL L1]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>prompt: Lesson 3, Python. Teach advanced concepts in simple terms and with examples. machine learning, AI, web development, or automation among the topics</p>
+</blockquote>
+<hr />
+<p><strong>Advanced Python: Machine Learning, AI, Web Development, and Automation</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Welcome to the <strong>advanced Python</strong> lesson! In this lesson, we’ll dive into <strong>machine learning</strong>, <strong>artificial intelligence</strong>, <strong>web development</strong>, and <strong>automation</strong>. These topics represent some of the most powerful uses of Python in modern development. By the end of this lesson, you’ll have the knowledge to work on real-world projects in these fields.</p>
+<hr />
+<p><strong>1. Machine Learning with Python</strong></p>
+<p>Python is one of the most popular languages for machine learning (ML) because of libraries like <strong>scikit-learn</strong>, <strong>TensorFlow</strong>, and <strong>PyTorch</strong>. Let’s get started by understanding basic ML concepts and how to implement them in Python.</p>
+<p><strong>1.1. Introduction to Machine Learning</strong></p>
+<p>Machine learning involves creating models that learn patterns from data to make predictions or decisions.</p>
+<p><strong>Steps for a Machine Learning Project:</strong></p>
+<ol>
+<li>
+<p><strong>Data Collection:</strong> Gather relevant data.</p>
+</li>
+<li>
+<p><strong>Data Preprocessing:</strong> Clean the data (remove missing values, normalize, etc.).</p>
+</li>
+<li>
+<p><strong>Model Selection:</strong> Choose a suitable ML algorithm (e.g., regression, classification).</p>
+</li>
+<li>
+<p><strong>Model Training:</strong> Train the model on the data.</p>
+</li>
+<li>
+<p><strong>Model Evaluation:</strong> Evaluate the model’s performance.</p>
+</li>
+<li>
+<p><strong>Prediction:</strong> Make predictions on new data.</p>
+</li>
+</ol>
+<p><strong>1.2. Simple Machine Learning with Scikit-Learn</strong></p>
+<p><code>pip install scikit-learn</code></p>
+<p><strong>Example: Linear Regression</strong></p>
+<p>```
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split</p>
+<h1>Example data</h1>
+<p>X = np.array([[1], [2], [3], [4], [5]])  # Feature: X
+y = np.array([1, 2, 3, 4, 5])  # Target: y</p>
+<h1>Split data into training and testing sets</h1>
+<p>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)</p>
+<h1>Create and train the model</h1>
+<p>model = LinearRegression()
+model.fit(X_train, y_train)</p>
+<h1>Make predictions</h1>
+<p>predictions = model.predict(X_test)</p>
+<h1>Plot results</h1>
+<p>plt.scatter(X, y, color='blue')
+plt.plot(X, model.predict(X), color='red')
+plt.show()
+```</p>
+<p>This simple example performs <strong>linear regression</strong>, a fundamental machine learning technique for predicting a target variable based on one or more input features.</p>
+<hr />
+<p><strong>2. Artificial Intelligence (AI) with Python</strong></p>
+<p>Artificial Intelligence refers to the simulation of human intelligence processes by machines. Python plays a big role in AI through libraries like <strong>TensorFlow</strong>, <strong>Keras</strong>, and <strong>PyTorch</strong>.</p>
+<p><strong>2.1. Introduction to Neural Networks</strong></p>
+<p>Neural networks are a key aspect of AI, used in tasks like image recognition, language processing, and decision-making. A <strong>neural network</strong> consists of layers of <strong>neurons</strong> that process information in a way inspired by the human brain.</p>
+<p><strong>Simple Neural Network Example using Keras</strong></p>
+<p><code>pip install tensorflow</code></p>
+<p>```
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split</p>
+<h1>Load dataset</h1>
+<p>data = load_iris()
+X = data.data
+y = data.target</p>
+<h1>Split data into training and testing sets</h1>
+<p>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)</p>
+<h1>Create a neural network model</h1>
+<p>model = Sequential()
+model.add(Dense(10, input_dim=4, activation='relu'))  # 4 features
+model.add(Dense(3, activation='softmax'))  # 3 classes (Iris species)</p>
+<h1>Compile the model</h1>
+<p>model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])</p>
+<h1>Train the model</h1>
+<p>model.fit(X_train, y_train, epochs=50, batch_size=10)</p>
+<h1>Evaluate the model</h1>
+<p>loss, accuracy = model.evaluate(X_test, y_test)
+print(f"Test Accuracy: {accuracy}")
+```</p>
+<p>This example shows a simple <strong>neural network</strong> built with <strong>Keras</strong> for classifying flowers from the <strong>Iris dataset</strong>. The model uses <strong>softmax</strong> activation for multi-class classification.</p>
+<hr />
+<p><strong>3. Web Development with Python</strong></p>
+<p>Python is widely used for <strong>backend development</strong>, building powerful web applications. The most popular frameworks are <strong>Flask</strong> and <strong>Django</strong>.</p>
+<p><strong>3.1. Web Development with Flask</strong></p>
+<p>Flask is a lightweight web framework for Python, perfect for smaller applications or if you need more control over your app’s structure.</p>
+<p><strong>Example: Flask Web Application</strong></p>
+<p><code>pip install flask</code></p>
+<p>```
+from flask import Flask</p>
+<p>app = Flask(<strong>name</strong>)</p>
+<p>@app.route('/')
+def hello_world():
+    return 'Hello, World!'</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+    app.run(debug=True)
+```</p>
+<p>In this example, a simple Flask app is created with a route (/) that returns <strong>“Hello, World!”</strong>. Flask allows easy creation of APIs, forms, and templates.</p>
+<hr />
+<p><strong>4. Automation with Python</strong></p>
+<p>Python is great for automating repetitive tasks like web scraping, file manipulation, and interacting with APIs.</p>
+<p><strong>4.1. Web Scraping with BeautifulSoup</strong></p>
+<p><strong>BeautifulSoup</strong> helps you scrape data from websites.</p>
+<p><strong>Example: Scraping Data from a Website</strong></p>
+<p><code>pip install beautifulsoup4 requests</code></p>
+<p>```
+import requests
+from bs4 import BeautifulSoup</p>
+<h1>Send GET request to a webpage</h1>
+<p>url = "https://quotes.toscrape.com/"
+response = requests.get(url)</p>
+<h1>Parse HTML content</h1>
+<p>soup = BeautifulSoup(response.text, 'html.parser')</p>
+<h1>Extract quotes</h1>
+<p>quotes = soup.find_all("span", class_="text")
+for quote in quotes:
+    print(quote.text)
+```</p>
+<p>This script scrapes <strong>quotes</strong> from the “Quotes to Scrape” website. It uses <strong>requests</strong> to fetch the page and <strong>BeautifulSoup</strong> to parse and extract specific data.</p>
+<p><strong>4.2. Automating File Management</strong></p>
+<p>Python makes it easy to automate tasks like renaming files, organizing directories, and moving files.</p>
+<p><strong>Example: File Renaming Automation</strong></p>
+<p>```
+import os</p>
+<h1>Specify the directory</h1>
+<p>directory = "example_folder"</p>
+<h1>Loop through files in the directory</h1>
+<p>for filename in os.listdir(directory):
+    if filename.endswith(".txt"):
+        new_name = filename.replace("old", "new")
+        os.rename(os.path.join(directory, filename), os.path.join(directory, new_name))</p>
+<p>print("Files renamed successfully.")
+```</p>
+<p>This script automatically renames .txt files in a specified folder by replacing the word “old” with “new”.</p>
+<hr />
+<p><strong>5. Advanced Concepts: Concurrency and Parallelism</strong></p>
+<p>Python allows you to run multiple tasks at once through <strong>multithreading</strong> and <strong>multiprocessing</strong>, which is essential for performance optimization in AI, web servers, and automation.</p>
+<p><strong>5.1. Using Threads for Concurrency</strong></p>
+<p>```
+import threading</p>
+<p>def print_numbers():
+    for i in range(5):
+        print(i)</p>
+<h1>Create multiple threads</h1>
+<p>threads = []
+for _ in range(3):
+    t = threading.Thread(target=print_numbers)
+    threads.append(t)
+    t.start()</p>
+<h1>Wait for threads to complete</h1>
+<p>for t in threads:
+    t.join()
+```</p>
+<p>This example runs multiple threads concurrently. Each thread prints numbers from 0 to 4.</p>
+<p><strong>5.2. Using Processes for Parallelism</strong></p>
+<p>```
+import multiprocessing</p>
+<p>def worker(num):
+    print(f"Worker {num}")</p>
+<h1>Create multiple processes</h1>
+<p>processes = []
+for i in range(5):
+    p = multiprocessing.Process(target=worker, args=(i,))
+    processes.append(p)
+    p.start()</p>
+<h1>Wait for processes to finish</h1>
+<p>for p in processes:
+    p.join()
+```</p>
+<p>This example runs multiple processes in parallel, which is more efficient than threads for CPU-bound tasks.</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p>You’ve now learned:</p>
+<p>• <strong>Machine Learning</strong>: Building models with <strong>scikit-learn</strong> and <strong>Keras</strong>.</p>
+<p>• <strong>Artificial Intelligence</strong>: Neural networks and deep learning.</p>
+<p>• <strong>Web Development</strong>: Building a web app with <strong>Flask</strong>.</p>
+<p>• <strong>Automation</strong>: Web scraping with <strong>BeautifulSoup</strong> and automating file management with <strong>os</strong>.</p>
+<p>• <strong>Concurrency and Parallelism</strong>: Using <strong>threading</strong> and <strong>multiprocessing</strong> to improve performance.</p>
+<p>With these advanced concepts, you can now begin working on <strong>real-world projects</strong> in <strong>AI</strong>, <strong>machine learning</strong>, <strong>web development</strong>, and <strong>automation</strong>. Keep pushing the boundaries and building innovative solutions! 🚀</p></body></html>

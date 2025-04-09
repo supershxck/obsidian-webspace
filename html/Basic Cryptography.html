@@ -1,0 +1,134 @@
+<html><body><blockquote>
+<p><strong>April 2nd, 2025</strong>  <strong>16:20:35</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p>Below is a concise, article-style overview of <strong>Basic Cryptography</strong>, covering its core concepts, historical context, and practical applications.</p>
+<hr />
+<p><strong>Basic Cryptography: Foundations and Concepts</strong></p>
+<p><strong>1. Introduction</strong></p>
+<p><strong>Cryptography</strong> is the science of securing information by transforming it in ways that protect its confidentiality, integrity, and authenticity. From ancient ciphers used by military commanders to modern-day internet protocols, cryptography underpins secure communications, e-commerce, data protection, and more.</p>
+<p><strong>Why It Matters</strong>: In an era of ubiquitous digital communication and data exchange, cryptography provides essential mechanisms for safeguarding sensitive information from prying eyes or malicious alteration.</p>
+<hr />
+<p><strong>2. Historical Context</strong></p>
+<ol>
+<li><strong>Ancient Ciphers</strong></li>
+</ol>
+<p>• Early methods, such as the <strong>Caesar cipher</strong>, relied on simple character shifts.</p>
+<p>• The <strong>Scytale</strong> (used by the Spartans) was a transposition-based system for hidden messages.</p>
+<ol>
+<li><strong>Medieval and Renaissance Cryptanalysis</strong></li>
+</ol>
+<p>• By the late Middle Ages, <strong>polyalphabetic ciphers</strong> like the Vigenère cipher emerged to thwart basic frequency analysis.</p>
+<p>• Cipher machines, including the German Enigma device in WWII, introduced mechanical complexity, which was ultimately broken by Allied cryptanalysts, underscoring the arms race between cryptographers and cryptanalysts.</p>
+<ol>
+<li><strong>Modern Era</strong></li>
+</ol>
+<p>• The invention of computers in the mid-20th century revolutionized cryptography, leading to sophisticated algorithms that today protect global communications.</p>
+<hr />
+<p><strong>3. Key Cryptographic Goals</strong></p>
+<ol>
+<li><strong>Confidentiality</strong></li>
+</ol>
+<p>• Ensuring that information is accessible only to those authorized to view it.</p>
+<ol>
+<li><strong>Integrity</strong></li>
+</ol>
+<p>• Detecting unauthorized modifications or data corruption.</p>
+<ol>
+<li><strong>Authenticity</strong></li>
+</ol>
+<p>• Verifying the identity of a sender or the source of information.</p>
+<ol>
+<li><strong>Non-Repudiation</strong></li>
+</ol>
+<p>• Preventing an entity from denying having sent a message or performed an action.</p>
+<hr />
+<p><strong>4. Fundamental Techniques</strong></p>
+<p><strong>4.1 Symmetric-Key Cryptography</strong></p>
+<p>• <strong>Definition</strong>: Both sender and receiver share the same secret key.</p>
+<p>• <strong>Examples</strong>:</p>
+<p>• <strong>AES (Advanced Encryption Standard)</strong>: A widely adopted block cipher for secure data encryption.</p>
+<p>• <strong>DES (Data Encryption Standard)</strong>: An older standard now considered weak but historically significant.</p>
+<p>• <strong>Pros &amp; Cons</strong>:</p>
+<p>• <strong>Pros</strong>: Efficient for bulk data encryption, relatively fast.</p>
+<p>• <strong>Cons</strong>: Requires secure key exchange/distribution, prone to interception if handled improperly.</p>
+<p><strong>4.2 Asymmetric-Key Cryptography</strong></p>
+<p>• <strong>Definition</strong>: Uses a <strong>public key</strong> for encryption and a <strong>private key</strong> for decryption (or vice versa), eliminating the need to share a secret key beforehand.</p>
+<p>• <strong>Examples</strong>:</p>
+<p>• <strong>RSA</strong>: One of the earliest public-key systems, based on the mathematical difficulty of factoring large integers.</p>
+<p>• <strong>Elliptic Curve Cryptography (ECC)</strong>: Relies on the hardness of certain discrete logarithm problems on elliptic curves, offering similar security with smaller key sizes.</p>
+<p>• <strong>Pros &amp; Cons</strong>:</p>
+<p>• <strong>Pros</strong>: Simplifies key distribution; ideal for digital signatures and secure key exchange.</p>
+<p>• <strong>Cons</strong>: Slower performance than symmetric algorithms, often used alongside symmetric ciphers for performance reasons.</p>
+<p><strong>4.3 Hash Functions</strong></p>
+<p>• <strong>Definition</strong>: Mathematical functions that map data of arbitrary size to a fixed-size output (hash or digest).</p>
+<p>• <strong>Examples</strong>:</p>
+<p>• <strong>SHA-2 (Secure Hash Algorithm 2)</strong>: Common family of secure hash functions (e.g., SHA-256, SHA-512).</p>
+<p>• <strong>SHA-3 (Keccak)</strong>: Newer standard, using a sponge construction for additional security.</p>
+<p>• <strong>Main Purpose</strong>:</p>
+<p>• Integrity verification (detect tampering).</p>
+<p>• Digital signatures (hashing messages before encryption).</p>
+<p>• Password storage (hashed + salted to protect raw passwords).</p>
+<p><strong>4.4 Digital Signatures</strong></p>
+<p>• <strong>Definition</strong>: A cryptographic scheme combining hash functions and asymmetric algorithms to prove authenticity and integrity of a message.</p>
+<p>• <strong>Process</strong>:</p>
+<ol>
+<li>
+<p>Compute a hash of the message.</p>
+</li>
+<li>
+<p>Encrypt the hash with the sender’s private key, creating a signature.</p>
+</li>
+<li>
+<p>The recipient verifies the signature by decrypting it with the sender’s public key and comparing it to the recomputed hash.</p>
+</li>
+</ol>
+<hr />
+<p><strong>5. Practical Applications</strong></p>
+<ol>
+<li><strong>Secure Communications</strong></li>
+</ol>
+<p>• <strong>HTTPS</strong> (TLS/SSL): Protects web traffic from eavesdropping and tampering, using a combination of asymmetric and symmetric ciphers.</p>
+<p>• <strong>VPNs</strong>: Encrypted tunnels for remote or site-to-site connections, ensuring confidentiality over untrusted networks.</p>
+<ol>
+<li><strong>Secure Storage</strong></li>
+</ol>
+<p>• <strong>Disk Encryption</strong>: Protects data at rest on hard drives or devices (e.g., BitLocker, FileVault).</p>
+<p>• <strong>Encrypted Databases</strong>: Uses ciphers to store data securely, mitigating risks of unauthorized access to raw data.</p>
+<ol>
+<li><strong>Authentication and Identity</strong></li>
+</ol>
+<p>• <strong>Password Hashing</strong>: Systems store only hashed versions of user passwords, adding salts to mitigate rainbow table attacks.</p>
+<p>• <strong>Digital Certificates</strong>: Issued by Certificate Authorities to validate the authenticity of public keys and domains (e.g., in HTTPS).</p>
+<ol>
+<li><strong>Blockchain and Cryptocurrency</strong></li>
+</ol>
+<p>• Heavy reliance on <strong>hash functions</strong> and <strong>public-key cryptography</strong> to validate transactions, secure wallets, and maintain distributed ledgers.</p>
+<hr />
+<p><strong>6. Common Threats and Challenges</strong></p>
+<ol>
+<li><strong>Key Management</strong></li>
+</ol>
+<p>• Securely generating, distributing, rotating, and revoking cryptographic keys remains a core operational challenge.</p>
+<ol>
+<li><strong>Weak Random Number Generators</strong></li>
+</ol>
+<p>• Predictable or biased randomness can compromise algorithms like RSA or ECC.</p>
+<ol>
+<li><strong>Quantum Computing</strong></li>
+</ol>
+<p>• Potential future quantum computers could break many current asymmetric ciphers (e.g., RSA, ECC). Researchers are developing <strong>post-quantum cryptography</strong> algorithms to address this.</p>
+<ol>
+<li><strong>Implementation Vulnerabilities</strong></li>
+</ol>
+<p>• Even secure algorithms can be undermined by poor coding practices, side-channel attacks, or vulnerabilities in cryptographic libraries.</p>
+<hr />
+<p><strong>7. Modern Trends and Future Outlook</strong></p>
+<p>• <strong>Elliptic Curve and Post-Quantum</strong>: Transition toward smaller, more efficient keys (ECC) and exploration of cryptographic schemes resistant to quantum attacks.</p>
+<p>• <strong>Zero-Knowledge Proofs</strong>: Techniques allowing one party to prove knowledge of a secret without revealing it, with implications for privacy-preserving applications.</p>
+<p>• <strong>Homomorphic Encryption</strong>: Enables computations on encrypted data without needing decryption first, offering breakthroughs for secure cloud computing and data analytics.</p>
+<hr />
+<p><strong>8. Conclusion</strong></p>
+<p><strong>Cryptography</strong> forms the backbone of secure digital interactions, ensuring data and communication remain confidential, authentic, and tamper-resistant. By leveraging symmetric and asymmetric ciphers, hash functions, and digital signature schemes, cryptography provides a multilayered defense against threats in an increasingly interconnected world. As technology advances—especially with the potential impact of quantum computing—cryptographic methods will continue evolving to safeguard information and maintain trust in our digital infrastructure.</p></body></html>

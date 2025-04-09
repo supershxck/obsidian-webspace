@@ -1,0 +1,253 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>11:55:23</strong> 
+<strong>Topics:</strong> [[Python Lesson 3]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>prompt: Lesson 2, Python. Teach all intermediate concepts in simple terms and with examples. By the end of this lesson, all the material for one to be able to be an advanced Python programmer should be available</p>
+</blockquote>
+<p><strong>Python Crash Course: From Intermediate to Advanced in One Lesson</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you have a strong foundation in Python, it’s time to dive into <strong>intermediate</strong> and <strong>advanced</strong> concepts that will help you write efficient, scalable, and professional Python code. By the end of this lesson, you’ll be capable of handling <strong>real-world</strong> applications and preparing for <strong>expert-level Python programming</strong>.</p>
+<hr />
+<p><strong>1. Advanced Data Structures</strong></p>
+<p>Python offers <strong>powerful built-in data structures</strong> beyond lists and dictionaries.</p>
+<p><strong>1.1. Named Tuples</strong></p>
+<p>Named tuples make tuples more readable by allowing <strong>attribute-based access</strong>.</p>
+<p>```
+from collections import namedtuple</p>
+<p>Person = namedtuple("Person", ["name", "age"])
+alice = Person(name="Alice", age=25)</p>
+<p>print(alice.name)  # Alice
+print(alice.age)   # 25
+```</p>
+<p><strong>1.2. Default Dictionaries</strong></p>
+<p>A defaultdict automatically provides a default value for missing keys.</p>
+<p>```
+from collections import defaultdict</p>
+<p>scores = defaultdict(int)
+scores["Alice"] += 10  # Default value is 0, then adds 10</p>
+<p>print(scores["Alice"])  # 10
+print(scores["Bob"])    # 0 (instead of KeyError)
+```</p>
+<p><strong>1.3. Deques (Fast Append/Pop)</strong></p>
+<p>```
+from collections import deque</p>
+<p>queue = deque([1, 2, 3])
+queue.append(4)  # Add to the right
+queue.appendleft(0)  # Add to the left</p>
+<p>print(queue)  # deque([0, 1, 2, 3, 4])</p>
+<p>queue.pop()  # Remove from right
+queue.popleft()  # Remove from left
+```</p>
+<hr />
+<p><strong>2. Functional Programming in Python</strong></p>
+<p>Python supports functional programming with <strong>map, filter, reduce, and lambdas</strong>.</p>
+<p><strong>2.1. Map Function</strong></p>
+<p>Applies a function to each element in an iterable.</p>
+<p><code>numbers = [1, 2, 3, 4]
+squared = list(map(lambda x: x**2, numbers))
+print(squared)  # [1, 4, 9, 16]</code></p>
+<p><strong>2.2. Filter Function</strong></p>
+<p>Filters elements based on a condition.</p>
+<p><code>even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)  # [2, 4]</code></p>
+<p><strong>2.3. Reduce Function</strong></p>
+<p>Performs cumulative operations.</p>
+<p>```
+from functools import reduce</p>
+<p>product = reduce(lambda x, y: x * y, numbers)
+print(product)  # 24 (1<em>2</em>3*4)
+```</p>
+<hr />
+<p><strong>3. Advanced Object-Oriented Programming (OOP)</strong></p>
+<p><strong>3.1. Class Inheritance</strong></p>
+<p>```
+class Animal:
+    def speak(self):
+        return "Animal sound"</p>
+<p>class Dog(Animal):
+    def speak(self):
+        return "Woof!"</p>
+<p>dog = Dog()
+print(dog.speak())  # Woof!
+```</p>
+<p><strong>3.2. Abstract Classes</strong></p>
+<p>Abstract classes enforce method implementation in subclasses.</p>
+<p>```
+from abc import ABC, abstractmethod</p>
+<p>class Vehicle(ABC):
+    @abstractmethod
+    def start_engine(self):
+        pass</p>
+<p>class Car(Vehicle):
+    def start_engine(self):
+        return "Engine started!"</p>
+<p>my_car = Car()
+print(my_car.start_engine())  # Engine started!
+```</p>
+<p><strong>3.3. Magic Methods (<strong>str</strong>, <strong>repr</strong>, <strong>len</strong>)</strong></p>
+<p>```
+class Book:
+    def <strong>init</strong>(self, title, pages):
+        self.title = title
+        self.pages = pages</p>
+<pre><code>def __str__(self):
+    return f"{self.title} - {self.pages} pages"
+
+def __len__(self):
+    return self.pages
+</code></pre>
+<p>book = Book("Python Mastery", 300)
+print(book)  # Python Mastery - 300 pages
+print(len(book))  # 300
+```</p>
+<hr />
+<p><strong>4. Exception Handling Best Practices</strong></p>
+<p><strong>4.1. Custom Exceptions</strong></p>
+<p>```
+class NegativeNumberError(Exception):
+    pass</p>
+<p>def check_number(n):
+    if n &lt; 0:
+        raise NegativeNumberError("Negative numbers are not allowed!")</p>
+<p>try:
+    check_number(-5)
+except NegativeNumberError as e:
+    print(e)
+```</p>
+<hr />
+<p><strong>5. Multithreading and Multiprocessing</strong></p>
+<p><strong>5.1. Multithreading (Concurrency)</strong></p>
+<p>```
+import threading</p>
+<p>def print_numbers():
+    for i in range(5):
+        print(i)</p>
+<p>t1 = threading.Thread(target=print_numbers)
+t1.start()
+t1.join()  # Wait for the thread to complete
+```</p>
+<p><strong>5.2. Multiprocessing (Parallel Execution)</strong></p>
+<p>```
+import multiprocessing</p>
+<p>def worker(num):
+    print(f"Worker {num}")</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    processes = [multiprocessing.Process(target=worker, args=(i,)) for i in range(5)]</p>
+<pre><code>for p in processes:
+    p.start()
+
+for p in processes:
+    p.join()
+</code></pre>
+<p>```</p>
+<hr />
+<p><strong>6. Decorators</strong></p>
+<p>Decorators modify functions dynamically.</p>
+<p><strong>6.1. Basic Decorator</strong></p>
+<p>```
+def decorator(func):
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+    return wrapper</p>
+<p>@decorator
+def say_hello():
+    print("Hello!")</p>
+<p>say_hello()
+```</p>
+<p><strong>6.2. Decorators with Arguments</strong></p>
+<p>```
+def repeat(n):
+    def decorator(func):
+        def wrapper(<em>args, </em><em>kwargs):
+            for _ in range(n):
+                func(</em>args, **kwargs)
+        return wrapper
+    return decorator</p>
+<p>@repeat(3)
+def greet():
+    print("Hello!")</p>
+<p>greet()
+```</p>
+<hr />
+<p><strong>7. Generators and Iterators</strong></p>
+<p><strong>7.1. Generator Function</strong></p>
+<p>```
+def count_up_to(n):
+    for i in range(n):
+        yield i</p>
+<p>gen = count_up_to(5)
+print(next(gen))  # 0
+print(next(gen))  # 1
+```</p>
+<p><strong>7.2. Custom Iterator</strong></p>
+<p>```
+class Counter:
+    def <strong>init</strong>(self, max):
+        self.max = max
+        self.current = 0</p>
+<pre><code>def __iter__(self):
+    return self
+
+def __next__(self):
+    if self.current &gt;= self.max:
+        raise StopIteration
+    self.current += 1
+    return self.current
+</code></pre>
+<p>counter = Counter(5)
+for num in counter:
+    print(num)
+```</p>
+<hr />
+<p><strong>8. Asynchronous Programming</strong></p>
+<p><strong>8.1. Async and Await</strong></p>
+<p>```
+import asyncio</p>
+<p>async def say_hello():
+    await asyncio.sleep(1)
+    print("Hello!")</p>
+<p>asyncio.run(say_hello())
+```</p>
+<hr />
+<p><strong>9. Python Design Patterns</strong></p>
+<p><strong>9.1. Singleton Pattern</strong></p>
+<p>Ensures a class has only <strong>one instance</strong>.</p>
+<p>```
+class Singleton:
+    _instance = None</p>
+<pre><code>def __new__(cls):
+    if cls._instance is None:
+        cls._instance = super(Singleton, cls).__new__(cls)
+    return cls._instance
+</code></pre>
+<p>obj1 = Singleton()
+obj2 = Singleton()
+print(obj1 is obj2)  # True
+```</p>
+<hr />
+<p><strong>10. Final Project: Web Scraper</strong></p>
+<p>```
+import requests
+from bs4 import BeautifulSoup</p>
+<p>url = "https://news.ycombinator.com/"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")</p>
+<p>for item in soup.find_all("a", class_="titlelink"):
+    print(item.text)
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p>You’ve now covered <strong>advanced Python concepts</strong>, including:</p>
+<p>• <strong>Advanced data structures</strong></p>
+<p>• <strong>Functional programming</strong></p>
+<p>• <strong>OOP &amp; Design Patterns</strong></p>
+<p>• <strong>Concurrency &amp; Parallelism</strong></p>
+<p>• <strong>Async programming</strong></p>
+<p>• <strong>Decorators &amp; Generators</strong></p>
+<p>• <strong>Web scraping &amp; Real-world projects</strong></p>
+<p>You’re now <strong>ready to build high-level Python applications</strong> and explore <strong>machine learning, AI, web development, or automation</strong>. 🚀 Keep coding!</p></body></html>

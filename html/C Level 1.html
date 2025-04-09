@@ -1,0 +1,247 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>22:29:54</strong> 
+<strong>Topics:</strong> [[C Level 2]] 
+<strong>Tags:</strong> #CS  </p>
+</blockquote>
+<hr />
+<p><strong>C Programming Level 1: Introduction to C Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>C is a <strong>powerful, procedural programming language</strong> used for <strong>system programming, embedded systems, operating systems, and high-performance applications</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Setting Up a C Development Environment</strong></p>
+<p>✅ <strong>Basic Syntax (Variables, Data Types, Operators, Input/Output)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch)</strong></p>
+<p>✅ <strong>Functions &amp; Modular Programming</strong></p>
+<p>✅ <strong>Arrays &amp; Pointers (Introduction)</strong></p>
+<p>✅ <strong>Working with Files</strong></p>
+<p>✅ <strong>Building a Simple C Program</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic C programs, understand procedural programming, and use file handling in C</strong>.</p>
+<hr />
+<p><strong>1. Setting Up a C Development Environment</strong></p>
+<p><strong>1.1. Installing a C Compiler</strong></p>
+<p><strong>Windows</strong></p>
+<p>• Install <strong>MinGW</strong> from <a href="https://www.mingw-w64.org/">mingw-w64.org</a></p>
+<p>• Install <strong>GCC (GNU Compiler Collection)</strong></p>
+<p><strong>Linux/macOS</strong></p>
+<p><code>sudo apt install gcc        # Debian/Ubuntu
+sudo yum install gcc        # Fedora
+brew install gcc            # macOS (Homebrew)</code></p>
+<p><strong>1.2. Checking GCC Installation</strong></p>
+<p><code>gcc --version</code></p>
+<hr />
+<p><strong>2. Writing Your First C Program</strong></p>
+<p><strong>2.1. Hello World Program</strong></p>
+<p>Create hello.c:</p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    printf("Hello, C Programming!\n");
+    return 0;
+}
+```</p>
+<p><strong>2.2. Compiling and Running</strong></p>
+<p><code>gcc hello.c -o hello
+./hello</code></p>
+<hr />
+<p><strong>3. Basic Syntax: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>3.1. Declaring Variables</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int age = 25;
+    float pi = 3.14;
+    char grade = 'A';</p>
+<pre><code>printf("Age: %d\n", age);
+printf("Pi: %.2f\n", pi);
+printf("Grade: %c\n", grade);
+
+return 0;
+</code></pre>
+<p>}
+```</p>
+<p><strong>3.2. Taking User Input</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int age;
+    printf("Enter your age: ");
+    scanf("%d", &amp;age);
+    printf("You entered: %d\n", age);</p>
+<pre><code>return 0;
+</code></pre>
+<p>}
+```</p>
+<p><strong>3.3. Arithmetic &amp; Logical Operators</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int a = 10, b = 5;
+    printf("Sum: %d\n", a + b);
+    printf("Product: %d\n", a * b);
+    printf("Comparison (a &gt; b): %d\n", a &gt; b);</p>
+<pre><code>return 0;
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>4. Control Flow: If-Else, Loops, Switch</strong></p>
+<p><strong>4.1. If-Else Statement</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int num = 10;
+    if (num &gt; 5)
+        printf("Greater than 5\n");
+    else
+        printf("Less than or equal to 5\n");</p>
+<pre><code>return 0;
+</code></pre>
+<p>}
+```</p>
+<p><strong>4.2. For Loop</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    for (int i = 1; i &lt;= 5; i++) {
+        printf("Iteration %d\n", i);
+    }
+    return 0;
+}
+```</p>
+<p><strong>4.3. While Loop</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int count = 0;
+    while (count &lt; 3) {
+        printf("Count: %d\n", count);
+        count++;
+    }
+    return 0;
+}
+```</p>
+<p><strong>4.4. Switch Case</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int choice = 2;
+    switch (choice) {
+        case 1: printf("Option 1 selected\n"); break;
+        case 2: printf("Option 2 selected\n"); break;
+        default: printf("Invalid option\n");
+    }
+    return 0;
+}
+```</p>
+<hr />
+<p><strong>5. Functions &amp; Modular Programming</strong></p>
+<p><strong>5.1. Writing Functions</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>void greet() {
+    printf("Hello from a function!\n");
+}</p>
+<p>int main() {
+    greet();
+    return 0;
+}
+```</p>
+<p><strong>5.2. Function with Parameters</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>void square(int num) {
+    printf("Square: %d\n", num * num);
+}</p>
+<p>int main() {
+    square(5);
+    return 0;
+}
+```</p>
+<hr />
+<p><strong>6. Arrays &amp; Pointers (Introduction)</strong></p>
+<p><strong>6.1. Arrays</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int numbers[3] = {10, 20, 30};
+    printf("First number: %d\n", numbers[0]);
+    return 0;
+}
+```</p>
+<p><strong>6.2. Pointers</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int a = 10;
+    int *ptr = &a;</p>
+<pre><code>printf("Value of a: %d\n", a);
+printf("Address of a: %p\n", &amp;a);
+printf("Pointer stores address: %p\n", ptr);
+printf("Value at pointer address: %d\n", *ptr);
+
+return 0;
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>7. File Handling</strong></p>
+<p><strong>7.1. Writing to a File</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    FILE *file = fopen("output.txt", "w");
+    fprintf(file, "Hello, File Handling in C!\n");
+    fclose(file);
+    return 0;
+}
+```</p>
+<p><strong>7.2. Reading from a File</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    FILE *file = fopen("output.txt", "r");
+    char buffer[100];
+    fgets(buffer, 100, file);
+    printf("File content: %s", buffer);
+    fclose(file);
+    return 0;
+}
+```</p>
+<hr />
+<p><strong>8. Building a Simple C Program</strong></p>
+<p><strong>8.1. A Simple Calculator</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int a, b, choice;</p>
+<pre><code>printf("Enter two numbers: ");
+scanf("%d %d", &amp;a, &amp;b);
+
+printf("Choose operation: 1-Add, 2-Subtract: ");
+scanf("%d", &amp;choice);
+
+if (choice == 1)
+    printf("Result: %d\n", a + b);
+else if (choice == 2)
+    printf("Result: %d\n", a - b);
+else
+    printf("Invalid choice\n");
+
+return 0;
+</code></pre>
+<p>}
+```</p>
+<p>Compile and Run:</p>
+<p><code>gcc calculator.c -o calculator
+./calculator</code></p>
+<hr />
+<p><strong>9. Conclusion</strong></p>
+<p><strong>What You Learned in C Level 1:</strong></p>
+<p>✅ <strong>Setting Up a C Development Environment</strong></p>
+<p>✅ <strong>Basic Syntax (Variables, Data Types, Operators, Input/Output)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch)</strong></p>
+<p>✅ <strong>Functions &amp; Modular Programming</strong></p>
+<p>✅ <strong>Arrays &amp; Pointers (Introduction)</strong></p>
+<p>✅ <strong>Working with Files</strong></p>
+<p>✅ <strong>Built a Simple C Program</strong></p>
+<p>Now, you’re ready for <strong>C Level 2</strong>, where we explore <strong>Advanced Pointers, Memory Management, Data Structures, and System Programming!</strong> 🚀</p></body></html>

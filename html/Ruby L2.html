@@ -1,0 +1,206 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>18:35:45</strong> 
+<strong>Topics:</strong> [[Ruby L3]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Ruby Level 2: Intermediate to Advanced Ruby Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>In <strong>Ruby Level 2</strong>, we explore <strong>advanced programming concepts</strong>, focusing on <strong>metaprogramming, web development, APIs, and database interactions</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Object-Oriented Programming (Modules, Mixins, Metaprogramming)</strong></p>
+<p>✅ <strong>Concurrency &amp; Multithreading in Ruby</strong></p>
+<p>✅ <strong>Working with APIs (HTTP Requests, JSON Parsing)</strong></p>
+<p>✅ <strong>Database Management with ActiveRecord &amp; PostgreSQL</strong></p>
+<p>✅ <strong>Web Development with Sinatra &amp; Ruby on Rails</strong></p>
+<p>✅ <strong>Testing in Ruby (RSpec &amp; MiniTest)</strong></p>
+<p>✅ <strong>Building a RESTful API in Ruby</strong></p>
+<p>By the end of this lesson, you will be able to <strong>build scalable Ruby applications and APIs</strong>.</p>
+<hr />
+<p><strong>1. Advanced Object-Oriented Programming</strong></p>
+<p><strong>1.1. Modules &amp; Mixins</strong></p>
+<p>Ruby <strong>doesn’t support multiple inheritance</strong>, but we can <strong>share behavior across classes using mixins</strong>.</p>
+<p>```
+module Logger
+  def log(message)
+    puts "[LOG] #{message}"
+  end
+end</p>
+<p>class User
+  include Logger</p>
+<p>def create
+    log("User created")
+  end
+end</p>
+<p>user = User.new
+user.create  # =&gt; [LOG] User created
+```</p>
+<p><strong>1.2. Metaprogramming (Dynamic Methods)</strong></p>
+<p>Metaprogramming allows Ruby to <strong>modify or create methods dynamically</strong>.</p>
+<p><strong>Define Methods Dynamically</strong></p>
+<p>```
+class Dynamic
+  def self.create_method(name)
+    define_method(name) do
+      puts "Method #{name} called"
+    end
+  end
+end</p>
+<p>Dynamic.create_method(:hello)
+obj = Dynamic.new
+obj.hello  # =&gt; Method hello called
+```</p>
+<hr />
+<p><strong>2. Concurrency &amp; Multithreading</strong></p>
+<p><strong>2.1. Creating Threads</strong></p>
+<p>Ruby <strong>supports multithreading</strong> but has a <strong>Global Interpreter Lock (GIL)</strong>, meaning only one thread runs at a time for CPU-bound tasks.</p>
+<p>```
+threads = []</p>
+<p>5.times do |i|
+  threads &lt;&lt; Thread.new { puts "Thread #{i} is running" }
+end</p>
+<p>threads.each(&amp;:join)
+```</p>
+<p><strong>2.2. Parallel Processing with fork</strong></p>
+<p>Use fork to create <strong>separate processes</strong> (useful for CPU-heavy tasks).</p>
+<p><code>fork { puts "This is a child process" }
+puts "This is the parent process"</code></p>
+<hr />
+<p><strong>3. Working with APIs</strong></p>
+<p><strong>3.1. Making HTTP Requests</strong></p>
+<p>```
+require 'net/http'
+require 'json'</p>
+<p>url = URI("https://jsonplaceholder.typicode.com/posts/1")
+response = Net::HTTP.get(url)
+puts JSON.parse(response)["title"]
+```</p>
+<p><strong>3.2. Sending Data (POST Request)</strong></p>
+<p>```
+require 'net/http'</p>
+<p>url = URI("https://jsonplaceholder.typicode.com/posts")
+data = { title: "Hello", body: "Ruby API call" }.to_json</p>
+<p>response = Net::HTTP.post(url, data, { "Content-Type" =&gt; "application/json" })
+puts response.body
+```</p>
+<hr />
+<p><strong>4. Database Management with ActiveRecord &amp; PostgreSQL</strong></p>
+<p><strong>4.1. Setting Up ActiveRecord</strong></p>
+<p>Install ActiveRecord:</p>
+<p><code>gem install activerecord sqlite3</code></p>
+<p><strong>4.2. Connecting to a Database</strong></p>
+<p>```
+require 'active_record'</p>
+<p>ActiveRecord::Base.establish_connection(
+  adapter: 'sqlite3',
+  database: 'db.sqlite3'
+)
+```</p>
+<p><strong>4.3. Defining a Model</strong></p>
+<p><code>class User &lt; ActiveRecord::Base
+end</code></p>
+<p><strong>4.4. Performing CRUD Operations</strong></p>
+<p><code>User.create(name: "Alice")
+user = User.find(1)
+user.update(name: "Bob")
+user.destroy</code></p>
+<hr />
+<p><strong>5. Web Development with Sinatra &amp; Rails</strong></p>
+<p><strong>5.1. Creating a Sinatra Web App</strong></p>
+<p>```
+require 'sinatra'</p>
+<p>get '/' do
+  "Hello, Sinatra!"
+end
+```</p>
+<p>Run:</p>
+<p><code>ruby app.rb</code></p>
+<p>Visit http://localhost:4567 in your browser.</p>
+<p><strong>5.2. Introduction to Ruby on Rails</strong></p>
+<p>Rails is <strong>a powerful web framework</strong> that follows the <strong>MVC (Model-View-Controller) pattern</strong>.</p>
+<p><strong>Install Rails</strong></p>
+<p><code>gem install rails</code></p>
+<p><strong>Create a New Rails App</strong></p>
+<p><code>rails new myapp
+cd myapp
+rails server</code></p>
+<p><strong>Generate a Controller</strong></p>
+<p><code>rails generate controller Home index</code></p>
+<p>Edit app/controllers/home_controller.rb:</p>
+<p><code>class HomeController &lt; ApplicationController
+  def index
+    render plain: "Hello, Rails!"
+  end
+end</code></p>
+<hr />
+<p><strong>6. Testing in Ruby</strong></p>
+<p><strong>6.1. Writing Unit Tests with RSpec</strong></p>
+<p>Install RSpec:</p>
+<p><code>gem install rspec</code></p>
+<p>Create a test file spec/calculator_spec.rb:</p>
+<p>```
+require_relative '../calculator'
+require 'rspec'</p>
+<p>describe "Calculator" do
+  it "adds two numbers" do
+    expect(2 + 3).to eq(5)
+  end
+end
+```</p>
+<p>Run tests:</p>
+<p><code>rspec</code></p>
+<hr />
+<p><strong>7. Building a RESTful API in Ruby</strong></p>
+<p><strong>7.1. Creating a Sinatra API</strong></p>
+<p>```
+require 'sinatra'
+require 'json'</p>
+<p>users = [{ id: 1, name: "Alice" }]</p>
+<p>get '/users' do
+  content_type :json
+  users.to_json
+end</p>
+<p>post '/users' do
+  data = JSON.parse(request.body.read)
+  users &lt;&lt; { id: users.size + 1, name: data["name"] }
+  status 201
+end
+```</p>
+<p>Run:</p>
+<p><code>ruby api.rb</code></p>
+<p>Use curl to interact:</p>
+<p><code>curl http://localhost:4567/users</code></p>
+<hr />
+<p><strong>8. Final Project: Full-Stack Ruby on Rails App</strong></p>
+<p><strong>8.1. Generate a New Rails App</strong></p>
+<p><code>rails new blog
+cd blog
+rails generate scaffold Post title:string body:text
+rails db:migrate
+rails server</code></p>
+<p><strong>8.2. Create a Controller</strong></p>
+<p><code>rails generate controller Posts index</code></p>
+<p>Modify app/controllers/posts_controller.rb:</p>
+<p><code>class PostsController &lt; ApplicationController
+  def index
+    @posts = Post.all
+  end
+end</code></p>
+<p><strong>8.3. Add Routes</strong></p>
+<p>Modify config/routes.rb:</p>
+<p><code>Rails.application.routes.draw do
+  resources :posts
+  root "posts#index"
+end</code></p>
+<p>Visit http://localhost:3000/posts in the browser.</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Ruby Level 2:</strong></p>
+<p>✅ <strong>Advanced OOP (Modules, Mixins, Metaprogramming)</strong></p>
+<p>✅ <strong>Concurrency &amp; Multithreading (Threads, Forks)</strong></p>
+<p>✅ <strong>Working with APIs (HTTP Requests, JSON Parsing)</strong></p>
+<p>✅ <strong>Database Management with ActiveRecord &amp; PostgreSQL</strong></p>
+<p>✅ <strong>Web Development with Sinatra &amp; Ruby on Rails</strong></p>
+<p>✅ <strong>Testing in Ruby (RSpec &amp; MiniTest)</strong></p>
+<p>✅ <strong>Built a RESTful API in Ruby</strong></p>
+<p>Now, you’re ready for <strong>Ruby Level 3</strong>, where we explore <strong>Microservices, Cloud Deployment, WebSockets, and AI with Ruby!</strong> 🚀</p></body></html>

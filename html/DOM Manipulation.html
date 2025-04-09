@@ -1,0 +1,147 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>12:43:55</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>DOM Manipulation in JavaScript</strong></p>
+<p><strong>DOM (Document Object Model) Manipulation</strong> refers to the process of interacting with and modifying the structure, style, and content of an HTML document using JavaScript. It allows developers to create dynamic and interactive web applications.</p>
+<p><strong>1. What is the DOM?</strong></p>
+<p>The <strong>DOM (Document Object Model)</strong> is a programming interface that represents the structure of an HTML document as a <strong>tree-like hierarchy</strong>. Each element in the document is treated as a <strong>node</strong>, allowing JavaScript to access, modify, and manipulate it.</p>
+<p>For example, given the following HTML:</p>
+<p>```</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Example</title>
+</head>
+<body>
+    <h1 id="heading">Hello, World!</h1>
+    <p class="text">This is a paragraph.</p>
+    <button id="btn">Click Me</button>
+</body>
+</html>
+<p>```</p>
+<p>The <strong>DOM structure</strong> can be visualized as:</p>
+<p><code>Document
+ ├── html
+ │   ├── head
+ │   │   ├── title
+ │   ├── body
+ │       ├── h1 (id="heading")
+ │       ├── p (class="text")
+ │       ├── button (id="btn")</code></p>
+<p>Each element is a <strong>node</strong> in the DOM tree.</p>
+<p><strong>2. Selecting Elements</strong></p>
+<p>Before modifying an element, it must first be <strong>selected</strong>. JavaScript provides several ways to target elements in the DOM.</p>
+<p><strong>Using getElementById (Select by ID)</strong></p>
+<p><code>let heading = document.getElementById("heading");
+console.log(heading); // &lt;h1 id="heading"&gt;Hello, World!&lt;/h1&gt;</code></p>
+<p><strong>Use case:</strong> Selecting a unique element with a specific id.</p>
+<p><strong>Using getElementsByClassName (Select by Class)</strong></p>
+<p><code>let paragraphs = document.getElementsByClassName("text");
+console.log(paragraphs[0]); // First paragraph with class "text"</code></p>
+<p><strong>Returns:</strong> A live HTMLCollection (not an array).</p>
+<p><strong>Using getElementsByTagName (Select by Tag)</strong></p>
+<p><code>let buttons = document.getElementsByTagName("button");
+console.log(buttons[0]); // First button element</code></p>
+<p><strong>Returns:</strong> A live HTMLCollection of elements with the specified tag.</p>
+<p><strong>Using querySelector (Select First Matching Element)</strong></p>
+<p><code>let firstParagraph = document.querySelector(".text");
+console.log(firstParagraph);</code></p>
+<p><strong>Use case:</strong> Selects the <strong>first</strong> element matching a CSS selector.</p>
+<p><strong>Using querySelectorAll (Select All Matching Elements)</strong></p>
+<p><code>let allParagraphs = document.querySelectorAll(".text");
+console.log(allParagraphs); // NodeList of all elements with class "text"</code></p>
+<p><strong>Returns:</strong> A NodeList (which can be looped over like an array).</p>
+<p><strong>3. Modifying Elements</strong></p>
+<p>Once an element is selected, we can modify its content, attributes, and styles.</p>
+<p><strong>Changing Text Content</strong></p>
+<p><code>heading.textContent = "Welcome to JavaScript!"; 
+heading.innerHTML = "&lt;span style='color:red'&gt;Hello, JavaScript!&lt;/span&gt;";</code></p>
+<p>• textContent → Replaces the text inside an element.</p>
+<p>• innerHTML → Inserts HTML inside an element.</p>
+<p><strong>Changing Attributes</strong></p>
+<p><code>let button = document.getElementById("btn");
+button.setAttribute("disabled", "true"); // Disables the button
+console.log(button.getAttribute("id")); // btn
+button.removeAttribute("disabled"); // Removes the disabled attribute</code></p>
+<p><strong>Common attributes:</strong></p>
+<p>• setAttribute(name, value) → Adds or modifies an attribute.</p>
+<p>• getAttribute(name) → Retrieves an attribute.</p>
+<p>• removeAttribute(name) → Removes an attribute.</p>
+<p><strong>Modifying CSS Styles</strong></p>
+<p><code>heading.style.color = "blue";
+heading.style.fontSize = "24px";
+button.style.backgroundColor = "green";</code></p>
+<p>Alternatively, using <strong>CSS classes</strong> is preferred:</p>
+<p><code>heading.classList.add("highlight"); // Adds a class
+heading.classList.remove("highlight"); // Removes a class
+heading.classList.toggle("dark-mode"); // Toggles class on/off</code></p>
+<p><strong>Best Practice:</strong> Use CSS classes instead of inline styles for better maintainability.</p>
+<p><strong>4. Adding and Removing Elements</strong></p>
+<p><strong>Creating New Elements</strong></p>
+<p><code>let newParagraph = document.createElement("p"); // Create new &lt;p&gt; element
+newParagraph.textContent = "This is a new paragraph!";
+document.body.appendChild(newParagraph); // Append to body</code></p>
+<p><strong>Removing Elements</strong></p>
+<p><code>let removeElement = document.getElementById("heading");
+removeElement.remove(); // Removes the element</code></p>
+<p>or using removeChild:</p>
+<p><code>document.body.removeChild(removeElement);</code></p>
+<p><strong>5. Handling Events</strong></p>
+<p>JavaScript allows us to <strong>respond to user interactions</strong> like clicks, key presses, and mouse movements.</p>
+<p><strong>Adding Event Listeners</strong></p>
+<p><code>button.addEventListener("click", function() {
+    alert("Button clicked!");
+});</code></p>
+<p>or using an <strong>arrow function</strong>:</p>
+<p><code>button.addEventListener("click", () =&gt; alert("Button clicked!"));</code></p>
+<p><strong>Common Events</strong></p>
+<p>|<strong>Event Name</strong>|<strong>Description</strong>|
+|---|---|
+|click|When an element is clicked|
+|mouseover|When the mouse hovers over an element|
+|mouseout|When the mouse leaves an element|
+|keydown|When a key is pressed|
+|keyup|When a key is released|
+|submit|When a form is submitted|
+|load|When the page has fully loaded|</p>
+<p><strong>Removing Event Listeners</strong></p>
+<p><code>function handleClick() {
+    alert("Clicked!");
+}
+button.addEventListener("click", handleClick);
+button.removeEventListener("click", handleClick); // Removes the event</code></p>
+<p><strong>6. Event Delegation</strong></p>
+<p>Instead of adding an event to every element, we can add a <strong>single event listener</strong> to a parent and check which child was clicked.</p>
+<p><strong>Example:</strong></p>
+<p><code>document.body.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON") {
+        alert("A button was clicked!");
+    }
+});</code></p>
+<p><strong>Use case:</strong> Useful for dynamically added elements.</p>
+<p><strong>7. DOM Traversal</strong></p>
+<p>Sometimes, you need to <strong>navigate</strong> between elements.</p>
+<p><strong>Parent, Children, and Siblings</strong></p>
+<p><code>let parent = button.parentElement; // Get parent node
+let firstChild = document.body.firstElementChild; // First child
+let lastChild = document.body.lastElementChild; // Last child
+let nextSibling = button.nextElementSibling; // Next element
+let prevSibling = button.previousElementSibling; // Previous element</code></p>
+<p><strong>8. Performance Optimization</strong></p>
+<p>When working with the DOM, it’s important to optimize performance:</p>
+<p>• <strong>Batch DOM updates</strong> instead of modifying elements one by one.</p>
+<p>• <strong>Use documentFragment</strong> for multiple elements before appending.</p>
+<p>• <strong>Minimize reflows and repaints</strong> by reducing direct style changes.</p>
+<p><strong>Example: Using documentFragment</strong></p>
+<p><code>let fragment = document.createDocumentFragment();
+for (let i = 0; i &lt; 5; i++) {
+    let newDiv = document.createElement("div");
+    newDiv.textContent = `Item ${i + 1}`;
+    fragment.appendChild(newDiv);
+}
+document.body.appendChild(fragment); // Efficiently adds all at once</code></p>
+<p><strong>Conclusion</strong></p>
+<p>DOM manipulation is at the heart of <strong>interactive web development</strong>. Mastering <strong>element selection, modification, events, and performance optimizations</strong> will allow you to build <strong>efficient and dynamic</strong> web applications.</p></body></html>

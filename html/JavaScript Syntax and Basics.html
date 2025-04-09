@@ -1,0 +1,188 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>03:26:30</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p>JavaScript Syntax and Basics</p>
+<p>JavaScript is a high-level, interpreted programming language used primarily for web development. It allows developers to add interactivity, manipulate the DOM, and create dynamic web applications.</p>
+<ol>
+<li>JavaScript Syntax</li>
+</ol>
+<p>The syntax of JavaScript follows rules similar to other C-like languages (such as Java and C++). Here are the key syntax rules:</p>
+<p>â€¢ Case-Sensitive: var and Var are different identifiers.</p>
+<p>â€¢ Statements End with a Semicolon (;): Though optional, itâ€™s a good practice.</p>
+<p>â€¢ Comments:</p>
+<p>â€¢ Single-line: // This is a comment</p>
+<p>â€¢ Multi-line:</p>
+<p>/* This is a</p>
+<p>multi-line comment */</p>
+<ol>
+<li>Variables and Data Types</li>
+</ol>
+<p>JavaScript has three main ways to declare variables:</p>
+<p>Variable Declarations</p>
+<p>var x = 10;    // Function-scoped (older syntax)</p>
+<p>let y = 20;    // Block-scoped (ES6)</p>
+<p>const z = 30;  // Block-scoped and constant</p>
+<p>Data Types</p>
+<p>JavaScript is dynamically typed, meaning variables do not have fixed types.</p>
+<ol>
+<li>Primitive Data Types</li>
+</ol>
+<p>let str = "Hello";   // String</p>
+<p>let num = 42;        // Number</p>
+<p>let isTrue = true;   // Boolean</p>
+<p>let nothing = null;  // Null</p>
+<p>let notDefined;      // Undefined</p>
+<p>let unique = Symbol("id"); // Symbol (ES6)</p>
+<ol>
+<li>Complex Data Type</li>
+</ol>
+<p>let obj = { name: "John", age: 25 }; // Object</p>
+<p>let arr = [1, 2, 3];                 // Array (special object)</p>
+<p>let func = function() { return "Hi"; }; // Function (also an object)</p>
+<ol>
+<li>Operators</li>
+</ol>
+<p>JavaScript supports a variety of operators:</p>
+<p>â€¢ Arithmetic Operators</p>
+<p>let sum = 10 + 5;   // Addition</p>
+<p>let diff = 10 - 5;  // Subtraction</p>
+<p>let prod = 10 * 5;  // Multiplication</p>
+<p>let div = 10 / 5;   // Division</p>
+<p>let mod = 10 % 3;   // Modulus</p>
+<p>let exp = 2 ** 3;   // Exponentiation</p>
+<p>â€¢ Comparison Operators</p>
+<p>console.log(10 &gt; 5);  // true</p>
+<p>console.log(10 == "10"); // true (loose equality)</p>
+<p>console.log(10 === "10"); // false (strict equality)</p>
+<p>console.log(10 !== "10"); // true (strict inequality)</p>
+<p>â€¢ Logical Operators</p>
+<p>console.log(true &amp;&amp; false); // false (AND)</p>
+<p>console.log(true || false); // true (OR)</p>
+<p>console.log(!true);         // false (NOT)</p>
+<p>â€¢ Assignment Operators</p>
+<p>let x = 10;</p>
+<p>x += 5; // Equivalent to x = x + 5</p>
+<p>x *= 2; // Equivalent to x = x * 2</p>
+<ol>
+<li>Control Flow</li>
+</ol>
+<p>Control flow structures help manage program execution.</p>
+<p>Conditional Statements</p>
+<p>let age = 20;</p>
+<p>if (age &gt;= 18) {</p>
+<p>console.log("You are an adult.");</p>
+<p>} else {</p>
+<p>console.log("You are a minor.");</p>
+<p>}</p>
+<p>Switch Statement</p>
+<p>let day = "Monday";</p>
+<p>switch (day) {</p>
+<p>case "Monday":</p>
+<p>console.log("Start of the week!");</p>
+<p>break;</p>
+<p>case "Friday":</p>
+<p>console.log("Weekend is near!");</p>
+<p>break;</p>
+<p>default:</p>
+<p>console.log("Just another day.");</p>
+<p>}</p>
+<p>Loops</p>
+<p>Loops execute code repeatedly.</p>
+<p>â€¢ For Loop</p>
+<p>for (let i = 0; i &lt; 5; i++) {</p>
+<p>console.log(i);</p>
+<p>}</p>
+<p>â€¢ While Loop</p>
+<p>let j = 0;</p>
+<p>while (j &lt; 5) {</p>
+<p>console.log(j);</p>
+<p>j++;</p>
+<p>}</p>
+<p>â€¢ Do-While Loop</p>
+<p>let k = 0;</p>
+<p>do {</p>
+<p>console.log(k);</p>
+<p>k++;</p>
+<p>} while (k &lt; 5);</p>
+<ol>
+<li>Functions</li>
+</ol>
+<p>Functions encapsulate reusable logic.</p>
+<p>Function Declaration</p>
+<p>function greet(name) {</p>
+<p>return "Hello, " + name + "!";</p>
+<p>}</p>
+<p>console.log(greet("Alice"));</p>
+<p>Arrow Functions (ES6)</p>
+<p>const greet = (name) =&gt; <code>Hello, ${name}!</code>;</p>
+<p>console.log(greet("Bob"));</p>
+<ol>
+<li>Objects and Arrays</li>
+</ol>
+<p>Objects</p>
+<p>let person = {</p>
+<p>name: "John",</p>
+<p>age: 30,</p>
+<p>greet: function() {</p>
+<p>console.log("Hello!");</p>
+<p>}</p>
+<p>};</p>
+<p>console.log(person.name);  // Access property</p>
+<p>person.greet();  // Call method</p>
+<p>Arrays</p>
+<p>let fruits = ["Apple", "Banana", "Cherry"];</p>
+<p>console.log(fruits[1]); // Access index (Banana)</p>
+<p>fruits.push("Orange");  // Add element</p>
+<p>fruits.pop();           // Remove last element</p>
+<ol>
+<li>DOM Manipulation</li>
+</ol>
+<p>JavaScript interacts with HTML and CSS via the Document Object Model (DOM).</p>
+<p>Selecting Elements</p>
+<p>let heading = document.getElementById("title");</p>
+<p>let paragraphs = document.querySelectorAll("p");</p>
+<p>Modifying Content</p>
+<p>heading.textContent = "New Title";</p>
+<p>Event Listeners</p>
+<p>button.addEventListener("click", function() {</p>
+<p>alert("Button clicked!");</p>
+<p>});</p>
+<ol>
+<li>Asynchronous JavaScript</li>
+</ol>
+<p>JavaScript can handle asynchronous operations using callbacks, promises, and async/await.</p>
+<p>Using setTimeout (Callback)</p>
+<p>setTimeout(() =&gt; {</p>
+<p>console.log("This runs after 2 seconds.");</p>
+<p>}, 2000);</p>
+<p>Using Promises</p>
+<p>let promise = new Promise((resolve, reject) =&gt; {</p>
+<p>setTimeout(() =&gt; resolve("Success!"), 3000);</p>
+<p>});</p>
+<p>promise.then(response =&gt; console.log(response));</p>
+<p>Using Async/Await</p>
+<p>async function fetchData() {</p>
+<p>let response = await fetch("https://api.example.com/data");</p>
+<p>let data = await response.json();</p>
+<p>console.log(data);</p>
+<p>}</p>
+<p>fetchData();</p>
+<ol>
+<li>ES6+ Features</li>
+</ol>
+<p>Modern JavaScript includes features like:</p>
+<p>â€¢ Template Literals:</p>
+<p>let name = "Alice";</p>
+<p>console.log(<code>Hello, ${name}!</code>);</p>
+<p>â€¢ Destructuring:</p>
+<p>let { name, age } = { name: "Bob", age: 25 };</p>
+<p>console.log(name, age);</p>
+<p>â€¢ Spread Operator:</p>
+<p>let arr1 = [1, 2, 3];</p>
+<p>let arr2 = [...arr1, 4, 5];</p>
+<p>console.log(arr2); // [1, 2, 3, 4, 5]</p>
+<p>Conclusion</p>
+<p>JavaScript is a powerful language for web development. Understanding its syntax, control flow, functions, objects, DOM manipulation, and asynchronous programming is crucial for building modern applications. Start by practicing basic syntax, and gradually explore advanced topics like ES6+ features and API integrations.</p></body></html>

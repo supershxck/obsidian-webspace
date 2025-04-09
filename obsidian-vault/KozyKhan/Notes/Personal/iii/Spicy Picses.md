@@ -1,0 +1,23 @@
+Do you mind?
+a Spicy Pisces (with)
+reckless Chess tricks (while)
+blessing lefties
+four on tour I’m the 1 
+OxOxO
+Random rhymes from my mind
+Hit the green or leave in peace 
+Thicc or thin I’ll swim or freeze 
+Got stars in bottles and sharks that fly 
+Lightning strikes and lives arise 
+Enter skies of fire and ice 
+shocked by sight 
+bolts so bright
+Open eyes 
+fright or light?
+  
+~~~shxckbxlt~~~
+
+July 5th, 2024 
+00:39:07 
+status:
+topics: [[poetry]] 

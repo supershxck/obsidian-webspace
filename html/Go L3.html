@@ -1,0 +1,266 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:56:15</strong> 
+<strong>Topics:</strong> [[C L1]] ]]
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Go Level 3: Advanced Go Programming &amp; Cloud Deployment</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve mastered <strong>Go microservices, concurrency, and database integration</strong>, it’s time to explore <strong>cloud deployment, high-performance computing, security, and distributed systems</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Concurrency (Sync.Pool, WaitGroups, Pipelines)</strong></p>
+<p>✅ <strong>Distributed Systems &amp; Microservices (Kafka, RabbitMQ, gRPC)</strong></p>
+<p>✅ <strong>Cloud Deployment (Docker, Kubernetes, AWS Lambda, Google Cloud Run)</strong></p>
+<p>✅ <strong>Security (JWT Authentication, OAuth, Secure APIs)</strong></p>
+<p>✅ <strong>Performance Optimization (Profiling, Benchmarking, Memory Management)</strong></p>
+<p>✅ <strong>Advanced WebSockets (Streaming, Pub/Sub)</strong></p>
+<p>✅ <strong>Serverless Computing with Go (AWS Lambda, Firebase Functions)</strong></p>
+<p>✅ <strong>Building a Scalable, Production-Ready Go App</strong></p>
+<p>By the end of this lesson, you will be able to <strong>deploy Go applications on the cloud, build scalable distributed systems, and optimize performance for production</strong>.</p>
+<hr />
+<p><strong>1. Advanced Concurrency</strong></p>
+<p><strong>1.1. Worker Pool with Sync.Pool</strong></p>
+<p>sync.Pool optimizes memory usage by <strong>reusing objects instead of reallocating</strong>.</p>
+<p>```
+package main
+import (
+    "fmt"
+    "sync"
+)</p>
+<p>func main() {
+    var pool = sync.Pool{
+        New: func() interface{} {
+            return "New Object"
+        },
+    }</p>
+<pre><code>obj := pool.Get().(string)
+fmt.Println(obj)  // "New Object"
+
+pool.Put("Reused Object")
+fmt.Println(pool.Get())  // "Reused Object"
+</code></pre>
+<p>}
+```</p>
+<p><strong>1.2. Goroutine Pipelines</strong></p>
+<p>Pipelines process <strong>large data streams efficiently</strong>.</p>
+<p>```
+package main
+import "fmt"</p>
+<p>func generator(nums ...int) &lt;-chan int {
+    out := make(chan int)
+    go func() {
+        for _, n := range nums {
+            out &lt;- n
+        }
+        close(out)
+    }()
+    return out
+}</p>
+<p>func square(in &lt;-chan int) &lt;-chan int {
+    out := make(chan int)
+    go func() {
+        for n := range in {
+            out &lt;- n * n
+        }
+        close(out)
+    }()
+    return out
+}</p>
+<p>func main() {
+    for result := range square(generator(1, 2, 3, 4, 5)) {
+        fmt.Println(result)
+    }
+}
+```</p>
+<hr />
+<p><strong>2. Distributed Systems &amp; Microservices</strong></p>
+<p><strong>2.1. Implementing Kafka in Go (Pub/Sub Messaging)</strong></p>
+<p>```
+import (
+    "fmt"
+    "github.com/confluentinc/confluent-kafka-go/kafka"
+)</p>
+<p>func main() {
+    p, _ := kafka.NewProducer(&amp;kafka.ConfigMap{"bootstrap.servers": "localhost:9092"})
+    defer p.Close()</p>
+<pre><code>topic := "test"
+p.Produce(&amp;kafka.Message{
+    TopicPartition: kafka.TopicPartition{Topic: &amp;topic, Partition: kafka.PartitionAny},
+    Value:          []byte("Hello Kafka!"),
+}, nil)
+
+fmt.Println("Message Sent to Kafka")
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>2.2. Implementing gRPC Streaming</strong></p>
+<p>```
+import (
+    "google.golang.org/grpc"
+    "net"
+)</p>
+<p>func main() {
+    lis, _ := net.Listen("tcp", ":50051")
+    grpcServer := grpc.NewServer()
+    grpcServer.Serve(lis)
+}
+```</p>
+<hr />
+<p><strong>3. Cloud Deployment</strong></p>
+<p><strong>3.1. Dockerizing a Go Application</strong></p>
+<p>Create a <strong>Dockerfile</strong>:</p>
+<p><code>FROM golang:1.18
+WORKDIR /app
+COPY . .
+RUN go mod tidy
+RUN go build -o main .
+CMD ["/app/main"]</code></p>
+<p>Build &amp; Run:</p>
+<p><code>docker build -t my-go-app .
+docker run -p 8080:8080 my-go-app</code></p>
+<hr />
+<p><strong>3.2. Deploying to Kubernetes</strong></p>
+<p>Create a <strong>Kubernetes Deployment YAML</strong>:</p>
+<p><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-app
+  template:
+    metadata:
+      labels:
+        app: go-app
+    spec:
+      containers:
+      - name: go-app
+        image: my-go-app:latest
+        ports:
+        - containerPort: 8080</code></p>
+<p>Deploy:</p>
+<p><code>kubectl apply -f deployment.yaml</code></p>
+<hr />
+<p><strong>3.3. Deploying to AWS Lambda (Serverless)</strong></p>
+<p>```
+package main
+import (
+    "github.com/aws/aws-lambda-go/lambda"
+)</p>
+<p>func handler() (string, error) {
+    return "Hello from AWS Lambda!", nil
+}</p>
+<p>func main() {
+    lambda.Start(handler)
+}
+```</p>
+<p>Deploy:</p>
+<p><code>GOOS=linux GOARCH=amd64 go build -o main
+zip function.zip main
+aws lambda update-function-code --function-name myGoFunction --zip-file fileb://function.zip</code></p>
+<hr />
+<p><strong>4. Security (JWT, OAuth)</strong></p>
+<p><strong>4.1. JWT Authentication</strong></p>
+<p>Install JWT library:</p>
+<p><code>go get github.com/golang-jwt/jwt/v4</code></p>
+<p>```
+import (
+    "github.com/golang-jwt/jwt/v4"
+    "time"
+    "fmt"
+)</p>
+<p>func generateJWT() (string, error) {
+    token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+        "username": "alice",
+        "exp":      time.Now().Add(time.Hour * 24).Unix(),
+    })</p>
+<pre><code>return token.SignedString([]byte("secret"))
+</code></pre>
+<p>}</p>
+<p>func main() {
+    token, _ := generateJWT()
+    fmt.Println("JWT Token:", token)
+}
+```</p>
+<hr />
+<p><strong>5. Performance Optimization</strong></p>
+<p><strong>5.1. Profiling &amp; Benchmarking</strong></p>
+<p>Install pprof:</p>
+<p><code>go get -u github.com/pkg/profile</code></p>
+<p>Enable profiling:</p>
+<p>```
+import _ "net/http/pprof"</p>
+<p>func main() {
+    go http.ListenAndServe(":6060", nil)
+}
+```</p>
+<p>Run:</p>
+<p><code>go tool pprof http://localhost:6060/debug/pprof/profile</code></p>
+<hr />
+<p><strong>6. Advanced WebSockets (Streaming, Pub/Sub)</strong></p>
+<p>```
+import (
+    "github.com/gorilla/websocket"
+    "net/http"
+)</p>
+<p>var upgrader = websocket.Upgrader{}</p>
+<p>func handleConnection(w http.ResponseWriter, r *http.Request) {
+    conn, _ := upgrader.Upgrade(w, r, nil)
+    for {
+        messageType, p, err := conn.ReadMessage()
+        if err != nil {
+            return
+        }
+        conn.WriteMessage(messageType, p)
+    }
+}</p>
+<p>func main() {
+    http.HandleFunc("/ws", handleConnection)
+    http.ListenAndServe(":8080", nil)
+}
+```</p>
+<hr />
+<p><strong>7. Building a Scalable Go Web Application</strong></p>
+<p><strong>7.1. Full-Stack Go Web App (Gin + PostgreSQL)</strong></p>
+<p>```
+package main
+import (
+    "github.com/gin-gonic/gin"
+    "gorm.io/driver/postgres"
+    "gorm.io/gorm"
+)</p>
+<p>type User struct {
+    ID    uint   <code>gorm:"primaryKey"</code>
+    Name  string
+    Email string
+}</p>
+<p>func main() {
+    dsn := "host=localhost user=postgres password=secret dbname=mydb port=5432 sslmode=disable"
+    db, _ := gorm.Open(postgres.Open(dsn), &amp;gorm.Config{})
+    db.AutoMigrate(&amp;User{})</p>
+<pre><code>r := gin.Default()
+r.POST("/users", func(c *gin.Context) {
+    var user User
+    c.BindJSON(&amp;user)
+    db.Create(&amp;user)
+    c.JSON(201, user)
+})
+r.Run(":8080")
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Go Level 3:</strong></p>
+<p>✅ <strong>Advanced Concurrency (Sync.Pool, Goroutine Pipelines)</strong></p>
+<p>✅ <strong>Distributed Systems (Kafka, gRPC Streaming)</strong></p>
+<p>✅ <strong>Cloud Deployment (Docker, Kubernetes, AWS Lambda, Google Cloud Run)</strong></p>
+<p>✅ <strong>Security (JWT Authentication, OAuth, Secure APIs)</strong></p>
+<p>✅ <strong>Performance Optimization (Profiling, Benchmarking, Memory Management)</strong></p>
+<p>✅ <strong>Advanced WebSockets (Streaming, Pub/Sub)</strong></p>
+<p>✅ <strong>Serverless Computing (AWS Lambda, Firebase Functions)</strong></p>
+<p>✅ <strong>Built a Scalable, Production-Ready Go App</strong></p>
+<p>Now, you’re ready for <strong>Go Level 4</strong>, where we explore <strong>Blockchain Development, Machine Learning in Go, and Advanced DevOps for Go Apps!</strong> 🚀</p></body></html>

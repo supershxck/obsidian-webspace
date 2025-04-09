@@ -1,0 +1,184 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>19:05:14</strong> 
+<strong>Topics:</strong> [[MATLAB L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>MATLAB Level 1: Introduction to MATLAB Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>MATLAB (<strong>Matrix Laboratory</strong>) is a <strong>high-level programming language</strong> widely used for <strong>numerical computing, data analysis, visualization, and engineering applications</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>MATLAB Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Vectors, Matrices &amp; Array Operations</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Scripts</strong></p>
+<p>✅ <strong>Data Visualization (Plots, Graphs, Histograms)</strong></p>
+<p>✅ <strong>File Handling (Reading/Writing Files, CSV, Excel)</strong></p>
+<p>✅ <strong>Building a Simple MATLAB Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic MATLAB scripts, manipulate matrices, and visualize data effectively</strong>.</p>
+<hr />
+<p><strong>1. Setting Up MATLAB</strong></p>
+<p><strong>1.1. Installing MATLAB</strong></p>
+<p>• Download MATLAB from <a href="https://www.mathworks.com/products/matlab.html">mathworks.com</a>.</p>
+<p>• Alternatively, use <strong>MATLAB Online</strong> or <strong>GNU Octave</strong> (open-source alternative).</p>
+<p><strong>1.2. Running MATLAB Code</strong></p>
+<p>• <strong>MATLAB Command Window</strong>: Type commands interactively.</p>
+<p>• <strong>Script (.m file)</strong>: Create a new script (script.m) and run:</p>
+<p><code>run('script.m')</code></p>
+<hr />
+<p><strong>2. MATLAB Basics: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>2.1. Variables &amp; Assignment</strong></p>
+<p><code>x = 10;      % Integer
+y = 3.14;    % Floating-point
+name = 'Alice'; % String</code></p>
+<p><strong>2.2. Data Types</strong></p>
+<p><code>a = 5;        % Integer
+b = 3.5;      % Double (Floating point)
+c = true;     % Boolean
+d = 'Hello';  % String</code></p>
+<p><strong>2.3. Operators</strong></p>
+<p><code>x = 10; y = 3;
+sum = x + y;        % Addition
+diff = x - y;       % Subtraction
+product = x * y;    % Multiplication
+quotient = x / y;   % Division
+remainder = mod(x, y); % Modulus</code></p>
+<hr />
+<p><strong>3. Vectors, Matrices &amp; Array Operations</strong></p>
+<p><strong>3.1. Creating Vectors &amp; Matrices</strong></p>
+<p>```
+v = [1 2 3 4 5];      % Row vector
+w = [1; 2; 3; 4; 5];  % Column vector</p>
+<p>A = [1 2 3; 4 5 6; 7 8 9]; % 3x3 Matrix
+```</p>
+<p><strong>3.2. Accessing Elements</strong></p>
+<p><code>x = A(2,3);  % Access row 2, column 3
+row = A(2,:);  % Extract row 2
+col = A(:,3);  % Extract column 3</code></p>
+<p><strong>3.3. Matrix Operations</strong></p>
+<p><code>B = A + 2;    % Add 2 to each element
+C = A * A;    % Matrix multiplication
+D = A .* A;   % Element-wise multiplication
+E = A.^2;     % Element-wise squaring</code></p>
+<hr />
+<p><strong>4. Control Flow (If-Else, Loops, Switch)</strong></p>
+<p><strong>4.1. If-Else Statements</strong></p>
+<p><code>x = 10;
+if x &gt; 5
+    disp('x is greater than 5');
+elseif x == 5
+    disp('x is exactly 5');
+else
+    disp('x is less than 5');
+end</code></p>
+<p><strong>4.2. For Loop</strong></p>
+<p><code>for i = 1:5
+    disp(['Iteration: ' num2str(i)]);
+end</code></p>
+<p><strong>4.3. While Loop</strong></p>
+<p><code>count = 0;
+while count &lt; 3
+    disp(['Count: ' num2str(count)]);
+    count = count + 1;
+end</code></p>
+<p><strong>4.4. Switch Case</strong></p>
+<p><code>grade = 'A';
+switch grade
+    case 'A'
+        disp('Excellent');
+    case 'B'
+        disp('Good');
+    case 'C'
+        disp('Average');
+    otherwise
+        disp('Fail');
+end</code></p>
+<hr />
+<p><strong>5. Functions &amp; Scripts</strong></p>
+<p><strong>5.1. Creating Functions</strong></p>
+<p>Save this as squareNumber.m:</p>
+<p><code>function result = squareNumber(x)
+    result = x^2;
+end</code></p>
+<p>Call the function:</p>
+<p><code>y = squareNumber(5);
+disp(y);</code></p>
+<p><strong>5.2. Anonymous Functions</strong></p>
+<p><code>square = @(x) x^2;
+disp(square(4));</code></p>
+<hr />
+<p><strong>6. Data Visualization (Plots, Graphs, Histograms)</strong></p>
+<p><strong>6.1. Line Plot</strong></p>
+<p><code>x = linspace(0, 10, 100);
+y = sin(x);
+plot(x, y, 'r--');  % Red dashed line
+xlabel('X-axis');
+ylabel('Y-axis');
+title('Sine Function');
+grid on;</code></p>
+<p><strong>6.2. Scatter Plot</strong></p>
+<p><code>x = rand(1, 100);
+y = rand(1, 100);
+scatter(x, y, 'b');
+title('Scatter Plot');</code></p>
+<p><strong>6.3. Bar Graph</strong></p>
+<p><code>x = ["Apples", "Bananas", "Cherries"];
+y = [10, 20, 15];
+bar(y);
+set(gca, 'xticklabel', x);
+title('Fruit Sales');</code></p>
+<p><strong>6.4. Histogram</strong></p>
+<p><code>data = randn(1, 1000);
+histogram(data, 20);
+title('Histogram of Random Data');</code></p>
+<hr />
+<p><strong>7. File Handling (Reading/Writing Files, CSV, Excel)</strong></p>
+<p><strong>7.1. Writing to a File</strong></p>
+<p><code>fileID = fopen('output.txt', 'w');
+fprintf(fileID, 'Hello, MATLAB!');
+fclose(fileID);</code></p>
+<p><strong>7.2. Reading a File</strong></p>
+<p><code>fileID = fopen('output.txt', 'r');
+data = fscanf(fileID, '%s');
+disp(data);
+fclose(fileID);</code></p>
+<p><strong>7.3. Working with CSV Files</strong></p>
+<p>```
+data = [1 2 3; 4 5 6; 7 8 9];
+csvwrite('data.csv', data);</p>
+<p>readData = csvread('data.csv');
+disp(readData);
+```</p>
+<p><strong>7.4. Working with Excel Files</strong></p>
+<p><code>xlswrite('data.xlsx', data);
+readExcel = xlsread('data.xlsx');
+disp(readExcel);</code></p>
+<hr />
+<p><strong>8. Building a Simple MATLAB Application</strong></p>
+<p><strong>8.1. Generate &amp; Plot a Sine Wave</strong></p>
+<p>```
+function sineWaveApp()
+    f = input('Enter frequency (Hz): ');
+    t = 0:0.01:1;
+    y = sin(2<em>pi</em>f*t);</p>
+<pre><code>figure;
+plot(t, y, 'b');
+xlabel('Time (s)');
+ylabel('Amplitude');
+title(['Sine Wave - ' num2str(f) ' Hz']);
+</code></pre>
+<p>end
+```</p>
+<p>Run:</p>
+<p><code>sineWaveApp();</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in MATLAB Level 1:</strong></p>
+<p>✅ <strong>MATLAB Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Vectors, Matrices &amp; Array Operations</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Scripts</strong></p>
+<p>✅ <strong>Data Visualization (Plots, Graphs, Histograms)</strong></p>
+<p>✅ <strong>File Handling (Reading/Writing Files, CSV, Excel)</strong></p>
+<p>✅ <strong>Built a Simple MATLAB Application</strong></p>
+<p>Now, you’re ready for <strong>MATLAB Level 2</strong>, where we explore <strong>Advanced Signal Processing, Machine Learning, Image Processing, and Simulink!</strong> 🚀</p></body></html>

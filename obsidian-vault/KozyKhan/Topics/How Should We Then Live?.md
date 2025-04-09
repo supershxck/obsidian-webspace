@@ -1,0 +1,10 @@
+> **July 6th, 2024** 
+> **00:10:13** 
+> **status:** #book  #quotes 
+> **topics:** [[Francis Schaeffer]] [[Church History]] [[World History]] [[Ancient Rome]] 
+
+“In many ways Rome was great, but it had no real answers to the basic problems that all humanity faces. Much of Roman thought and culture was shaped by Greek thinking, especially after Greece came under Roman rule in 146 BC. The Greeks tried first to build their society upon the city-state, that is, the polis. The city-state, both in theory and fact, was comprised of all those who were accepted as citizens. All values had meaning in reference to the polis. Thus, when Socrates (c. 469–399 BC) had to choose between death and exile from that which gave him meaning, he chose death. But the polis failed since it proved to be an insufficient base upon which to build a society.” 
+
+Excerpt From
+[[How Should We Then Live?]]
+Francis A. Schaeffer

@@ -1,0 +1,215 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:58:52</strong> 
+<strong>Topics:</strong> [[PHP L1]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>C# Level 2: Intermediate to Advanced C# Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve mastered <strong>C# fundamentals</strong>, it’s time to explore <strong>asynchronous programming, LINQ, database integration, and web development with ASP.NET Core</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Methods (Delegates, Events, Lambda Expressions)</strong></p>
+<p>✅ <strong>LINQ (Filtering, Sorting, Aggregation, Query Expressions)</strong></p>
+<p>✅ <strong>Asynchronous Programming (Async/Await, Tasks, Threads)</strong></p>
+<p>✅ <strong>Working with Databases (Entity Framework Core, SQL Server, SQLite)</strong></p>
+<p>✅ <strong>Web Development with ASP.NET Core (MVC, APIs, Middleware)</strong></p>
+<p>✅ <strong>Dependency Injection &amp; Design Patterns</strong></p>
+<p>✅ <strong>Building a Full-Stack C# Web App</strong></p>
+<p>By the end of this lesson, you will be able to <strong>build scalable C# applications with databases, APIs, and web interfaces</strong>.</p>
+<hr />
+<p><strong>1. Advanced Methods &amp; Delegates</strong></p>
+<p><strong>1.1. Using Delegates (Function Pointers)</strong></p>
+<p>```
+using System;</p>
+<p>delegate int MathOperation(int a, int b);</p>
+<p>class Program {
+    static int Add(int x, int y) =&gt; x + y;
+    static void Main() {
+        MathOperation operation = Add;
+        Console.WriteLine(operation(5, 3)); // Output: 8
+    }
+}
+```</p>
+<p><strong>1.2. Events &amp; Event Handlers</strong></p>
+<p>```
+using System;</p>
+<p>class Button {
+    public event Action Clicked;
+    public void Click() {
+        Clicked?.Invoke();
+    }
+}</p>
+<p>class Program {
+    static void Main() {
+        Button btn = new Button();
+        btn.Clicked += () =&gt; Console.WriteLine("Button clicked!");
+        btn.Click();
+    }
+}
+```</p>
+<p><strong>1.3. Lambda Expressions</strong></p>
+<p><code>Func&lt;int, int, int&gt; multiply = (a, b) =&gt; a * b;
+Console.WriteLine(multiply(3, 4)); // Output: 12</code></p>
+<hr />
+<p><strong>2. LINQ (Language-Integrated Query)</strong></p>
+<p>LINQ simplifies data queries in <strong>arrays, collections, and databases</strong>.</p>
+<p><strong>2.1. Filtering Data</strong></p>
+<p>```
+using System;
+using System.Linq;</p>
+<p>class Program {
+    static void Main() {
+        int[] numbers = { 1, 2, 3, 4, 5, 6 };
+        var evens = numbers.Where(n =&gt; n % 2 == 0);
+        Console.WriteLine(string.Join(", ", evens)); // Output: 2, 4, 6
+    }
+}
+```</p>
+<p><strong>2.2. Sorting &amp; Aggregation</strong></p>
+<p><code>var sorted = numbers.OrderByDescending(n =&gt; n).ToList();
+var sum = numbers.Sum();
+Console.WriteLine("Sorted: " + string.Join(", ", sorted)); // 6, 5, 4, 3, 2, 1
+Console.WriteLine("Sum: " + sum); // 21</code></p>
+<hr />
+<p><strong>3. Asynchronous Programming</strong></p>
+<p><strong>3.1. Using async and await</strong></p>
+<p>```
+using System;
+using System.Threading.Tasks;</p>
+<p>class Program {
+    static async Task Main() {
+        Console.WriteLine("Fetching data...");
+        string data = await FetchDataAsync();
+        Console.WriteLine(data);
+    }</p>
+<pre><code>static async Task&lt;string&gt; FetchDataAsync() {
+    await Task.Delay(2000); // Simulate delay
+    return "Data received";
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>3.2. Using Task.Run for Background Work</strong></p>
+<p><code>var result = await Task.Run(() =&gt; {
+    return "Processed in background";
+});
+Console.WriteLine(result);</code></p>
+<hr />
+<p><strong>4. Working with Databases (Entity Framework Core)</strong></p>
+<p><strong>4.1. Installing Entity Framework Core</strong></p>
+<p><code>dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Tools</code></p>
+<p><strong>4.2. Defining a Database Model</strong></p>
+<p>```
+using Microsoft.EntityFrameworkCore;</p>
+<p>class User {
+    public int Id { get; set; }
+    public string Name { get; set; }
+}</p>
+<p>class AppDbContext : DbContext {
+    public DbSet<User> Users { get; set; }
+    protected override void OnConfiguring(DbContextOptionsBuilder options) {
+        options.UseSqlite("Data Source=mydb.db");
+    }
+}
+```</p>
+<p><strong>4.3. Inserting Data</strong></p>
+<p><code>using (var db = new AppDbContext()) {
+    db.Users.Add(new User { Name = "Alice" });
+    db.SaveChanges();
+}</code></p>
+<p><strong>4.4. Querying Data</strong></p>
+<p><code>var users = db.Users.Where(u =&gt; u.Name.StartsWith("A")).ToList();
+users.ForEach(u =&gt; Console.WriteLine(u.Name));</code></p>
+<hr />
+<p><strong>5. Web Development with ASP.NET Core</strong></p>
+<p><strong>5.1. Setting Up ASP.NET Core</strong></p>
+<p><code>dotnet new webapi -n MyWebApi
+cd MyWebApi
+dotnet run</code></p>
+<p><strong>5.2. Creating a Simple API</strong></p>
+<p>Modify Controllers/WeatherForecastController.cs:</p>
+<p>```
+using Microsoft.AspNetCore.Mvc;</p>
+<p>[Route("api/[controller]")]
+[ApiController]
+public class UsersController : ControllerBase {
+    [HttpGet]
+    public IActionResult GetUsers() {
+        return Ok(new string[] { "Alice", "Bob", "Charlie" });
+    }
+}
+```</p>
+<p>Run:</p>
+<p><code>dotnet run</code></p>
+<p>Visit http://localhost:5000/api/users in the browser.</p>
+<hr />
+<p><strong>6. Dependency Injection &amp; Design Patterns</strong></p>
+<p><strong>6.1. Using Dependency Injection</strong></p>
+<p>```
+interface IGreetingService {
+    string Greet(string name);
+}</p>
+<p>class GreetingService : IGreetingService {
+    public string Greet(string name) =&gt; $"Hello, {name}!";
+}</p>
+<p>class Startup {
+    public void ConfigureServices(IServiceCollection services) {
+        services.AddTransient<IGreetingService, GreetingService>();
+    }
+}
+```</p>
+<p><strong>6.2. Repository Pattern for Data Access</strong></p>
+<p>```
+interface IUserRepository {
+    IEnumerable<User> GetUsers();
+}</p>
+<p>class UserRepository : IUserRepository {
+    private readonly AppDbContext _context;
+    public UserRepository(AppDbContext context) {
+        _context = context;
+    }</p>
+<pre><code>public IEnumerable&lt;User&gt; GetUsers() {
+    return _context.Users.ToList();
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>7. Building a Full-Stack C# Web App</strong></p>
+<p><strong>7.1. Backend (ASP.NET Core API)</strong></p>
+<p>Create an endpoint:</p>
+<p><code>[HttpPost]
+public IActionResult CreateUser([FromBody] User user) {
+    db.Users.Add(user);
+    db.SaveChanges();
+    return CreatedAtAction(nameof(GetUsers), new { id = user.Id }, user);
+}</code></p>
+<p><strong>7.2. Frontend (React Fetching Data from API)</strong></p>
+<p><code>fetch("http://localhost:5000/api/users")
+  .then(response =&gt; response.json())
+  .then(data =&gt; console.log(data));</code></p>
+<hr />
+<p><strong>8. Deploying a C# Application</strong></p>
+<p><strong>8.1. Deploying to Docker</strong></p>
+<p>Create a <strong>Dockerfile</strong>:</p>
+<p><code>FROM mcr.microsoft.com/dotnet/aspnet:7.0
+WORKDIR /app
+COPY . .
+ENTRYPOINT ["dotnet", "MyWebApi.dll"]</code></p>
+<p>Build &amp; Run:</p>
+<p><code>docker build -t my-csharp-app .
+docker run -p 5000:5000 my-csharp-app</code></p>
+<p><strong>8.2. Deploying to Azure</strong></p>
+<p><code>az webapp up --name mycsharpapp --runtime "DOTNET:7.0"</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in C# Level 2:</strong></p>
+<p>✅ <strong>Advanced Methods (Delegates, Events, Lambda Expressions)</strong></p>
+<p>✅ <strong>LINQ (Filtering, Sorting, Aggregation, Query Expressions)</strong></p>
+<p>✅ <strong>Asynchronous Programming (Async/Await, Tasks, Threads)</strong></p>
+<p>✅ <strong>Working with Databases (Entity Framework Core, SQL Server, SQLite)</strong></p>
+<p>✅ <strong>Web Development with ASP.NET Core (MVC, APIs, Middleware)</strong></p>
+<p>✅ <strong>Dependency Injection &amp; Design Patterns</strong></p>
+<p>✅ <strong>Built a Full-Stack C# Web App</strong></p>
+<p>Now, you’re ready for <strong>C# Level 3</strong>, where we explore <strong>Microservices, Cloud Computing, Machine Learning, and Performance Optimization!</strong> 🚀</p></body></html>

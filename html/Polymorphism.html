@@ -1,0 +1,57 @@
+<html><body><blockquote>
+<p><strong>March 17th, 2025</strong>  <strong>12:25:33</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Polymorphism: Multiple Forms in [[Object-Oriented Programming]]</strong></p>
+<p>Polymorphism is a core concept in [[Object-Oriented Programming]] (OOP) that allows objects of different classes to be treated as objects of a common superclass. It enables a single interface to represent different underlying data types, facilitating flexible and reusable code.</p>
+<hr />
+<p><strong>1. Definition and Core Idea</strong></p>
+<p><strong>A. Multiple Forms</strong></p>
+<p>• <strong>Concept:</strong></p>
+<p>Polymorphism, derived from Greek meaning “many forms,” refers to the ability of a function, method, or operator to behave differently based on the type of object it is acting upon.</p>
+<p>• <strong>Unified Interface:</strong></p>
+<p>Despite different implementations, polymorphism allows various classes to be accessed through a common interface, enabling code to be written more generically and reducing the need for multiple conditional statements.</p>
+<p><strong>B. Types of Polymorphism</strong></p>
+<p>• <strong>Compile-Time Polymorphism:</strong></p>
+<p>Also known as static polymorphism, this is achieved through method overloading and operator overloading. The decision of which method to call is determined at compile time.</p>
+<p>• <strong>Runtime Polymorphism:</strong></p>
+<p>Also referred to as dynamic polymorphism, this is achieved through method overriding. The specific method that is executed is determined at runtime, typically using inheritance and virtual functions.</p>
+<hr />
+<p><strong>2. Implementation in OOP</strong></p>
+<p><strong>A. Method Overloading</strong></p>
+<p>• <strong>Definition:</strong></p>
+<p>Multiple methods in the same class can share the same name but differ in the number or type of their parameters. This allows the same operation to be performed on different types of input.</p>
+<p>• <strong>Example:</strong></p>
+<p>A class might have several print() methods that accept different data types (e.g., integers, strings, objects), each handling the printing process appropriately.</p>
+<p><strong>B. Method Overriding</strong></p>
+<p>• <strong>Definition:</strong></p>
+<p>In a class hierarchy, a subclass can provide a specific implementation of a method that is already defined in its superclass. This is the basis for runtime polymorphism.</p>
+<p>• <strong>Example:</strong></p>
+<p>Consider a superclass Animal with a method makeSound(). Different subclasses like Dog and Cat override this method to provide their own sound (bark, meow), while the code interacting with Animal objects can call makeSound() without knowing the exact type of animal.</p>
+<hr />
+<p><strong>3. Benefits and Impact</strong></p>
+<p><strong>A. Flexibility and Reusability</strong></p>
+<p>• <strong>Code Reuse:</strong></p>
+<p>Polymorphism allows developers to write more flexible and maintainable code, as common interfaces can be used across various types. This promotes the reuse of code and minimizes redundancy.</p>
+<p>• <strong>Simplified Maintenance:</strong></p>
+<p>Changes to common behaviors can be made in the superclass, and these changes automatically propagate to subclasses, simplifying maintenance and reducing errors.</p>
+<p><strong>B. Enhanced System Design</strong></p>
+<p>• <strong>Modular Design:</strong></p>
+<p>By allowing different classes to be treated uniformly, polymorphism supports a modular design approach where components can be interchanged easily without affecting the overall system.</p>
+<p>• <strong>Scalability:</strong></p>
+<p>As systems grow in complexity, polymorphism provides a scalable way to handle new types and functionalities without rewriting existing code.</p>
+<hr />
+<p><strong>4. Vocabulary and Key Concepts</strong></p>
+<p>• <strong>[[Object-Oriented Programming]]:</strong></p>
+<p>A programming paradigm that uses objects and classes to organize code, with polymorphism being one of its key principles.</p>
+<p>• <strong>Compile-Time Polymorphism:</strong></p>
+<p>The ability to resolve method calls during the compilation phase, achieved via method or operator overloading.</p>
+<p>• <strong>Runtime Polymorphism:</strong></p>
+<p>The ability to determine method calls at runtime through method overriding, enabling dynamic behavior in programs.</p>
+<p>• <strong>Method Overloading and Overriding:</strong></p>
+<p>Techniques that allow the same function name to be used for different behaviors, depending on context.</p>
+<hr />
+<p><strong>Concluding Reflections</strong></p>
+<p>Polymorphism is a fundamental principle that enriches the power of [[Object-Oriented Programming]] by enabling objects to interact through a shared interface while retaining their unique behaviors. By embracing both compile-time and runtime polymorphism, developers can create systems that are both flexible and robust, paving the way for scalable and maintainable software solutions. Whether implementing simple method overloading or complex inheritance hierarchies with dynamic behavior, polymorphism remains a vital tool in the modern programmer’s arsenal.</p></body></html>

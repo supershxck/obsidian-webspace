@@ -1,0 +1,262 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:59:12</strong> 
+<strong>Topics:</strong> [[PHP L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>PHP Level 1: Introduction to PHP Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>PHP is a <strong>server-side scripting language</strong> primarily used for <strong>web development</strong>. It powers <strong>80% of websites</strong>, including <strong>WordPress, Facebook, and Wikipedia</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>PHP Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Scope</strong></p>
+<p>✅ <strong>Forms &amp; User Input Handling</strong></p>
+<p>✅ <strong>Arrays &amp; Associative Arrays</strong></p>
+<p>✅ <strong>Error Handling &amp; Superglobals</strong></p>
+<p>✅ <strong>File Handling (Reading &amp; Writing Files)</strong></p>
+<p>✅ <strong>Building a Simple PHP Web App</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic PHP scripts, handle user input, and interact with files</strong>.</p>
+<hr />
+<p><strong>1. Setting Up PHP</strong></p>
+<p><strong>1.1. Installing PHP</strong></p>
+<p>• <strong>Windows</strong>: Install <a href="https://www.apachefriends.org/download.html">XAMPP</a></p>
+<p>• <strong>Mac/Linux</strong>: Install using Homebrew or APT:</p>
+<p><code>sudo apt install php  # Ubuntu/Debian
+brew install php  # macOS</code></p>
+<p><strong>1.2. Running PHP Code</strong></p>
+<p>• <strong>Run a PHP script</strong>:</p>
+<p><code>php script.php</code></p>
+<p>• <strong>Run PHP Built-in Server</strong>:</p>
+<p><code>php -S localhost:8000</code></p>
+<p>Open http://localhost:8000 in your browser.</p>
+<hr />
+<p><strong>2. PHP Basics: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>2.1. Variables &amp; Constants</strong></p>
+<p>```</p>
+<?php
+$name = "Alice";
+$age = 25;
+define("PI", 3.1415);  // Constant
+echo "$name is $age years old.";
+?>
+<p>```</p>
+<p><strong>2.2. Data Types</strong></p>
+<p>```</p>
+<?php
+$integer = 42;
+$float = 3.14;
+$boolean = true;
+$string = "Hello, PHP!";
+$array = array("Apple", "Banana", "Cherry");
+
+echo gettype($integer);  // integer
+?>
+<p>```</p>
+<p><strong>2.3. Operators</strong></p>
+<p>```</p>
+<?php
+$a = 10; $b = 3;
+echo "Sum: " . ($a + $b);
+echo "Difference: " . ($a - $b);
+?>
+<p>```</p>
+<hr />
+<p><strong>3. Control Flow (If-Else, Loops, Switch)</strong></p>
+<p><strong>3.1. If-Else Statement</strong></p>
+<p>```</p>
+<?php
+$temperature = 30;
+if ($temperature > 25) {
+    echo "It's hot outside!";
+} else {
+    echo "It's cool outside.";
+}
+?>
+<p>```</p>
+<p><strong>3.2. For Loop</strong></p>
+<p>```</p>
+<?php
+for ($i = 1; $i <= 5; $i++) {
+    echo "Iteration $i <br>";
+}
+?>
+<p>```</p>
+<p><strong>3.3. While Loop</strong></p>
+<p>```</p>
+<?php
+$count = 0;
+while ($count < 3) {
+    echo "Count: $count <br>";
+    $count++;
+}
+?>
+<p>```</p>
+<p><strong>3.4. Switch Statement</strong></p>
+<p>```</p>
+<?php
+$day = "Monday";
+switch ($day) {
+    case "Monday":
+        echo "Start of the week!";
+        break;
+    case "Friday":
+        echo "Weekend is coming!";
+        break;
+    default:
+        echo "A regular day.";
+}
+?>
+<p>```</p>
+<hr />
+<p><strong>4. Functions &amp; Scope</strong></p>
+<p><strong>4.1. Defining a Function</strong></p>
+<p>```</p>
+<?php
+function greet($name) {
+    return "Hello, $name!";
+}
+echo greet("Alice");
+?>
+<p>```</p>
+<p><strong>4.2. Default Parameters</strong></p>
+<p>```</p>
+<?php
+function greet($name = "Guest") {
+    echo "Hello, $name!";
+}
+greet();  // Hello, Guest!
+?>
+<p>```</p>
+<hr />
+<p><strong>5. Forms &amp; User Input Handling</strong></p>
+<p><strong>5.1. Handling GET Requests</strong></p>
+<p>```</p>
+<form method="GET">
+    Enter your name: <input type="text" name="username">
+    <input type="submit">
+</form>
+
+<?php
+if (isset($_GET["username"])) {
+    echo "Hello, " . htmlspecialchars($_GET["username"]);
+}
+?>
+<p>```</p>
+<p><strong>5.2. Handling POST Requests</strong></p>
+<p>```</p>
+<form method="POST">
+    Enter password: <input type="password" name="password">
+    <input type="submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "Password received.";
+}
+?>
+<p>```</p>
+<hr />
+<p><strong>6. Arrays &amp; Associative Arrays</strong></p>
+<p><strong>6.1. Indexed Arrays</strong></p>
+<p>```</p>
+<?php
+$fruits = ["Apple", "Banana", "Cherry"];
+echo $fruits[1];  // Banana
+?>
+<p>```</p>
+<p><strong>6.2. Associative Arrays</strong></p>
+<p>```</p>
+<?php
+$scores = ["Alice" => 90, "Bob" => 85];
+echo $scores["Alice"];  // 90
+?>
+<p>```</p>
+<p><strong>6.3. Looping Through Arrays</strong></p>
+<p>```</p>
+<?php
+foreach ($scores as $name => $score) {
+    echo "$name scored $score. <br>";
+}
+?>
+<p>```</p>
+<hr />
+<p><strong>7. Error Handling &amp; Superglobals</strong></p>
+<p><strong>7.1. Handling Errors</strong></p>
+<p>```</p>
+<?php
+function divide($a, $b) {
+    if ($b == 0) {
+        throw new Exception("Cannot divide by zero.");
+    }
+    return $a / $b;
+}
+
+try {
+    echo divide(10, 0);
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+<p>```</p>
+<p><strong>7.2. Using Superglobals ($_SERVER)</strong></p>
+<p>```</p>
+<?php
+echo "Your IP Address: " . $_SERVER["REMOTE_ADDR"];
+?>
+<p>```</p>
+<hr />
+<p><strong>8. File Handling (Reading &amp; Writing Files)</strong></p>
+<p><strong>8.1. Writing to a File</strong></p>
+<p>```</p>
+<?php
+file_put_contents("output.txt", "Hello, PHP!");
+?>
+<p>```</p>
+<p><strong>8.2. Reading from a File</strong></p>
+<p>```</p>
+<?php
+$content = file_get_contents("output.txt");
+echo $content;
+?>
+<p>```</p>
+<hr />
+<p><strong>9. Building a Simple PHP Web App</strong></p>
+<p><strong>9.1. Basic Contact Form</strong></p>
+<p>```</p>
+<form method="POST">
+    Name: <input type="text" name="name"><br>
+    Message: <textarea name="message"></textarea><br>
+    <input type="submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST["name"]);
+    $message = htmlspecialchars($_POST["message"]);
+    file_put_contents("messages.txt", "$name: $message\n", FILE_APPEND);
+    echo "Message saved!";
+}
+?>
+<p>```</p>
+<p><strong>9.2. Displaying Messages</strong></p>
+<p>```</p>
+<?php
+$messages = file("messages.txt");
+foreach ($messages as $msg) {
+    echo nl2br($msg);
+}
+?>
+<p>```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in PHP Level 1:</strong></p>
+<p>✅ <strong>PHP Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Scope</strong></p>
+<p>✅ <strong>Forms &amp; User Input Handling</strong></p>
+<p>✅ <strong>Arrays &amp; Associative Arrays</strong></p>
+<p>✅ <strong>Error Handling &amp; Superglobals</strong></p>
+<p>✅ <strong>File Handling (Reading &amp; Writing Files)</strong></p>
+<p>✅ <strong>Built a Simple PHP Web App</strong></p>
+<p>Now, you’re ready for <strong>PHP Level 2</strong>, where we explore <strong>Databases (MySQL), Sessions, Authentication, and Object-Oriented PHP!</strong> 🚀</p></body></html>

@@ -1,0 +1,159 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>13:29:47</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Event Handling in JavaScript</strong></p>
+<p><strong>Event handling</strong> in JavaScript allows you to create dynamic and interactive web applications by responding to user actions such as clicks, keystrokes, form submissions, and mouse movements. Events can be attached to elements and triggered in various ways.</p>
+<p><strong>1. What is an Event?</strong></p>
+<p>An <strong>event</strong> is an action that occurs in the browser, such as:</p>
+<p>• Clicking a button (click)</p>
+<p>• Hovering over an element (mouseover)</p>
+<p>• Pressing a key (keydown)</p>
+<p>• Submitting a form (submit)</p>
+<p>• Loading a page (load)</p>
+<p>JavaScript listens for these events and executes <strong>callback functions</strong> when they occur.</p>
+<p><strong>2. Adding Event Listeners</strong></p>
+<p>The standard way to handle events in JavaScript is by using addEventListener(), which attaches a function to an element.</p>
+<p><strong>Syntax</strong></p>
+<p><code>element.addEventListener("event", function, useCapture);</code></p>
+<p>• event → The event type (e.g., "click", "keydown")</p>
+<p>• function → The function to run when the event occurs</p>
+<p>• useCapture (optional) → Boolean value for event propagation (default: false)</p>
+<p><strong>3. Handling Events</strong></p>
+<p><strong>Click Event</strong></p>
+<p>```
+let button = document.getElementById("myButton");</p>
+<p>button.addEventListener("click", function() {
+    alert("Button clicked!");
+});
+```</p>
+<p><strong>Alternative: Using an Arrow Function</strong></p>
+<p><code>button.addEventListener("click", () =&gt; alert("Button clicked!"));</code></p>
+<p><strong>Mouse Events</strong></p>
+<p><code>button.addEventListener("mouseover", () =&gt; console.log("Mouse entered button"));
+button.addEventListener("mouseout", () =&gt; console.log("Mouse left button"));</code></p>
+<p>• mouseover → When the mouse enters an element</p>
+<p>• mouseout → When the mouse leaves an element</p>
+<p>• mousemove → When the mouse moves over an element</p>
+<p><strong>Keyboard Events</strong></p>
+<p><code>document.addEventListener("keydown", function(event) {
+    console.log(`Key pressed: ${event.key}`);
+});</code></p>
+<p>• keydown → Fires when a key is pressed</p>
+<p>• keyup → Fires when a key is released</p>
+<p><strong>Form Events</strong></p>
+<p>```
+let form = document.getElementById("myForm");</p>
+<p>form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevents form submission
+    console.log("Form submitted!");
+});
+```</p>
+<p>• submit → Triggers when a form is submitted</p>
+<p>• change → Triggers when an input value changes</p>
+<p>• focus → Triggers when an input field is focused</p>
+<p><strong>4. Removing Event Listeners</strong></p>
+<p>To remove an event listener, use removeEventListener(). The function reference must match exactly.</p>
+<p><strong>Example: Removing an Event</strong></p>
+<p>```
+function handleClick() {
+    console.log("Clicked!");
+}</p>
+<p>button.addEventListener("click", handleClick);
+button.removeEventListener("click", handleClick);
+```</p>
+<p><strong>5. Event Object (event)</strong></p>
+<p>JavaScript passes an <strong>event object</strong> (event) to event handlers, providing information about the event.</p>
+<p><strong>Example: Accessing the Event Object</strong></p>
+<p><code>document.addEventListener("click", function(event) {
+    console.log("Event Type:", event.type);
+    console.log("Target Element:", event.target);
+    console.log("Mouse Coordinates:", event.clientX, event.clientY);
+});</code></p>
+<p>• event.type → Type of event (click, keydown, etc.)</p>
+<p>• event.target → The element that triggered the event</p>
+<p>• event.clientX, event.clientY → Mouse position</p>
+<p><strong>6. Event Propagation: Bubbling vs. Capturing</strong></p>
+<p><strong>Event Bubbling (Default)</strong></p>
+<p>Events bubble <strong>from child elements up to parent elements</strong>.</p>
+<p>```</p>
+<div id="parent">
+    <button id="child">Click Me</button>
+</div>
+<p>```</p>
+<p><code>document.getElementById("parent").addEventListener("click", () =&gt; console.log("Parent clicked"));
+document.getElementById("child").addEventListener("click", () =&gt; console.log("Child clicked"));</code></p>
+<p><strong>Output (if you click the button):</strong></p>
+<p><code>Child clicked
+Parent clicked</code></p>
+<p>• <strong>First</strong>, the event triggers on the child (button).</p>
+<p>• <strong>Then</strong>, it bubbles up to the parent (div).</p>
+<p><strong>Event Capturing (Use Capture)</strong></p>
+<p>If you set true as the third argument in addEventListener(), the event <strong>captures</strong> from the parent <strong>down to the child</strong>.</p>
+<p><code>document.getElementById("parent").addEventListener("click", () =&gt; console.log("Parent clicked"), true);
+document.getElementById("child").addEventListener("click", () =&gt; console.log("Child clicked"), true);</code></p>
+<p><strong>Output:</strong></p>
+<p><code>Parent clicked
+Child clicked</code></p>
+<p>• <strong>Capturing Phase</strong> → The event is handled from the outermost element <strong>down</strong> to the target.</p>
+<p><strong>Stopping Event Propagation</strong></p>
+<p>Use event.stopPropagation() to <strong>prevent bubbling</strong>.</p>
+<p><code>document.getElementById("child").addEventListener("click", function(event) {
+    event.stopPropagation();
+    console.log("Child clicked");
+});</code></p>
+<p>Now, clicking the button will only log "Child clicked", <strong>not</strong> "Parent clicked".</p>
+<p><strong>7. Event Delegation</strong></p>
+<p>Instead of adding an event to multiple elements, you can use <strong>event delegation</strong> by adding a single event listener to a <strong>parent element</strong> and checking event.target.</p>
+<p><strong>Example: Handling Multiple Buttons</strong></p>
+<p>```</p>
+<ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+<p>```</p>
+<p><code>document.getElementById("list").addEventListener("click", function(event) {
+    if (event.target.tagName === "LI") {
+        console.log("Clicked:", event.target.textContent);
+    }
+});</code></p>
+<p><strong>Benefits of event delegation:</strong></p>
+<p>• <strong>Efficient</strong> → One event listener instead of multiple.</p>
+<p>• <strong>Works with dynamically added elements</strong>.</p>
+<p><strong>8. Dispatching Custom Events</strong></p>
+<p>You can create and dispatch <strong>custom events</strong>.</p>
+<p><strong>Example: Creating a Custom Event</strong></p>
+<p>```
+let customEvent = new Event("myEvent");</p>
+<p>document.addEventListener("myEvent", function() {
+    console.log("Custom event triggered!");
+});</p>
+<p>document.dispatchEvent(customEvent);
+```</p>
+<p><strong>Custom Events with Data (CustomEvent)</strong></p>
+<p>```
+let customEvent = new CustomEvent("userLogin", { detail: { username: "JohnDoe" } });</p>
+<p>document.addEventListener("userLogin", function(event) {
+    console.log("User logged in:", event.detail.username);
+});</p>
+<p>document.dispatchEvent(customEvent);
+```</p>
+<p><strong>9. Preventing Default Behavior</strong></p>
+<p>Some events have default behaviors (e.g., form submission, link navigation). You can prevent them using event.preventDefault().</p>
+<p><strong>Example: Preventing Link Navigation</strong></p>
+<p><code>&lt;a href="https://example.com" id="myLink"&gt;Click Me&lt;/a&gt;</code></p>
+<p><code>document.getElementById("myLink").addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log("Navigation prevented!");
+});</code></p>
+<p><strong>Conclusion</strong></p>
+<p>Mastering event handling in JavaScript is essential for building interactive web applications. Key concepts include:</p>
+<p>• Using addEventListener() to handle events.</p>
+<p>• Understanding <strong>bubbling and capturing</strong>.</p>
+<p>• Using <strong>event delegation</strong> for performance.</p>
+<p>• Preventing default behavior with event.preventDefault().</p>
+<p>• Creating <strong>custom events</strong> for advanced interactions.</p>
+<p>By using event handling effectively, you can create <strong>responsive and dynamic</strong> user experiences in JavaScript-powered applications! 🚀</p></body></html>

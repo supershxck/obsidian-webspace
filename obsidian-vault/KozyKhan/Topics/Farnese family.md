@@ -1,0 +1,82 @@
+> **February 19th, 2025**  **14:25:29** 
+> **Topics:** [[Orsini family]] 
+> **Tags:** #
+---
+
+The Farnese: A Historical Italian Noble Family
+
+- Originated in the 10th century, rose to prominence in the Renaissance.
+    
+- Produced a pope, cardinals, and a queen, ruling Parma and Piacenza from 1545 to 1731.
+    
+- Known for art patronage, including the Palazzo Farnese and Farnese Marbles.
+    
+- Direct male line ended in 1731, legacy continues through the House of Bourbon-Parma.
+    
+
+Who Are the Farnese?
+
+The Farnese were a noble Italian family that became prominent during the Renaissance, particularly in the 16th century. They are best known for their political influence, with one member, Alessandro Farnese, becoming Pope Paul III in 1534, and for ruling the duchy of Parma and Piacenza from 1545 to 1731. The family was also significant patrons of the arts, commissioning famous works like the Palazzo Farnese in Rome and collecting antiquities such as the Farnese Marbles, now in Naples’ National Archaeological Museum.
+
+Key Contributions and Legacy
+
+The Farnese left a lasting mark on Italian and European history through their architectural projects and political roles. They built grand palaces, like the Villa Farnese in Caprarola, and their art collection, started by Pope Paul III, is a testament to their cultural influence. Their rule ended in 1731 when the last duke, Antonio Farnese, died without heirs, and their territories passed to the Spanish crown through Elizabeth Farnese’s sons, who founded the House of Bourbon-Parma.
+
+Surprising Detail: From Feudal Lords to European Royalty
+
+It’s surprising how the Farnese, starting as minor feudal lords in the 12th century, rose to produce a pope and a queen of Spain, influencing both the Catholic Church and European politics through strategic marriages and nepotism.
+
+---
+
+Detailed Historical Survey of the Farnese Family
+
+The Farnese family, a noble Italian dynasty, emerged as a significant force during the Renaissance, with roots tracing back to around AD 984. Their name likely derives from "Farnia" (Quercus robur, an oak) or the Lombard term "Fara," denoting a social group, reflecting their early feudal ties in regions like Tuscania and Orvieto. This survey explores their history, key members, and enduring legacy, providing a comprehensive overview for historical and cultural analysis.
+
+Historical Development
+
+The Farnese’s ascent began in the 12th century as minor feudatories, with notable military engagements, such as Pietro Farnese’s victories against Ghibellines in 1110 and Italo-Normans in 1134. By 1319, they acquired territories including Farnese, Ischia di Castro, Sala, and San Savino. Their status elevated in 1354 when Cardinal Albornoz granted them Valentano for aiding against Papal barons, aligning them with Roman baronial families like Savelli and Orsini. In 1362, Pietro Farnese commanded the Florentine army against Pisa for Volterra, solidifying their military reputation.
+
+By the 15th century, under Ranuccio the Elder, the family expanded around Lake Bolsena and Montalto, with Ranuccio becoming Senator of Rome in 1419. Their rise accelerated through strategic marriages, notably Pier Luigi’s union with Caetani and Giulia Farnese’s relationship with Pope Alexander VI, which helped Alessandro Farnese become a cardinal in 1493. The pivotal moment came in 1534 when Alessandro was elected Pope Paul III, initiating a period of nepotism. He established the Council of Trent, appointed his 14-year-old grandson Alessandro as cardinal in 1534, and granted his son Pier Luigi titles like Gonfaloniere and Duke of Castro (1537), later Duke of Parma (1545), founding a ducal dynasty.
+
+Pier Luigi’s assassination in 1547 led to his son Ottavio securing the throne, marrying Margaret, daughter of Charles V, and moving the court to Parma, where he built the Palazzo della Pilotta in 1583. Ranuccio I, succeeding in 1580, was first in line for the Portuguese throne but did not claim it due to Spanish allegiance. The family’s court peaked under Ranuccio II (1630–94), known for decadence, but faced debts and lost Castro in the Wars of Castro (1649), with the city razed by Pope Innocent X. The duchy survived, but the male line ended with Antonio Farnese’s death in 1731 without heirs. The duchy passed to Elizabeth Farnese’s sons, Don Carlos and Don Philip, establishing the House of Bourbon-Parma, still extant today.
+
+Key Members and Their Roles
+
+The Farnese produced several notable figures, detailed in the following table:
+
+|Name|Lifespan|Role and Contributions|
+|---|---|---|
+|Ranuccio Farnese the Old|1390–1450|Founder, expanded territories, Senator of Rome (1419), Captain General of the Church.|
+|Giulia Farnese|1475–1524|Daughter of Ranuccio, mistress to Pope Alexander VI, advanced family name, known as “Giulia la bella.”|
+|Pope Paul III (Alessandro)|1468–1549|Elected 1534, established Council of Trent, nepotism, built Palazzo Farnese, Duke of Parma (1545).|
+|Pier Luigi Farnese|1503–1547|Illegitimate son of Paul III, Duke of Castro, Duke of Parma, assassinated 1547.|
+|Alessandro Farnese (cardinal)|1520–1589|Cardinal at 14 (1534), patron of arts, enriched Farnese collection.|
+|Alexander Farnese, Duke|1545–1592|Duke of Parma, Governor of Spanish Netherlands, led campaigns against Dutch Revolt (1578–92).|
+|Ottavio Farnese, Duke|1524–1586|Second Duke, married Margaret of Parma, built Palazzo Farnese in Piacenza, Palazzo della Pilotta.|
+|Ranuccio I Farnese, Duke|1569–1622|First in line for Portuguese throne (1580), commemorated with equestrian statue in Piacenza.|
+|Ranuccio II Farnese, Duke|1630–1694|Fifth Duke, extravagant court, lost Castro in 1649, faced debts.|
+|Francesco Farnese, Duke|1678–1727|Sixth Duke, tried to cut costs, childless, son Antonio last male line.|
+|Antonio Farnese, Duke|1679–1731|Last Duke, died without heirs, duchy passed to Spanish crown.|
+|Elizabeth Farnese|1692–1766|Queen consort of Spain, married Philip V (1714), secured Italian throne for son Carlos.|
+
+These members shaped the family’s political and cultural landscape, with figures like Alexander Farnese earning respect for military prowess and Elizabeth ensuring dynastic continuity.
+
+Cultural and Architectural Legacy
+
+The Farnese were renowned patrons of the arts, commissioning works that endure today. Pope Paul III initiated the Farnese collection, enriched by cardinals Alessandro and Odoardo, including the famous sardonyx bowl and Fulvio Orsini’s antiquities. Architectural projects include the Palazzo Farnese in Rome, now the French embassy (House of Farnese), and the Villa Farnese at Caprarola, designed by Vignola. The Teatro Farnese in Parma and the Palazzo della Pilotta showcase their wealth, while the Farnese Gardens on Palatine Hill, created in 1550, were Europe’s first private botanical gardens. Their antiquities, like the Farnese Marbles, are housed in Naples’ National Archaeological Museum (Farnese collection).
+
+Modern Context and Legacy
+
+Today, the direct Farnese male line ended in 1731, but their legacy persists through the House of Bourbon-Parma, descendants via Elizabeth Farnese’s sons. The family’s influence is evident in museums, with their collections integral to Naples’ cultural heritage, and in historical studies of Renaissance politics and art patronage. While no longer a ruling dynasty, their contributions to architecture, like the Galleria Farnese’s frescoes by Annibale Carracci (Palazzo Farnese), and their role in shaping European nobility through marriages and alliances, ensure their historical significance.
+
+This survey, drawing from extensive web resources, provides a comprehensive view of the Farnese, from feudal origins to their lasting cultural impact, supported by detailed historical records and contemporary analyses.
+
+Key Citations
+
+- House of Farnese Wikipedia page
+    
+- Farnese collection at Museo Archeologico Napoli
+    
+- Palazzo Farnese Wikipedia page
+    
+- Italian Families Farnese Italy Magazine article

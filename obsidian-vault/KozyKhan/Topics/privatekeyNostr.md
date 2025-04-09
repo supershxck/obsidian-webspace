@@ -1,0 +1,3 @@
+nsec1zc8spncd6qqedmu3hqnf7tdzhk9w7mqdp37sehwlqms62y2e0yfqdjlafc
+
+public key : npub173adn9ntfu5ek6jc2jyztjyv0q9pguw2y5ga74mj5jey3jcvc6sqssqw6n

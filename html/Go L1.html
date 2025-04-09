@@ -1,0 +1,272 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:53:23</strong> 
+<strong>Topics:</strong> [[Go L2]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Go Level 1: Introduction to Go (Golang) Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Go (Golang) is a <strong>fast, concurrent, and simple programming language</strong> developed by Google. It is widely used in <strong>web development, cloud computing, networking, and microservices</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Go Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Defer</strong></p>
+<p>✅ <strong>Pointers &amp; Structs</strong></p>
+<p>✅ <strong>Error Handling &amp; Panic Recovery</strong></p>
+<p>✅ <strong>Concurrency with Goroutines &amp; Channels</strong></p>
+<p>✅ <strong>File Handling &amp; JSON Parsing</strong></p>
+<p>✅ <strong>Building a Simple Web Server in Go</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic Go programs, understand concurrency, and build a simple web application</strong>.</p>
+<hr />
+<p><strong>1. Setting Up Go</strong></p>
+<p><strong>1.1. Installing Go</strong></p>
+<p>Download and install Go from <a href="https://go.dev/dl/">golang.org</a>.</p>
+<p>Verify installation:</p>
+<p><code>go version</code></p>
+<p><strong>1.2. Running Go Code</strong></p>
+<p>• <strong>Run a Go script</strong>:</p>
+<p><code>go run main.go</code></p>
+<p>• <strong>Compile and execute</strong>:</p>
+<p><code>go build main.go
+./main</code></p>
+<hr />
+<p><strong>2. Go Basics: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>2.1. Variables &amp; Constants</strong></p>
+<p>```
+package main
+import "fmt"</p>
+<p>func main() {
+    var age int = 25
+    name := "Alice" // Short declaration
+    const PI float64 = 3.1415</p>
+<pre><code>fmt.Println(name, "is", age, "years old.")
+</code></pre>
+<p>}
+```</p>
+<p><strong>2.2. Data Types</strong></p>
+<p>```
+func main() {
+    var number int = 42
+    var pi float64 = 3.14
+    var isGoAwesome bool = true
+    var letter rune = 'G'  // Unicode character
+    var message string = "Hello, Go!"</p>
+<pre><code>fmt.Println(number, pi, isGoAwesome, letter, message)
+</code></pre>
+<p>}
+```</p>
+<p><strong>2.3. Operators</strong></p>
+<p><code>func main() {
+    a, b := 10, 3
+    fmt.Println("Sum:", a+b)
+    fmt.Println("Diff:", a-b)
+    fmt.Println("Product:", a*b)
+    fmt.Println("Quotient:", a/b)
+    fmt.Println("Remainder:", a%b)
+}</code></p>
+<hr />
+<p><strong>3. Control Flow (If-Else, Loops, Switch)</strong></p>
+<p><strong>3.1. If-Else Statement</strong></p>
+<p><code>func main() {
+    temperature := 30
+    if temperature &gt; 25 {
+        fmt.Println("It's hot outside!")
+    } else {
+        fmt.Println("It's cool outside.")
+    }
+}</code></p>
+<p><strong>3.2. For Loop</strong></p>
+<p><code>func main() {
+    for i := 1; i &lt;= 5; i++ {
+        fmt.Println("Iteration", i)
+    }
+}</code></p>
+<p><strong>3.3. While Loop Equivalent (for with condition)</strong></p>
+<p><code>func main() {
+    count := 0
+    for count &lt; 3 {
+        fmt.Println("Count:", count)
+        count++
+    }
+}</code></p>
+<p><strong>3.4. Switch Statement</strong></p>
+<p><code>func main() {
+    day := "Monday"
+    switch day {
+    case "Monday":
+        fmt.Println("Start of the week!")
+    case "Friday":
+        fmt.Println("Weekend is coming!")
+    default:
+        fmt.Println("A regular day.")
+    }
+}</code></p>
+<hr />
+<p><strong>4. Functions &amp; Defer</strong></p>
+<p><strong>4.1. Defining a Function</strong></p>
+<p>```
+func greet(name string) string {
+    return "Hello, " + name + "!"
+}</p>
+<p>func main() {
+    fmt.Println(greet("Alice"))
+}
+```</p>
+<p><strong>4.2. Function with Multiple Return Values</strong></p>
+<p>```
+func swap(x, y int) (int, int) {
+    return y, x
+}</p>
+<p>func main() {
+    a, b := swap(3, 7)
+    fmt.Println(a, b) // 7 3
+}
+```</p>
+<p><strong>4.3. Defer (Execute at End of Function)</strong></p>
+<p><code>func main() {
+    defer fmt.Println("This will run last")
+    fmt.Println("This runs first")
+}</code></p>
+<hr />
+<p><strong>5. Pointers &amp; Structs</strong></p>
+<p><strong>5.1. Pointers</strong></p>
+<p>```
+func main() {
+    num := 10
+    ptr := &amp;num // Pointer to num</p>
+<pre><code>fmt.Println("Value:", *ptr)  // Dereferencing pointer
+</code></pre>
+<p>}
+```</p>
+<p><strong>5.2. Structs (Custom Data Types)</strong></p>
+<p>```
+type Car struct {
+    Brand string
+    Speed int
+}</p>
+<p>func main() {
+    myCar := Car{Brand: "Tesla", Speed: 120}
+    fmt.Println(myCar.Brand, "is moving at", myCar.Speed, "km/h")
+}
+```</p>
+<hr />
+<p><strong>6. Error Handling &amp; Panic Recovery</strong></p>
+<p><strong>6.1. Handling Errors</strong></p>
+<p>```
+import "errors"</p>
+<p>func divide(a, b float64) (float64, error) {
+    if b == 0 {
+        return 0, errors.New("cannot divide by zero")
+    }
+    return a / b, nil
+}</p>
+<p>func main() {
+    result, err := divide(10, 0)
+    if err != nil {
+        fmt.Println("Error:", err)
+    } else {
+        fmt.Println("Result:", result)
+    }
+}
+```</p>
+<p><strong>6.2. Recovering from Panic</strong></p>
+<p>```
+func safeDivide() {
+    defer func() {
+        if r := recover(); r != nil {
+            fmt.Println("Recovered from panic:", r)
+        }
+    }()
+    panic("Something went wrong!")
+}</p>
+<p>func main() {
+    safeDivide()
+}
+```</p>
+<hr />
+<p><strong>7. Concurrency with Goroutines &amp; Channels</strong></p>
+<p><strong>7.1. Goroutines (Lightweight Threads)</strong></p>
+<p>```
+import "fmt"
+import "time"</p>
+<p>func sayHello() {
+    fmt.Println("Hello from Goroutine!")
+}</p>
+<p>func main() {
+    go sayHello()
+    time.Sleep(1 * time.Second) // Prevent program from exiting early
+}
+```</p>
+<p><strong>7.2. Channels for Communication</strong></p>
+<p>```
+func main() {
+    messages := make(chan string)</p>
+<pre><code>go func() {
+    messages &lt;- "Hello from Goroutine!"
+}()
+
+msg := &lt;-messages
+fmt.Println(msg)
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>8. File Handling &amp; JSON Parsing</strong></p>
+<p><strong>8.1. Writing to a File</strong></p>
+<p>```
+import "os"</p>
+<p>func main() {
+    os.WriteFile("output.txt", []byte("Hello, Go!"), 0644)
+}
+```</p>
+<p><strong>8.2. Reading from a File</strong></p>
+<p>```
+import "os"</p>
+<p>func main() {
+    data, _ := os.ReadFile("output.txt")
+    fmt.Println(string(data))
+}
+```</p>
+<p><strong>8.3. JSON Parsing</strong></p>
+<p>```
+import "encoding/json"
+import "fmt"</p>
+<p>type User struct {
+    Name string <code>json:"name"</code>
+    Age  int    <code>json:"age"</code>
+}</p>
+<p>func main() {
+    jsonString := <code>{"name": "Alice", "age": 30}</code>
+    var user User
+    json.Unmarshal([]byte(jsonString), &amp;user)
+    fmt.Println(user.Name, "is", user.Age, "years old.")
+}
+```</p>
+<hr />
+<p><strong>9. Building a Simple Web Server</strong></p>
+<p>```
+import "net/http"
+import "fmt"</p>
+<p>func handler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintln(w, "Hello, Go Web Server!")
+}</p>
+<p>func main() {
+    http.HandleFunc("/", handler)
+    http.ListenAndServe(":8080", nil)
+}
+```</p>
+<p>Run:</p>
+<p><code>go run main.go</code></p>
+<p>Visit http://localhost:8080.</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Go Level 1:</strong></p>
+<p>✅ <strong>Go Basics (Syntax, Variables, Data Types, Operators)</strong></p>
+<p>✅ <strong>Control Flow (If-Else, Loops, Switch Statements)</strong></p>
+<p>✅ <strong>Functions &amp; Defer</strong></p>
+<p>✅ <strong>Pointers &amp; Structs</strong></p>
+<p>✅ <strong>Error Handling &amp; Panic Recovery</strong></p>
+<p>✅ <strong>Concurrency with Goroutines &amp; Channels</strong></p>
+<p>✅ <strong>File Handling &amp; JSON Parsing</strong></p>
+<p>✅ <strong>Built a Simple Web Server</strong></p>
+<p>Now, you’re ready for <strong>Go Level 2</strong>, where we explore <strong>Microservices, Database Integration, Advanced Concurrency, and WebSockets in Go!</strong> 🚀</p></body></html>

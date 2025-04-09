@@ -1,0 +1,129 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>03:00:36</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Linux System Administration: Managing and Maintaining a Linux System</strong></p>
+<p><strong>Linux system administration</strong> involves managing <strong>users, processes, storage, security, networking, and automation</strong> to ensure a <strong>stable and secure system</strong>. It is a crucial skill for <strong>IT professionals, DevOps engineers, and system administrators</strong>, allowing them to <strong>monitor, troubleshoot, and optimize Linux environments</strong>.</p>
+<p><strong>I. User and Group Management</strong></p>
+<p><strong>1. Managing Users</strong></p>
+<p>• <strong>Add a new user</strong>:</p>
+<p><code>sudo useradd -m username
+sudo passwd username</code></p>
+<p>• <strong>Delete a user</strong>:</p>
+<p><code>sudo userdel -r username</code></p>
+<p><strong>2. Managing Groups</strong></p>
+<p>• <strong>Create a group</strong>:</p>
+<p><code>sudo groupadd developers</code></p>
+<p>• <strong>Add a user to a group</strong>:</p>
+<p><code>sudo usermod -aG developers username</code></p>
+<p>• <strong>View groups of a user</strong>:</p>
+<p><code>groups username</code></p>
+<p><strong>3. Changing User Permissions (File Ownership &amp; Permissions)</strong></p>
+<p>• <strong>Change file ownership</strong>:</p>
+<p><code>sudo chown user:group filename</code></p>
+<p>• <strong>Modify file permissions</strong>:</p>
+<p><code>chmod 755 script.sh  # Read/write/execute for owner, read/execute for others</code></p>
+<p><strong>II. Process Management</strong></p>
+<p><strong>1. Monitoring Running Processes</strong></p>
+<p>• <strong>List running processes</strong>:</p>
+<p><code>ps aux</code></p>
+<p>• <strong>Interactive process viewer</strong>:</p>
+<p><code>top  # Real-time process monitoring
+htop # (if installed, better UI)</code></p>
+<p><strong>2. Killing and Managing Processes</strong></p>
+<p>• <strong>Kill a process by PID</strong>:</p>
+<p><code>kill PID</code></p>
+<p>• <strong>Kill a process by name</strong>:</p>
+<p><code>pkill process_name</code></p>
+<p>• <strong>Terminate an unresponsive process</strong>:</p>
+<p><code>kill -9 PID</code></p>
+<p><strong>III. Storage and Disk Management</strong></p>
+<p><strong>1. Checking Disk Usage</strong></p>
+<p>• <strong>Show disk space usage</strong>:</p>
+<p><code>df -h</code></p>
+<p>• <strong>Show directory size</strong>:</p>
+<p><code>du -sh /home/user</code></p>
+<p><strong>2. Managing Partitions and Filesystems</strong></p>
+<p>• <strong>View disk partitions</strong>:</p>
+<p><code>lsblk</code></p>
+<p>• <strong>Format a partition (ext4 example)</strong>:</p>
+<p><code>mkfs.ext4 /dev/sdb1</code></p>
+<p>• <strong>Mount a partition</strong>:</p>
+<p><code>mount /dev/sdb1 /mnt</code></p>
+<p>• <strong>Automount at boot (edit /etc/fstab)</strong>:</p>
+<p><code>/dev/sdb1  /mnt  ext4  defaults  0  2</code></p>
+<p><strong>IV. Networking and Firewall Management</strong></p>
+<p><strong>1. Viewing Network Configuration</strong></p>
+<p>• <strong>Check network interfaces</strong>:</p>
+<p><code>ip a</code></p>
+<p>• <strong>Show active connections</strong>:</p>
+<p><code>netstat -tulnp</code></p>
+<p><strong>2. Configuring Firewall (UFW &amp; iptables)</strong></p>
+<p>• <strong>Allow a service (UFW - Uncomplicated Firewall)</strong>:</p>
+<p><code>sudo ufw allow 22/tcp  # Allow SSH
+sudo ufw enable        # Enable firewall</code></p>
+<p>• <strong>Check firewall rules</strong>:</p>
+<p><code>sudo ufw status</code></p>
+<p>• <strong>Basic iptables rule to allow SSH</strong>:</p>
+<p><code>sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT</code></p>
+<p><strong>V. Log Management and System Monitoring</strong></p>
+<p><strong>1. Checking System Logs</strong></p>
+<p>• <strong>View system logs</strong>:</p>
+<p><code>journalctl -xe</code></p>
+<p>• <strong>Check authentication logs</strong>:</p>
+<p><code>cat /var/log/auth.log  # (Debian-based)
+cat /var/log/secure    # (Red Hat-based)</code></p>
+<p><strong>2. Monitoring System Performance</strong></p>
+<p>• <strong>Check CPU and memory usage</strong>:</p>
+<p><code>free -m  # Memory usage
+vmstat   # System performance overview</code></p>
+<p>• <strong>Monitor real-time resource usage</strong>:</p>
+<p><code>top
+htop  # (If installed, better interface)</code></p>
+<p><strong>VI. Software and Package Management</strong></p>
+<p><strong>1. Installing and Managing Packages</strong></p>
+<p>• <strong>Debian-based (Ubuntu, Debian, Mint)</strong>:</p>
+<p><code>sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install package_name</code></p>
+<p>• <strong>Red Hat-based (CentOS, Fedora, Rocky)</strong>:</p>
+<p><code>sudo dnf install package_name</code></p>
+<p>• <strong>Arch-based (Arch, Manjaro)</strong>:</p>
+<p><code>sudo pacman -S package_name</code></p>
+<p><strong>2. Removing Unused Packages</strong></p>
+<p>• <strong>Clean up unnecessary dependencies</strong>:</p>
+<p><code>sudo apt autoremove</code></p>
+<p><strong>VII. Security and User Access Control</strong></p>
+<p><strong>1. Managing SSH Access</strong></p>
+<p>• <strong>Enable SSH service</strong>:</p>
+<p><code>sudo systemctl enable ssh
+sudo systemctl start ssh</code></p>
+<p>• <strong>Disable root login in SSH (Edit /etc/ssh/sshd_config)</strong>:</p>
+<p><code>PermitRootLogin no</code></p>
+<p>Then restart SSH:</p>
+<p><code>sudo systemctl restart ssh</code></p>
+<p><strong>2. Setting Up a Firewall</strong></p>
+<p>• <strong>Allow only specific services</strong>:</p>
+<p><code>sudo ufw allow OpenSSH
+sudo ufw enable</code></p>
+<p><strong>VIII. Backup and Automation</strong></p>
+<p><strong>1. Scheduling Jobs with Cron</strong></p>
+<p>• Open cron editor:</p>
+<p><code>crontab -e</code></p>
+<p>• Example: Run a backup every midnight:</p>
+<p><code>0 0 * * * /path/to/backup.sh</code></p>
+<p><strong>2. Creating Backups with rsync</strong></p>
+<p>• <strong>Backup a directory to another location</strong>:</p>
+<p><code>rsync -av /home/user/ /backup/</code></p>
+<p><strong>IX. System Updates and Kernel Management</strong></p>
+<p><strong>1. Checking the Current Kernel Version</strong></p>
+<p>• <strong>Show kernel version</strong>:</p>
+<p><code>uname -r</code></p>
+<p><strong>2. Updating the Kernel (Debian-based)</strong></p>
+<p>• <strong>List available kernels</strong>:</p>
+<p><code>apt list --upgradable | grep linux</code></p>
+<p>• <strong>Upgrade the kernel</strong>:</p>
+<p><code>sudo apt upgrade linux-image-$(uname -r)</code></p>
+<p><strong>X. Conclusion: The Role of a Linux System Administrator</strong></p>
+<p>Linux system administration <strong>involves keeping systems running securely, efficiently, and smoothly</strong>. A sysadmin <strong>manages users, software, processes, security, networking, and automation</strong>. Mastering these areas ensures <strong>a stable, secure, and high-performing Linux environment</strong>.</p></body></html>

@@ -1,0 +1,172 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:39:46</strong> 
+<strong>Topics:</strong> [[CNC L1]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>PLC Level 2: Advanced PLC Programming &amp; Industrial Automation</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve learned <strong>basic PLC programming</strong>, it’s time to explore <strong>advanced industrial automation concepts</strong>. This level focuses on <strong>real-world PLC applications, networking, and industrial protocols</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced PLC Programming Techniques (State Machines, Sequencers, PID Control)</strong></p>
+<p>✅ <strong>Networking &amp; Communication (Modbus, PROFIBUS, MQTT, OPC UA)</strong></p>
+<p>✅ <strong>Human-Machine Interface (HMI) &amp; SCADA Integration</strong></p>
+<p>✅ <strong>Data Logging &amp; Industrial IoT (IIoT)</strong></p>
+<p>✅ <strong>Error Handling &amp; Redundancy in PLC Systems</strong></p>
+<p>✅ <strong>PLC Troubleshooting &amp; Diagnostics</strong></p>
+<p>✅ <strong>Building a Real-World Industrial Control System</strong></p>
+<p>By the end of this lesson, you will be able to <strong>develop and integrate complex automation systems</strong>.</p>
+<hr />
+<p><strong>1. Advanced PLC Programming Techniques</strong></p>
+<p><strong>1.1. State Machine Programming</strong></p>
+<p>State machines are used to <strong>control sequential operations</strong>.</p>
+<p><strong>Example: Traffic Light Control in Ladder Logic</strong></p>
+<p><code>Green_Light   ---[ ]--[TON T1 10s]--(Red_Light)
+Red_Light     ---[ ]--[TON T2 5s]--(Yellow_Light)
+Yellow_Light  ---[ ]--[TON T3 3s]--(Green_Light)</code></p>
+<p><strong>Structured Text (ST) Version:</strong></p>
+<p><code>CASE State OF
+    0: Green := TRUE; Timer1 := TON(10s); IF Timer1.DONE THEN State := 1; END_IF;
+    1: Green := FALSE; Red := TRUE; Timer2 := TON(5s); IF Timer2.DONE THEN State := 2; END_IF;
+    2: Red := FALSE; Yellow := TRUE; Timer3 := TON(3s); IF Timer3.DONE THEN State := 0; END_IF;
+END_CASE;</code></p>
+<hr />
+<p><strong>1.2. Sequencers (Process Control)</strong></p>
+<p>A <strong>sequencer</strong> is used when a process must follow a predefined sequence.</p>
+<p><strong>Example: Bottle Filling Process</strong></p>
+<ol>
+<li>
+<p>Move bottle under the filling station</p>
+</li>
+<li>
+<p>Fill the bottle</p>
+</li>
+<li>
+<p>Move to the capping station</p>
+</li>
+<li>
+<p>Seal the bottle</p>
+</li>
+<li>
+<p>Move bottle to the next process</p>
+</li>
+</ol>
+<p><code>Step_1 ---[ ]--(Move_Conveyor)
+Step_2 ---[ ]--(Fill_Bottle)
+Step_3 ---[ ]--(Move_To_Cap)
+Step_4 ---[ ]--(Seal_Bottle)
+Step_5 ---[ ]--(Move_Conveyor)</code></p>
+<hr />
+<p><strong>1.3. PID Control (Proportional-Integral-Derivative)</strong></p>
+<p>PID controllers <strong>maintain process stability</strong>, such as <strong>temperature, pressure, and speed control</strong>.</p>
+<p><strong>Example: Temperature Control</strong></p>
+<p><code>(Temperature Sensor) ---[PID]---(Heater)</code></p>
+<p><strong>Structured Text (ST) PID Controller:</strong></p>
+<p><code>PID_Heater := PID_Process(T_Setpoint, T_Measured, Kp, Ki, Kd);</code></p>
+<p>• <strong>Kp</strong> = Proportional gain</p>
+<p>• <strong>Ki</strong> = Integral gain</p>
+<p>• <strong>Kd</strong> = Derivative gain</p>
+<hr />
+<p><strong>2. Networking &amp; Communication</strong></p>
+<p>PLCs communicate with other <strong>devices, sensors, and controllers</strong> using industrial protocols.</p>
+<p><strong>2.1. Modbus (RS-485, TCP/IP)</strong></p>
+<p>• <strong>Widely used</strong> in industrial communication</p>
+<p>• <strong>Master-Slave architecture</strong></p>
+<p><strong>Example: Modbus TCP Communication (Structured Text)</strong></p>
+<p><code>Modbus_Write("192.168.1.100", 40001, 100);
+Modbus_Read("192.168.1.100", 40002);</code></p>
+<hr />
+<p><strong>2.2. PROFIBUS &amp; PROFINET (Siemens PLCs)</strong></p>
+<p>• <strong>PROFIBUS</strong> – Serial-based</p>
+<p>• <strong>PROFINET</strong> – Ethernet-based</p>
+<p>Example: <strong>PROFINET I/O Mapping</strong></p>
+<p><code>(Device 1) ---[PROFINET]--- (PLC) ---[PROFINET]--- (HMI)</code></p>
+<hr />
+<p><strong>2.3. MQTT (IIoT Protocol)</strong></p>
+<p>MQTT is used for <strong>Industrial IoT (IIoT) and cloud-based monitoring</strong>.</p>
+<p><strong>Example: PLC Publishing Data to an MQTT Broker</strong></p>
+<p><code>MQTT_Publish("broker.hivemq.com", "temperature_sensor", Temperature);</code></p>
+<hr />
+<p><strong>3. Human-Machine Interface (HMI) &amp; SCADA Integration</strong></p>
+<p>HMI and SCADA are used to <strong>monitor and control PLC systems</strong>.</p>
+<p><strong>3.1. Configuring an HMI Screen</strong></p>
+<p>• <strong>Create buttons for Start/Stop</strong></p>
+<p>• <strong>Display real-time process data</strong></p>
+<p>• <strong>Use alarms for warnings</strong></p>
+<p><strong>Example: Connecting Siemens WinCC HMI with PLC</strong></p>
+<ol>
+<li>
+<p>Open <strong>Siemens WinCC</strong></p>
+</li>
+<li>
+<p>Configure <strong>Tags</strong> to read/write PLC variables</p>
+</li>
+<li>
+<p>Create <strong>HMI Buttons</strong> for Start/Stop</p>
+</li>
+<li>
+<p>Link <strong>HMI Alarms</strong> to PLC fault conditions</p>
+</li>
+</ol>
+<hr />
+<p><strong>4. Data Logging &amp; Industrial IoT (IIoT)</strong></p>
+<p><strong>4.1. Logging Data to an SQL Database</strong></p>
+<p><code>DB_Connection := SQL_Connect("db_server", "user", "password");
+SQL_Insert(DB_Connection, "INSERT INTO production_log (temperature, speed) VALUES (?, ?)", Temp, Speed);</code></p>
+<p><strong>4.2. Sending Data to the Cloud</strong></p>
+<p><code>MQTT_Publish("cloud.broker.com", "machine_data", Data_Array);</code></p>
+<hr />
+<p><strong>5. Error Handling &amp; Redundancy in PLC Systems</strong></p>
+<p><strong>5.1. PLC Fault Detection</strong></p>
+<p><strong>Example: Detecting a Sensor Failure</strong></p>
+<p><code>(Sensor Input) ---[ ]---(Timer 5s)---(Alarm)</code></p>
+<p>If the <strong>sensor doesn’t respond within 5 seconds</strong>, trigger an <strong>alarm</strong>.</p>
+<p><strong>5.2. PLC Redundancy (Failover Systems)</strong></p>
+<p>• <strong>Dual PLCs in hot standby mode</strong></p>
+<p>• <strong>Automatic switchover if one PLC fails</strong></p>
+<hr />
+<p><strong>6. PLC Troubleshooting &amp; Diagnostics</strong></p>
+<p><strong>6.1. Common PLC Errors</strong></p>
+<p>|<strong>Issue</strong>|<strong>Possible Cause</strong>|<strong>Solution</strong>|
+|---|---|---|
+|PLC Not Responding|Power failure|Check power supply|
+|I/O Not Updating|Bad wiring or faulty sensor|Inspect wiring and connections|
+|Communication Error|Incorrect IP or cable fault|Verify network settings|</p>
+<p><strong>6.2. Using PLC Diagnostics Tools</strong></p>
+<p>• <strong>Siemens TIA Portal</strong> – Diagnose faults in Siemens PLCs</p>
+<p>• <strong>Allen-Bradley RSLogix 5000</strong> – Monitor logic execution</p>
+<hr />
+<p><strong>7. Building a Real-World Industrial Control System</strong></p>
+<p><strong>Project: Automated Conveyor System</strong></p>
+<p><strong>Objective:</strong></p>
+<p>• Move conveyor when <strong>Start Button</strong> is pressed</p>
+<p>• Stop conveyor when <strong>End Sensor</strong> detects an object</p>
+<p>• Flash a warning light if conveyor runs <strong>too long without an object detected</strong></p>
+<p><strong>Ladder Logic Diagram</strong></p>
+<p><code>(Start Button) ---[ ]------(Conveyor Motor)
+(End Sensor)   ---[/]------(Stop Conveyor)
+(Timer 30s)    ---[ ]------(Warning Light)</code></p>
+<p><strong>Structured Text (ST) Version</strong></p>
+<p>```
+IF Start_Button THEN
+    Conveyor := TRUE;
+    TON(Timer1, 30s);
+END_IF;</p>
+<p>IF End_Sensor THEN
+    Conveyor := FALSE;
+END_IF;</p>
+<p>IF Timer1.DONE THEN
+    Warning_Light := TRUE;
+END_IF;
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in PLC Level 2:</strong></p>
+<p>✅ <strong>State Machines, Sequencers, and PID Control</strong></p>
+<p>✅ <strong>Networking &amp; Communication (Modbus, PROFIBUS, MQTT, OPC UA)</strong></p>
+<p>✅ <strong>HMI &amp; SCADA Integration</strong></p>
+<p>✅ <strong>Data Logging &amp; Industrial IoT (IIoT)</strong></p>
+<p>✅ <strong>Error Handling &amp; Redundancy</strong></p>
+<p>✅ <strong>PLC Troubleshooting &amp; Diagnostics</strong></p>
+<p>✅ <strong>Built a Real-World Industrial Control System</strong></p>
+<p>Now, you’re ready for <strong>PLC Level 3</strong>, where we explore <strong>Advanced Motion Control, Robotics, AI in Industrial Automation, and Cybersecurity for PLCs!</strong> 🚀</p></body></html>

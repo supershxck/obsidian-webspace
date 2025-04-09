@@ -1,0 +1,225 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>18:51:49</strong> 
+<strong>Topics:</strong> [[Go L1]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>Rust Level 2: Intermediate to Advanced Rust Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you understand <strong>Rust fundamentals</strong>, it’s time to explore <strong>advanced topics</strong> such as <strong>concurrency, lifetimes, async programming, and web development</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Ownership &amp; Lifetimes</strong></p>
+<p>✅ <strong>Smart Pointers (Box, Rc, RefCell)</strong></p>
+<p>✅ <strong>Concurrency &amp; Multithreading</strong></p>
+<p>✅ <strong>Async Programming (Tokio, async/await)</strong></p>
+<p>✅ <strong>Web Development with Actix &amp; Warp</strong></p>
+<p>✅ <strong>File Handling &amp; Serialization (JSON, TOML, CSV)</strong></p>
+<p>✅ <strong>Error Handling &amp; Panic Recovery</strong></p>
+<p>✅ <strong>Building a Full-Stack Rust Web App</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write high-performance Rust applications, manage memory effectively, and develop web applications</strong>.</p>
+<hr />
+<p><strong>1. Advanced Ownership &amp; Lifetimes</strong></p>
+<p><strong>1.1. Understanding Lifetimes</strong></p>
+<p>Lifetimes <strong>prevent dangling references</strong>.</p>
+<p>```
+fn longest&lt;'a&gt;(s1: &amp;'a str, s2: &amp;'a str) -&gt; &amp;'a str {
+    if s1.len() &gt; s2.len() { s1 } else { s2 }
+}</p>
+<p>fn main() {
+    let result;
+    {
+        let str1 = String::from("Rust");
+        let str2 = String::from("Programming");
+        result = longest(&amp;str1, &amp;str2);
+    }
+    println!("{}", result); // Error: <code>result</code> borrows a value that is out of scope
+}
+```</p>
+<p>Fix it by ensuring <strong>all references live long enough</strong>.</p>
+<hr />
+<p><strong>2. Smart Pointers (Box, Rc, RefCell)</strong></p>
+<p>Smart pointers manage memory dynamically.</p>
+<p><strong>2.1. Using Box<T> for Heap Allocation</strong></p>
+<p><code>fn main() {
+    let b = Box::new(5);
+    println!("{}", b); // 5
+}</code></p>
+<p><strong>2.2. Using Rc<T> for Reference Counting</strong></p>
+<p>Rc<T> allows <strong>multiple owners</strong>.</p>
+<p>```
+use std::rc::Rc;</p>
+<p>fn main() {
+    let shared = Rc::new(10);
+    let a = Rc::clone(&amp;shared);
+    let b = Rc::clone(&amp;shared);
+    println!("{}", Rc::strong_count(&amp;shared)); // 3
+}
+```</p>
+<p><strong>2.3. Using RefCell<T> for Mutable Borrowing</strong></p>
+<p>```
+use std::cell::RefCell;</p>
+<p>fn main() {
+    let data = RefCell::new(5);
+    *data.borrow_mut() += 10;
+    println!("{}", data.borrow()); // 15
+}
+```</p>
+<hr />
+<p><strong>3. Concurrency &amp; Multithreading</strong></p>
+<p>Rust ensures <strong>safe parallelism</strong>.</p>
+<p><strong>3.1. Creating Threads</strong></p>
+<p>```
+use std::thread;</p>
+<p>fn main() {
+    let handle = thread::spawn(|| {
+        println!("Hello from thread!");
+    });
+    handle.join().unwrap();
+}
+```</p>
+<p><strong>3.2. Using Mutex for Shared Data</strong></p>
+<p>```
+use std::sync::{Arc, Mutex};
+use std::thread;</p>
+<p>fn main() {
+    let counter = Arc::new(Mutex::new(0));
+    let mut handles = vec![];</p>
+<pre><code>for _ in 0..5 {
+    let counter = Arc::clone(&amp;counter);
+    let handle = thread::spawn(move || {
+        let mut num = counter.lock().unwrap();
+        *num += 1;
+    });
+    handles.push(handle);
+}
+
+for handle in handles {
+    handle.join().unwrap();
+}
+
+println!("Final count: {}", *counter.lock().unwrap());
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>4. Async Programming (Tokio &amp; async/await)</strong></p>
+<p><strong>4.1. Installing Tokio</strong></p>
+<p><code>[dependencies]
+tokio = { version = "1", features = ["full"] }</code></p>
+<p><strong>4.2. Async Functions</strong></p>
+<p>```
+use tokio::time::{sleep, Duration};</p>
+<p>async fn say_hello() {
+    sleep(Duration::from_secs(2)).await;
+    println!("Hello, Async Rust!");
+}</p>
+<h1>[tokio::main]</h1>
+<p>async fn main() {
+    say_hello().await;
+}
+```</p>
+<hr />
+<p><strong>5. Web Development with Actix &amp; Warp</strong></p>
+<p><strong>5.1. Setting Up a Web Server (Actix)</strong></p>
+<p>Install dependencies:</p>
+<p><code>[dependencies]
+actix-web = "4"</code></p>
+<p>Create a simple server:</p>
+<p>```
+use actix_web::{get, App, HttpResponse, HttpServer};</p>
+<h1>[get("/")]</h1>
+<p>async fn index() -&gt; HttpResponse {
+    HttpResponse::Ok().body("Hello, Actix!")
+}</p>
+<h1>[actix_web::main]</h1>
+<p>async fn main() -&gt; std::io::Result&lt;()&gt; {
+    HttpServer::new(|| App::new().service(index))
+        .bind("127.0.0.1:8080")?
+        .run()
+        .await
+}
+```</p>
+<p>Run:</p>
+<p><code>cargo run</code></p>
+<p>Visit http://127.0.0.1:8080 in the browser.</p>
+<hr />
+<p><strong>6. File Handling &amp; Serialization</strong></p>
+<p><strong>6.1. Writing to a File</strong></p>
+<p>```
+use std::fs::File;
+use std::io::Write;</p>
+<p>fn main() {
+    let mut file = File::create("output.txt").expect("Cannot create file");
+    file.write_all(b"Hello, Rust!").expect("Write failed");
+}
+```</p>
+<p><strong>6.2. Reading a File</strong></p>
+<p>```
+use std::fs;</p>
+<p>fn main() {
+    let contents = fs::read_to_string("output.txt").expect("Cannot read file");
+    println!("{}", contents);
+}
+```</p>
+<p><strong>6.3. JSON Serialization</strong></p>
+<p>```
+use serde::{Serialize, Deserialize};
+use serde_json;</p>
+<h1>[derive(Serialize, Deserialize)]</h1>
+<p>struct User {
+    name: String,
+    age: u8,
+}</p>
+<p>fn main() {
+    let user = User { name: "Alice".to_string(), age: 30 };
+    let json = serde_json::to_string(&amp;user).unwrap();
+    println!("{}", json);
+}
+```</p>
+<hr />
+<p><strong>7. Error Handling &amp; Panic Recovery</strong></p>
+<p><strong>7.1. Recovering from a Panic</strong></p>
+<p>```
+fn main() {
+    let result = std::panic::catch_unwind(|| {
+        panic!("Something went wrong!");
+    });</p>
+<pre><code>if result.is_err() {
+    println!("Recovered from panic!");
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>8. Building a Full-Stack Rust Web App</strong></p>
+<p><strong>8.1. Setting Up the Backend</strong></p>
+<p>```
+use actix_web::{web, App, HttpResponse, HttpServer, Responder};</p>
+<p>async fn greet() -&gt; impl Responder {
+    HttpResponse::Ok().body("Hello from Rust Backend!")
+}</p>
+<h1>[actix_web::main]</h1>
+<p>async fn main() -&gt; std::io::Result&lt;()&gt; {
+    HttpServer::new(|| App::new().route("/", web::get().to(greet)))
+        .bind("127.0.0.1:8080")?
+        .run()
+        .await
+}
+```</p>
+<p><strong>8.2. Connecting to a Frontend (React)</strong></p>
+<p>Frontend can fetch data using:</p>
+<p><code>fetch("http://127.0.0.1:8080")
+  .then(response =&gt; response.text())
+  .then(data =&gt; console.log(data));</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in Rust Level 2:</strong></p>
+<p>✅ <strong>Advanced Ownership &amp; Lifetimes</strong></p>
+<p>✅ <strong>Smart Pointers (Box, Rc, RefCell)</strong></p>
+<p>✅ <strong>Concurrency &amp; Multithreading</strong></p>
+<p>✅ <strong>Async Programming (Tokio, async/await)</strong></p>
+<p>✅ <strong>Web Development with Actix &amp; Warp</strong></p>
+<p>✅ <strong>File Handling &amp; Serialization (JSON, TOML, CSV)</strong></p>
+<p>✅ <strong>Error Handling &amp; Panic Recovery</strong></p>
+<p>✅ <strong>Built a Full-Stack Rust Web App</strong></p>
+<p>Now, you’re ready for <strong>Rust Level 3</strong>, where we explore <strong>Blockchain Development, Embedded Rust, WebAssembly (WASM), and AI with Rust!</strong> 🚀</p></body></html>

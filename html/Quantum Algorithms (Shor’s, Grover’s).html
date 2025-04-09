@@ -1,0 +1,118 @@
+<html><body><blockquote>
+<p><strong>February 11th, 2025</strong>  <strong>22:48:17</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Quantum Algorithms: Shor’s and Grover’s Algorithms</strong></p>
+<p><strong>1. Introduction</strong></p>
+<p>Quantum algorithms leverage <strong>quantum mechanics principles</strong> like <strong>[[superposition]], [[entanglement]], and quantum interference</strong> to solve problems exponentially faster than classical algorithms. Two of the most famous quantum algorithms are:</p>
+<p>• <strong>Shor’s Algorithm</strong>: Used for <strong>factoring large numbers</strong> (breaking RSA encryption).</p>
+<p>• <strong>Grover’s Algorithm</strong>: Used for <strong>searching databases</strong> much faster than classical methods.</p>
+<p>These algorithms <strong>demonstrate quantum advantage</strong> by solving problems that are <strong>computationally infeasible</strong> for classical computers.</p>
+<p><strong>2. Shor’s Algorithm: Breaking RSA Encryption</strong></p>
+<p><strong>Developed by Peter Shor in 1994</strong>, Shor’s Algorithm is a <strong>quantum algorithm for integer factorization</strong>. Given a number <strong>N</strong>, it finds its prime factors <strong>exponentially faster</strong> than the best classical algorithms.</p>
+<p><strong>Why is Shor’s Algorithm Important?</strong></p>
+<p>✔ <strong>Breaks RSA encryption</strong> – Used in modern cybersecurity.</p>
+<p>✔ <strong>Solves integer factorization in polynomial time</strong>.</p>
+<p>✔ <strong>A major reason for post-quantum cryptography research</strong>.</p>
+<p><strong>Classical vs. Quantum Factorization</strong></p>
+<p>|<strong>Algorithm</strong>|<strong>Time Complexity</strong>|<strong>Feasibility</strong>|
+|---|---|---|
+|<strong>Classical (Trial Division)</strong>|<strong>O(√N)</strong>|Slow for large N|
+|<strong>Classical (General Number Field Sieve)</strong>|<strong>Sub-exponential (~O(e^((log N)^(1/3))))</strong>|Takes <strong>millions of years</strong> for large numbers|
+|<strong>Shor’s Algorithm (Quantum)</strong>|<strong>Polynomial (O((log N)³))</strong>|Breaks RSA encryption in <strong>minutes</strong>|</p>
+<p><strong>How Shor’s Algorithm Works</strong></p>
+<p>Shor’s Algorithm has two parts:</p>
+<p>1️⃣ <strong>Classical Part</strong> – Converts integer factorization into a <strong>period-finding problem</strong>.</p>
+<p>2️⃣ <strong>Quantum Part</strong> – Uses <strong>Quantum Fourier Transform (QFT)</strong> to find the period efficiently.</p>
+<p>✔ <strong>Steps of Shor’s Algorithm</strong></p>
+<p><code>1. Pick a random number `a &lt; N` (N is the number to be factored).
+2. Compute gcd(a, N). If it's &gt; 1, you already found a factor.
+3. Find the period `r` of function f(x) = a^x mod N using Quantum Fourier Transform (QFT).
+4. If r is even, compute gcd(a^(r/2) - 1, N) to get a factor.
+5. Repeat if necessary.</code></p>
+<p>✔ <strong>Mathematical Form of the Quantum Step (Period Finding)</strong></p>
+<p>where <strong>r</strong> is the period of f(x) = a^x mod N.</p>
+<p><strong>Shor’s Algorithm Implementation in Python (Qiskit)</strong></p>
+<p>```
+from qiskit import QuantumCircuit</p>
+<h1>Create a Quantum Circuit with QFT (Quantum Fourier Transform)</h1>
+<p>qc = QuantumCircuit(4)
+qc.h([0,1,2,3])  # Apply Hadamard gate for superposition
+qc.append(qc.to_instruction(), [0,1,2,3])  # QFT simulation
+qc.measure_all()
+qc.draw()
+```</p>
+<p>✔ <strong>Example: RSA Breaking Simulation</strong></p>
+<p><code>Classical: Factoring a 2048-bit number takes millions of years.
+Quantum (Shor’s Algorithm): Could factor it in minutes.</code></p>
+<p>✔ <strong>Impact of Shor’s Algorithm</strong></p>
+<p>🔴 <strong>Threatens RSA, ECC, and public-key cryptography</strong>.</p>
+<p>🟢 <strong>Leads to the development of post-quantum cryptography</strong> (Lattice-based cryptography, Quantum Key Distribution).</p>
+<p><strong>3. Grover’s Algorithm: Quantum Search Speedup</strong></p>
+<p><strong>Developed by Lov Grover in 1996</strong>, Grover’s Algorithm is a <strong>quantum search algorithm</strong> that <strong>finds items in an unsorted database exponentially faster</strong> than classical methods.</p>
+<p><strong>Why is Grover’s Algorithm Important?</strong></p>
+<p>✔ <strong>Speeds up search problems from O(N) to O(√N)</strong>.</p>
+<p>✔ <strong>Used for searching unstructured databases</strong>.</p>
+<p>✔ <strong>Can break symmetric cryptography (AES) by reducing brute-force complexity</strong>.</p>
+<p><strong>Classical vs. Quantum Search Complexity</strong></p>
+<p>|<strong>Algorithm</strong>|<strong>Time Complexity</strong>|<strong>Example (Searching N=1,000,000 Items)</strong>|
+|---|---|---|
+|<strong>Classical (Brute Force Search)</strong>|<strong>O(N) ~ 1,000,000</strong> steps|1,000,000 operations|
+|<strong>Grover’s Algorithm (Quantum Search)</strong>|<strong>O(√N) ~ 1,000</strong> steps|1,000 operations|</p>
+<p><strong>How Grover’s Algorithm Works</strong></p>
+<p>1️⃣ <strong>Superposition:</strong> Initialize all N possibilities using Hadamard gates.</p>
+<p>2️⃣ <strong>Quantum Oracle:</strong> Marks the correct answer with a phase inversion.</p>
+<p>3️⃣ <strong>Amplitude Amplification:</strong> Interferes and enhances the probability of the correct answer.</p>
+<p>4️⃣ <strong>Measurement:</strong> Collapses qubit states to retrieve the correct answer.</p>
+<p>✔ <strong>Mathematical Formulation of Grover’s Algorithm</strong></p>
+<p>where:</p>
+<p>• <strong>O_f</strong> is the oracle function that marks the correct solution.</p>
+<p>• <strong>D</strong> is the diffusion operator that amplifies probability amplitudes.</p>
+<p><strong>Grover’s Algorithm Implementation in Python (Qiskit)</strong></p>
+<p>```
+from qiskit import QuantumCircuit</p>
+<p>qc = QuantumCircuit(2)
+qc.h([0,1])  # Apply Hadamard gate for superposition
+qc.cz(0, 1)  # Oracle phase inversion
+qc.h([0,1])  # Amplitude amplification
+qc.measure_all()
+qc.draw()
+```</p>
+<p>✔ <strong>Example: Speeding Up Database Search</strong></p>
+<p><code>Classical: Searching 1,000,000 items takes ~1,000,000 operations.
+Quantum (Grover’s Algorithm): Finds it in ~1,000 operations.</code></p>
+<p>✔ <strong>Example: Cracking a Password Using Grover’s Algorithm</strong></p>
+<p><code>6. A classical brute-force attack on AES-256 requires 2^256 steps.
+7. Grover’s Algorithm reduces it to 2^128 steps (still secure, but faster).</code></p>
+<p><strong>4. Applications of Shor’s and Grover’s Algorithms</strong></p>
+<p>|<strong>Quantum Algorithm</strong>|<strong>Applications</strong>|
+|---|---|
+|<strong>Shor’s Algorithm</strong>|<strong>Cryptography</strong> (Breaking RSA &amp; ECC)|
+|<strong>Grover’s Algorithm</strong>|<strong>Database Search</strong>, <strong>AI Optimization</strong>, <strong>Cryptanalysis (AES Attacks)</strong>|
+|<strong>Quantum Fourier Transform (QFT)</strong>|<strong>Signal Processing</strong>, <strong>AI Neural Networks</strong>, <strong>Quantum Machine Learning</strong>|
+|<strong>Quantum Speedup</strong>|<strong>Drug Discovery</strong>, <strong>Quantum AI</strong>, <strong>Simulation of Molecules</strong>|</p>
+<p>✔ <strong>Example: AI + Grover’s Algorithm for Fast Search</strong></p>
+<p><code>8. AI model searches through large datasets.
+9. Quantum search optimizes retrieval time.
+10. Faster AI-powered recommendations.</code></p>
+<p>✔ <strong>Example: Future Cryptography with Shor’s Algorithm</strong></p>
+<p><code>11. Quantum AI deciphers encryption keys.
+12. Future security relies on quantum-resistant cryptography.
+13. Post-Quantum Cryptography becomes essential.</code></p>
+<p><strong>5. Future of Quantum Algorithms</strong></p>
+<p>✔ <strong>Fault-Tolerant Quantum Computers</strong> – Needed for running large-scale Shor’s Algorithm.</p>
+<p>✔ <strong>Quantum AI Acceleration</strong> – Combining Grover’s search with AI neural networks.</p>
+<p>✔ <strong>Post-Quantum Cryptography</strong> – New cryptographic methods to withstand quantum attacks.</p>
+<p>✔ <strong>Quantum Cloud Computing</strong> – Running quantum algorithms remotely via cloud services.</p>
+<p>✔ <strong>Example: Quantum AI in Future AI Systems</strong></p>
+<p><code>14. AI learns from quantum-enhanced datasets.
+15. Grover’s Algorithm speeds up AI decision-making.
+16. AI surpasses classical machine learning in efficiency.</code></p>
+<p><strong>6. Conclusion</strong></p>
+<p>✔ <strong>Shor’s Algorithm</strong> threatens <strong>modern encryption</strong> by factoring large numbers exponentially faster.</p>
+<p>✔ <strong>Grover’s Algorithm</strong> speeds up <strong>search and optimization</strong> by reducing computational complexity.</p>
+<p>✔ <strong>Future quantum computers will revolutionize AI, cryptography, and computing power.</strong></p>
+<p>✔ <strong>Quantum cryptography and post-quantum security will be essential to counter these advancements.</strong></p>
+<p>🚀 <strong>Quantum Algorithms are reshaping the future of computing, AI, and security!</strong></p></body></html>

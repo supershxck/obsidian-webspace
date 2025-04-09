@@ -1,0 +1,288 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>22:31:00</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #CS  </p>
+</blockquote>
+<hr />
+<p><strong>C Programming Level 2: Advanced Concepts and System Programming</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve mastered <strong>C basics</strong>, it’s time to explore <strong>advanced pointers, memory management, data structures, system programming, and multi-threading</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Advanced Pointers &amp; Dynamic Memory Allocation</strong></p>
+<p>✅ <strong>Data Structures (Linked Lists, Stacks, Queues, Trees)</strong></p>
+<p>✅ <strong>File Handling (Appending, Reading &amp; Writing Structured Data)</strong></p>
+<p>✅ <strong>Working with Strings &amp; String Manipulation</strong></p>
+<p>✅ <strong>System Programming (Process Control, Signals, File Permissions)</strong></p>
+<p>✅ <strong>Multi-threading with POSIX Threads</strong></p>
+<p>✅ <strong>Building a Full C Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write optimized C programs, manipulate data structures, and work with advanced system operations</strong>.</p>
+<hr />
+<p><strong>1. Advanced Pointers &amp; Dynamic Memory Allocation</strong></p>
+<p><strong>1.1. Pointer to Pointer</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    int x = 10;
+    int <em>ptr = &x;
+    int </em>*ptr2 = &ptr;</p>
+<pre><code>printf("Value of x: %d\n", x);
+printf("Address of x: %p\n", &amp;x);
+printf("Pointer to x: %p, Value: %d\n", ptr, *ptr);
+printf("Pointer to Pointer: %p, Value at pointer to pointer: %d\n", ptr2, **ptr2);
+
+return 0;
+</code></pre>
+<p>}
+```</p>
+<p><strong>1.2. Dynamic Memory Allocation</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<h1>include <stdlib.h></h1>
+<p>int main() {
+    int *arr;
+    int n = 5;</p>
+<pre><code>arr = (int *)malloc(n * sizeof(int));
+if (arr == NULL) {
+    printf("Memory allocation failed\n");
+    return 1;
+}
+
+for (int i = 0; i &lt; n; i++) {
+    arr[i] = i * 2;
+    printf("arr[%d] = %d\n", i, arr[i]);
+}
+
+free(arr);  // Free allocated memory
+return 0;
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>2. Data Structures in C</strong></p>
+<p><strong>2.1. Implementing a Linked List</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<h1>include <stdlib.h></h1>
+<p>struct Node {
+    int data;
+    struct Node *next;
+};</p>
+<p>void printList(struct Node *head) {
+    while (head != NULL) {
+        printf("%d -&gt; ", head-&gt;data);
+        head = head-&gt;next;
+    }
+    printf("NULL\n");
+}</p>
+<p>int main() {
+    struct Node <em>head = (struct Node </em>)malloc(sizeof(struct Node));
+    struct Node <em>second = (struct Node </em>)malloc(sizeof(struct Node));
+    struct Node <em>third = (struct Node </em>)malloc(sizeof(struct Node));</p>
+<pre><code>head-&gt;data = 10;
+head-&gt;next = second;
+
+second-&gt;data = 20;
+second-&gt;next = third;
+
+third-&gt;data = 30;
+third-&gt;next = NULL;
+
+printList(head);
+free(head);
+free(second);
+free(third);
+return 0;
+</code></pre>
+<p>}
+```</p>
+<p><strong>2.2. Implementing a Stack</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<h1>include <stdlib.h></h1>
+<h1>define MAX 5</h1>
+<p>int stack[MAX], top = -1;</p>
+<p>void push(int val) {
+    if (top == MAX - 1)
+        printf("Stack Overflow\n");
+    else
+        stack[++top] = val;
+}</p>
+<p>int pop() {
+    if (top == -1) {
+        printf("Stack Underflow\n");
+        return -1;
+    }
+    return stack[top--];
+}</p>
+<p>int main() {
+    push(10);
+    push(20);
+    push(30);
+    printf("Popped: %d\n", pop());
+    return 0;
+}
+```</p>
+<hr />
+<p><strong>3. File Handling (Appending, Reading &amp; Writing Structured Data)</strong></p>
+<p><strong>3.1. Appending Data to a File</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    FILE *file = fopen("data.txt", "a");
+    if (file == NULL) {
+        printf("Error opening file\n");
+        return 1;
+    }</p>
+<pre><code>fprintf(file, "New line appended!\n");
+fclose(file);
+
+return 0;
+</code></pre>
+<p>}
+```</p>
+<p><strong>3.2. Reading Structured Data from a File</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<p>int main() {
+    FILE *file = fopen("data.txt", "r");
+    char buffer[100];</p>
+<pre><code>if (file == NULL) {
+    printf("Error opening file\n");
+    return 1;
+}
+
+while (fgets(buffer, 100, file) != NULL) {
+    printf("%s", buffer);
+}
+
+fclose(file);
+return 0;
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>4. System Programming (Process Control, Signals, File Permissions)</strong></p>
+<p><strong>4.1. Creating a Child Process (Fork)</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<h1>include <unistd.h></h1>
+<p>int main() {
+    int pid = fork();</p>
+<pre><code>if (pid == 0)
+    printf("Child Process: PID %d\n", getpid());
+else
+    printf("Parent Process: PID %d\n", getpid());
+
+return 0;
+</code></pre>
+<p>}
+```</p>
+<p><strong>4.2. Handling Signals (SIGINT)</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<h1>include <signal.h></h1>
+<h1>include <stdlib.h></h1>
+<p>void handleSignal(int sig) {
+    printf("Received signal %d. Exiting...\n", sig);
+    exit(0);
+}</p>
+<p>int main() {
+    signal(SIGINT, handleSignal);
+    while (1) {
+        printf("Running... Press Ctrl+C to stop.\n");
+        sleep(1);
+    }
+    return 0;
+}
+```</p>
+<hr />
+<p><strong>5. Multi-Threading in C (POSIX Threads)</strong></p>
+<p><strong>5.1. Creating Threads</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<h1>include <pthread.h></h1>
+<p>void <em>printMessage(void </em>arg) {
+    printf("Hello from thread!\n");
+    return NULL;
+}</p>
+<p>int main() {
+    pthread_t thread;
+    pthread_create(&amp;thread, NULL, printMessage, NULL);
+    pthread_join(thread, NULL);
+    return 0;
+}
+```</p>
+<hr />
+<p><strong>6. String Manipulation</strong></p>
+<p><strong>6.1. String Copy &amp; Concatenation</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<h1>include <string.h></h1>
+<p>int main() {
+    char str1[50] = "Hello";
+    char str2[50] = "World";</p>
+<pre><code>strcat(str1, " ");
+strcat(str1, str2);
+
+printf("Concatenated String: %s\n", str1);
+return 0;
+</code></pre>
+<p>}
+```</p>
+<p><strong>6.2. Finding Substring in a String</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<h1>include <string.h></h1>
+<p>int main() {
+    char str[] = "C programming is fun!";
+    char *substr = strstr(str, "programming");</p>
+<pre><code>if (substr)
+    printf("Substring found at position: %ld\n", substr - str);
+else
+    printf("Substring not found\n");
+
+return 0;
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>7. Building a Full C Application</strong></p>
+<p><strong>7.1. Implementing a Simple Contact Management System</strong></p>
+<p>```</p>
+<h1>include <stdio.h></h1>
+<h1>include <stdlib.h></h1>
+<p>struct Contact {
+    char name[50];
+    char phone[15];
+};</p>
+<p>int main() {
+    struct Contact contacts[3];</p>
+<pre><code>for (int i = 0; i &lt; 3; i++) {
+    printf("Enter name: ");
+    scanf("%s", contacts[i].name);
+    printf("Enter phone: ");
+    scanf("%s", contacts[i].phone);
+}
+
+FILE *file = fopen("contacts.txt", "w");
+for (int i = 0; i &lt; 3; i++)
+    fprintf(file, "%s %s\n", contacts[i].name, contacts[i].phone);
+
+fclose(file);
+printf("Contacts saved successfully!\n");
+
+return 0;
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>8. Conclusion</strong></p>
+<p><strong>What You Learned in C Level 2:</strong></p>
+<p>✅ <strong>Advanced Pointers &amp; Dynamic Memory Allocation</strong></p>
+<p>✅ <strong>Data Structures (Linked Lists, Stacks, Queues, Trees)</strong></p>
+<p>✅ <strong>File Handling (Appending, Reading &amp; Writing Structured Data)</strong></p>
+<p>✅ <strong>Working with Strings &amp; String Manipulation</strong></p>
+<p>✅ <strong>System Programming (Process Control, Signals, File Permissions)</strong></p>
+<p>✅ <strong>Multi-threading with POSIX Threads</strong></p>
+<p>✅ <strong>Built a Full C Application</strong></p>
+<p>Now, you’re ready for <strong>C Level 3</strong>, where we explore <strong>Networking, IPC (Inter-Process Communication), Advanced Data Structures, and Embedded Systems Programming!</strong> 🚀</p></body></html>

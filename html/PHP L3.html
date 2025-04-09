@@ -1,0 +1,201 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>19:03:21</strong> 
+<strong>Topics:</strong> [[MATLAB L1]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>PHP Level 3: Advanced PHP Development &amp; Web Applications</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve mastered <strong>PHP and databases</strong>, it’s time to explore <strong>REST APIs, MVC architecture, Laravel framework, and cloud deployment</strong> to build <strong>scalable, professional applications</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Building &amp; Securing RESTful APIs</strong></p>
+<p>✅ <strong>MVC Architecture &amp; PHP Frameworks (Laravel, CodeIgniter)</strong></p>
+<p>✅ <strong>Advanced Authentication (JWT, OAuth 2.0, Two-Factor Authentication)</strong></p>
+<p>✅ <strong>Unit Testing &amp; Debugging</strong></p>
+<p>✅ <strong>Caching &amp; Performance Optimization (Redis, Memcached)</strong></p>
+<p>✅ <strong>Message Queues &amp; Job Scheduling (RabbitMQ, Cron Jobs)</strong></p>
+<p>✅ <strong>Deploying PHP Apps (Docker, Kubernetes, AWS, DigitalOcean)</strong></p>
+<p>✅ <strong>Building a Full-Scale PHP Web App with Laravel</strong></p>
+<p>By the end of this lesson, you will be able to <strong>develop enterprise-level PHP applications with a modern tech stack</strong>.</p>
+<hr />
+<p><strong>1. Building REST APIs with PHP</strong></p>
+<p><strong>1.1. Creating a REST API</strong></p>
+<p>```</p>
+<?php
+header("Content-Type: application/json");
+$db = new PDO("mysql:host=localhost;dbname=mydb", "root", "");
+
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $stmt = $db->query("SELECT * FROM users");
+    echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+}
+?>
+<p>```</p>
+<p><strong>1.2. Handling POST Requests</strong></p>
+<p>```</p>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $data = json_decode(file_get_contents("php://input"), true);
+    $stmt = $db->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
+    $stmt->execute([$data["name"], $data["email"]]);
+    echo json_encode(["message" => "User created successfully"]);
+}
+?>
+<p>```</p>
+<p><strong>1.3. Securing the API with JWT</strong></p>
+<p>Install JWT library:</p>
+<p><code>composer require firebase/php-jwt</code></p>
+<p>Generate JWT:</p>
+<p>```</p>
+<?php
+use Firebase\JWT\JWT;
+
+$secret = "your_secret_key";
+$payload = ["user_id" => 123, "exp" => time() + 3600];
+$token = JWT::encode($payload, $secret, "HS256");
+echo $token;
+?>
+<p>```</p>
+<p>Verify JWT:</p>
+<p>```</p>
+<?php
+$decoded = JWT::decode($token, new Key($secret, "HS256"));
+echo $decoded->user_id;
+?>
+<p>```</p>
+<hr />
+<p><strong>2. MVC Architecture &amp; PHP Frameworks</strong></p>
+<p><strong>2.1. What is MVC?</strong></p>
+<p>• <strong>Model</strong>: Handles data &amp; database interactions.</p>
+<p>• <strong>View</strong>: Handles the UI.</p>
+<p>• <strong>Controller</strong>: Manages user requests &amp; interactions.</p>
+<p><strong>2.2. Setting Up Laravel (Most Popular PHP Framework)</strong></p>
+<p><code>composer create-project --prefer-dist laravel/laravel myproject
+cd myproject
+php artisan serve</code></p>
+<p>Visit http://127.0.0.1:8000.</p>
+<p><strong>2.3. Creating a Model &amp; Migration</strong></p>
+<p><code>php artisan make:model User -m</code></p>
+<p>Edit database/migrations/xxxx_xx_xx_create_users_table.php:</p>
+<p><code>Schema::create('users', function (Blueprint $table) {
+    $table-&gt;id();
+    $table-&gt;string('name');
+    $table-&gt;string('email')-&gt;unique();
+    $table-&gt;timestamps();
+});</code></p>
+<p>Run migration:</p>
+<p><code>php artisan migrate</code></p>
+<p><strong>2.4. Creating a Controller</strong></p>
+<p><code>php artisan make:controller UserController</code></p>
+<p>Add logic:</p>
+<p><code>public function index() {
+    return User::all();
+}</code></p>
+<p><strong>2.5. Creating API Routes</strong></p>
+<p>Edit routes/api.php:</p>
+<p><code>Route::get('/users', [UserController::class, 'index']);</code></p>
+<hr />
+<p><strong>3. Advanced Authentication</strong></p>
+<p><strong>3.1. OAuth 2.0 Authentication</strong></p>
+<p>Install Laravel Passport:</p>
+<p><code>composer require laravel/passport
+php artisan passport:install</code></p>
+<p>Update config/auth.php:</p>
+<p><code>'guards' =&gt; [
+    'api' =&gt; [
+        'driver' =&gt; 'passport',
+        'provider' =&gt; 'users',
+    ],
+],</code></p>
+<p><strong>3.2. Two-Factor Authentication (2FA)</strong></p>
+<p>Install Google Authenticator:</p>
+<p><code>composer require pragmarx/google2fa</code></p>
+<p>Generate a QR Code:</p>
+<p><code>$google2fa = new Google2FA();
+$secret = $google2fa-&gt;generateSecretKey();</code></p>
+<hr />
+<p><strong>4. Unit Testing &amp; Debugging</strong></p>
+<p><strong>4.1. PHPUnit Testing</strong></p>
+<p>Install PHPUnit:</p>
+<p><code>composer require --dev phpunit/phpunit</code></p>
+<p>Create a test file tests/Feature/UserTest.php:</p>
+<p><code>public function test_user_creation() {
+    $user = User::factory()-&gt;create();
+    $this-&gt;assertDatabaseHas('users', ['email' =&gt; $user-&gt;email]);
+}</code></p>
+<p>Run tests:</p>
+<p><code>php artisan test</code></p>
+<hr />
+<p><strong>5. Performance Optimization</strong></p>
+<p><strong>5.1. Caching with Redis</strong></p>
+<p>Install Redis:</p>
+<p><code>composer require predis/predis</code></p>
+<p>Use Redis:</p>
+<p><code>Cache::put('key', 'value', 60);
+$value = Cache::get('key');</code></p>
+<p><strong>5.2. Query Optimization</strong></p>
+<p>Use <strong>Eloquent relationships</strong>:</p>
+<p><code>$users = User::with('posts')-&gt;get();</code></p>
+<hr />
+<p><strong>6. Background Jobs &amp; Messaging Queues</strong></p>
+<p><strong>6.1. Using Laravel Queues</strong></p>
+<p><code>php artisan queue:table
+php artisan migrate</code></p>
+<p>Create a Job:</p>
+<p><code>php artisan make:job ProcessEmail</code></p>
+<p>Handle emails in app/Jobs/ProcessEmail.php:</p>
+<p><code>public function handle() {
+    Mail::to($this-&gt;user-&gt;email)-&gt;send(new WelcomeEmail($this-&gt;user));
+}</code></p>
+<p>Dispatch the Job:</p>
+<p><code>ProcessEmail::dispatch($user);</code></p>
+<p><strong>6.2. Using RabbitMQ for Messaging</strong></p>
+<p>Install RabbitMQ:</p>
+<p><code>composer require php-amqplib/php-amqplib</code></p>
+<p>Send a message:</p>
+<p><code>$channel-&gt;basic_publish(new AMQPMessage('Hello'), '', 'queue_name');</code></p>
+<p>Receive a message:</p>
+<p><code>$callback = function($msg) {
+    echo "Received: ", $msg-&gt;body, "\n";
+};
+$channel-&gt;basic_consume('queue_name', '', false, true, false, false, $callback);</code></p>
+<hr />
+<p><strong>7. Deploying PHP Applications</strong></p>
+<p><strong>7.1. Dockerizing a PHP App</strong></p>
+<p>Create a <strong>Dockerfile</strong>:</p>
+<p><code>FROM php:8.1-apache
+WORKDIR /var/www/html
+COPY . .
+RUN docker-php-ext-install pdo pdo_mysql
+EXPOSE 80
+CMD ["apache2-foreground"]</code></p>
+<p>Build &amp; Run:</p>
+<p><code>docker build -t php-app .
+docker run -p 8080:80 php-app</code></p>
+<p><strong>7.2. Deploying to AWS</strong></p>
+<p>Upload Laravel project:</p>
+<p><code>aws s3 cp myproject.zip s3://mybucket</code></p>
+<p>Deploy with Elastic Beanstalk:</p>
+<p><code>eb init -p PHP my-app
+eb create my-app-env</code></p>
+<hr />
+<p><strong>8. Building a Full-Scale PHP Web App</strong></p>
+<p><strong>8.1. Laravel API (Backend)</strong></p>
+<p>Create routes in routes/api.php:</p>
+<p><code>Route::post('/register', [AuthController::class, 'register']);</code></p>
+<p><strong>8.2. Vue.js Frontend (Fetch API)</strong></p>
+<p><code>fetch("http://localhost:8000/api/users")
+  .then(response =&gt; response.json())
+  .then(data =&gt; console.log(data));</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in PHP Level 3:</strong></p>
+<p>✅ <strong>Building &amp; Securing RESTful APIs</strong></p>
+<p>✅ <strong>MVC Architecture &amp; PHP Frameworks (Laravel, CodeIgniter)</strong></p>
+<p>✅ <strong>Advanced Authentication (JWT, OAuth 2.0, Two-Factor Authentication)</strong></p>
+<p>✅ <strong>Unit Testing &amp; Debugging</strong></p>
+<p>✅ <strong>Caching &amp; Performance Optimization (Redis, Memcached)</strong></p>
+<p>✅ <strong>Message Queues &amp; Job Scheduling (RabbitMQ, Cron Jobs)</strong></p>
+<p>✅ <strong>Deploying PHP Apps (Docker, Kubernetes, AWS, DigitalOcean)</strong></p>
+<p>✅ <strong>Built a Full-Scale PHP Web App with Laravel</strong></p>
+<p>Now, you’re ready for <strong>PHP Level 4</strong>, where we explore <strong>GraphQL APIs, Microservices, AI-powered PHP Apps, and Blockchain Integration!</strong> 🚀</p></body></html>

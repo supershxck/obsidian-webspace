@@ -1,0 +1,42 @@
+<html><body><blockquote>
+<p><strong>February 23rd, 2025</strong>  <strong>13:44:14</strong> 
+<strong>Topics:</strong> [[Calculus]]
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p>Limits are a fundamental concept in calculus that help us understand the behavior of functions as the input approaches a specific value—even if the function might not be explicitly defined at that point. Here’s a detailed explanation:</p>
+<p><strong>What is a Limit?</strong></p>
+<p>In essence, the limit of a function describes what value the function approaches as its input gets arbitrarily close to a certain number. For a function f(x), we write</p>
+<p>limₓ→a f(x) = L</p>
+<p>to indicate that as x gets closer and closer to a value a, f(x) gets closer to a value L.</p>
+<p><strong>Intuitive Explanation</strong></p>
+<p>Imagine you’re zooming in on the graph of a function near the point where x = a. Even if the function has a “hole” or a discontinuity at that point, the limit tells you what value the function is approaching. Think of it like a “preview” of the function’s behavior as you get infinitely close to a specific input.</p>
+<p><strong>The Formal (Epsilon-Delta) Definition</strong></p>
+<p>To be rigorous, we use the epsilon-delta definition:</p>
+<p>• <strong>Epsilon (ε):</strong> Represents any small distance from the limit value L.</p>
+<p>• <strong>Delta (δ):</strong> Represents a corresponding small distance from a, within which the function’s value f(x) stays within ε of L.</p>
+<p>Formally, we say that</p>
+<p>limₓ→a f(x) = L</p>
+<p>if for every ε &gt; 0 there exists a δ &gt; 0 such that whenever 0 &lt; |x - a| &lt; δ, it follows that |f(x) - L| &lt; ε.</p>
+<p>This definition ensures that no matter how tiny a margin (ε) you set around L, you can always find a small interval (δ) around a such that all values of f(x) within that interval are as close to L as desired.</p>
+<p><strong>A Coding Analogy</strong></p>
+<p>If you’re familiar with coding, think of limits like a loop that converges to a target value. For example, consider a scenario where you want to approximate a value L and you update a variable x until it’s “close enough” to L. In pseudo-code, it might look like this:</p>
+<p>```
+epsilon = 0.0001  # Desired precision
+x = initial_guess</p>
+<p>while abs(f(x) - L) &gt; epsilon:
+    # Update x using some iterative method (like Newton's method)
+    x = update(x)
+```</p>
+<p>Here, the loop stops once f(x) is within epsilon of L. This mirrors the idea behind limits: no matter how small an error margin (ε) you set, you can find a stage in the process (δ in the formal definition, analogous to the point at which your loop terminates) where the function’s value is as close as you need to the limit L.</p>
+<p><strong>Importance in Economics and Beyond</strong></p>
+<p>• <strong>Economics:</strong></p>
+<p>Limits underpin many concepts in economics. For instance, when calculating marginal cost or marginal revenue, we are effectively taking the limit as the change in quantity approaches zero. This gives a precise measure of how a small change in production affects cost or revenue.</p>
+<p>• <strong>Legal and Quantitative Analysis:</strong></p>
+<p>In legal contexts, particularly in cases involving economic damages, limits help in modeling how damages accumulate over time or under continuously changing conditions. The idea is similar: by understanding the behavior as changes become infinitesimally small, one can derive more precise estimates.</p>
+<p><strong>Summary</strong></p>
+<p>• <strong>Limits</strong> capture the behavior of a function as its input approaches a particular value.</p>
+<p>• They are defined rigorously through the epsilon-delta formulation.</p>
+<p>• In practical terms, limits allow us to deal with situations where a function might not be defined at a point, yet its behavior around that point is predictable.</p>
+<p>• The concept is widely applicable, from calculating derivatives and integrals to real-world applications in economics and quantitative legal analysis.</p>
+<p>By mastering limits, you lay the groundwork for understanding more advanced topics in calculus, which in turn are essential for rigorous economic modeling and analytical reasoning in law.</p></body></html>

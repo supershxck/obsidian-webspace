@@ -1,0 +1,155 @@
+
+I can’t remember any. I’ve told people that my dad bought us a a GameCube and used to play with us but I can’t remember him ever playing with us. He found us a trampoline and we played with it. He took us on vacations at different time shares and we got to go to the pool and grill steak and eat good stuff and watch movies together. 
+
+Once I start writing I try to bring up good memories and that’s about all I can think of. All I can remember is all the pain and annoyance and anger I’ve had with him all my life. There’s a story of this time when I was crying in my crib and my dad told my mom not to pick me up because..? I was wanting to much attention or idk… and they fought about it and I cried and cried and my mom cried and what happened??? What was the point of that?
+
+My earliest memory of my dad is when he took me into his rooms to spank me. My next memories of him are him teaching me to read using some book. Idk why but I think of Abraham Lincoln on the cover of it for some reason. I have memories going shopping at toys r us w my mom. I have memories having fun with my mom. I remember being sad to leave my mom. What did I feel for my dad? 
+
+He was busy at seminary or busy driving Lincoln town cars or busy doing sermons. And what about his kids? 
+
+I felt no emotional connection. I don’t remember the words, I remember the feelings. I remember the feeling when he came home and found the big time rush cd and broke it and started yelling. I remember the feeling when he took me into a closet and closed the door so it was pitch black and started making demon sounds and poking and prodding me. I was 6-7 years old. I had never been so scared in my life. I was terrified. I got so scared I hid in the clothes and he couldn’t find me anymore. Then he called to me like normal. And I wouldn’t answer. Then he opened the door and finally I came out. And he tried to tell me that’s what hell was like. 
+
+So my dad is hell. Got it. Sure I got his message. Don’t go to hell. It sucks. 
+
+How is a child supposed to feel about his dad after that?
+
+I remember another time where I was getting spanked. I didn’t wanna get spanked. I didn’t feel it was fair. I was wriggling around on my dad’s lap and he whacked me with the slipper he used aiming for my butt but since I was moving so much he accidentally hit my dick. It hurt so much I was gasping. For some reason, my mom was there which was unusual cuz I have no other memories of her being there while I was spanked. She cried out for me and said raf how is he gonna have kids or something like that which I didn’t understand cuz I didn’t know about sex but all I knew was immense pain. 
+
+  
+
+I had a repeating dream when I was living in that childhood home of mine. I’d be all alone in the house then I’d see a robber in my parents room with a black mask. And I’d be scared and my dad would stand in front of me and stare at the robber. I don’t remember if there was more but I wanted to run away and I wanted my dad to beat up the robber but he never did and the dream ended before anything happened. Was that my dad’s shadow?
+
+  
+
+I remember the day my mom and dad fought so bad he threw a water bottle at her and missed and hit the wall. She was so upset. I remember feeling so bad for her. My dad seemed like such a jerk to me and I don’t even remember what they were arguing about. He threw a water bottle at her. 
+
+  
+
+Finally in Kansas I got to be a normal kid and enjoy nature and go out with the neighbors and have fun. Parents got divorced. I wonder why?
+
+  
+
+Dad stole us from Mom. Forcibly enrolled us into Burbank schools and legally took us by claiming all these things about Mom. Lied to his family and us about Mom. Proceeded to become stricter and stricter with us and take out his anger on us multiple times. My teenage years were the most frustrating times of my life. 
+
+  
+
+I used to have to sleep next to him in bed. There were nights we would fight or he would do something to piss me off. Then we would go to sleep without any resolution or apology and he would just knock out without a care and snore away while I was there angry, seething, gnashing my teeth, hating him. 
+
+  
+
+And what was I supposed to do??? There was nothing I could do. Nothing I could say that would make him understand how he had violated my privacy. How he had hurt me. How he had crushed me and exacerbated me. He was completely justified in his own mind. I was a kid and a dumb one and he knew better and his way was the only way. Tyrant. Dictator. Authoritarian. 
+
+  
+
+Did I ever get an apology? Why even ask
+
+  
+
+I found my ways to sneak around his tyranny. I had to cry literal tears to allow him to go to my own girlfriend’s birthday party. Then he came after literally an hour or two and picked me up. It was so short. On the way I cried again because of how embarrassing it was to leave early. And yea he felt bad but he didn’t do anything about it… so his feelings meant nothing. Obviously I meant nothing to him. 
+
+  
+
+He would take my phone and read my text messages and take away my phone for weeks. He would do Bible studies with us. He would take us to YMCA. He would take us to the cheapest movie theaters. But he didn’t like any of our friends from school. Why can’t you make friends at church? Cuz they’re all lames and hypocrites and barely self aware. But he didn’t understand that. It’s simple in his mind. Kids at church are Christian and kids at school are pagan and thus kids at school are bad kids so they must be bad friends and bad influences. So I had to fight to have one friend that he would let me hang with and I fought for excuses and good reasons to hang out with him. How many unbelieving friends could I have? Well if you can’t hang out with them after school you can’t make any memories and have a deep friendship. And I’m not allowed to hang out with pagans. 
+
+  
+
+Sounds like a cult mentality to me. 
+
+  
+
+Who could I have shared any of this with at any point in my life before I was 17? I didn’t even understand what was going on in my life. 
+
+  
+
+I couldn’t even have described it to you if I tried. 
+
+  
+
+Despite all that abuse I stayed a good kid. I didn’t smoke weed or so drugs. I didn’t have sex. I didn’t party or skip class. I smoked some vape and hookah and got nudes from a couple girls. Strict parents make sneaky kids. What else did I have to do with my life?
+
+  
+
+Learn things at school? It wasn’t interesting. 
+
+Learn the Bible? I already knew more then anyone else I had met my age about the Bible 
+
+Make friends? I tried and found that I was good at it but I wasn’t allowed friends remember
+
+Read books? I was interested in girls. I wanted love in my life. Love
+
+  
+
+Only my mom loved me but she was in so much pain she couldn’t show it completely either. But I felt it from her. 
+
+  
+
+My dad said he loved me but I rarely if ever felt it. He said that since he sacrificed and worked hard to support us that was the token and symbol of his love. But then he would hurt us all and restrict us and twist our minds with his twisted reasoning to keep us in control and not let us have any freedom. 
+
+  
+
+It was soul crushing 
+
+  
+
+It hurt me so much
+
+  
+
+It traumatized me
+
+  
+
+Then he acts like everything is just normal 
+
+  
+
+Like life is dandy and jolly
+
+  
+
+He’s all happy and wonderful
+
+  
+
+And then what?
+
+  
+
+I’ve had deep anger buried in my heart against him for so many nights. 
+
+  
+
+How do I let that go?
+
+Sometimes I feel like I did like it go. I forget about it and just act normal. And I even trick myself. I’m such a great actor. 
+
+  
+
+How do I forgive him?
+
+What does it mean to forgive?
+
+What is forgiveness?
+
+Why does my heart hurt so much?
+
+Who will help me get through this?
+
+When will I finally get over this?
+
+Where are you God?
+
+Don’t you feel my pain?
+
+Don’t you feel my heart? 
+
+Help me Lord 
+
+Please
+
+
+~~~shxckbxlt~~~
+July 5th, 2024 
+00:43:31 
+status:
+topics: [[prayer]] [[pain]] [[forgiveness]] 

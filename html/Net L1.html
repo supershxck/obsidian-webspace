@@ -1,0 +1,212 @@
+<html><body><blockquote>
+<p><strong>March 16th, 2025</strong>  <strong>22:26:32</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>.NET Level 1: Introduction to .NET Development</strong></p>
+<p><strong>Introduction</strong></p>
+<p>.NET is a <strong>cross-platform, open-source development framework</strong> created by Microsoft. It allows developers to build <strong>web, desktop, cloud, and mobile applications</strong> using languages like <strong>C#, VB.NET, and F#</strong>.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Understanding .NET Framework, .NET Core, and .NET 6+</strong></p>
+<p>✅ <strong>Setting Up .NET Development Environment</strong></p>
+<p>✅ <strong>Building a Simple Console Application in C# and VB.NET</strong></p>
+<p>✅ <strong>Basic Syntax (Variables, Data Types, Operators, Control Flow)</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes &amp; Objects)</strong></p>
+<p>✅ <strong>Working with Files &amp; Exception Handling</strong></p>
+<p>✅ <strong>Building a Simple .NET Web API</strong></p>
+<p>By the end of this lesson, you will be able to <strong>write basic .NET programs, understand OOP principles, and build your first .NET application</strong>.</p>
+<hr />
+<p><strong>1. Understanding .NET Framework, .NET Core, and .NET 6+</strong></p>
+<p><strong>1.1. What is .NET?</strong></p>
+<p>• <strong>.NET Framework</strong>: Windows-only, legacy version of .NET.</p>
+<p>• <strong>.NET Core</strong>: Cross-platform, open-source version of .NET.</p>
+<p>• <strong>.NET 6+</strong>: Unified framework combining .NET Core and .NET Framework.</p>
+<p>|<strong>Version</strong>|<strong>Features</strong>|
+|---|---|
+|.NET Framework|Windows only, used for legacy apps|
+|.NET Core|Cross-platform, lightweight, faster|
+|.NET 6+|Unified, latest version, recommended|</p>
+<hr />
+<p><strong>2. Setting Up .NET Development Environment</strong></p>
+<p><strong>2.1. Install .NET SDK</strong></p>
+<p>Download from <a href="https://dotnet.microsoft.com/en-us/download">Microsoft’s .NET website</a>.</p>
+<p><strong>2.2. Verify Installation</strong></p>
+<p><code>dotnet --version</code></p>
+<p><strong>2.3. Create a New .NET Console Application</strong></p>
+<p><code>dotnet new console -n MyFirstApp
+cd MyFirstApp
+dotnet run</code></p>
+<hr />
+<p><strong>3. Building a Simple .NET Console Application</strong></p>
+<p><strong>3.1. C# Console App</strong></p>
+<p>Edit Program.cs:</p>
+<p>```
+using System;</p>
+<p>class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello, .NET!");
+    }
+}
+```</p>
+<p>Run:</p>
+<p><code>dotnet run</code></p>
+<p><strong>3.2. VB.NET Console App</strong></p>
+<p>Edit Program.vb:</p>
+<p><code>Module Program
+    Sub Main()
+        Console.WriteLine("Hello, .NET!")
+    End Sub
+End Module</code></p>
+<p>Run:</p>
+<p><code>dotnet run</code></p>
+<hr />
+<p><strong>4. Basic Syntax: Variables, Data Types &amp; Operators</strong></p>
+<p><strong>4.1. Declaring Variables in C#</strong></p>
+<p>```
+int age = 25;
+double pi = 3.14;
+string name = "Alice";
+bool isActive = true;</p>
+<p>Console.WriteLine($"Name: {name}, Age: {age}, Pi: {pi}, Active: {isActive}");
+```</p>
+<p><strong>4.2. Declaring Variables in VB.NET</strong></p>
+<p>```
+Dim age As Integer = 25
+Dim pi As Double = 3.14
+Dim name As String = "Alice"
+Dim isActive As Boolean = True</p>
+<p>Console.WriteLine($"Name: {name}, Age: {age}, Pi: {pi}, Active: {isActive}")
+```</p>
+<p><strong>4.3. Arithmetic &amp; Logical Operators</strong></p>
+<p><code>int a = 10, b = 5;
+Console.WriteLine(a + b);  // Addition
+Console.WriteLine(a &gt; b);  // Boolean comparison</code></p>
+<p><code>Dim a As Integer = 10, b As Integer = 5
+Console.WriteLine(a + b)  ' Addition
+Console.WriteLine(a &gt; b)  ' Boolean comparison</code></p>
+<hr />
+<p><strong>5. Control Flow: If-Else, Loops</strong></p>
+<p><strong>5.1. If-Else Statements</strong></p>
+<p><code>int num = 10;
+if (num &gt; 5)
+    Console.WriteLine("Greater than 5");
+else
+    Console.WriteLine("Less than or equal to 5");</code></p>
+<p><code>Dim num As Integer = 10
+If num &gt; 5 Then
+    Console.WriteLine("Greater than 5")
+Else
+    Console.WriteLine("Less than or equal to 5")
+End If</code></p>
+<p><strong>5.2. For Loops</strong></p>
+<p><code>for (int i = 1; i &lt;= 5; i++)
+{
+    Console.WriteLine($"Iteration {i}");
+}</code></p>
+<p><code>For i As Integer = 1 To 5
+    Console.WriteLine($"Iteration {i}")
+Next</code></p>
+<hr />
+<p><strong>6. Object-Oriented Programming (OOP)</strong></p>
+<p><strong>6.1. Creating a Class &amp; Object in C#</strong></p>
+<p>```
+class Car
+{
+    public string Brand;
+    public int Speed;</p>
+<pre><code>public void Drive()
+{
+    Console.WriteLine($"{Brand} is moving at {Speed} km/h");
+}
+</code></pre>
+<p>}</p>
+<p>Car myCar = new Car();
+myCar.Brand = "Tesla";
+myCar.Speed = 120;
+myCar.Drive();
+```</p>
+<p><strong>6.2. Creating a Class &amp; Object in VB.NET</strong></p>
+<p>```
+Class Car
+    Public Brand As String
+    Public Speed As Integer</p>
+<pre><code>Public Sub Drive()
+    Console.WriteLine($"{Brand} is moving at {Speed} km/h")
+End Sub
+</code></pre>
+<p>End Class</p>
+<p>Dim myCar As New Car()
+myCar.Brand = "Tesla"
+myCar.Speed = 120
+myCar.Drive()
+```</p>
+<hr />
+<p><strong>7. File Handling &amp; Exception Handling</strong></p>
+<p><strong>7.1. Writing &amp; Reading Files</strong></p>
+<p><code>using System.IO;
+File.WriteAllText("test.txt", "Hello, .NET!");
+string content = File.ReadAllText("test.txt");
+Console.WriteLine(content);</code></p>
+<p><code>Imports System.IO
+File.WriteAllText("test.txt", "Hello, .NET!")
+Dim content As String = File.ReadAllText("test.txt")
+Console.WriteLine(content)</code></p>
+<p><strong>7.2. Handling Exceptions</strong></p>
+<p><code>try
+{
+    int result = 10 / 0;
+}
+catch (DivideByZeroException ex)
+{
+    Console.WriteLine("Error: " + ex.Message);
+}</code></p>
+<p><code>Try
+    Dim result As Integer = 10 / 0
+Catch ex As DivideByZeroException
+    Console.WriteLine("Error: " &amp; ex.Message)
+End Try</code></p>
+<hr />
+<p><strong>8. Building a Simple .NET Web API</strong></p>
+<p><strong>8.1. Creating a .NET Web API</strong></p>
+<p><code>dotnet new webapi -n MyApi
+cd MyApi
+dotnet run</code></p>
+<p><strong>8.2. Modifying the API Controller (WeatherForecastController.cs)</strong></p>
+<p>```
+[Route("api/users")]
+[ApiController]
+public class UsersController : ControllerBase
+{
+    private static List<string> users = new List<string> { "Alice", "Bob" };</p>
+<pre><code>[HttpGet]
+public IEnumerable&lt;string&gt; GetUsers()
+{
+    return users;
+}
+
+[HttpPost]
+public IActionResult AddUser([FromBody] string name)
+{
+    users.Add(name);
+    return Ok(users);
+}
+</code></pre>
+<p>}
+```</p>
+<p><strong>8.3. Testing the API</strong></p>
+<p><code>curl -X GET http://localhost:5000/api/users</code></p>
+<p><code>curl -X POST -H "Content-Type: application/json" -d '"Charlie"' http://localhost:5000/api/users</code></p>
+<hr />
+<p><strong>9. Conclusion</strong></p>
+<p><strong>What You Learned in .NET Level 1:</strong></p>
+<p>✅ <strong>Understanding .NET Framework, .NET Core, and .NET 6+</strong></p>
+<p>✅ <strong>Setting Up .NET Development Environment</strong></p>
+<p>✅ <strong>Building a Simple Console Application in C# and VB.NET</strong></p>
+<p>✅ <strong>Basic Syntax (Variables, Data Types, Operators, Control Flow)</strong></p>
+<p>✅ <strong>Object-Oriented Programming (Classes &amp; Objects)</strong></p>
+<p>✅ <strong>Working with Files &amp; Exception Handling</strong></p>
+<p>✅ <strong>Built a Simple .NET Web API</strong></p>
+<p>Now, you’re ready for <strong>.NET Level 2</strong>, where we explore <strong>Database Integration (SQL, Entity Framework), Multi-threading, Advanced API Development, and Cloud Deployment!</strong> 🚀</p></body></html>

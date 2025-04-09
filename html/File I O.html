@@ -1,0 +1,225 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>15:03:00</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>File I/O in Java: Reading and Writing Files</strong></p>
+<p><strong>1. What is File I/O?</strong></p>
+<p>File I/O (Input/Output) in Java refers to <strong>reading from and writing to files</strong> using Java’s built-in file handling mechanisms. Java provides the java.io and java.nio packages for file operations.</p>
+<p><strong>Why Use File I/O?</strong></p>
+<p>✔ <strong>Store and retrieve data</strong> – Saves information for later use.</p>
+<p>✔ <strong>Process large data files</strong> – Handles text and binary files.</p>
+<p>✔ <strong>Logging and debugging</strong> – Stores logs of application activities.</p>
+<p><strong>2. Java File Handling Classes</strong></p>
+<p>|<strong>Class</strong>|<strong>Purpose</strong>|
+|---|---|
+|File|Represents a file or directory.|
+|FileReader|Reads character-based files.|
+|FileWriter|Writes character-based files.|
+|BufferedReader|Reads text files efficiently.|
+|BufferedWriter|Writes text files efficiently.|
+|FileInputStream|Reads binary files.|
+|FileOutputStream|Writes binary files.|</p>
+<p><strong>3. Working with the File Class</strong></p>
+<p>The File class is used to <strong>create, check, delete, and retrieve file information</strong>.</p>
+<p><strong>Example: Creating a File</strong></p>
+<p>```
+import java.io.File;
+import java.io.IOException;</p>
+<p>public class FileExample {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        try {
+            if (file.createNewFile()) {
+                System.out.println("File created: " + file.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• createNewFile() creates a new file if it does not exist.</p>
+<p><strong>Example: Checking File Properties</strong></p>
+<p>```
+import java.io.File;</p>
+<p>public class FileProperties {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        if (file.exists()) {
+            System.out.println("File Name: " + file.getName());
+            System.out.println("Absolute Path: " + file.getAbsolutePath());
+            System.out.println("Writable: " + file.canWrite());
+            System.out.println("Readable: " + file.canRead());
+            System.out.println("File Size: " + file.length() + " bytes");
+        } else {
+            System.out.println("File does not exist.");
+        }
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• file.exists() checks if the file exists.</p>
+<p>• file.getName(), file.getAbsolutePath() retrieve file details.</p>
+<p><strong>4. Writing to a File</strong></p>
+<p>The FileWriter and BufferedWriter classes allow writing text data to a file.</p>
+<p><strong>Example: Writing to a File Using FileWriter</strong></p>
+<p>```
+import java.io.FileWriter;
+import java.io.IOException;</p>
+<p>public class FileWriteExample {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("example.txt");
+            writer.write("Hello, Java File I/O!");
+            writer.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• FileWriter writes text into example.txt.</p>
+<p>• writer.write() adds content to the file.</p>
+<p>• writer.close() closes the file to save changes.</p>
+<p><strong>Example: Writing to a File Using BufferedWriter (More Efficient)</strong></p>
+<p>```
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;</p>
+<p>public class BufferedWriterExample {
+    public static void main(String[] args) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("example.txt", true))) {
+            writer.write("Appending a new line.\n");
+            System.out.println("Successfully appended to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• BufferedWriter <strong>improves performance</strong> for large files.</p>
+<p>• FileWriter("example.txt", true) enables <strong>appending</strong> to an existing file.</p>
+<p><strong>5. Reading from a File</strong></p>
+<p>Java provides FileReader, BufferedReader, and Scanner to read text from files.</p>
+<p><strong>Example: Reading a File Using FileReader</strong></p>
+<p>```
+import java.io.FileReader;
+import java.io.IOException;</p>
+<p>public class FileReadExample {
+    public static void main(String[] args) {
+        try {
+            FileReader reader = new FileReader("example.txt");
+            int character;
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character);
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• reader.read() reads one character at a time.</p>
+<p>• <strong>Slower for large files</strong>; use BufferedReader instead.</p>
+<p><strong>Example: Reading a File Using BufferedReader (Efficient)</strong></p>
+<p>```
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;</p>
+<p>public class BufferedReaderExample {
+    public static void main(String[] args) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• readLine() reads text <strong>line by line</strong>, making it <strong>faster than FileReader</strong>.</p>
+<p><strong>Example: Reading a File Using Scanner</strong></p>
+<p>```
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;</p>
+<p>public class ScannerFileRead {
+    public static void main(String[] args) {
+        try {
+            Scanner scanner = new Scanner(new File("example.txt"));
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
+            scanner.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• Scanner reads file data <strong>efficiently using hasNextLine()</strong>.</p>
+<p><strong>6. Deleting a File</strong></p>
+<p>Java allows <strong>deleting a file</strong> using the delete() method.</p>
+<p><strong>Example: Deleting a File</strong></p>
+<p>```
+import java.io.File;</p>
+<p>public class FileDeleteExample {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        if (file.delete()) {
+            System.out.println("File deleted: " + file.getName());
+        } else {
+            System.out.println("Failed to delete the file.");
+        }
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• delete() removes the file permanently.</p>
+<p><strong>7. Handling Binary Files</strong></p>
+<p><strong>Example: Writing and Reading a Binary File</strong></p>
+<p>```
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.IOException;</p>
+<p>public class BinaryFileExample {
+    public static void main(String[] args) {
+        // Writing to a binary file
+        try (FileOutputStream fos = new FileOutputStream("binary.dat")) {
+            fos.write(new byte[]{65, 66, 67});
+            System.out.println("Binary file written.");
+        } catch (IOException e) {
+            System.out.println("Error writing file.");
+        }</p>
+<pre><code>    // Reading from a binary file
+    try (FileInputStream fis = new FileInputStream("binary.dat")) {
+        int data;
+        while ((data = fis.read()) != -1) {
+            System.out.print((char) data);
+        }
+    } catch (IOException e) {
+        System.out.println("Error reading file.");
+    }
+}
+</code></pre>
+<p>}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• FileOutputStream writes <strong>binary data</strong>.</p>
+<p>• FileInputStream reads <strong>binary files</strong> byte by byte.</p>
+<p><strong>8. Conclusion</strong></p>
+<p>Java provides <strong>powerful file handling capabilities</strong> using File, FileReader, BufferedReader, and Scanner for <strong>text files</strong>, and FileInputStream/FileOutputStream for <strong>binary files</strong>. Understanding file I/O helps in <strong>reading logs, saving data, and managing configurations</strong>. 🚀</p></body></html>

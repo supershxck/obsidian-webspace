@@ -1,0 +1,214 @@
+<html><body><blockquote>
+<p><strong>March 3rd, 2025</strong>  <strong>14:20:14</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #article </p>
+</blockquote>
+<hr />
+<p>Below is a basic [[HTML]] and [[CSS]] template for a CV website. You can copy this code, customize it with your information, and host it on a platform like GitHub Pages, Netlify, or any web hosting service. I’ll explain each section and provide the code in markdown code blocks for easy reading.</p>
+<hr />
+<h2>CV Website for You</h2>
+<p>A CV website showcases your professional background, skills, and contact information in an online format. Here’s a simple, responsive design with sections for an introduction, experience, education, skills, and contact details. You can edit the content with your own details.</p>
+<h3>Steps to Use This Template</h3>
+<ol>
+<li><strong>Copy the Code</strong>: Save the HTML and CSS into separate files (e.g., <code>index.html</code> and <code>styles.css</code>).</li>
+<li><strong>Customize</strong>: Replace the placeholder text with your personal information.</li>
+<li><strong>Host</strong>: Upload it to a web hosting service to make it live.</li>
+<li><strong>Enhance</strong>: Add images, links, or additional styling as needed.</li>
+</ol>
+<h3>HTML Code (<code>index.html</code>)</h3>
+<p>This is the structure of your CV website.</p>
+<p>```html</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - CV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Your Name</h1>
+        <p>Job Title | Your Tagline</p>
+    </header>
+
+    <section class="about">
+        <h2>About Me</h2>
+        <p>
+            I am a [your profession] with [X years] of experience in [your field]. 
+            Passionate about [your interests], I strive to [your goal]. 
+            Based in [your location].
+        </p>
+    </section>
+
+    <section class="experience">
+        <h2>Experience</h2>
+        <div class="job">
+            <h3>Job Title</h3>
+            <p class="company">Company Name | Start Date - End Date</p>
+            <ul>
+                <li>Responsibility or achievement 1</li>
+                <li>Responsibility or achievement 2</li>
+                <li>Responsibility or achievement 3</li>
+            </ul>
+        </div>
+        <div class="job">
+            <h3>Previous Job Title</h3>
+            <p class="company">Previous Company | Start Date - End Date</p>
+            <ul>
+                <li>Responsibility or achievement 1</li>
+                <li>Responsibility or achievement 2</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="education">
+        <h2>Education</h2>
+        <div class="degree">
+            <h3>Degree Name</h3>
+            <p>University Name | Year Graduated</p>
+        </div>
+    </section>
+
+    <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Skill 1</li>
+            <li>Skill 2</li>
+            <li>Skill 3</li>
+            <li>Skill 4</li>
+        </ul>
+    </section>
+
+    <section class="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <p>Phone: (123) 456-7890</p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+        <p>Portfolio: <a href="https://yourportfolio.com" target="_blank">yourportfolio.com</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<p>```</p>
+<h3>CSS Code (<code>styles.css</code>)</h3>
+<p>This styles the website to make it clean and professional.</p>
+<p>```css
+/<em> Reset default margins and padding </em>/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}</p>
+<p>body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}</p>
+<p>header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #007BFF;
+}</p>
+<p>header h1 {
+    font-size: 2.5em;
+    color: #007BFF;
+}</p>
+<p>header p {
+    font-size: 1.2em;
+    color: #666;
+}</p>
+<p>section {
+    margin: 20px 0;
+}</p>
+<p>h2 {
+    color: #007BFF;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}</p>
+<p>.job, .degree {
+    margin-bottom: 20px;
+}</p>
+<p>.job h3, .degree h3 {
+    font-size: 1.3em;
+}</p>
+<p>.company {
+    font-style: italic;
+    color: #666;
+}</p>
+<p>ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}</p>
+<p>.skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}</p>
+<p>.skills li {
+    background: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 5px;
+}</p>
+<p>.contact a {
+    color: #007BFF;
+    text-decoration: none;
+}</p>
+<p>.contact a:hover {
+    text-decoration: underline;
+}</p>
+<p>footer {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    color: #666;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}</p>
+<p>/<em> Responsive Design </em>/
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }</p>
+<pre><code>header p {
+    font-size: 1em;
+}
+
+body {
+    padding: 10px;
+}
+</code></pre>
+<p>}
+```</p>
+<h3>Explanation of Sections</h3>
+<ul>
+<li><strong>Header</strong>: Displays your name and a tagline or job title.</li>
+<li><strong>About Me</strong>: A brief introduction to who you are.</li>
+<li><strong>Experience</strong>: Lists your work history with details.</li>
+<li><strong>Education</strong>: Shows your academic background.</li>
+<li><strong>Skills</strong>: Highlights your key abilities in a visually appealing way.</li>
+<li><strong>Contact</strong>: Provides ways to reach you, with clickable links.</li>
+<li><strong>Footer</strong>: Adds a professional touch with a copyright notice.</li>
+</ul>
+<h3>Customization Tips</h3>
+<ul>
+<li><strong>Personal Info</strong>: Replace "Your Name," "Job Title," and other placeholders with your details.</li>
+<li><strong>Colors</strong>: Change <code>#007BFF</code> (blue) in the CSS to a color you prefer (e.g., <code>#FF5733</code> for orange).</li>
+<li><strong>Add More</strong>: Include a photo by adding <code>&lt;img src="yourphoto.jpg" alt="Your Name" class="profile-pic"&gt;</code> in the header and styling it in CSS.</li>
+<li><strong>Links</strong>: Update the LinkedIn and portfolio URLs to your actual profiles.</li>
+</ul>
+<h3>Hosting Your Website</h3>
+<ul>
+<li><strong>GitHub Pages</strong>: Create a GitHub repository, upload these files, and enable GitHub Pages in the settings.</li>
+<li><strong>Netlify</strong>: Drag and drop the folder with these files into Netlify’s dashboard for free hosting.</li>
+<li><strong>Domain</strong>: Purchase a custom domain (e.g., <code>yourname.com</code>) and link it for a professional touch.</li>
+</ul>
+<hr />
+<p>This template gives you a functional CV website. Let me know if you’d like additional features, such as a download button for a PDF resume or more advanced styling!</p></body></html>

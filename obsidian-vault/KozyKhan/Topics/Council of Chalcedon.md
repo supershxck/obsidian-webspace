@@ -1,0 +1,106 @@
+> **July 5th, 2024** 
+> **01:27:17** 
+> **status:** #GPT  #orthodox  #history 
+> **topics:** 
+
+### **Council of Chalcedon and the Great Schism: A Detailed Overview**
+
+#### **1. Background to the Council of Chalcedon**
+
+- **Context**: The Council of Chalcedon, held in 451 AD, was the Fourth Ecumenical Council of the Christian Church. It was convened by the Roman Emperor Marcian and Empress Pulcheria in the city of Chalcedon (modern-day Kadıköy, Turkey) to address ongoing theological disputes, particularly concerning the nature of Christ.
+
+- **Previous Councils**:
+  - **[[Council of Nicaea]] (325 AD)**: Affirmed the consubstantiality (homoousios) of the Son with the Father, rejecting Arianism, which denied the full divinity of Christ.
+  - **[[Council of Constantinople]] (381 AD)**: Reaffirmed Nicene orthodoxy and expanded the Nicene Creed, clarifying the divinity of the Holy Spirit.
+  - **[[Council of Ephesus]] (431 AD)**: Addressed the Nestorian controversy, affirming that Christ is one person (hypostasis) with two natures (physis) and that Mary is rightly called Theotokos (God-bearer).
+
+- **Theological Debate**:
+  - The key theological debate leading up to Chalcedon revolved around how to understand the relationship between the divine and human natures of Christ. The two primary positions were:
+    - **[[Nestorianism]]**: Emphasized the distinction between Christ's divine and human natures, leading to a perceived separation of Christ into two persons.
+    - **[[Miaphysitism]]**: Championed by Cyril of Alexandria, this view held that Christ has one united nature that is both divine and human. This position was dominant in the non-Chalcedonian (Oriental Orthodox) churches.
+
+- **Key Figures**:
+  - **Cyril of Alexandria**: Defender of the unity of Christ’s nature.
+  - **Nestorius**: Patriarch of Constantinople, associated with the position that emphasized the separation between Christ's natures.
+  - **Eutyches**: A monk who took a radical stance against Nestorianism, arguing for the total absorption of Christ's human nature into His divine nature.
+
+#### **2. The Council of Chalcedon (451 AD)**
+
+- **Convergence**: The Council of Chalcedon was attended by approximately 520 bishops, making it one of the largest early councils. The primary goal was to clarify the Church's teaching on the nature of Christ in response to ongoing controversies, particularly those surrounding Nestorianism and the teachings of Eutyches.
+
+- **The Chalcedonian Definition**:
+  - The council produced the **Chalcedonian Definition**, also known as the Chalcedonian Creed. It stated that Christ is "one person in two natures" (μία ὑπόστασις ἐν δύο φύσεσιν), fully divine and fully human, without confusion, change, division, or separation. This formulation rejected both Nestorianism (which divided Christ's natures too sharply) and Eutychianism (which blended them too closely).
+
+- **Canon and Decisions**:
+  - The council reaffirmed the decisions of the previous three ecumenical councils and issued 27 disciplinary canons dealing with church governance and administrative issues.
+  - Canon 28 controversially elevated the See of Constantinople to a position of primacy, second only to Rome, which led to tensions with the papacy.
+
+#### **3. The Aftermath: The Great Schism**
+
+- **Initial Reactions**:
+  - The Chalcedonian Definition was accepted by the Western Church and much of the Eastern Church, but it was rejected by many in Egypt, Syria, and Armenia. These regions adhered to Miaphysitism, which they believed Chalcedon had compromised.
+
+- **Rise of Non-Chalcedonian Churches**:
+  - The rejection of the Council of Chalcedon by these regions led to the formation of the **[[Oriental Orthodox Churches]]**, which include:
+    - The **[[Coptic Orthodox Church]]** of Egypt
+    - The **[[Syriac Orthodox Church]]**
+    - The **[[Armenian Apostolic Church]]**
+    - The **Ethiopian Orthodox Tewahedo Church**
+    - The **Eritrean Orthodox Tewahedo Church**
+    - The **[[Malankara Orthodox Syrian Church]]** in India
+
+- **Impact on the Church**:
+  - This schism created a significant and lasting division within Christianity. The non-Chalcedonian churches, often labeled as "Monophysite" by their opponents (though they identify as Miaphysite), maintained their independence and developed distinct liturgical, theological, and cultural traditions.
+
+- **Political and Social Consequences**:
+  - The split had profound political and social implications. In the Byzantine Empire, the schism exacerbated tensions between the Greek-speaking, Chalcedonian Byzantine rulers and the largely non-Chalcedonian populations in Egypt and Syria. This division weakened the empire, making it more vulnerable to external threats, such as the Islamic conquests in the 7th century.
+
+- **Reconciliation Efforts**:
+  - Over the centuries, there have been numerous efforts to reconcile the Chalcedonian and non-Chalcedonian churches, but a full reunion has not been achieved. However, dialogues between the Eastern Orthodox, Roman Catholic, and Oriental Orthodox Churches have led to a better mutual understanding and respect in modern times.
+
+#### **4. Legacy of the Council of Chalcedon**
+
+- **Theological Significance**:
+  - The Chalcedonian Definition remains a cornerstone of Christological doctrine for the Roman Catholic Church, the Eastern Orthodox Church, and most Protestant denominations. It has been essential in shaping the understanding of the incarnation and the nature of Christ in Western Christianity.
+
+- **Enduring Schism**:
+  - The schism initiated by the Council of Chalcedon is one of the oldest and most enduring splits in Christian history. The Oriental Orthodox Churches continue to hold fast to their Miaphysite Christology, which they believe preserves the true teaching of the early Church.
+
+- **Modern Dialogues**:
+  - In recent decades, theological dialogues have led to a greater appreciation of the commonalities between Chalcedonian and non-Chalcedonian Christology. Both sides recognize that the differences are often more about terminology than substance. This has led to joint declarations and steps towards mutual recognition, though full communion has yet to be restored.
+
+### **Conclusion**
+
+The Council of Chalcedon was a defining moment in Christian history, setting the stage for one of the first major schisms within the Church. Its decisions have had a lasting impact on Christian theology, ecclesiology, and global Christianity. The legacy of Chalcedon is complex, reflecting both the deep commitment of early Christians to doctrinal purity and the profound challenges of maintaining unity within a diverse and rapidly expanding faith community.
+### Accomplishments of the [[Fourth Ecumenical Council]] (Council of Chalcedon, 451 AD)
+
+#### **1. The Chalcedonian Definition**
+   - **Key Doctrine**: The council produced the [[Chalcedonian Definition]], a critical doctrinal statement that articulated the orthodox understanding of Christ’s nature.
+   - **Two Natures of Christ**: The Definition affirmed that Jesus Christ is one person in two natures, fully divine and fully human, without confusion, change, division, or separation. This doctrine aimed to balance and clarify the relationship between Christ's divine and human natures.
+   - **Rejection of Heresies**: It rejected both [[Nestorianism]] (which emphasized the disunion of Christ’s natures) and Eutychianism/[[Monophysitism]] (which suggested that Christ had only one nature, either divine or a synthesis of divine and human).
+
+#### **2. Confirmation of Previous Councils**
+   - **Nicene and Constantinopolitan Creeds**: The council reaffirmed the creeds established at Nicaea and Constantinople, maintaining continuity in orthodox Christian doctrine.
+
+#### **3. Canonical and Disciplinary Decisions**
+   - **Issuance of Canons**: The council issued 30 canons addressing various aspects of church order and discipline, including the authority and jurisdiction of bishops.
+   - **Ecclesiastical Structure**: Reaffirmed the hierarchical structure of the Church, with particular attention to the relationship between major sees.
+
+#### **4. Elevation of the See of Constantinople**
+   - **Canon 28**: The council granted the See of Constantinople equal privileges to the See of Rome, stating that Constantinople, as the New Rome, should have the same honor.
+   - **Controversy**: This canon was controversial and not accepted by the Roman delegation, leading to ongoing tensions between the Eastern and Western Churches.
+
+#### **5. Deposition of Dioscorus**
+   - **Dioscorus of Alexandria**: The council deposed Dioscorus, the Patriarch of Alexandria, for his support of Eutychianism and his conduct during the Second Council of Ephesus (449 AD), known as the "Robber Council."
+
+#### **6. Affirmation of the Tome of Leo**
+   - **Papal Influence**: The council affirmed the Tome of Leo, a letter from Pope Leo I that articulated the orthodox position on the nature of Christ, playing a significant role in shaping the Chalcedonian Definition.
+
+#### **Key Figures**
+   - **Pope Leo I**: His Tome was instrumental in the council’s Christological definition.
+   - **Marcian and Pulcheria**: The Byzantine Emperor and Empress who convened the council and supported its decisions.
+   - **Anatolius of Constantinople**: Played a leading role in the council, particularly in the discussions about the status of the See of Constantinople.
+
+### Conclusion
+
+The Fourth Ecumenical Council at Chalcedon was a landmark in the development of Christian doctrine, particularly regarding the nature of Christ. The Chalcedonian Definition provided a clear and balanced articulation of the orthodox belief in Christ’s two natures, addressing and condemning various heresies that threatened the unity of the Church. The council also made significant decisions regarding church order and the hierarchical structure, although some of these decisions led to tensions between the Eastern and Western Churches. The outcomes of Chalcedon continue to influence Christian theology and ecclesiology to this day.

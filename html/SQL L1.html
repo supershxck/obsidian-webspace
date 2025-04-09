@@ -1,0 +1,202 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>12:10:09</strong> 
+<strong>Topics:</strong> [[SQL L2]]
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>SQL Lesson 1: From Beginner to Intermediate in One Lesson</strong></p>
+<p><strong>Introduction</strong></p>
+<p>SQL (<strong>Structured Query Language</strong>) is the language used to <strong>store, retrieve, and manipulate data</strong> in relational databases. SQL is fundamental for <strong>data analysis, web applications, and backend development</strong>.</p>
+<p>By the end of this lesson, you will understand:</p>
+<ol>
+<li>
+<p><strong>Basic SQL syntax</strong></p>
+</li>
+<li>
+<p><strong>Creating and managing databases</strong></p>
+</li>
+<li>
+<p><strong>CRUD operations (Create, Read, Update, Delete)</strong></p>
+</li>
+<li>
+<p><strong>Filtering and sorting data</strong></p>
+</li>
+<li>
+<p><strong>Joining multiple tables</strong></p>
+</li>
+<li>
+<p><strong>Using aggregate functions</strong></p>
+</li>
+<li>
+<p><strong>Intermediate SQL techniques like subqueries and indexes</strong></p>
+</li>
+</ol>
+<hr />
+<p><strong>1. Setting Up SQL</strong></p>
+<p>You can use SQL with <strong>MySQL, PostgreSQL, SQLite, SQL Server</strong>, or <strong>Oracle</strong>.</p>
+<p>To experiment locally, install <strong>SQLite</strong> (lightweight database) or use an <strong>online SQL sandbox</strong> like <a href="http://sqlfiddle.com/">SQL Fiddle</a>.</p>
+<p>To install SQLite:</p>
+<p><code>pip install sqlite3  # If using Python</code></p>
+<p>To enter SQLite shell:</p>
+<p><code>sqlite3 my_database.db</code></p>
+<hr />
+<p><strong>2. Creating a Database and Tables</strong></p>
+<p><strong>2.1. Creating a Database</strong></p>
+<p>To create a new database:</p>
+<p><code>CREATE DATABASE company;</code></p>
+<p>To use the database:</p>
+<p><code>USE company;</code></p>
+<p><strong>2.2. Creating a Table</strong></p>
+<p>Tables store data in <strong>rows and columns</strong>.</p>
+<p><code>CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    department VARCHAR(50),
+    salary DECIMAL(10,2)
+);</code></p>
+<p>• <strong>id</strong>: Unique identifier (<strong>Primary Key</strong>)</p>
+<p>• <strong>name</strong>: Stores up to 50 characters</p>
+<p>• <strong>age</strong>: Stores integer values</p>
+<p>• <strong>department</strong>: Text column</p>
+<p>• <strong>salary</strong>: Stores decimal values (up to 10 digits, 2 decimal places)</p>
+<hr />
+<p><strong>3. Inserting Data into a Table</strong></p>
+<p>```
+INSERT INTO employees (id, name, age, department, salary)<br />
+VALUES (1, 'Alice', 30, 'HR', 50000.00);</p>
+<p>INSERT INTO employees (id, name, age, department, salary)<br />
+VALUES (2, 'Bob', 28, 'Engineering', 70000.00),
+       (3, 'Charlie', 35, 'Finance', 60000.00);
+```</p>
+<hr />
+<p><strong>4. Retrieving Data (SELECT Query)</strong></p>
+<p><strong>4.1. Selecting All Data</strong></p>
+<p><code>SELECT * FROM employees;</code></p>
+<p><strong>4.2. Selecting Specific Columns</strong></p>
+<p><code>SELECT name, department FROM employees;</code></p>
+<hr />
+<p><strong>5. Filtering Data (WHERE Clause)</strong></p>
+<p><strong>5.1. Filtering by a Condition</strong></p>
+<p><code>SELECT * FROM employees WHERE age &gt; 30;</code></p>
+<p><strong>5.2. Filtering with Multiple Conditions (AND, OR, NOT)</strong></p>
+<p><code>SELECT * FROM employees WHERE department = 'Engineering' AND salary &gt; 60000;</code></p>
+<hr />
+<p><strong>6. Sorting Data (ORDER BY Clause)</strong></p>
+<p><code>SELECT * FROM employees ORDER BY salary DESC;</code></p>
+<p>• ASC → Ascending order (default)</p>
+<p>• DESC → Descending order</p>
+<hr />
+<p><strong>7. Updating Data (UPDATE Query)</strong></p>
+<p><code>UPDATE employees SET salary = 75000 WHERE id = 2;</code></p>
+<hr />
+<p><strong>8. Deleting Data (DELETE Query)</strong></p>
+<p><code>DELETE FROM employees WHERE id = 3;</code></p>
+<p><strong>WARNING:</strong> Without a WHERE clause, all rows will be deleted.</p>
+<hr />
+<p><strong>9. Joining Multiple Tables (JOIN Clause)</strong></p>
+<p><strong>9.1. Creating Another Table</strong></p>
+<p><code>CREATE TABLE departments (
+    id INT PRIMARY KEY,
+    name VARCHAR(50)
+);</code></p>
+<p><code>INSERT INTO departments (id, name)  
+VALUES (1, 'HR'), (2, 'Engineering'), (3, 'Finance');</code></p>
+<p><strong>9.2. INNER JOIN (Match records in both tables)</strong></p>
+<p><code>SELECT employees.name, departments.name AS department  
+FROM employees  
+INNER JOIN departments ON employees.department = departments.name;</code></p>
+<hr />
+<p><strong>10. Aggregate Functions (SUM, AVG, COUNT, MIN, MAX)</strong></p>
+<p><strong>10.1. Counting Employees</strong></p>
+<p><code>SELECT COUNT(*) FROM employees;</code></p>
+<p><strong>10.2. Calculating Average Salary</strong></p>
+<p><code>SELECT AVG(salary) FROM employees;</code></p>
+<p><strong>10.3. Finding Minimum and Maximum Salary</strong></p>
+<p><code>SELECT MIN(salary), MAX(salary) FROM employees;</code></p>
+<hr />
+<p><strong>11. Grouping Data (GROUP BY &amp; HAVING Clause)</strong></p>
+<p><strong>11.1. Grouping Employees by Department</strong></p>
+<p><code>SELECT department, COUNT(*) AS total_employees  
+FROM employees  
+GROUP BY department;</code></p>
+<p><strong>11.2. Filtering Grouped Results (HAVING Clause)</strong></p>
+<p><code>SELECT department, AVG(salary)  
+FROM employees  
+GROUP BY department  
+HAVING AVG(salary) &gt; 50000;</code></p>
+<hr />
+<p><strong>12. Subqueries (Query Inside a Query)</strong></p>
+<p><code>SELECT name, salary  
+FROM employees  
+WHERE salary &gt; (SELECT AVG(salary) FROM employees);</code></p>
+<hr />
+<p><strong>13. Indexes (Optimizing Queries)</strong></p>
+<p>Indexes speed up queries on large datasets.</p>
+<p><code>CREATE INDEX idx_department ON employees(department);</code></p>
+<hr />
+<p><strong>14. Constraints (Ensuring Data Integrity)</strong></p>
+<p><strong>14.1. Unique Constraint</strong></p>
+<p><code>CREATE TABLE users (
+    id INT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE
+);</code></p>
+<p><strong>14.2. NOT NULL Constraint</strong></p>
+<p><code>ALTER TABLE employees MODIFY COLUMN name VARCHAR(50) NOT NULL;</code></p>
+<hr />
+<p><strong>15. Advanced SQL Techniques</strong></p>
+<p><strong>15.1. Stored Procedures (Reusable SQL Functions)</strong></p>
+<p><code>DELIMITER //
+CREATE PROCEDURE GetEmployees()
+BEGIN
+    SELECT * FROM employees;
+END //
+DELIMITER ;</code></p>
+<p>Call it using:</p>
+<p><code>CALL GetEmployees();</code></p>
+<p><strong>15.2. Triggers (Automatic Actions on Data Change)</strong></p>
+<p><code>CREATE TRIGGER before_insert_employee  
+BEFORE INSERT ON employees  
+FOR EACH ROW  
+SET NEW.salary = IF(NEW.salary &lt; 30000, 30000, NEW.salary);</code></p>
+<p>This ensures every new employee has at least a <strong>$30,000 salary</strong>.</p>
+<hr />
+<p><strong>Final Project: Simple Employee Management Database</strong></p>
+<p><strong>1. Create the database</strong></p>
+<p><code>CREATE DATABASE company_db;
+USE company_db;</code></p>
+<p><strong>2. Create tables</strong></p>
+<p>```
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    department VARCHAR(50),
+    salary DECIMAL(10,2)
+);</p>
+<p>CREATE TABLE departments (
+    id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+```</p>
+<p><strong>3. Insert data</strong></p>
+<p>```
+INSERT INTO employees (id, name, age, department, salary)<br />
+VALUES (1, 'Alice', 30, 'HR', 50000.00),
+       (2, 'Bob', 28, 'Engineering', 70000.00);</p>
+<p>INSERT INTO departments (id, name) VALUES (1, 'HR'), (2, 'Engineering');
+```</p>
+<p><strong>4. Query data</strong></p>
+<p><code>SELECT employees.name, employees.salary, departments.name AS department  
+FROM employees  
+JOIN departments ON employees.department = departments.name;</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p>By now, you should understand:</p>
+<p>• <strong>Basic SQL Syntax</strong></p>
+<p>• <strong>Creating, updating, and deleting tables</strong></p>
+<p>• <strong>Filtering and sorting data</strong></p>
+<p>• <strong>Joins, aggregations, and subqueries</strong></p>
+<p>• <strong>Indexes and stored procedures for optimization</strong></p>
+<p>With this knowledge, you’re ready to <strong>work with databases, build backend applications, and analyze data</strong>. 🚀</p>
+<p>🔹 <strong>Next Step:</strong> Learn <strong>SQL Lesson 2</strong> for advanced topics like <strong>transactions, views, user permissions, and complex joins.</strong></p></body></html>

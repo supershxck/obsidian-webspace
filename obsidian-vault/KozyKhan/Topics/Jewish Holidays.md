@@ -1,0 +1,19 @@
+July 4th, 2024 
+15:32:25 
+status:
+topics: 
+
+Rosh Hashanah - 1 Tishri - Sep 16 - The Jewish New Year—a holiday observed with festive meals and a day spent in prayer or quiet meditation.
+
+Yom Kippur - 10 Tishri - Sep 25 - The Jewish Day of Atonement—the most solemn day of the Jewish year. A day
+devoted to self–examination, and the chance to begin the New Year with a clean slate.
+
+Hanukkah - 25 Kislev - December 8 - A festival celebrating liberation from oppression, freedom of worship, and finding light in the darkest of times.
+
+Passover - 15 Nissan - for 7-8 days
+
+Shavuot Pentecost 
+
+Sukkot builds tents time of rejoicing 
+
+Purim

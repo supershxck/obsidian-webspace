@@ -1,0 +1,194 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>14:50:18</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Java Basics: Introduction to Java Programming</strong></p>
+<p><strong>1. What is Java?</strong></p>
+<p>Java is a <strong>high-level, object-oriented, platform-independent programming language</strong> developed by <strong>Sun Microsystems (now owned by Oracle)</strong>. It follows the <strong>“Write Once, Run Anywhere” (WORA)</strong> principle, meaning Java programs can run on any platform that supports Java <strong>without modification</strong>.</p>
+<p><strong>Why Use Java?</strong></p>
+<p>✔ <strong>Platform-independent</strong> – Runs on any OS with Java Virtual Machine (JVM).</p>
+<p>✔ <strong>Object-Oriented</strong> – Uses classes and objects for modular programming.</p>
+<p>✔ <strong>Secure and Reliable</strong> – Provides strong memory management and security.</p>
+<p>✔ <strong>Multi-threaded</strong> – Supports concurrent execution of multiple tasks.</p>
+<p>✔ <strong>Rich API &amp; Libraries</strong> – Includes built-in support for data structures, networking, and more.</p>
+<p><strong>2. Java Program Structure</strong></p>
+<p>A basic Java program consists of:</p>
+<ol>
+<li>
+<p><strong>Class Declaration</strong> – Java programs are organized into <strong>classes</strong>.</p>
+</li>
+<li>
+<p><strong>Main Method (main())</strong> – The <strong>entry point</strong> of a Java program.</p>
+</li>
+<li>
+<p><strong>Statements</strong> – Instructions inside the main method.</p>
+</li>
+</ol>
+<p>✔ <strong>Example: Hello World Program in Java</strong></p>
+<p><code>public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• public class HelloWorld – Declares a class named HelloWorld.</p>
+<p>• public static void main(String[] args) – Main method, where execution starts.</p>
+<p>• System.out.println("Hello, World!"); – Prints text to the console.</p>
+<p><strong>3. Java Data Types</strong></p>
+<p>Java has <strong>two categories</strong> of data types:</p>
+<p><strong>1. Primitive Data Types (Built-in)</strong></p>
+<p>|<strong>Data Type</strong>|<strong>Size</strong>|<strong>Example</strong>|
+|---|---|---|
+|byte|1 byte|byte age = 25;|
+|short|2 bytes|short year = 2024;|
+|int|4 bytes|int salary = 50000;|
+|long|8 bytes|long distance = 1000000L;|
+|float|4 bytes|float price = 19.99f;|
+|double|8 bytes|double pi = 3.14159;|
+|char|2 bytes|char grade = 'A';|
+|boolean|1 bit|boolean isJavaFun = true;|</p>
+<p>✔ <strong>Example: Declaring Variables</strong></p>
+<p><code>int age = 25;
+double price = 99.99;
+boolean isAvailable = true;</code></p>
+<p><strong>2. Non-Primitive Data Types (Reference Types)</strong></p>
+<p>• <strong>Strings</strong> – String message = "Hello";</p>
+<p>• <strong>Arrays</strong> – int[] numbers = {1, 2, 3};</p>
+<p>• <strong>Classes &amp; Objects</strong> – Custom types created using classes.</p>
+<p>✔ <strong>Example: Using Strings</strong></p>
+<p><code>String name = "Java";
+System.out.println("Welcome to " + name);</code></p>
+<p><strong>4. Java Operators</strong></p>
+<p>Java provides <strong>arithmetic, logical, and relational operators</strong>.</p>
+<p>✔ <strong>Example: Arithmetic Operators</strong></p>
+<p><code>int a = 10, b = 5;
+System.out.println(a + b); // Addition
+System.out.println(a - b); // Subtraction
+System.out.println(a * b); // Multiplication
+System.out.println(a / b); // Division
+System.out.println(a % b); // Modulus</code></p>
+<p>✔ <strong>Example: Relational Operators</strong></p>
+<p><code>System.out.println(a &gt; b);  // true
+System.out.println(a == b); // false
+System.out.println(a != b); // true</code></p>
+<p>✔ <strong>Example: Logical Operators</strong></p>
+<p><code>boolean x = true, y = false;
+System.out.println(x &amp;&amp; y); // false
+System.out.println(x || y); // true
+System.out.println(!x);     // false</code></p>
+<p><strong>5. Control Statements in Java</strong></p>
+<p>Java supports <strong>decision-making (if-else, switch)</strong> and <strong>loops (for, while, do-while)</strong>.</p>
+<p>✔ <strong>Example: If-Else Statement</strong></p>
+<p><code>int num = 10;
+if (num &gt; 0) {
+    System.out.println("Positive number");
+} else {
+    System.out.println("Negative number");
+}</code></p>
+<p>✔ <strong>Example: Switch Statement</strong></p>
+<p><code>int day = 3;
+switch(day) {
+    case 1: System.out.println("Monday"); break;
+    case 2: System.out.println("Tuesday"); break;
+    default: System.out.println("Other day");
+}</code></p>
+<p>✔ <strong>Example: For Loop</strong></p>
+<p><code>for (int i = 1; i &lt;= 5; i++) {
+    System.out.println("Iteration " + i);
+}</code></p>
+<p>✔ <strong>Example: While Loop</strong></p>
+<p><code>int i = 1;
+while (i &lt;= 5) {
+    System.out.println(i);
+    i++;
+}</code></p>
+<p>✔ <strong>Example: Do-While Loop</strong></p>
+<p><code>int i = 1;
+do {
+    System.out.println(i);
+    i++;
+} while (i &lt;= 5);</code></p>
+<p><strong>6. Functions (Methods) in Java</strong></p>
+<p>Methods <strong>encapsulate reusable logic</strong>.</p>
+<p>✔ <strong>Example: Method Declaration and Calling</strong></p>
+<p>```
+public class MathOperations {
+    static int add(int a, int b) {
+        return a + b;
+    }</p>
+<pre><code>public static void main(String[] args) {
+    int sum = add(10, 5);
+    System.out.println("Sum: " + sum);
+}
+</code></pre>
+<p>}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• static int add(int a, int b) – Defines a method named add.</p>
+<p>• return a + b; – Returns the sum.</p>
+<p>• add(10, 5); – Calls the method.</p>
+<p><strong>7. Object-Oriented Programming (OOP) in Java</strong></p>
+<p>Java follows <strong>OOP principles</strong>:</p>
+<p>• <strong>Encapsulation</strong> – Data hiding using private modifiers.</p>
+<p>• <strong>Inheritance</strong> – Reusing parent class properties (extends keyword).</p>
+<p>• <strong>Polymorphism</strong> – Using methods in multiple ways.</p>
+<p>• <strong>Abstraction</strong> – Hiding implementation details using abstract classes or interfaces.</p>
+<p>✔ <strong>Example: Creating a Class and Object</strong></p>
+<p>```
+class Car {
+    String brand;</p>
+<pre><code>Car(String brand) {
+    this.brand = brand;
+}
+
+void showBrand() {
+    System.out.println("Car Brand: " + brand);
+}
+</code></pre>
+<p>}</p>
+<p>public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car("Tesla");
+        myCar.showBrand();
+    }
+}
+```</p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• Car is a <strong>class</strong>.</p>
+<p>• brand is an <strong>instance variable</strong>.</p>
+<p>• Car("Tesla") initializes the object.</p>
+<p>• showBrand() prints the brand.</p>
+<p><strong>8. Exception Handling in Java</strong></p>
+<p>Java provides <strong>try-catch blocks</strong> for handling errors.</p>
+<p>✔ <strong>Example: Handling Exceptions</strong></p>
+<p><code>try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero!");
+}</code></p>
+<p>✔ <strong>Explanation:</strong></p>
+<p>• Code inside try block may cause an exception.</p>
+<p>• catch block handles the error.</p>
+<p><strong>9. Java File Handling</strong></p>
+<p>Java supports <strong>reading and writing files</strong>.</p>
+<p>✔ <strong>Example: Writing to a File</strong></p>
+<p>```
+import java.io.FileWriter;
+import java.io.IOException;</p>
+<p>public class FileExample {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("output.txt");
+            writer.write("Hello, Java!");
+            writer.close();
+            System.out.println("File written successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+        }
+    }
+}
+```</p>
+<p><strong>10. Conclusion</strong></p>
+<p>Java is a <strong>powerful, object-oriented, and platform-independent</strong> language used in <strong>web, mobile, and enterprise applications</strong>. Understanding <strong>data types, control structures, OOP concepts, and file handling</strong> provides a strong foundation for <strong>building scalable Java applications</strong>. 🚀</p></body></html>

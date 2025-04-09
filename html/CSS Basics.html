@@ -1,0 +1,209 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>14:00:52</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>CSS Basics: Styling the Web</strong></p>
+<p><strong>What is CSS?</strong></p>
+<p><strong>CSS (Cascading Style Sheets)</strong> is a language used to <strong>style and layout</strong> web pages. It allows developers to control <strong>colors, fonts, spacing, positioning, animations, and responsiveness</strong> of elements on a webpage.</p>
+<p><strong>1. CSS Syntax</strong></p>
+<p>A <strong>CSS rule</strong> consists of a <strong>selector</strong> and a <strong>declaration block</strong>.</p>
+<p><code>selector {
+    property: value;
+}</code></p>
+<p><strong>Example</strong></p>
+<p><code>h1 {
+    color: blue;
+    font-size: 24px;
+}</code></p>
+<p>• <strong>Selector</strong> → h1 (targets all <h1> elements).</p>
+<p>• <strong>Property</strong> → color, font-size.</p>
+<p>• <strong>Value</strong> → blue, 24px.</p>
+<p><strong>2. Ways to Apply CSS</strong></p>
+<p>CSS can be added in <strong>three ways</strong>:</p>
+<p><strong>1. Inline CSS (Directly in HTML Elements)</strong></p>
+<p>```</p>
+<p style="color: red; font-size: 20px;">This is a red paragraph.</p>
+<p>```</p>
+<p>• ✅ Quick changes</p>
+<p>• ❌ Not recommended for large projects</p>
+<p><strong>2. Internal CSS (Inside <style> in HTML <head>)</strong></p>
+<p><code>&lt;head&gt;
+    &lt;style&gt;
+        p {
+            color: green;
+            font-size: 18px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;</code></p>
+<p>• ✅ Good for small projects</p>
+<p>• ❌ Not reusable across multiple files</p>
+<p><strong>3. External CSS (Separate .css File)</strong></p>
+<p><code>/* styles.css */
+p {
+    color: blue;
+    font-size: 18px;
+}</code></p>
+<p>Linked in HTML:</p>
+<p><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></p>
+<p>• ✅ Best practice (separates design from content)</p>
+<p>• ✅ Reusable and maintainable</p>
+<p><strong>3. CSS Selectors</strong></p>
+<p>Selectors <strong>target HTML elements</strong> to apply styles.</p>
+<p><strong>1. Universal Selector (*)</strong></p>
+<p>Applies to <strong>all</strong> elements.</p>
+<p><code>* {
+    margin: 0;
+    padding: 0;
+}</code></p>
+<p><strong>2. Type Selector</strong></p>
+<p>Targets specific HTML tags.</p>
+<p><code>h1 {
+    color: blue;
+}</code></p>
+<p><strong>3. Class Selector (.)</strong></p>
+<p>Targets elements with a class.</p>
+<p><code>.paragraph {
+    font-size: 16px;
+}</code></p>
+<p>Applied in HTML:</p>
+<p>```</p>
+<p class="paragraph">Styled paragraph</p>
+<p>```</p>
+<p><strong>4. ID Selector (#)</strong></p>
+<p>Targets a unique element.</p>
+<p>```</p>
+<h1>main-title {</h1>
+<pre><code>font-size: 24px;
+</code></pre>
+<p>}
+```</p>
+<p>Applied in HTML:</p>
+<p>```</p>
+<h1 id="main-title">Main Title</h1>
+<p>```</p>
+<p><strong>5. Group Selector (,)</strong></p>
+<p>Applies styles to multiple elements.</p>
+<p><code>h1, p {
+    color: darkblue;
+}</code></p>
+<p><strong>6. Descendant Selector (parent child)</strong></p>
+<p>Targets elements <strong>inside another element</strong>.</p>
+<p><code>div p {
+    color: red;
+}</code></p>
+<p>```</p>
+<div>
+    <p>This will be red.</p>
+</div>
+<p>```</p>
+<p><strong>7. Pseudo-Classes</strong></p>
+<p>Apply styles based on <strong>state or interaction</strong>.</p>
+<p><code>button:hover {
+    background-color: yellow;
+}</code></p>
+<p><strong>4. CSS Box Model</strong></p>
+<p>Every HTML element is treated as a <strong>box</strong> consisting of:</p>
+<ol>
+<li>
+<p><strong>Content</strong> – The actual text/image.</p>
+</li>
+<li>
+<p><strong>Padding</strong> – Space around content.</p>
+</li>
+<li>
+<p><strong>Border</strong> – Outline around the element.</p>
+</li>
+<li>
+<p><strong>Margin</strong> – Space outside the border.</p>
+</li>
+</ol>
+<p><strong>Example</strong></p>
+<p><code>.box {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 2px solid black;
+    margin: 10px;
+}</code></p>
+<p><strong>5. CSS Positioning</strong></p>
+<p>Controls element placement.</p>
+<p>|<strong>Property</strong>|<strong>Description</strong>|
+|---|---|
+|static|Default position (normal flow)|
+|relative|Positioned <strong>relative to itself</strong>|
+|absolute|Positioned <strong>relative to the nearest positioned ancestor</strong>|
+|fixed|Stays fixed relative to the viewport|
+|sticky|Sticks while scrolling|</p>
+<p><strong>Example</strong></p>
+<p><code>.fixed-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: red;
+    width: 100%;
+}</code></p>
+<p><strong>6. CSS Flexbox (For Layouts)</strong></p>
+<p>Flexbox is used to <strong>align and distribute elements</strong>.</p>
+<p><strong>Example</strong></p>
+<p><code>.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}</code></p>
+<p>```</p>
+<div class="container">
+    <div>Centered Content</div>
+</div>
+<p>```</p>
+<p>• justify-content: center; → Centers horizontally.</p>
+<p>• align-items: center; → Centers vertically.</p>
+<p><strong>7. CSS Grid (Advanced Layout)</strong></p>
+<p>Grid is a powerful system for <strong>designing complex layouts</strong>.</p>
+<p><strong>Example</strong></p>
+<p><code>.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}</code></p>
+<p>```</p>
+<div class="grid-container">
+    <div>Box 1</div>
+    <div>Box 2</div>
+    <div>Box 3</div>
+</div>
+<p>```</p>
+<p><strong>8. CSS Media Queries (Responsive Design)</strong></p>
+<p>Media queries allow CSS to be <strong>responsive on different screen sizes</strong>.</p>
+<p><strong>Example</strong></p>
+<p><code>@media (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}</code></p>
+<p>• When the screen width is <strong>600px or smaller</strong>, the <strong>background color changes</strong>.</p>
+<p><strong>9. CSS Animations</strong></p>
+<p>```
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}</p>
+<p>.box {
+    animation: fadeIn 2s ease-in-out;
+}
+```</p>
+<p><strong>10. Conclusion</strong></p>
+<p>CSS <strong>enhances the visual appearance</strong> of web pages. It provides:</p>
+<p>✔ <strong>Styling (colors, fonts, layouts)</strong></p>
+<p>✔ <strong>Positioning &amp; alignment (Flexbox, Grid)</strong></p>
+<p>✔ <strong>Responsiveness (Media Queries)</strong></p>
+<p>✔ <strong>Animations &amp; effects</strong></p>
+<p>Mastering CSS allows you to create <strong>modern, beautiful, and responsive</strong> web pages! 🚀</p></body></html>

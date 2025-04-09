@@ -1,0 +1,34 @@
+> **December 29th, 2024**  **23:27:31** 
+> **Tags:** #
+> **Topics:** [[
+> **Sources:** [[
+
+**Cigar rankings**
+1. AJ Fernandez Dark Sumatra: 89
+2. Archetype: 69
+3. PDR: 79
+4. Acid 
+5. Nub Connecticut: 80
+6. Project 40 Sungrown: 75
+7. Mark Twain Robusto: 81
+8. Gurkha private blend governor
+
+Mark Twain maduro 9/21/23
+Started off very light and creamy. Began to chocolatey leather hints with a tinge of spice. As it got lower it got slightly spicier and more creamy and chocolatey. 87
+
+Nub Habano
+9/24/23
+Started off spicy and w a tight draw. The burn is slightly uneven but I’m rotating after almost every puff. The ash is solid and white. The strength is def above medium but not full. It’s creamy and earthy and I tasted the leathery hints immediately. It’s smooth and heavy with the tinge of spice and I’m halfway through with it 20 mins in. The spicy chocolate draws smoothly thru the nose. First ash drop and it’s tasting strong and consistent. Had to dance with the stick a bit to keep the burn even but it was a solid smoke with enjoyable flavor. 80
+
+9/26/23
+RP Cargo Nicaraguan
+Toasty oaky smell w chocolate before lighting. Upon lighting, the length of the Churchill kept the smoke smooth and pure. The creaminess combined w the leathery wood gave a beautiful chocolate. The taste stayed consistent throughout the first two thirds of the cigar. The second third had a spike of pepper which evened out as I kept smoking to keep its consistent flavor with increased tinges of spice. Now smoking through the last third, the spice had increased but the flavor had stayed solid and woody. 87
+  
+10/1/23
+Cain Daytona
+Burned smoothly and tasted great. Gave off an oak and woody creamy flavor. Stayed consistent throughout. Burned evenly with ash so light it dropped off without even feeling it. Stayed tasty and creamy until the end. 84
+
+10/4
+Arganese Habano Robusto
+Solid smoke. Creamy and woody flavor. Stayed consistent but burned a little uneven and needed a couple corrections. Overall good smoke. 79
+

@@ -1,0 +1,179 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>15:24:32</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Graph Theory: Understanding Networks and Connections</strong></p>
+<p><strong>1. What is Graph Theory?</strong></p>
+<p>Graph Theory is the <strong>study of graphs</strong>, which are <strong>mathematical structures used to model relationships between objects</strong>. It is widely used in <strong>computer science, networking, AI, logistics, and social media</strong>.</p>
+<p><strong>Why is Graph Theory Important?</strong></p>
+<p>✔ <strong>Used in AI and Machine Learning</strong> – Graph-based models for neural networks.</p>
+<p>✔ <strong>Essential for Network Security</strong> – Detecting vulnerabilities in network structures.</p>
+<p>✔ <strong>Optimizes Routing and Logistics</strong> – Shortest path algorithms (Google Maps).</p>
+<p>✔ <strong>Models Social and Biological Networks</strong> – Facebook friends, protein interactions.</p>
+<p><strong>2. Basic Definitions in Graph Theory</strong></p>
+<p><strong>1. Definition of a Graph</strong></p>
+<p>A <strong>graph</strong> is a set of <strong>vertices (nodes)</strong> and <strong>edges (connections between nodes)</strong>.</p>
+<p>✔ <strong>Notation of a Graph:</strong></p>
+<p><code>G = (V, E)</code></p>
+<p>Where:</p>
+<p>• V = Set of <strong>vertices (nodes)</strong>.</p>
+<p>• E = Set of <strong>edges (connections between nodes)</strong>.</p>
+<p>✔ <strong>Example Graph Representation</strong></p>
+<p><code>Vertices (V) = {A, B, C, D}
+Edges (E) = {(A, B), (A, C), (B, D)}</code></p>
+<p>✔ <strong>Graph Visualization</strong></p>
+<p><code>A — B
+   |    \
+   C     D</code></p>
+<p><strong>3. Types of Graphs</strong></p>
+<p><strong>1. Directed vs. Undirected Graphs</strong></p>
+<p>|<strong>Graph Type</strong>|<strong>Definition</strong>|<strong>Example</strong>|
+|---|---|---|
+|<strong>Undirected Graph</strong>|Edges have <strong>no direction</strong>|Facebook friendships|
+|<strong>Directed Graph (Digraph)</strong>|Edges have <strong>direction</strong> (arrows)|Twitter (A follows B, but B may not follow A)|</p>
+<p>✔ <strong>Example: Directed Graph</strong></p>
+<p><code>A → B
+   ↓   ↑
+   C   D</code></p>
+<p><strong>2. Weighted vs. Unweighted Graphs</strong></p>
+<p>|<strong>Graph Type</strong>|<strong>Definition</strong>|<strong>Example</strong>|
+|---|---|---|
+|<strong>Weighted Graph</strong>|Edges have <strong>weights (costs, distances)</strong>|Google Maps (road lengths)|
+|<strong>Unweighted Graph</strong>|All edges have <strong>equal weight</strong>|Social networks|</p>
+<p>✔ <strong>Example: Weighted Graph (Numbers Represent Distance)</strong></p>
+<p><code>A —5— B
+   |      |
+  2|      |8
+   C —4— D</code></p>
+<p><strong>3. Special Types of Graphs</strong></p>
+<p>|<strong>Graph Type</strong>|<strong>Definition</strong>|<strong>Example</strong>|
+|---|---|---|
+|<strong>Complete Graph</strong>|Every node is connected to every other node|Fully connected networks|
+|<strong>Bipartite Graph</strong>|Nodes can be divided into <strong>two groups</strong>, with edges only between groups|Job matching, recommendation systems|
+|<strong>Tree (Acyclic Graph)</strong>|A connected graph with <strong>no cycles</strong>|File system structure, decision trees|
+|<strong>Planar Graph</strong>|A graph that can be drawn <strong>without edges crossing</strong>|Circuit board layouts|</p>
+<p>✔ <strong>Example: Tree Graph</strong></p>
+<p><code>A
+       / \
+      B   C
+     / \
+    D   E</code></p>
+<p><strong>4. Graph Representation</strong></p>
+<p><strong>1. Adjacency Matrix</strong></p>
+<p>A <strong>matrix representation</strong> where:</p>
+<p>• 1 represents an <strong>edge</strong>.</p>
+<p>• 0 represents <strong>no edge</strong>.</p>
+<p>✔ <strong>Example: Graph</strong></p>
+<p><code>A — B
+   |    \
+   C     D</code></p>
+<p>✔ <strong>Adjacency Matrix</strong></p>
+<p><code>A B C D
+A  0 1 1 0
+B  1 0 0 1
+C  1 0 0 0
+D  0 1 0 0</code></p>
+<p><strong>2. Adjacency List</strong></p>
+<p>Uses <strong>lists</strong> to store edges <strong>efficiently</strong>.</p>
+<p>✔ <strong>Example: Graph Adjacency List</strong></p>
+<p><code>A: [B, C]
+B: [A, D]
+C: [A]
+D: [B]</code></p>
+<p>✔ <strong>Advantages:</strong></p>
+<p>• <strong>Adjacency Matrix:</strong> Fast edge lookup (O(1)) but uses more memory (O(V²)).</p>
+<p>• <strong>Adjacency List:</strong> Uses less memory (O(V + E)) but slower edge lookup (O(V)).</p>
+<p><strong>5. Graph Traversal Algorithms</strong></p>
+<p><strong>1. Depth-First Search (DFS)</strong></p>
+<p><strong>Explores as far as possible</strong> along each branch before backtracking.</p>
+<p>✔ <strong>Example: DFS Traversal</strong></p>
+<p><code>A — B
+   |    \
+   C     D</code></p>
+<p>✔ <strong>DFS Order (Starting at A):</strong></p>
+<p><code>A → B → D → C</code></p>
+<p>✔ <strong>DFS Implementation (Python)</strong></p>
+<p>```
+def dfs(graph, node, visited):
+    if node not in visited:
+        print(node, end=" ")
+        visited.add(node)
+        for neighbor in graph[node]:
+            dfs(graph, neighbor, visited)</p>
+<p>graph = {'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}
+dfs(graph, 'A', set())  # Output: A B D C
+```</p>
+<p>✔ <strong>Applications:</strong></p>
+<p>• <strong>Maze solving</strong>.</p>
+<p>• <strong>Finding connected components</strong>.</p>
+<p><strong>2. Breadth-First Search (BFS)</strong></p>
+<p><strong>Explores all neighbors first</strong> before moving to the next level.</p>
+<p>✔ <strong>Example: BFS Traversal</strong></p>
+<p><code>A — B
+   |    \
+   C     D</code></p>
+<p>✔ <strong>BFS Order (Starting at A):</strong></p>
+<p><code>A → B → C → D</code></p>
+<p>✔ <strong>BFS Implementation (Python)</strong></p>
+<p>```
+from collections import deque</p>
+<p>def bfs(graph, start):
+    visited, queue = set(), deque([start])
+    while queue:
+        node = queue.popleft()
+        if node not in visited:
+            print(node, end=" ")
+            visited.add(node)
+            queue.extend(graph[node])</p>
+<p>graph = {'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}
+bfs(graph, 'A')  # Output: A B C D
+```</p>
+<p>✔ <strong>Applications:</strong></p>
+<p>• <strong>Shortest path in unweighted graphs</strong>.</p>
+<p>• <strong>AI pathfinding (Google Maps, game AI)</strong>.</p>
+<p><strong>6. Shortest Path Algorithms</strong></p>
+<p><strong>1. Dijkstra’s Algorithm (Weighted Graphs)</strong></p>
+<p>✔ <strong>Finds the shortest path from a source node to all other nodes.</strong></p>
+<p>✔ <strong>Example: Finding the shortest path</strong></p>
+<p><code>A —5— B
+   |      |
+  2|      |8
+   C —4— D</code></p>
+<p>✔ <strong>Dijkstra’s Algorithm (Python)</strong></p>
+<p>```
+import heapq</p>
+<p>def dijkstra(graph, start):
+    pq, distances = [(0, start)], {node: float('inf') for node in graph}
+    distances[start] = 0</p>
+<pre><code>while pq:
+    current_distance, node = heapq.heappop(pq)
+    for neighbor, weight in graph[node]:
+        distance = current_distance + weight
+        if distance &lt; distances[neighbor]:
+            distances[neighbor] = distance
+            heapq.heappush(pq, (distance, neighbor))
+return distances
+</code></pre>
+<p>graph = {'A': [('B', 5), ('C', 2)], 'B': [('D', 8)], 'C': [('D', 4)], 'D': []}
+print(dijkstra(graph, 'A'))
+```</p>
+<p>✔ <strong>Applications:</strong></p>
+<p>• <strong>Google Maps</strong> (Finding shortest routes).</p>
+<p>• <strong>Network routing protocols</strong> (Dijkstra is used in OSPF).</p>
+<p><strong>7. Graph Theory Applications</strong></p>
+<p>|<strong>Field</strong>|<strong>Application</strong>|
+|---|---|
+|<strong>Computer Networks</strong>|Internet routing (BGP, OSPF)|
+|<strong>AI &amp; Machine Learning</strong>|Knowledge graphs, decision trees|
+|<strong>Social Networks</strong>|Friend recommendations (Facebook, LinkedIn)|
+|<strong>Logistics &amp; Transportation</strong>|Shortest path (Google Maps, Uber)|
+|<strong>Biology &amp; Chemistry</strong>|Protein interaction networks|
+|<strong>Cybersecurity</strong>|Analyzing attack paths in networks|</p>
+<p>✔ <strong>Example: Social Network Friend Suggestion</strong></p>
+<p>• Uses <strong>graph centrality</strong> to suggest friends based on mutual connections.</p>
+<p>✔ <strong>Example: AI Decision Trees</strong></p>
+<p>• Graph-based structures help in <strong>decision-making algorithms</strong>.</p>
+<p><strong>8. Conclusion</strong></p>
+<p>Graph Theory <strong>is essential for networking, AI, and problem-solving</strong>. Understanding <strong>graph types, traversal algorithms (DFS, BFS), shortest path algorithms (Dijkstra)</strong> helps in <strong>data structures, AI, and cybersecurity</strong>. 🚀</p></body></html>

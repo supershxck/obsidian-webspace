@@ -1,0 +1,11 @@
+> **July 5th, 2024** 
+> **15:37:05** 
+> **status:** 
+> **topics:** [[Divine Liturgy]] [[Prayer]] 
+
+A vesper is an evening prayer service in the Christian liturgical tradition. It is part of the Liturgy of the Hours, also known as the Divine Office, which constitutes the official set of prayers marking the hours of each day and sanctifying the day with prayer. The term "vespers" comes from the Latin word "vespera," meaning evening.
+
+The structure of Vespers varies among different Christian denominations, including Roman Catholic, Eastern Orthodox, Anglican, and Lutheran traditions, but it typically includes psalms, hymns, prayers, and sometimes a reading from the Bible. In the Roman Catholic Church, the service is often referred to as Evening Prayer. In the Eastern Orthodox Church, it is a significant part of the daily cycle of services and is known for its solemnity and the beauty of its hymns, particularly those sung on Saturday evenings and the eves of feasts.
+
+Vespers is traditionally held in the late afternoon or evening as a way of offering thanks for the day just past and as preparation for the coming night.
+

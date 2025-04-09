@@ -1,0 +1,124 @@
+<html><body><blockquote>
+<p><strong>February 8th, 2025</strong>  <strong>01:52:31</strong> 
+<strong>Topics:</strong> [[
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>Introduction to [[SQL]] Basics</strong></p>
+<p>In this chapter, we embark on an exploration of [[SQL]]—the cornerstone language for managing and querying data in [[Relational Databases]]. SQL (Structured Query Language) is the standard language used to interact with databases, enabling users to define, manipulate, control, and query data with precision and efficiency.</p>
+<p><strong>I. What is SQL?</strong></p>
+<p><strong>Structured Query Language (SQL)</strong> is a declarative programming language designed for managing data held in relational database management systems (RDBMS). Unlike procedural languages, SQL allows you to specify <em>what</em> you want from the database without outlining <em>how</em> to retrieve it.</p>
+<p>• <strong>Purpose:</strong></p>
+<p>SQL is used to communicate with the database. It facilitates tasks such as creating and modifying database structures, inserting and updating data, and querying the database to extract meaningful information.</p>
+<p>• <strong>Importance in [[Relational Databases]]:</strong></p>
+<p>As the primary language for [[Relational Databases]], SQL serves as the bridge between raw data storage and actionable insights, ensuring data is both organized and accessible.</p>
+<p><strong>II. Core Components of SQL</strong></p>
+<p>SQL is divided into several sublanguages, each tailored to different aspects of database management:</p>
+<p><strong>A. Data Definition Language (DDL)</strong></p>
+<p>DDL commands define and modify the structure of database objects.</p>
+<p>• <strong>CREATE:</strong></p>
+<p>Establish new tables, indexes, views, or other database objects.</p>
+<p>• <strong>ALTER:</strong></p>
+<p>Modify existing database structures, such as adding or dropping columns in a table.</p>
+<p>• <strong>DROP:</strong></p>
+<p>Remove database objects from the system.</p>
+<p><em>Example:</em></p>
+<p><code>CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);</code></p>
+<p><strong>B. Data Manipulation Language (DML)</strong></p>
+<p>DML commands handle the manipulation of data stored in the database.</p>
+<p>• <strong>INSERT:</strong></p>
+<p>Add new records to a table.</p>
+<p>• <strong>UPDATE:</strong></p>
+<p>Modify existing records.</p>
+<p>• <strong>DELETE:</strong></p>
+<p>Remove records from a table.</p>
+<p><em>Example:</em></p>
+<p><code>INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES (1, 'Jane', 'Doe', 'jane.doe@example.com');</code></p>
+<p><strong>C. Data Query Language (DQL)</strong></p>
+<p>Although often considered a subset of DML, DQL specifically refers to retrieving data using the <strong>SELECT</strong> statement.</p>
+<p>• <strong>SELECT:</strong></p>
+<p>Retrieve specific data by filtering, sorting, and aggregating information.</p>
+<p><em>Example:</em></p>
+<p><code>SELECT FirstName, LastName
+FROM Customers
+WHERE Email LIKE '%@example.com';</code></p>
+<p><strong>D. Data Control Language (DCL)</strong></p>
+<p>DCL commands manage permissions and access control to the data.</p>
+<p>• <strong>GRANT:</strong></p>
+<p>Provide user access rights to database objects.</p>
+<p>• <strong>REVOKE:</strong></p>
+<p>Remove or restrict previously granted access rights.</p>
+<p><em>Example:</em></p>
+<p><code>GRANT SELECT, INSERT ON Customers TO user_readwrite;</code></p>
+<p><strong>E. Transaction Control Language (TCL)</strong></p>
+<p>TCL commands manage the changes made by DML operations and ensure data integrity.</p>
+<p>• <strong>COMMIT:</strong></p>
+<p>Permanently save the transactions.</p>
+<p>• <strong>ROLLBACK:</strong></p>
+<p>Undo transactions that have not been committed.</p>
+<p>• <strong>SAVEPOINT:</strong></p>
+<p>Set a point within a transaction to which you can later roll back.</p>
+<p><em>Example:</em></p>
+<p>```
+BEGIN TRANSACTION;</p>
+<p>UPDATE Customers
+SET Email = 'jane.new@example.com'
+WHERE CustomerID = 1;</p>
+<p>COMMIT;
+```</p>
+<p><strong>III. SQL Syntax and Structure</strong></p>
+<p>SQL statements follow a structured syntax, making them relatively intuitive and easy to read:</p>
+<p>• <strong>Statements End with a Semicolon:</strong></p>
+<p>While some database systems may allow omitting the semicolon, it is a best practice to use it to clearly delimit each command.</p>
+<p>• <strong>Case Insensitivity:</strong></p>
+<p>SQL keywords are not case sensitive, though using uppercase for keywords and lowercase for identifiers is common for readability.</p>
+<p>• <strong>Clauses and Expressions:</strong></p>
+<p>SQL queries are built using clauses such as SELECT, FROM, WHERE, GROUP BY, HAVING, and ORDER BY to refine data retrieval.</p>
+<p><em>Example:</em></p>
+<p><code>SELECT COUNT(*)
+FROM Orders
+WHERE OrderDate BETWEEN '2025-01-01' AND '2025-01-31';</code></p>
+<p><strong>IV. Fundamental SQL Operations</strong></p>
+<p><strong>A. Basic Querying</strong></p>
+<p>The <strong>SELECT</strong> statement is the workhorse of SQL, allowing you to fetch data from one or more tables.</p>
+<p>• <strong>Filtering Data:</strong></p>
+<p>The WHERE clause refines your query to return only records that meet specific conditions.</p>
+<p>• <strong>Sorting Results:</strong></p>
+<p>The ORDER BY clause sorts the retrieved data in ascending or descending order.</p>
+<p>• <strong>Joining Tables:</strong></p>
+<p>SQL supports various types of joins (INNER, LEFT, RIGHT, FULL) to combine related data from multiple tables.</p>
+<p><em>Example:</em></p>
+<p><code>SELECT Orders.OrderID, Customers.FirstName, Customers.LastName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+WHERE Orders.Total &gt; 100;</code></p>
+<p><strong>B. Aggregation and Grouping</strong></p>
+<p>SQL provides powerful functions for aggregating data:</p>
+<p>• <strong>Aggregate Functions:</strong></p>
+<p>Functions such as COUNT(), SUM(), AVG(), MIN(), and MAX() help summarize data.</p>
+<p>• <strong>Grouping Data:</strong></p>
+<p>The GROUP BY clause groups rows that have the same values in specified columns, often used with aggregate functions.</p>
+<p><em>Example:</em></p>
+<p><code>SELECT CustomerID, COUNT(OrderID) AS OrderCount
+FROM Orders
+GROUP BY CustomerID;</code></p>
+<p><strong>V. Best Practices for Writing SQL</strong></p>
+<p>• <strong>Use Clear and Descriptive Identifiers:</strong></p>
+<p>Naming conventions improve readability and maintainability.</p>
+<p>• <strong>Comment Your Code:</strong></p>
+<p>Use comments (-- for single-line, /<em> ... </em>/ for multi-line) to explain complex queries.</p>
+<p>• <strong>Optimize Queries:</strong></p>
+<p>Leverage indexes, avoid unnecessary columns in SELECT statements, and use subqueries judiciously to maintain performance.</p>
+<p>• <strong>Ensure Security:</strong></p>
+<p>Always validate and sanitize inputs to protect against SQL injection attacks.</p>
+<p><strong>VI. SQL in the Context of [[Relational Databases]]</strong></p>
+<p>SQL is the language that unlocks the full potential of [[Relational Databases]]. Its declarative nature and robust feature set have made it indispensable for data management, from small-scale applications to large enterprise systems. As you explore SQL, you’ll find that its principles not only facilitate data retrieval and manipulation but also promote a deeper understanding of the relational model, data integrity, and database design.</p>
+<p><strong>VII. Conclusion</strong></p>
+<p>The basics of [[SQL]] provide the essential tools needed to interact with and manage data stored in [[Relational Databases]]. Whether you are creating tables, inserting records, or performing complex queries, mastering SQL is a critical step in harnessing the power of data. Embrace these fundamentals as you progress in your journey toward becoming proficient in data management and analysis, and discover how structured queries can transform raw data into actionable insights.</p>
+<p>Happy querying!</p></body></html>

@@ -1,0 +1,172 @@
+<html><body><blockquote>
+<p><strong>March 15th, 2025</strong>  <strong>19:06:43</strong> 
+<strong>Topics:</strong> [[Shell Scripting L1]] 
+<strong>Tags:</strong> #CS </p>
+</blockquote>
+<hr />
+<p><strong>MATLAB Level 3: Advanced MATLAB Development &amp; Applications</strong></p>
+<p><strong>Introduction</strong></p>
+<p>Now that you’ve mastered <strong>signal processing, machine learning, and optimization</strong>, it’s time to dive into <strong>deep learning, hardware interfacing, financial modeling, and cloud deployment</strong> with MATLAB.</p>
+<p><strong>What You’ll Learn in This Lesson:</strong></p>
+<p>✅ <strong>Deep Learning &amp; Neural Networks in MATLAB</strong></p>
+<p>✅ <strong>Control Systems &amp; Robotics (PID, State-Space Models)</strong></p>
+<p>✅ <strong>Hardware Interfacing (Arduino, Raspberry Pi, FPGA)</strong></p>
+<p>✅ <strong>Financial Modeling &amp; Algorithmic Trading</strong></p>
+<p>✅ <strong>Cloud Deployment &amp; Web Apps with MATLAB</strong></p>
+<p>✅ <strong>High-Performance Computing (GPU, Parallel Processing, Distributed Computing)</strong></p>
+<p>✅ <strong>Building a Full MATLAB AI/IoT Application</strong></p>
+<p>By the end of this lesson, you will be able to <strong>build AI-driven MATLAB applications, control hardware, optimize large-scale computations, and deploy cloud-based applications</strong>.</p>
+<hr />
+<p><strong>1. Deep Learning &amp; Neural Networks in MATLAB</strong></p>
+<p><strong>1.1. Creating a Simple Neural Network</strong></p>
+<p><code>net = feedforwardnet(10);  % 10 neurons in the hidden layer
+X = rand(1, 100);          % Input data
+Y = sin(X);                % Target data
+net = train(net, X, Y);    % Train the network
+view(net);                 % Visualize the network</code></p>
+<p><strong>1.2. Using Pretrained Deep Learning Models</strong></p>
+<p><code>net = alexnet;  % Load pre-trained AlexNet model
+layers = net.Layers;
+disp(layers);</code></p>
+<p><strong>1.3. Image Classification with CNN</strong></p>
+<p><code>net = resnet50;
+img = imread('peppers.png');
+img = imresize(img, [224 224]); % Resize for model
+[label, score] = classify(net, img);
+imshow(img);
+title(['Predicted: ', char(label)]);</code></p>
+<hr />
+<p><strong>2. Control Systems &amp; Robotics</strong></p>
+<p><strong>2.1. Designing a PID Controller</strong></p>
+<p><code>s = tf('s');
+plant = 1 / (s^2 + 3*s + 2);
+pid_controller = pidtune(plant, 'PID');
+closed_loop = feedback(pid_controller * plant, 1);
+step(closed_loop);
+title('PID-Controlled System');</code></p>
+<p><strong>2.2. Simulating a State-Space Model</strong></p>
+<p><code>A = [0 1; -2 -3];
+B = [0; 1];
+C = [1 0];
+D = 0;
+sys = ss(A, B, C, D);
+step(sys);
+title('State-Space Model Simulation');</code></p>
+<hr />
+<p><strong>3. Hardware Interfacing (Arduino, Raspberry Pi, FPGA)</strong></p>
+<p><strong>3.1. Connecting to Arduino</strong></p>
+<p><code>a = arduino('COM3', 'Uno');  % Connect to Arduino on COM3
+writeDigitalPin(a, 'D13', 1); % Turn LED ON
+pause(1);
+writeDigitalPin(a, 'D13', 0); % Turn LED OFF</code></p>
+<p><strong>3.2. Raspberry Pi Sensor Data Logging</strong></p>
+<p><code>rpi = raspi;
+temp = readTemperature(rpi, 1);
+disp(['Temperature: ', num2str(temp)]);</code></p>
+<p><strong>3.3. FPGA Programming with MATLAB</strong></p>
+<p><code>hdlsetuptoolpath('ToolName', 'Xilinx Vivado');
+hdlworkflow('hdl_prj');</code></p>
+<hr />
+<p><strong>4. Financial Modeling &amp; Algorithmic Trading</strong></p>
+<p><strong>4.1. Stock Data Analysis</strong></p>
+<p><code>data = hist_stock_data('01012020', '01012023', 'AAPL');
+dates = data.Date;
+closing_prices = data.Close;
+plot(dates, closing_prices);
+title('Apple Stock Prices');</code></p>
+<p><strong>4.2. Monte Carlo Simulation for Risk Analysis</strong></p>
+<p><code>S0 = 100;  % Initial stock price
+mu = 0.05; % Expected return
+sigma = 0.2; % Volatility
+T = 1; % 1 year
+dt = 1/252; % Daily steps
+N = T/dt;
+W = cumsum(randn(N, 1) * sqrt(dt));
+S = S0 * exp((mu - 0.5 * sigma^2) * (1:N)' * dt + sigma * W);
+plot(S);
+title('Monte Carlo Simulated Stock Price');</code></p>
+<p><strong>4.3. Creating a Simple Trading Algorithm</strong></p>
+<p><code>ma_short = movmean(closing_prices, 5);
+ma_long = movmean(closing_prices, 20);
+buy_signal = ma_short &gt; ma_long;
+plot(dates, closing_prices);
+hold on;
+plot(dates, ma_short, 'r');
+plot(dates, ma_long, 'g');
+title('Trading Strategy: Moving Averages');
+legend('Price', 'Short MA', 'Long MA');</code></p>
+<hr />
+<p><strong>5. Cloud Deployment &amp; Web Apps</strong></p>
+<p><strong>5.1. Deploying MATLAB Code as a Web App</strong></p>
+<ol>
+<li>
+<p>Open MATLAB and go to the <strong>Web App Server</strong>.</p>
+</li>
+<li>
+<p>Convert a MATLAB script into a web app:</p>
+</li>
+</ol>
+<p><code>webappCompiler</code></p>
+<ol>
+<li>Deploy the app and access it via a browser.</li>
+</ol>
+<p><strong>5.2. MATLAB Integration with AWS</strong></p>
+<p><code>awsLambda = cloudFunction('awsLambdaFunction');
+result = awsLambda.invoke('{"input": 10}');
+disp(result);</code></p>
+<p><strong>5.3. MATLAB REST API Server</strong></p>
+<p><code>matlabRESTServer = restserver;
+matlabRESTServer.start('Port', 8080);</code></p>
+<hr />
+<p><strong>6. High-Performance Computing</strong></p>
+<p><strong>6.1. Running MATLAB on GPU</strong></p>
+<p><code>gpuDevice;
+A = gpuArray(rand(1000));
+B = gpuArray(rand(1000));
+C = A * B;
+disp(gather(C)); % Retrieve from GPU</code></p>
+<p><strong>6.2. Parallel Computing for Large Data</strong></p>
+<p><code>parpool(4);
+parfor i = 1:100
+    disp(['Iteration: ', num2str(i)]);
+end
+delete(gcp);</code></p>
+<p><strong>6.3. Distributed Computing with MATLAB</strong></p>
+<p><code>spmd
+    disp(['Worker ID: ', num2str(labindex)]);
+end</code></p>
+<hr />
+<p><strong>7. Building a Full MATLAB AI/IoT Application</strong></p>
+<p><strong>7.1. AI-Based Face Recognition App</strong></p>
+<p><code>faceDetector = vision.CascadeObjectDetector;
+camera = webcam;
+while true
+    img = snapshot(camera);
+    bbox = step(faceDetector, img);
+    imshow(img);
+    hold on;
+    for i = 1:size(bbox, 1)
+        rectangle('Position', bbox(i,:), 'EdgeColor', 'r', 'LineWidth', 2);
+    end
+    title('Face Detection');
+    pause(0.1);
+end</code></p>
+<p><strong>7.2. IoT Smart Home Dashboard</strong></p>
+<p><code>rpi = raspi;
+lightStatus = readDigitalPin(rpi, 18);
+if lightStatus == 1
+    disp('Lights are ON');
+else
+    disp('Lights are OFF');
+end</code></p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in MATLAB Level 3:</strong></p>
+<p>✅ <strong>Deep Learning &amp; Neural Networks in MATLAB</strong></p>
+<p>✅ <strong>Control Systems &amp; Robotics (PID, State-Space Models)</strong></p>
+<p>✅ <strong>Hardware Interfacing (Arduino, Raspberry Pi, FPGA)</strong></p>
+<p>✅ <strong>Financial Modeling &amp; Algorithmic Trading</strong></p>
+<p>✅ <strong>Cloud Deployment &amp; Web Apps with MATLAB</strong></p>
+<p>✅ <strong>High-Performance Computing (GPU, Parallel Processing, Distributed Computing)</strong></p>
+<p>✅ <strong>Built a Full MATLAB AI/IoT Application</strong></p>
+<p>Now, you’re ready for <strong>MATLAB Level 4</strong>, where we explore <strong>Blockchain, Quantum Computing, Reinforcement Learning, and MATLAB-Python Integration for AI!</strong> 🚀</p></body></html>

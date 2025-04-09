@@ -1,0 +1,479 @@
+> **July 6th, 2024** 
+> **00:10:55** 
+> **status:** #history #outline  
+> **topics:** [[Roman Empire]] [[Byzantine Empire]] [[Mongol Empire]] [[British Empire]] [[Ottoman Empire]] [[Napoleon Bonaparte]] [[Charlemagne]] [[Genghis Khan]] [[Christopher Columbus]] [[WW1]] [[WW2]] [[Scientific Revolution]] [[Industrial Revolution]]  [[Russian Empire]] [[Han Dynasty]] [[Tang Dynasty]] [[Gupta Empire]] [[Ming Dynasty]] [[Qing Dynasty]] [[Mughal Empire]] [[American Revolution]] [[French Revolution]] [[Cold War]] [[Vladimir Lenin]] [[Mao Zedong]] [[Albert Einstein]] [[Martin Luther]]  
+## Timeline of the Last 2000 Years
+
+### [[1st Century]] (1-100 AD)
+- **Top Empires**: 
+  - [[Roman Empire]]
+  - [[Parthian Empire]]
+  - [[Han Dynasty]]
+  - [[Kushan Empire]]
+  - [[Xiongnu Confederation]]
+  -   - [[Axum Empire]]
+- **Top Events**:
+  - [[Birth of Jesus Christ]] (circa 4-6 BC)
+  - [[Crucifixion of Jesus Christ]] (circa 30-33 AD)
+  - [[Great Fire of Rome]] (64 AD)
+  - [[Destruction of the Second Temple in Jerusalem]] (70 AD)
+  - [[Fall of the Teutoburg Forest]] (9 AD)
+  - [[Construction of the Colosseum]] (70-80 AD)
+  -   - [[Rebellion of Boudica]] (60-61 AD)
+- **Top People**:
+  - [[Jesus Christ]]
+  - [[Saint Peter]]
+  - [[Saint Paul]]
+  - [[Emperor Nero]]
+  - [[Emperor Vespasian]]
+  -   - [[Emperor Augustus]]
+  -   - [[Herod the Great]]
+### [[2nd Century]] (101-200 AD)
+- **Top Empires**: 
+  - [[Roman Empire]]
+  - [[Han Dynasty]]
+  - [[Parthian Empire]]
+  - [[Kushan Empire]]
+  - [[Satavahana Dynasty]]
+  -  [[Maya Civilization]]
+
+
+- **Top People**:
+  - [[Emperor Trajan]]
+  - [[Emperor Hadrian]]
+  - [[Emperor Marcus Aurelius]]
+  - [[Galen]]
+  - [[Zhang Heng]]
+  -   - [[Claudius Ptolemy]]
+
+### [[3rd Century]] (201-300 AD)
+- **Top Empires**: 
+  - [[Roman Empire]]
+  - [[Sasanian Empire]]
+  - [[Han Dynasty]]
+  - [[Kushan Empire]]
+  - [[Yamato Japan]]
+  -  [[Gupta Empire]]
+  - [[Three Kingdoms (China)]]
+  - [[Palmyrene Empire]]
+- **Top Events**:
+  - [[Crisis of the Third Century]] (235-284 AD)
+  - [[Edict of Caracalla]] (212 AD)
+  - [[Rebellion of the Yellow Turbans]] (184-205 AD)
+  - [[Battle of Edessa]] (260 AD)
+  - [[Foundation of the Gupta Empire]] (circa 320 AD)
+  - [[Gothic Wars]] (249-270 AD)
+  - [[Edict of Decius]] (250 AD)
+  - [[Gallic Empire]] (260-274 AD)
+- **Top People**:
+  - [[Emperor Diocletian]]
+  - [[Cao Cao]]
+  - [[King Shapur the Great]]
+  - [[Plotinus]]
+  - [[Ardashir I]]
+  - [[Emperor Aurelian]]
+  - [[Emperor Valerian]]
+  - [[Odaenathus]]
+
+### [[4th Century]] (301-400 AD)
+- **Top Empires**: 
+  - [[Roman Empire]]
+  - [[Gupta Empire]]
+  - [[Sasanian Empire]]
+  - [[Yamato Japan]]
+  - [[Huns]]
+  -  [[Hunnic Empire]]
+  - [[Kingdom of Aksum]]
+- **Top Events**:
+  - [[Topics/Constantine the Great]] converts to Christianity (312 AD)
+  - [[Council of Nicaea]] (325 AD)
+  - [[Fall of the Western Roman Empire begins]] (395 AD)
+  - [[Battle of Adrianople]] (378 AD)
+  - [[Division of the Roman Empire into East and West 395AD]] (395 AD)
+  - [[Edict of Milan]] (313 AD)
+  - [[Fall of Rome]] (476 AD)
+- **Top People**:
+  - [[Topics/Constantine the Great]]
+  - [[Athanasius of Alexandria]]
+  - [[Emperor Julian the Apostate]]
+  - [[Shapur II]]
+  - [[Chandragupta I]]
+  - [[Fa-Hien]]
+  - [[Saint Augustine]]
+### [[5th Century]] (401-500 AD)
+- **Top Empires**: 
+  - [[Western Roman Empire]]
+  - [[Eastern Roman Empire]]
+  - [[Gupta Empire]]
+  - [[Huns]]
+  - [[Sasanian Empire]]
+  - [[Hunnic Empire]] 
+- **Top Events**:
+  - [[Sack of Rome by the Visigoths 410AD]] (410 AD)
+  - [[Fall of the Western Roman Empire 476AD]] (476 AD)
+  - [[Battle of Chalons]] (451 AD)
+  - [[Council of Chalcedon]] (451 AD)
+  - [[Foundation of the Kingdom of the Franks 481AD]] (481 AD)
+  - [[Council of Ephesus]] (431 AD)
+  - [[Battle of the Catalaunian Plains]] (451 AD)
+  - [[Vandals Sack Rome]] (455 AD)
+- **Top People**:
+  - [[Attila the Hun]]
+  - [[King Clovis I]]
+  - [[Emperor Theodosius II]]
+  - [[Emperor Buddhagupta]]
+  - [[Saint Patrick]]
+  - [[Romulus Augustulus]]
+  - [[Aetius]]
+
+### [[6th Century]] (501-600 AD)
+- **Top Empires**: 
+  - [[Eastern Roman Empire]]
+  - [[Gupta Empire]]
+  - [[Sasanian Empire]]
+  - [[Maya Civilization]]
+  - [[Byzantine Empire]]
+  -  [[Frankish Kingdom]]
+  - [[Aksumite Empire]]
+- **Top Events**:
+  - [[Justinian I and the reconquest of the Western Empire]] (527-565 AD)
+  - [[Plague of Justinian]] (541-542 AD)
+  - [[Battle of Dara]] (530 AD)
+  - [[Construction of Hagia Sophia]] (532-537 AD)
+  - [[Spread of Buddhism to Japan]] (circa 552 AD)
+  - [[Nika Riots]] (532 AD)
+  - [[Battle of Taginae]] (552 AD)
+- **Top People**:
+  - [[Emperor Justinian I]]
+  - [[Empress Theodora]]
+  - [[Saint Benedict]]
+  - [[Boethius]]
+  - [[Belisarius]]
+  - [[King Arthur]]
+  - [[Bodhidharma]]
+
+### [[7th Century]] (601-700 AD)
+- **Top Empires**: 
+  - [[Eastern Roman Empire]]
+  - [[Sasanian Empire]]
+  - [[Tang Dynasty]]
+  - [[Umayyad Caliphate]]
+  - [[Frankish Kingdom]]
+- **Top Events**:
+  - [[Rise of Islam]] (610-632 AD)
+  - [[Battle of Yarmouk]] (636 AD)
+  - [[Battle of Karbala]] (680 AD)
+  - [[Tang Dynasty expansion in Central Asia]] (618-907 AD)
+  - [[Establishment of the Bulgarian Empire]] (681 AD)
+  -  [[Hijra]] (622 AD)
+  - [[Battle of Badr]] (624 AD)
+  - [[Islamic Conquests]] (7th century AD)
+  - [[Battle of Qadisiyyah]] (636 AD)
+- **Top People**:
+  - [[Topics/Prophet Muhammad]] 
+  - [[Heraclius]]
+  - [[Empress Wu Zetian]]
+  - [[Ali ibn Abi Talib]]
+  - [[Pepin of Herstal]]
+  - [[Caliph Umar]]
+
+### [[8th Century]] (701-800 AD)
+- **Top Empires**: 
+  - [[Umayyad Caliphate]]
+  - [[Abbasid Caliphate]]
+  - [[Tang Dynasty]]
+  - [[Eastern Roman Empire]]
+  - [[Frankish Kingdom]]
+  - [[Kingdom of Asturias]]
+  - [[Byzantine Empire]]
+- **Top Events**:
+  - [[Battle of Tours]] (732 AD)
+  - [[Fall of the Umayyad Caliphate]] (750 AD)
+  - [[Establishment of the Abbasid Caliphate]] (750 AD)
+  - [[An Lushan Rebellion]] (755-763 AD)
+  - [[Charlemagne becomes King of the Franks 768AD]] (768 AD)
+  - [[Battle of Talas]] 
+  - [[Formation of the Carolingian Empire]] 
+- **Top People**:
+  - [[Charlemagne]]
+  - [[Abu Muslim]]
+  - [[Li Bai]]
+  - [[Harun al-Rashid]]
+  - [[Emperor Leo III the Isaurian]]
+  - [[Pope Gregory II]]
+  - [[Emperor Xuanzong]]
+
+### [[9th Century]] (801-900 AD)
+- **Top Empires**: 
+  - [[Abbasid Caliphate]]
+  - [[Carolingian Empire]]
+  - [[Tang Dynasty]]
+  - [[Eastern Roman Empire]]
+  - [[Vikings]]
+  - [[Byzantine Empire]]
+- **Top Events**:
+  - [[Treaty of Verdun]] (843 AD)
+  - [[Viking Age]] (circa 800-1066 AD)
+  - [[Decline of the Tang Dynasty]] (late 9th century)
+  - [[Establishment of the Kievan Rus']] (882 AD)
+  - [[Battle of Ellendun]] (825 AD)
+  -  [[Viking Raids and Settlements]] (9th century AD)
+  - [[An Lushan Rebellion]] (755-763 AD)
+  - [[Battle of Clavijo]] (844 AD)
+- **Top People**:
+  - [[Charlemagne]]
+  - [[Al-Khwarizmi]]
+  - [[Rurik]]
+  - [[Alfred the Great]]
+  - [[Pope Nicholas I]]
+  -  [[Al-Kindi]]
+  - [[Pope Leo III]]
+  - [[Al-Mamun]]
+  - [[King Alfred the Great]]
+
+### [[10th Century]] (901-1000 AD)
+- **Top Empires**: 
+  - [[Holy Roman Empire]]
+  - [[Byzantine Empire]]
+  - [[Fatimid Caliphate]]
+  - [[Ghaznavid Empire]]
+  - [[Kievan Rus]]
+  - [[Samanid Empire]]
+- **Top Events**:
+  - [[Coronation of Otto I as Holy Roman Emperor]] (962 AD)
+  - [[Battle of Lechfeld]] (955 AD)
+  - [[Establishment of the Fatimid Caliphate]] (909 AD)
+  - [[Rise of the Seljuks]] (late 10th century)
+  - [[Christianization of Kievan Rus 988AD]] (988 AD)
+  -  [[Conversion of Vladimir the Great]] (988 AD)
+  - [[Fatimid Conquest of Egypt]] (969 AD)
+  - [[Cluny Abbey Reforms]] (10th century AD)
+- **Top People**:
+  - [[Emperor Otto I]]
+  - [[Vladimir the Great]]
+  - [[Al-Mu'izz li-Din Allah]]
+  - [[Song Taizu]]
+  - [[Avicenna]]
+  - [[Emperor Basil II]]
+  - [[Ibn Sina]]
+
+### [[11th Century]] (1001-1100 AD)
+- **Top Empires**: 
+  - [[Holy Roman Empire]]
+  - [[Byzantine Empire]]
+  - [[Fatimid Caliphate]]
+  - [[Seljuk Empire]]
+  - [[Song Dynasty]]
+  - [[Norman Kingdom of Sicily]]
+-- **Top Events**:
+  - [[Battle of Hastings]] (1066 AD)
+  - [[the First Crusade]] (1096-1099 AD)
+  - [[Norman Conquest of England]] (1066 AD)
+  - [[Great Schism]] (1054 AD)
+  - [[Battle of Manzikert]] (1071 AD)
+- **Top People**:
+  - [[William the Conqueror]]
+  - [[Pope Urban II]]
+  - [[Emperor Henry IV]]
+  - [[Godfrey of Bouillon]]
+  - [[Harold Godwinson]]
+
+### [[12th Century]] (1101-1200 AD)
+- **Top Empires**: 
+  - [[Holy Roman Empire]]
+  - [[Byzantine Empire]]
+  - [[Fatimid Caliphate]]
+  - [[Seljuk Empire]]
+  - [[Song Dynasty]]
+- **Top Events**:
+  - [[the Second Crusade]] (1147-1149 AD)
+  - [[Third Crusade]] (1189-1192 AD)
+  - [[Concordat of Worms]] (1122 AD)
+  - [[Establishment of the Almohad Caliphate]] (1121 AD)
+  - [[Battle of Legnano]] (1176 AD)
+- **Top People**:
+  - [[Saladin]]
+  - [[Frederick Barbarossa]]
+  - [[Eleanor of Aquitaine]]
+  - [[Bernard of Clairvaux]]
+  - [[Maimonides]]
+
+### [[13th Century]] (1201-1300 AD)
+- **Top Empires**: 
+  - [[Mongol Empire]]
+  - [[Holy Roman Empire]]
+  - [[Byzantine Empire]]
+  - [[Song Dynasty]]
+  - [[Delhi Sultanate]]
+- **Top Events**:
+  - [[the Fourth Crusade]] and [[the Sack of Constantinople]] (1204 AD)
+  - [[Mongol Conquests]] (1206-1368 AD)
+  - [[Magna Carta]] (1215 AD)
+  - [[Battle of Ain Jalut]] (1260 AD)
+  - [[Fall of Baghdad]] (1258 AD)
+- **Top People**:
+  - [[Genghis Khan]]
+  - [[Kublai Khan]]
+  - [[Frederick II]]
+  - [[Saint Francis of Assisi]]
+  - [[Thomas Aquinas]]
+
+### [[14th Century]] (1301-1400 AD)
+- **Top Empires**: 
+  - [[Mongol Empire]]
+  - [[Ottoman Empire]]
+  - [[Holy Roman Empire]]
+  - [[Byzantine Empire]]
+  - [[Mali Empire]]
+- **Top Events**:
+  - [[Black Death]] (1347-1351 AD)
+  - [[Hundred Years' War]] (1337-1453 AD)
+  - [[Fall of Acre]] (1291 AD)
+  - [[Battle of Kosovo]] (1389 AD)
+  - [[Mansa Musa's pilgrimage]] (1324 AD)
+- **Top People**:
+  - [[Dante Alighieri]]
+  - [[Ibn Battuta]]
+  - [[Mansa Musa]]
+  - [[Timur (Tamerlane)]]
+  - [[Giovanni Boccaccio]]
+
+### [[15th Century]] (1401-1500 AD)
+- **Top Empires**: 
+  - [[Ming Dynasty]]
+  - [[Ottoman Empire]]
+  - [[Holy Roman Empire]]
+  - [[Spanish Empire]]
+  - [[Inca Empire]]
+- **Top Events**:
+  - [[Fall of Constantinople]] (1453 AD)
+  - [[Columbus's voyage to the Americas]] (1492 AD)
+  - [[Battle of Agincourt]] (1415 AD)
+  - [[Wars of the Roses]] (1455-1487 AD)
+  - [[Treaty of Tordesillas]] (1494 AD)
+- **Top People**:
+  - [[Christopher Columbus]]
+  - [[Joan of Arc]]
+  - [[Leonardo da Vinci]]
+  - [[Vlad the Impaler]]
+  - [[Isabella I of Castile]]
+
+### [[16th Century]] (1501-1600 AD)
+- **Top Empires**: 
+  - [[Spanish Empire]]
+  - [[Ottoman Empire]]
+  - [[Holy Roman Empire]]
+  - [[Mughal Empire]]
+  - [[Portuguese Empire]]
+- **Top Events**:
+  - [[Protestant Reformation]] (1517-1648 AD)
+  - [[Fall of the Aztec Empire]] (1521 AD)
+  - [[Battle of Lepanto]] (1571 AD)
+  - [[Spanish Armada]] (1588 AD)
+  - [[Treaty of Augsburg]] (1555 AD)
+- **Top People**:
+  - [[Martin Luther]]
+  - [[Elizabeth I]]
+  - [[Suleiman the Magnificent]]
+  - [[Akbar the Great]]
+  - [[Nicolaus Copernicus]]
+
+### [[17th Century]] (1601-1700 AD)
+- **Top Empires**: 
+  - [[Spanish Empire]]
+  - [[Ottoman Empire]]
+  - [[Mughal Empire]]
+  - [[Dutch Empire]]
+  - [[Qing Dynasty]]
+- **Top Events**:
+  - [[Thirty Years' War]] (1618-1648 AD)
+  - [[English Civil War]] (1642-1651 AD)
+  - [[Restoration of the English monarchy]] (1660 AD)
+  - [[Glorious Revolution]] (1688 AD)
+  - [[Great Turkish War]] (1683-1699 AD)
+- **Top People**:
+  - [[Louis XIV]]
+  - [[Oliver Cromwell]]
+  - [[Peter the Great]]
+  - [[Galileo Galilei]]
+  - [[John Locke]]
+
+### [[18th Century]] (1701-1800 AD)
+- **Top Empires**: 
+  - [[British Empire]]
+  - [[Ottoman Empire]]
+  - [[Russian Empire]]
+  - [[Qing Dynasty]]
+  - [[Mughal Empire]]
+- **Top Events**:
+  - [[American Revolution]] (1775-1783 AD)
+  - [[French Revolution]] (1789-1799 AD)
+  - [[Seven Years' War]] (1756-1763 AD)
+  - [[War of the Spanish Succession]] (1701-1714 AD)
+  - [[Great Northern War]] (1700-1721 AD)
+- **Top People**:
+  - [[George Washington]]
+  - [[Voltaire]]
+  - [[Catherine the Great]]
+  - [[Napoleon Bonaparte]]
+  - [[Adam Smith]]
+
+### [[19th Century]] (1801-1900 AD)
+- **Top Empires**: 
+  - [[British Empire]]
+  - [[French Empire]]
+  - [[Russian Empire]]
+  - [[Ottoman Empire]]
+  - [[Austrian Empire]]
+- **Top Events**:
+  - [[Napoleonic Wars]] (1803-1815 AD)
+  - [[American Civil War]] (1861-1865 AD)
+  - [[Industrial Revolution]] (late 18th - early 19th century)
+  - [[Unification of Germany]] (1871 AD)
+  - [[Scramble for Africa]] (1881-1914 AD)
+- **Top People**:
+  - [[Napoleon Bonaparte]]
+  - [[Abraham Lincoln]]
+  - [[Queen Victoria]]
+  - [[Karl Marx]]
+  - [[Charles Darwin]]
+
+### [[20th Century]] (1901-2000 AD)
+- **Top Empires**: 
+  - [[British Empire]]
+  - [[American Empire]]
+  - [[Soviet Union]]
+  - [[German Empire]]
+  - [[Japanese Empire]]
+- **Top Events**:
+  - [[WW1]] (1914-1918 AD)
+  - [[WW2]] (1939-1945 AD)
+  - [[Cold War]] (1947-1991 AD)
+  - [[Decolonization of Africa and Asia]] (1945-1975 AD)
+  - [[Fall of the Berlin Wall]] (1989 AD)
+- **Top People**:
+  - [[Winston Churchill]]
+  - [[Franklin D. Roosevelt]]
+  - [[Vladimir Lenin]]
+  - [[Mahatma Gandhi]]
+  - [[Albert Einstein]]
+
+### [[21st Century]] (2001-Present)
+- **Top Empires**:
+  - [[American Empire]]
+  - [[China]]
+  - [[European Union]]
+  - [[Russia]]
+  - [[India]]
+- **Top Events**:
+  - [[9-11 Attacks]] and the [[War on Terror]] (2001 AD)
+  - [[Global Financial Crisis]] (2008 AD)
+  - [[Arab Spring]] (2010-2011 AD)
+  - [[COVID-19 Pandemic]] (2020 AD)
+  - [[Climate Change Initiatives]] (ongoing)
+- **Top People**:
+  - [[Barack Obama]]
+  - [[Xi Jinping]]
+  - [[Angela Merkel]]
+  - [[Elon Musk]]
+  - [[Pope Francis]]

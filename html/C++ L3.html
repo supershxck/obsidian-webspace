@@ -1,0 +1,253 @@
+<html><body><blockquote>
+<p><strong>March 14th, 2025</strong>  <strong>18:14:46</strong> 
+<strong>Topics:</strong> [[JavaScript L1]] 
+<strong>Tags:</strong> #</p>
+</blockquote>
+<hr />
+<p><strong>C++ Level 3: Mastering Advanced C++ Concepts</strong></p>
+<p><strong>Introduction</strong></p>
+<p>In <strong>C++ Level 3</strong>, we explore <strong>high-performance programming</strong>, covering:</p>
+<p>• <strong>Design Patterns (Singleton, Factory, Observer, etc.)</strong></p>
+<p>• <strong>Templates &amp; Metaprogramming</strong></p>
+<p>• <strong>Advanced Multithreading (Locks, Condition Variables, Atomic Operations)</strong></p>
+<p>• <strong>Networking (Sockets &amp; HTTP Requests in C++)</strong></p>
+<p>• <strong>Advanced Data Structures (Graph, Trie, Hash Table, etc.)</strong></p>
+<p>• <strong>Game Development &amp; Graphics (SFML, OpenGL Basics)</strong></p>
+<p>• <strong>C++ and AI (Neural Networks, Machine Learning Basics)</strong></p>
+<p>By the end of this lesson, you will be capable of building <strong>real-world applications in system programming, AI, game development, and networking</strong>.</p>
+<hr />
+<p><strong>1. Design Patterns in C++</strong></p>
+<p>Design patterns are <strong>proven architectural solutions</strong> for common programming problems.</p>
+<p><strong>1.1. Singleton Pattern (Ensures a Class Has Only One Instance)</strong></p>
+<p>```
+class Singleton {
+private:
+    static Singleton* instance;
+    Singleton() {} // Private constructor</p>
+<p>public:
+    static Singleton<em> getInstance() {
+        if (!instance) instance = new Singleton();
+        return instance;
+    }
+};
+Singleton</em> Singleton::instance = nullptr;
+```</p>
+<p><strong>1.2. Factory Pattern (Creates Objects Without Specifying Exact Class)</strong></p>
+<p><code>class Animal {
+public:
+    virtual void speak() = 0;
+};
+class Dog : public Animal {
+public:
+    void speak() override { cout &lt;&lt; "Woof!" &lt;&lt; endl; }
+};
+class AnimalFactory {
+public:
+    static Animal* createAnimal() {
+        return new Dog();
+    }
+};</code></p>
+<p><strong>1.3. Observer Pattern (Event-Driven Programming)</strong></p>
+<p>```</p>
+<h1>include <vector></h1>
+<p>class Observer {
+public:
+    virtual void notify() = 0;
+};
+class Subject {
+private:
+    vector<Observer*> observers;
+public:
+    void addObserver(Observer* obs) { observers.push_back(obs); }
+    void notifyAll() { for (auto obs : observers) obs-&gt;notify(); }
+};
+class ConcreteObserver : public Observer {
+public:
+    void notify() override { cout &lt;&lt; "Notification received!" &lt;&lt; endl; }
+};
+```</p>
+<hr />
+<p><strong>2. Templates &amp; Metaprogramming</strong></p>
+<p><strong>2.1. Function Templates</strong></p>
+<p>```
+template <typename T>
+T add(T a, T b) { return a + b; }</p>
+<p>cout &lt;&lt; add(5, 10);  // 15
+cout &lt;&lt; add(5.5, 2.2);  // 7.7
+```</p>
+<p><strong>2.2. Class Templates</strong></p>
+<p><code>template &lt;typename T&gt;
+class Box {
+public:
+    T value;
+    Box(T val) : value(val) {}
+};
+Box&lt;int&gt; intBox(10);
+Box&lt;string&gt; strBox("Hello");</code></p>
+<hr />
+<p><strong>3. Advanced Multithreading</strong></p>
+<p><strong>3.1. Lock Guard (Avoid Deadlocks)</strong></p>
+<p>```</p>
+<h1>include <mutex></h1>
+<p>mutex mtx;
+void safeFunction() {
+    lock_guard<mutex> lock(mtx);
+    cout &lt;&lt; "Safe execution" &lt;&lt; endl;
+}
+```</p>
+<p><strong>3.2. Condition Variables (Thread Synchronization)</strong></p>
+<p>```</p>
+<h1>include <condition_variable></h1>
+<p>mutex mtx;
+condition_variable cv;
+bool ready = false;</p>
+<p>void printMessage() {
+    unique_lock<mutex> lock(mtx);
+    cv.wait(lock, [] { return ready; });
+    cout &lt;&lt; "Message printed!" &lt;&lt; endl;
+}</p>
+<p>int main() {
+    thread t(printMessage);
+    this_thread::sleep_for(chrono::seconds(1));
+    ready = true;
+    cv.notify_one();
+    t.join();
+}
+```</p>
+<p><strong>3.3. Atomic Operations (Avoid Race Conditions)</strong></p>
+<p>```</p>
+<h1>include <atomic></h1>
+<p>atomic<int> counter(0);
+void increment() { counter++; }
+```</p>
+<hr />
+<p><strong>4. Networking in C++</strong></p>
+<p><strong>4.1. Socket Programming (TCP Server)</strong></p>
+<p>```</p>
+<h1>include <iostream></h1>
+<h1>include <sys/socket.h></h1>
+<h1>include <netinet/in.h></h1>
+<h1>include <unistd.h></h1>
+<p>using namespace std;</p>
+<p>int main() {
+    int server_fd = socket(AF_INET, SOCK_STREAM, 0);
+    sockaddr_in address = {AF_INET, htons(8080), INADDR_ANY};
+    bind(server_fd, (struct sockaddr*)&amp;address, sizeof(address));
+    listen(server_fd, 3);</p>
+<pre><code>int client_fd = accept(server_fd, nullptr, nullptr);
+send(client_fd, "Hello, Client!", 14, 0);
+close(client_fd);
+</code></pre>
+<p>}
+```</p>
+<p><strong>4.2. HTTP Request with C++</strong></p>
+<p>```</p>
+<h1>include <curl/curl.h></h1>
+<p>CURL* curl = curl_easy_init();
+curl_easy_setopt(curl, CURLOPT_URL, "https://example.com");
+curl_easy_perform(curl);
+curl_easy_cleanup(curl);
+```</p>
+<hr />
+<p><strong>5. Advanced Data Structures</strong></p>
+<p><strong>5.1. Graph Implementation (Adjacency List)</strong></p>
+<p>```</p>
+<h1>include <vector></h1>
+<p>vector<int> graph[100];</p>
+<p>void addEdge(int u, int v) {
+    graph[u].push_back(v);
+    graph[v].push_back(u);
+}
+```</p>
+<p><strong>5.2. Trie (Efficient String Search)</strong></p>
+<p><code>struct TrieNode {
+    TrieNode* children[26];
+    bool isEndOfWord;
+    TrieNode() { fill(begin(children), end(children), nullptr); isEndOfWord = false; }
+};
+void insert(TrieNode* root, string key) {
+    for (char c : key) {
+        if (!root-&gt;children[c - 'a'])
+            root-&gt;children[c - 'a'] = new TrieNode();
+        root = root-&gt;children[c - 'a'];
+    }
+    root-&gt;isEndOfWord = true;
+}</code></p>
+<hr />
+<p><strong>6. Game Development with SFML</strong></p>
+<p><strong>6.1. Simple Window</strong></p>
+<p>```</p>
+<h1>include <SFML/Graphics.hpp></h1>
+<p>int main() {
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Window");
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event))
+            if (event.type == sf::Event::Closed) window.close();
+        window.clear();
+        window.display();
+    }
+}
+```</p>
+<p><strong>6.2. Drawing a Shape</strong></p>
+<p><code>sf::CircleShape circle(50);
+circle.setFillColor(sf::Color::Green);
+window.draw(circle);</code></p>
+<hr />
+<p><strong>7. C++ &amp; AI: Building a Simple Neural Network</strong></p>
+<p><strong>7.1. Creating a Neuron</strong></p>
+<p>```</p>
+<h1>include <vector></h1>
+<p>struct Neuron {
+    vector<double> weights;
+    double bias;
+};
+```</p>
+<p><strong>7.2. Forward Propagation</strong></p>
+<p><code>double activate(double input, vector&lt;double&gt; weights, double bias) {
+    double sum = bias;
+    for (int i = 0; i &lt; weights.size(); i++)
+        sum += input * weights[i];
+    return sum &gt; 0 ? 1 : 0;  // Step activation
+}</code></p>
+<hr />
+<p><strong>Final Project: Multithreaded Chat Server</strong></p>
+<p>```</p>
+<h1>include <iostream></h1>
+<h1>include <thread></h1>
+<h1>include <vector></h1>
+<h1>include <sys/socket.h></h1>
+<h1>include <netinet/in.h></h1>
+<h1>include <unistd.h></h1>
+<p>using namespace std;</p>
+<p>void handleClient(int clientSocket) {
+    char buffer[1024] = {0};
+    read(clientSocket, buffer, 1024);
+    cout &lt;&lt; "Client: " &lt;&lt; buffer &lt;&lt; endl;
+    send(clientSocket, "Message received", 16, 0);
+    close(clientSocket);
+}</p>
+<p>int main() {
+    int server_fd = socket(AF_INET, SOCK_STREAM, 0);
+    sockaddr_in address = {AF_INET, htons(8080), INADDR_ANY};
+    bind(server_fd, (struct sockaddr*)&amp;address, sizeof(address));
+    listen(server_fd, 3);</p>
+<pre><code>while (true) {
+    int client_fd = accept(server_fd, nullptr, nullptr);
+    thread t(handleClient, client_fd);
+    t.detach();
+}
+</code></pre>
+<p>}
+```</p>
+<hr />
+<p><strong>Conclusion</strong></p>
+<p><strong>What You Learned in C++ Level 3:</strong></p>
+<p>✅ <strong>Design Patterns (Singleton, Factory, Observer)</strong></p>
+<p>✅ <strong>Templates &amp; Metaprogramming</strong></p>
+<p>✅ <strong>Advanced Multithreading (Mutex, Locks, Atomics)</strong></p>
+<p>✅ <strong>Networking in C++ (Sockets, HTTP Requests)</strong></p>
+<p>✅ <strong>Graphs, Tries, Hash Tables</strong></p>
+<p>✅ <strong>Game Development with SFML</strong></p>
+<p>✅ <strong>C++ for AI (Basic Neural Networks)</strong></p>
+<p>Now, you are ready for <strong>C++ Level 4</strong>, where we explore <strong>Embedded Systems, Operating System Design, Deep Learning, and Quantum Computing with C++</strong>! 🚀</p></body></html>

@@ -1,0 +1,8 @@
+**Wonderworker of Shanghai and San Francisco**
+> **July 5th, 2024** 
+> **21:06:21** 
+> **status:**
+> **topics:** 
+
+![[telegram-cloud-photo-size-1-4972202094786358076-y.jpg]]
+Born in 1896 in Russia, Saint John Maximovitch was baptized under the patronage of Archangel Michael. A deeply pious child, he influenced his Catholic teacher to become Orthodox. At 11 he went to military school. He was arrested by the Bolsheviks twice before his family fled to Belgrade where he entered seminary. He was tonsured a monk, then ordained deacon, then priest, and taught at a school where he was greatly loved by his students. He led a life of simplicity and asceticism and never slept lying down. Elected bishop and sent to Shanghai, he helped build churches and hospitals and started an orphanage that grew to 3,500 children. When the communists took over China, he helped thousands escape. He served in France for a decade before being sent to San Francisco, where he came under grievous persecution. He reposed in Seattle in 1966. Countless miracles are attributed to Saint John and his body was found to be incorrupt when he was glorified in 1994.

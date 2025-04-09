@@ -1,0 +1,30 @@
+July 4th, 2024 
+13:11:47 
+status: #article 
+topics: [[veneration]] [[Akathist]] [[EOC]] [[Theotokos]] [[Orthodox spirituality]] 
+
+**Why is the blessed Mary venerated so highly?**
+The Eastern Orthodox Church holds the Virgin Mary, also known as Theotokos (God-bearer), in high esteem. She is venerated as the highest of the Saints and the first among equals. The Orthodox Church believes that Mary was chosen by God to bear His Son, Jesus Christ, and that she played a crucial role in the history of human salvation.
+
+In the Eastern Orthodox tradition, praying to Mary and other saints is seen as asking them to intercede with God on the believer's behalf. It is not the same as worship, which is reserved for God alone. The Orthodox view is that the saints, being alive in Christ in the afterlife, can pray for us and our needs. Therefore, when Orthodox Christians pray to Mary, they are asking her to pray to God for them, acknowledging her close relationship with Jesus as His mother and her role in the Communion of Saints.
+
+The Akathist Hymn, dedicated to the Virgin Mary, is one of the most popular and beautiful services in the Orthodox Church, highlighting her importance in Orthodox spirituality and theology.
+
+One of the most beloved sections is the refrain sung to Mary, the Theotokos:
+
+"Rejoice, O Unwedded Bride!"
+And here's a portion from one of the oikos (stanzas) to give you a feel for the hymn's content:
+
+"To thee, the Champion Leader, we thy servants dedicate a feast of victory and of thanksgiving, as ones rescued out of sufferings, O Theotokos. But as thou art one with might which is invincible, from all dangers that can be, do thou deliver us, that we may cry to thee: Rejoice, thou Bride Unwedded."
+
+This excerpt showcases the hymn's characteristically rich, poetic language, offering praise to the Virgin Mary and seeking her intercession. The Akathist Hymn is traditionally chanted during the services of the Great Lent and especially on the Friday of the fifth week in the Eastern Orthodox Church.
+
+In the context of the Akathist Hymn and other prayers directed to the Virgin Mary, asking her to "deliver us" does not imply that Mary herself has the power to save or deliver in the ultimate sense, which is understood to be the prerogative of God alone. Instead, this language reflects a deeply relational and intercessory understanding of prayer within the Eastern Orthodox tradition. When Orthodox Christians ask Mary or other saints to deliver them, they are seeking her intercession—her prayers on their behalf to God.
+
+The theology behind this practice is based on the belief in the "Communion of Saints," the idea that all of God's people, both the living and the departed, are united in Christ. Since those who have passed on are believed to be alive in Christ, they can pray to God for those still on earth. Mary, as the Theotokos (God-bearer) and the highest of the saints, is considered particularly close to Christ. Thus, her intercessions are sought after by the faithful who believe she has a special place in petitioning God.
+
+This practice also reflects the understanding of Mary's role as a loving, caring figure who, in her earthly life, was uniquely connected to Jesus both as his mother and as a disciple. Thus, when the faithful ask for her prayers, they are expressing trust in her compassionate concern and her intercessory role before God.
+
+
+# Sources or Links
+[[]]
