@@ -1,5 +1,0 @@
-July 4th, 2024 
-14:45:34 
-status: #psych #personality 
-topics: [[cognitive functions]] [[Extravert]] [[Introvert]] [[Intuition]] [[Sensation]] [[Thinking]] [[Feeling]] [[Perceiver]] [[Judger]] [[Carl Jung]] 
-

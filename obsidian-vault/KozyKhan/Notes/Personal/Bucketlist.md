@@ -1,4 +1,0 @@
-- Visit Yosemite National Park
-- Go sky diving
-- Monterey Bay Aquarium
-- 

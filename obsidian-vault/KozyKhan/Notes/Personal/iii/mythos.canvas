@@ -1,7 +1,0 @@
-{
-	"nodes":[
-		{"id":"65f94ff0d778aac6","x":-10,"y":-7,"width":400,"height":400,"type":"file","file":"Topics/Morpheus.md"},
-		{"id":"86dc7597ab084c0c","x":-10,"y":-560,"width":400,"height":400,"type":"file","file":"Topics/Erebus.md"}
-	],
-	"edges":[]
-}

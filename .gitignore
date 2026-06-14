@@ -5,3 +5,16 @@ node_modules/
 .vscode/
 .obsidian/workspace
 .obsidian/workspace.json
+dist/
+.next/
+.env.local
+.env.*.local
+!/.env.example
+__pycache__/
+*.pyc
+.venv/
+build/
+/.github/workflows/
+*.xcuserstate
+xcuserdata/
+DerivedData/

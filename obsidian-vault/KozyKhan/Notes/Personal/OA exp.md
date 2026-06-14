@@ -1,2 +1,0 @@
-
-to give me in depth analysis of historical, mythological, esoteric, and occult information throughout history and cultures and to find the hidden connections under the surface that no one has discovered yet. 
